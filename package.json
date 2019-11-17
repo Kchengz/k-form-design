@@ -1,10 +1,15 @@
 {
-  "name": "dd",
-  "version": "0.1.0",
-  "private": true,
+  "name": "k-form-design",
+  "version": "1.2.1",
+  "private": false,
+  "description": "表单设计器",
+  "license": "MIT",
+  "author": "kchengz",
+  "main": "lib/k-form-design.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name k-demo --dest lib packages/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

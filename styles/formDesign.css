@@ -1,0 +1,334 @@
+.kk-table {
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  border-collapse: collapse;
+}
+.kk-table tr {
+  transition: all 0.3s;
+  border-collapse: collapse;
+}
+.kk-table tr td {
+  box-sizing: border-box;
+  transition: all 0.3s;
+  padding: 12px 12px;
+  border-collapse: collapse;
+  vertical-align: top;
+}
+.kk-table.bordered tr td {
+  border: 1px solid #e8e8e8 !important;
+}
+.kk-table.bright tr:hover > td {
+  background: #e6f7ff;
+}
+.kk-table.small tr td {
+  padding: 8px 8px;
+}
+.kk-table .ant-row.ant-form-item {
+  margin: 0 !important;
+}
+.k-build-form.ant-form-inline .ant-form-item-control-wrapper {
+  width: 175px !important;
+}
+.form-designer-container {
+  height: 100vh;
+}
+.form-designer-container .content {
+  display: flex;
+  height: calc(100% - 90px);
+}
+.form-designer-container .content section .title {
+  border-bottom: 1px solid #efefef;
+  font-size: 14px;
+  text-align: center;
+  height: 50px;
+  line-height: 40px;
+}
+.form-designer-container .content section .title.content-title {
+  text-align: right;
+}
+.form-designer-container .content section .title.content-title a {
+  margin-left: 8px;
+}
+.form-designer-container .content section > div {
+  padding: 10px;
+}
+.form-designer-container .content aside {
+  width: 260px;
+  height: 100%;
+}
+.form-designer-container .content aside > div {
+  padding: 10px;
+}
+.form-designer-container .content aside.left {
+  border-right: 1px solid #ccc;
+  height: 100%;
+  overflow: auto;
+}
+.form-designer-container .content aside.left > ul {
+  padding: 0 10px;
+  list-style: none;
+  display: flex;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+.form-designer-container .content aside.left > ul > li {
+  width: calc(50% - 8px);
+  margin: 3px 4px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  cursor: move;
+  user-select: none;
+  background: #f4f6fc;
+  border: 1px solid #f4f6fc;
+}
+.form-designer-container .content aside.left > ul > li:hover {
+  color: #409eff;
+  border: 1px dashed #409eff;
+}
+.form-designer-container .content aside.right {
+  height: 100%;
+  border-left: 1px solid #ccc;
+}
+.form-designer-container .content aside.right .properties-centent {
+  overflow: auto;
+}
+.form-designer-container .content aside.right .properties-centent .ant-form-item {
+  margin-bottom: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+.form-designer-container .content aside.right .hint-box {
+  color: #999999;
+  height: 75vh;
+  line-height: 75vh;
+  text-align: center;
+  font-size: 20px;
+}
+.form-designer-container .content section {
+  flex: 1;
+  user-select: none;
+}
+.form-designer-container .content section .form-panel {
+  height: calc(100% - 50px);
+  background: #efefef;
+  border: 1px solid #ccc;
+  overflow: auto;
+  position: relative;
+}
+.form-designer-container .content section .form-panel > .hint-text {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: #999999;
+}
+.form-designer-container .content section .form-panel .a-form-box {
+  height: 100%;
+  background: #fff;
+}
+.form-designer-container .content section .form-panel .draggable-box {
+  height: 100%;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box {
+  min-height: 100%;
+  position: relative;
+  border: 1px #ccc dashed;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .moving {
+  background: #f56c6c;
+  border: 2px solid #f56c6c;
+  outline-width: 0;
+  height: 3px;
+  box-sizing: border-box;
+  font-size: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  margin: 3px 0;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .moving.active {
+  outline: 0 !important;
+  border: 2px solid #f56c6c !important;
+  outline-offset: 0;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box {
+  position: relative;
+  box-sizing: border-box;
+  padding: 8px;
+  outline: 2px solid transparent;
+  border: 1px #ccc dashed;
+  background: #f8fbff;
+  margin: 2px 0;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box .form-item-box {
+  position: relative;
+  box-sizing: border-box;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box .form-item-box::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box .form-item-box .ant-form-item {
+  margin: 0;
+  padding-bottom: 15px;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box:hover {
+  background: #ecf5ff;
+  outline: 1px solid #409eff;
+  outline-offset: 0px;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box.active {
+  outline: 2px solid #409eff;
+  border: 1px solid #409eff;
+  outline-offset: 0;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box > .drag-move {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  transform: rotate(90deg);
+  text-align: center;
+  background: #409eff;
+  color: #fff;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box > .copy {
+  right: 24px;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box > .delete {
+  right: 0;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box > .copy,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box > .delete {
+  position: absolute;
+  bottom: 0;
+  width: 24px;
+  height: 20px;
+  text-align: center;
+  background: #409eff;
+  color: #fff;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box {
+  position: relative;
+  box-sizing: border-box;
+  padding: 8px;
+  outline: 2px solid transparent;
+  border: 1px #ccc dashed;
+  background: #fffdf2;
+  margin: 2px 0;
+  width: 100%;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box .form-item-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box .form-item-box {
+  position: relative;
+  box-sizing: border-box;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box .form-item-box .ant-form-item,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box .form-item-box .ant-form-item {
+  margin: 0;
+  padding-bottom: 15px;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box .grid-row,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box .grid-row,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box .table-layout,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box .table-layout {
+  background: #fffdf2;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box .grid-row .grid-col .draggable-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box .grid-row .grid-col .draggable-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box .table-layout .grid-col .draggable-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box .table-layout .grid-col .draggable-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box .grid-row .table-td .draggable-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box .grid-row .table-td .draggable-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box .table-layout .table-td .draggable-box,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box .table-layout .table-td .draggable-box {
+  min-height: 60px;
+  min-width: 50px;
+  border: 1px #ccc dashed;
+  background: #fff;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box:hover,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box:hover {
+  outline: 1px solid #dca13e;
+  outline-offset: 0px;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box.active,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box.active {
+  outline: 2px solid #dca13e;
+  border: 1px solid #dca13e;
+  outline-offset: 0;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box > .drag-move,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box > .drag-move {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  transform: rotate(90deg);
+  text-align: center;
+  background: #dca13e;
+  color: #fff;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box > .copy,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box > .copy {
+  position: absolute;
+  bottom: 0;
+  right: 24px;
+  width: 24px;
+  height: 20px;
+  text-align: center;
+  background: #dca13e;
+  color: #fff;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box > .delete,
+.form-designer-container .content section .form-panel .draggable-box .panel-box .table-box > .delete {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 20px;
+  text-align: center;
+  background: #dca13e;
+  color: #fff;
+}
+.kk-checkbox .ant-checkbox-wrapper {
+  margin-left: 0 !important;
+  margin-right: 8px;
+}
+.right-menu {
+  width: 190px;
+  background: #fff;
+  border: 1px solid #ccc;
+  position: fixed;
+  transition: all 0s;
+  box-shadow: 3px 3px 5px #999;
+  padding: 8px 0;
+}
+.right-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.right-menu ul li {
+  cursor: pointer;
+  user-select: none;
+  padding: 0 15px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+.right-menu ul li:hover {
+  background: #eee;
+}
