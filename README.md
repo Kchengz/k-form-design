@@ -6,14 +6,14 @@
 yarn add k-form-design
 
 # 使用npm 
-npm install k-form-design --seve
+npm install k-form-design -S
 ```
 
 ### 引入
 ``` 
 在main.js引入
 
-import { KFormDesign, KBuildForm } from "../packages/index";
+import { KFormDesign, KBuildForm } from "k-form-design";
 
 Vue.use(KFormDesign);
 Vue.use(KBuildForm);

@@ -1,6 +1,6 @@
 {
   "name": "k-form-design",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": false,
   "description": "表单设计器",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name k-demo --dest lib packages/index.js",
+    "lib": "vue-cli-service build --target lib --name k-form-design --dest lib packages/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -19,8 +19,7 @@
     "vue": "^2.6.10",
     "vue-codemirror-lite": "^1.0.4",
     "vue-router": "^3.0.3",
-    "vuedraggable": "^2.23.0",
-    "vuex": "^3.0.1"
+    "vuedraggable": "^2.23.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.0",
