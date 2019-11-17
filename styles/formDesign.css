@@ -27,7 +27,7 @@
 .kk-table .ant-row.ant-form-item {
   margin: 0 !important;
 }
-.k-build-form.ant-form-inline .ant-form-item-control-wrapper {
+.k-form-build.ant-form-inline .ant-form-item-control-wrapper {
   width: 175px !important;
 }
 .form-designer-container {

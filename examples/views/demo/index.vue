@@ -1,9 +1,7 @@
 <template>
   <div>
-    <k-build-form
-      :jsonData="jsonData"
-      ref="kBuildForm"
-      @submit="handleSubmit"
+    <k-form-build
+      :value="jsonData"
     />
   </div>
 </template>

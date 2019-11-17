@@ -9,10 +9,10 @@ import "../styles/formDesign.less";
 // import KChangeOption from "./KChangeOption/index.vue";
 // import KCheckbox from "./KCheckbox/index.vue";
 import KFormDesign from "./KFormDesign/index";
-import KBuildForm from "./KBuildForm/index";
+import KFormBuild from "./KFormBuild/index";
 import KFormItem from "./KFormItem/index";
 
-const components = [KFormDesign, KBuildForm, KFormItem];
+const components = [KFormDesign, KFormBuild, KFormItem];
 
 const install = function(Vue) {
   // use ant组件
@@ -29,7 +29,7 @@ if (typeof window !== "undefined" && window.Vue) {
 }
 
 // 这里可以用es6的解构语法导入组件 大概就是这个意思 毕竟没有用插件
-export { KFormDesign, KBuildForm, KFormItem };
+export { KFormDesign, KFormBuild, KFormItem };
 export default {
   install
   // ...components //这个经过测试 似乎没啥用

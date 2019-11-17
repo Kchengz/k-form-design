@@ -34,9 +34,9 @@
 <script>
 let codeVueFront = `<template>
   <div>
-    <k-build-form
-      :jsonData="jsonData"
-      ref="kBuildForm"
+    <k-form-build
+      :value="jsonData"
+      ref="KFormBuild"
       @submit="handleSubmit"
     />
   </div>

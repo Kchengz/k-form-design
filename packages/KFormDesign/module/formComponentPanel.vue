@@ -2,7 +2,7 @@
   <div class="form-panel">
     <p class="hint-text" v-show="data.list.length === 0">从左侧拖拽添加控件</p>
     <a-form
-      class="a-form-box k-build-form"
+      class="a-form-box k-form-build"
       :form="form"
       :layout="data.config.layout"
       :hideRequiredMark="data.config.hideRequiredMark"

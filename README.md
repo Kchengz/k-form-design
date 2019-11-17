@@ -13,10 +13,10 @@ npm install k-form-design -S
 ``` 
 在main.js引入
 
-import { KFormDesign, KBuildForm } from "k-form-design";
+import { KFormDesign, KFormBuild } from "k-form-design";
 
 Vue.use(KFormDesign);
-Vue.use(KBuildForm);
+Vue.use(KFormBuild);
 ```
 
 ### 设计器使用
@@ -39,10 +39,10 @@ export default {
 ```
 ### 解析器使用
 ``` 
-// jsonData 为设计器生成的json
-<k-build-form
-      :jsonData="jsonData"
-      ref="kBuildForm"
+// jsonData 设计器生成的json数据
+<k-form-build
+      :value="jsonData"
+      ref="KFormBuild"
       @submit="handleSubmit"
     />
 ```

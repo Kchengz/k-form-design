@@ -1,0 +1,32 @@
+.kk-table {
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  border-collapse: collapse;
+}
+.kk-table tr {
+  transition: all 0.3s;
+  border-collapse: collapse;
+}
+.kk-table tr td {
+  box-sizing: border-box;
+  transition: all 0.3s;
+  padding: 12px 12px;
+  border-collapse: collapse;
+  vertical-align: top;
+}
+.kk-table.bordered tr td {
+  border: 1px solid #e8e8e8 !important;
+}
+.kk-table.bright tr:hover > td {
+  background: #e6f7ff;
+}
+.kk-table.small tr td {
+  padding: 8px 8px;
+}
+.kk-table .ant-row.ant-form-item {
+  margin: 0 !important;
+}
+.k-form-build.ant-form-inline .ant-form-item-control-wrapper {
+  width: 175px !important;
+}
