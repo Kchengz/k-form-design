@@ -10,11 +10,7 @@
     :destroyOnClose="true"
     :width="`${previewWidth}px`"
   >
-    <k-form-build
-      :value="jsonData"
-      @submit="handleSubmit"
-      ref="KFormBuild"
-    />
+    <k-form-build :value="jsonData" @submit="handleSubmit" ref="KFormBuild" />
     <jsonModel ref="jsonModel" />
   </a-modal>
 </template>
@@ -43,8 +39,7 @@ export default {
       });
     },
     handleGetData() {
-      this.$refs.KFormBuild
-        .getData()
+      this.$refs.KFormBuild.getData()
         .then(res => {
           console.log(res, "获取数据成功");
           this.$refs.jsonModel.jsonData = res;

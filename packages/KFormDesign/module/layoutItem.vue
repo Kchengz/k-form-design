@@ -34,7 +34,7 @@
                 @handleSelectItem="handleSelectItem"
                 @handleColAdd="handleColAdd"
                 @handleCopy="$emit('handleCopy')"
-                @handleShowRightMenu="$emit('handleShowRightMenu')"
+                @handleShowRightMenu="handleShowRightMenu"
                 @handleDetele="$emit('handleDetele')"
               />
             </draggable>
@@ -89,7 +89,7 @@
                 @handleSelectItem="handleSelectItem"
                 @handleColAdd="handleColAdd"
                 @handleCopy="$emit('handleCopy')"
-                @handleShowRightMenu="$emit('handleShowRightMenu')"
+                @handleShowRightMenu="handleShowRightMenu"
                 @handleDetele="$emit('handleDetele')"
               />
               <!-- </transition-group> -->
@@ -169,7 +169,7 @@
                   @handleSelectItem="handleSelectItem"
                   @handleColAdd="handleColAdd"
                   @handleCopy="$emit('handleCopy')"
-                  @handleShowRightMenu="$emit('handleShowRightMenu')"
+                  @handleShowRightMenu="handleShowRightMenu"
                   @handleDetele="$emit('handleDetele')"
                 />
               </draggable>
@@ -234,6 +234,9 @@ export default {
     draggable
   },
   methods: {
+    handleShowRightMenu(e, record, trIndex, tdIndex) {
+      this.$emit("handleShowRightMenu", e, record, trIndex, tdIndex);
+    },
     handleSelectItem(record) {
       this.$emit("handleSelectItem", record);
     },

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <k-form-build
-      :value="jsonData"
-    />
+    <k-form-build :value="jsonData" />
   </div>
 </template>
 <script>

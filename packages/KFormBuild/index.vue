@@ -1,8 +1,7 @@
 <template>
   <a-form
     v-if="
-      typeof value.list !== 'undefined' &&
-        typeof value.config !== 'undefined'
+      typeof value.list !== 'undefined' && typeof value.config !== 'undefined'
     "
     class="k-form-build"
     :layout="value.config.layout"

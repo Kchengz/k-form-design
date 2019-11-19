@@ -6,9 +6,9 @@
 <script>
 export default {
   methods: {
-    handleSave(val) {
+    handleSave(jsonData) {
+      console.log(jsonData);
       this.$message.success("触发保存方法");
-      // console.log(val);
     }
   }
 };
