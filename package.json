@@ -1,10 +1,19 @@
 {
   "name": "k-form-design",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "private": false,
-  "description": "表单设计器",
+  "description": "这是一个基于vue、ant-design-vue的表单设计器",
   "license": "MIT",
   "author": "kchengz",
+  "keywords": "k-form-design 表单设计器 表单设计 工作流", 
+  "bugs": {
+    "url": "https://github.com/Kchengz/k-form-design/issues",
+    "email": "xz11dd@163.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kchengz/k-form-design"
+  },
   "main": "lib/k-form-design.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
