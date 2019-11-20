@@ -15,10 +15,9 @@
             ghostClass: 'moving'
           }"
         >
-          <li
-            v-for="(val, index) in basicsList"
-            :key="index"
-          >{{val.name}}</li>
+          <li v-for="(val, index) in basicsList" :key="index">
+            {{ val.name }}
+          </li>
         </draggable>
         <div class="title left-title">布局控件</div>
         <draggable
