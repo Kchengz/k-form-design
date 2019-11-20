@@ -4,7 +4,7 @@
     <div class="content">
       <!-- 左侧控件区域 start -->
       <aside class="left">
-        <div class="title">基础控件</div>
+        <div class="title left-title">基础控件</div>
         <draggable
           tag="ul"
           :value="basicsList"
@@ -18,10 +18,9 @@
           <li
             v-for="(val, index) in basicsList"
             :key="index"
-            v-text="val.name"
-          ></li>
+          >{{val.name}}</li>
         </draggable>
-        <div class="title">布局控件</div>
+        <div class="title left-title">布局控件</div>
         <draggable
           tag="ul"
           :value="layoutList"
@@ -55,7 +54,7 @@
             <a-icon type="file" /> 生成JSON
           </a>
           <a size="small" @click="handleOpenCodeModal">
-            <a-icon type="file" /> 生成代码
+            <a-icon type="code" /> 生成代码
           </a>
           <a size="small" @click="handleReset">
             <a-icon type="delete" /> 清空
@@ -84,10 +83,10 @@
       <!-- 右侧控件属性区域 start -->
       <aside class="right">
         <a-tabs style="height:100%">
-          <a-tab-pane style="height:100%" tab="控件属性" key="1">
+          <a-tab-pane style="height:100%" tab=" 控件属性设置" key="1">
             <formItemProperties :selectItem="selectItem" />
           </a-tab-pane>
-          <a-tab-pane tab="表单属性" key="2" forceRender
+          <a-tab-pane tab="表单属性设置" key="2" forceRender
             ><formProperties
               :config="data.config"
               :previewOptions="previewOptions"

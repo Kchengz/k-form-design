@@ -16,8 +16,8 @@
         border-bottom: 1px solid #efefef;
         font-size: 14px;
         text-align: center;
-        height: 50px;
-        line-height: 40px;
+        height: 45px;
+        line-height: 24px;
         &.content-title {
           text-align: right;
           a {
@@ -31,10 +31,11 @@
     }
     // 左右栏
     aside {
-      width: 260px;
+      width: 270px;
       height: 100%;
-      > div {
-        padding: 10px;
+      > .left-title {
+        padding: 12px 10px 8px;
+        user-select: none;
       }
       &.left {
         border-right: 1px solid @aside-border-color;
@@ -48,8 +49,9 @@
           flex-wrap: wrap;
           > li {
             width: calc(50% - 8px);
-            margin: 3px 4px;
-            text-align: center;
+            margin: 4px 3px;
+            padding-left: 12px;
+            // text-align: center;
             height: 30px;
             line-height: 30px;
             cursor: move;
@@ -68,6 +70,7 @@
         border-left: 1px solid @aside-border-color;
         .properties-centent {
           overflow: auto;
+          padding: 0 18px;
           .ant-form-item {
             margin-bottom: 0;
             padding-bottom: 8px;
@@ -115,19 +118,31 @@
             border: 1px #ccc dashed;
             .moving {
               // 拖放移动中
-              background: #f56c6c;
-              border: 2px solid #f56c6c;
+              // background: #f56c6c !important;
+              // border: 2px solid #f56c6c;
               outline-width: 0;
-              height: 3px;
+              height: 35px;
               box-sizing: border-box;
               font-size: 0;
               overflow: hidden;
               padding: 0 !important;
               margin: 3px 0;
+              position: relative;
               &.active {
                 outline: 0 !important;
                 border: 2px solid #f56c6c !important;
                 outline-offset: 0;
+              }
+              &::before{
+                content:'';
+                height: 100%;
+                width: 100%;
+                background: #e9edff;
+                border: 2px solid #3d71fb;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1999;
               }
             }
             .drag-move-box {
@@ -148,6 +163,7 @@
                   height: 100%;
                   top: 0;
                   left: 0;
+                  z-index: 888;
                 }
                 .ant-form-item {
                   // 修改ant form-item的margin为padding
@@ -177,6 +193,14 @@
                 text-align: center;
                 background: @primary-color;
                 color: #fff;
+                z-index: 980;
+              }
+              .show-key-box{
+                position: absolute;
+                top: 2px;
+                right: 5px;
+                font-size: 14px;
+                color: #2227f5;
               }
               > .copy {
                 right: 24px;
@@ -192,6 +216,7 @@
                 text-align: center;
                 background: @primary-color;
                 color: #fff;
+                z-index: 980;
               }
             }
             .grid-box,

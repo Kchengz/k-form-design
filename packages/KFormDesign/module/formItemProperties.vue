@@ -7,7 +7,7 @@
       </a-form-item>
       <a-form-item
         v-if="typeof selectItem.model !== 'undefined'"
-        label="字段标识"
+        label="数据绑定Key"
       >
         <a-input v-model="selectItem.model" placeholder="请输入" />
       </a-form-item>
@@ -261,7 +261,9 @@
       </a-form-item>
 
       <a-form-item v-if="selectItem.type === 'table'" label="提示">
-        请点击右键增加行列，或者合并单元格
+        <p style="line-height: 26px;">
+          请点击右键增加行列，或者合并单元格
+        </p>
       </a-form-item>
     </a-form>
   </div>

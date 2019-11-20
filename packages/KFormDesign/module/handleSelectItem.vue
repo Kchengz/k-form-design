@@ -1,11 +1,16 @@
 <template>
-  <div class="drag-move-box" :class="{ active: record.key === selectItem.key }">
-    <div class="form-item-box" @click="$emit('handleSelectItem', record)">
+  <div
+    class="drag-move-box"
+    @click="$emit('handleSelectItem', record)"
+    :class="{ active: record.key === selectItem.key }"
+  >
+    <div class="form-item-box">
       <kFormItem :config="config" :record="record" />
     </div>
     <div class="drag-move" v-if="record.key === selectItem.key">
       <a-icon type="swap" />
     </div>
+    <div class="show-key-box" v-text="record.model" />
     <div
       class="copy"
       v-if="record.key === selectItem.key"

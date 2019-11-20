@@ -41,8 +41,8 @@
   border-bottom: 1px solid #efefef;
   font-size: 14px;
   text-align: center;
-  height: 50px;
-  line-height: 40px;
+  height: 45px;
+  line-height: 24px;
 }
 .form-designer-container .content section .title.content-title {
   text-align: right;
@@ -54,11 +54,12 @@
   padding: 10px;
 }
 .form-designer-container .content aside {
-  width: 260px;
+  width: 270px;
   height: 100%;
 }
-.form-designer-container .content aside > div {
-  padding: 10px;
+.form-designer-container .content aside > .left-title {
+  padding: 12px 10px 8px;
+  user-select: none;
 }
 .form-designer-container .content aside.left {
   border-right: 1px solid #ccc;
@@ -74,8 +75,8 @@
 }
 .form-designer-container .content aside.left > ul > li {
   width: calc(50% - 8px);
-  margin: 3px 4px;
-  text-align: center;
+  margin: 4px 3px;
+  padding-left: 12px;
   height: 30px;
   line-height: 30px;
   cursor: move;
@@ -93,6 +94,7 @@
 }
 .form-designer-container .content aside.right .properties-centent {
   overflow: auto;
+  padding: 0 18px;
 }
 .form-designer-container .content aside.right .properties-centent .ant-form-item {
   margin-bottom: 0;
@@ -139,20 +141,30 @@
   border: 1px #ccc dashed;
 }
 .form-designer-container .content section .form-panel .draggable-box .panel-box .moving {
-  background: #f56c6c;
-  border: 2px solid #f56c6c;
   outline-width: 0;
-  height: 3px;
+  height: 35px;
   box-sizing: border-box;
   font-size: 0;
   overflow: hidden;
   padding: 0 !important;
   margin: 3px 0;
+  position: relative;
 }
 .form-designer-container .content section .form-panel .draggable-box .panel-box .moving.active {
   outline: 0 !important;
   border: 2px solid #f56c6c !important;
   outline-offset: 0;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .moving::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: #e9edff;
+  border: 2px solid #3d71fb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1999;
 }
 .form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box {
   position: relative;
@@ -174,6 +186,7 @@
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 888;
 }
 .form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box .form-item-box .ant-form-item {
   margin: 0;
@@ -200,6 +213,14 @@
   text-align: center;
   background: #409eff;
   color: #fff;
+  z-index: 980;
+}
+.form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box .show-key-box {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  font-size: 14px;
+  color: #2227f5;
 }
 .form-designer-container .content section .form-panel .draggable-box .panel-box .drag-move-box > .copy {
   right: 24px;
@@ -216,6 +237,7 @@
   text-align: center;
   background: #409eff;
   color: #fff;
+  z-index: 980;
 }
 .form-designer-container .content section .form-panel .draggable-box .panel-box .grid-box,
 .form-designer-container .content section .form-panel .draggable-box .panel-box .table-box {

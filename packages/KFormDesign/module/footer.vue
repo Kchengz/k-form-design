@@ -1,7 +1,8 @@
 <template>
   <footer>
+    Powered by
     <a target="_new_page" href="https://github.com/Kchengz/k-form-design"
-      >表单设计器</a
+      >k-form-design</a
     >
   </footer>
 </template>
@@ -22,6 +23,7 @@ footer {
   font-weight: bold;
   border-top: 1px solid #e0e0e0;
   > a {
+    color: #54c7f6;
     text-decoration: none;
   }
 }
