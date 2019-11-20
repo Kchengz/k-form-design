@@ -74,7 +74,20 @@ export default {
 };
 </script>
 ```
+
+修改顶部的title,只需要给k-form-design组件设置title就行了
+```
+<k-form-design title="我是设计器的标题" />
+```
+
+启用关闭按钮，设置showClose属性
+```
+<k-form-design showClose @close="handleClose" />
+
+```
+
 使用表格布局时，在设计界面右键可以添加行列和合并单元格
+
 ### 表单构建器使用
 ``` 
 // jsonData 设计器生成的json数据
@@ -110,7 +123,7 @@ handleSubmit (getData){
 ```
 
 <p style="color:#ca6820;">
-说明，该项目已经把所有需要的依赖全部打包了，包括UI组件，无需额外引入依赖即可使用，但是包的体积增大了许多,介意勿用
+说明，该项目已经把所有需要的依赖全部打包了，包括UI组件，无需额外引入依赖即可使用，但是包的体积增大了许多
 </p>	
 
 

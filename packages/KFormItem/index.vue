@@ -308,6 +308,10 @@
   </div>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import moment from "moment";
 export default {
   name: "KFormItem",

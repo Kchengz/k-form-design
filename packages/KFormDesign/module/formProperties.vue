@@ -56,6 +56,10 @@
   </div>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 // import changeOption from "@/components/ChangeOption/index.vue";
 import kCheckbox from "../../KCheckbox/index.vue";
 export default {

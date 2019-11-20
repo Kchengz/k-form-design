@@ -4,6 +4,10 @@
   </a-checkbox>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 export default {
   name: "kCheckbox",
   data() {

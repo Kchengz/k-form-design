@@ -26,6 +26,10 @@
   </a-form>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import buildBlocks from "./buildBlocks";
 import moment from "moment";
 export default {

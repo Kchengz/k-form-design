@@ -1,6 +1,20 @@
 <template>
-  <header>表单设计器 beta1.0 --by kcz</header>
+  <header v-text="title"></header>
 </template>
+<script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
+export default {
+  props: {
+    title: {
+      type: String,
+      default: "表单设计器 --by kcz"
+    }
+  }
+};
+</script>
 <style lang="less" scoped>
 header {
   width: 100%;

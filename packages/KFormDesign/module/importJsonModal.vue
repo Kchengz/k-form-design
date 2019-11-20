@@ -20,6 +20,10 @@
   </a-modal>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import { codemirror } from "vue-codemirror-lite";
 import jsonFormat from "../config/jsonFormat";
 export default {

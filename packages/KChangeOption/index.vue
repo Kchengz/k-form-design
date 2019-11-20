@@ -50,6 +50,10 @@
   </div>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 export default {
   name: "KChangeOption",
   props: {

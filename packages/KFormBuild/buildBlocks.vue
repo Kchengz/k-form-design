@@ -79,6 +79,10 @@
   />
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import KFormItem from "../KFormItem/index";
 export default {
   name: "buildBlocks",

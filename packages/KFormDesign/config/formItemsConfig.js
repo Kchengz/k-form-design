@@ -1,3 +1,7 @@
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 export const basicsList = [
   {
     type: "input", // 表单类型

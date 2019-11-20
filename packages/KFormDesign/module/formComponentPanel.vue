@@ -60,6 +60,10 @@
   </div>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import draggable from "vuedraggable";
 import layoutItem from "./layoutItem";
 import "codemirror/mode/javascript/javascript";

@@ -1,6 +1,6 @@
 <template>
-  <div class="form-designer-container" :kcz="record_data">
-    <k-header />
+  <div class="form-designer-container">
+    <k-header :title="title" />
     <div class="content">
       <!-- 左侧控件区域 start -->
       <aside class="left">
@@ -60,6 +60,14 @@
           <a size="small" @click="handleReset">
             <a-icon type="delete" /> 清空
           </a>
+          <a
+            v-if="showClose"
+            size="small"
+            style="color:#f22;"
+            @click="handleClose"
+          >
+            <a-icon type="close" /> 关闭
+          </a>
         </div>
         <k-form-component-panel
           :data="data"
@@ -94,6 +102,10 @@
   </div>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import kHeader from "./module/header";
 import kFooter from "./module/footer";
 import kFormComponentPanel from "./module/formComponentPanel";
@@ -107,6 +119,16 @@ import formItemProperties from "./module/formItemProperties";
 import formProperties from "./module/formProperties";
 export default {
   name: "KFormDesign",
+  props: {
+    title: {
+      type: String,
+      default: "表单设计器 --by kcz"
+    },
+    showClose: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       basicsList,
@@ -127,8 +149,7 @@ export default {
           marginLeft: "0px"
         }
       },
-      recordData: [],
-      oldRecord: "",
+      // oldRecord: "",
       previewOptions: {
         width: 850
       },
@@ -149,15 +170,15 @@ export default {
     formProperties,
     draggable
   },
-  computed: {
-    record_data() {
-      this.handleRecord();
-      return JSON.stringify(this.data);
-    }
-  },
-  created() {
-    this.oldRecord = JSON.stringify(this.data);
-  },
+  // computed: {
+  //   record_data() {
+  //     this.handleRecord();
+  //     return JSON.stringify(this.data);
+  //   }
+  // },
+  // created() {
+  //   this.oldRecord = JSON.stringify(this.data);
+  // },
   methods: {
     handleOpenJsonModal() {
       // 打开json预览模态框
@@ -184,28 +205,29 @@ export default {
       // 清空
       this.data.list = [];
       this.handleSetSelectItem({ key: "" });
+      this.$message.success("已清空");
     },
-    handleRecord() {
-      // 用户修改时记录json
-      // 操作间隔不能低于200毫秒
-      let newTime = new Date().getTime();
-      if (newTime - this.updateRecordTime < 70) {
-        return false;
-      } else {
-        this.updateRecordTime = newTime;
-        if (this.recordData.length < 24) {
-          this.recordData.push(this.oldRecord);
-        } else {
-          this.recordData = this.recordData.filter(
-            (item, index) => index !== 0
-          );
-          this.recordData.push(this.oldRecord);
-        }
-      }
-      setTimeout(() => {
-        this.oldRecord = JSON.stringify(this.data);
-      }, 50);
-    },
+    // handleRecord() {
+    //   // 用户修改时记录json
+    //   // 操作间隔不能低于200毫秒
+    //   let newTime = new Date().getTime();
+    //   if (newTime - this.updateRecordTime < 70) {
+    //     return false;
+    //   } else {
+    //     this.updateRecordTime = newTime;
+    //     if (this.recordData.length < 24) {
+    //       this.recordData.push(this.oldRecord);
+    //     } else {
+    //       this.recordData = this.recordData.filter(
+    //         (item, index) => index !== 0
+    //       );
+    //       this.recordData.push(this.oldRecord);
+    //     }
+    //   }
+    //   setTimeout(() => {
+    //     this.oldRecord = JSON.stringify(this.data);
+    //   }, 50);
+    // },
     handleSetSelectItem(record) {
       // 操作间隔不能低于200毫秒
       let newTime = new Date().getTime();
@@ -223,34 +245,37 @@ export default {
     },
     handleSave() {
       // 保存函数
-      this.$emit("handleSave", JSON.stringify(this.data));
+      this.$emit("save", JSON.stringify(this.data));
     },
-    handleBack(e) {
-      // 撤销操作
-      var keyCode = e.keyCode || e.which || e.charCode;
-      var ctrlKey = e.ctrlKey || e.metaKey;
-      // 按下ctrl加z时
-      if (ctrlKey && keyCode == 90) {
-        if (this.recordData.length === 0) {
-          return false;
-        }
-        let newTime = new Date().getTime();
-        if (newTime - this.updateRecordTime < 70) {
-          return false;
-        }
-        this.updateRecordTime = newTime;
-        this.data = JSON.parse(this.recordData.pop());
-      }
-      return false;
+    handleClose() {
+      this.$emit("close");
     }
-  },
-  mounted() {
-    // 监听当按下按键时
-    window.addEventListener("keydown", this.handleBack, true);
-  },
-  destroyed() {
-    // 取消监听
-    window.removeEventListener("keydown", this.handleBack, true);
+    // handleBack(e) {
+    //   // 撤销操作
+    //   var keyCode = e.keyCode || e.which || e.charCode;
+    //   var ctrlKey = e.ctrlKey || e.metaKey;
+    //   // 按下ctrl加z时
+    //   if (ctrlKey && keyCode == 90) {
+    //     if (this.recordData.length === 0) {
+    //       return false;
+    //     }
+    //     let newTime = new Date().getTime();
+    //     if (newTime - this.updateRecordTime < 70) {
+    //       return false;
+    //     }
+    //     this.updateRecordTime = newTime;
+    //     this.data = JSON.parse(this.recordData.pop());
+    //   }
+    //   return false;
+    // }
   }
+  // mounted() {
+  //   // 监听当按下按键时
+  //   window.addEventListener("keydown", this.handleBack, true);
+  // },
+  // destroyed() {
+  //   // 取消监听
+  //   window.removeEventListener("keydown", this.handleBack, true);
+  // }
 };
 </script>

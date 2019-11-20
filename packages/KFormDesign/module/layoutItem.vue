@@ -211,6 +211,10 @@
   </div>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import draggable from "vuedraggable";
 import handleSelectItem from "./handleSelectItem";
 export default {

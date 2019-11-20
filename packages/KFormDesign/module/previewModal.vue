@@ -15,6 +15,10 @@
   </a-modal>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import jsonModel from "./jsonModal";
 export default {
   name: "previewModal",

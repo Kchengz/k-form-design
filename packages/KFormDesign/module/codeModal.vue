@@ -32,6 +32,10 @@
   </a-modal>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 let codeVueFront = `<template>
   <div>
     <k-form-build

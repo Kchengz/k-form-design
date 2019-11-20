@@ -261,12 +261,16 @@
       </a-form-item>
 
       <a-form-item v-if="selectItem.type === 'table'" label="提示">
-        表格嵌套功能未完善，不建议嵌套使用
+        请点击右键增加行列，或者合并单元格
       </a-form-item>
     </a-form>
   </div>
 </template>
 <script>
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import KChangeOption from "../../KChangeOption/index.vue";
 import kCheckbox from "../../KCheckbox/index.vue";
 export default {

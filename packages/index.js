@@ -1,3 +1,8 @@
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
+
 // 导入ant组件
 import "./core/components_use";
 import "ant-design-vue/dist/antd.css";

@@ -1,3 +1,7 @@
+/*
+ * athor kcz
+ * date 2019-11-20
+ */
 import KFormBuild from "./index.vue";
 
 KFormBuild.install = function(Vue) {
