@@ -1,297 +1,350 @@
 // 表单设计器样式
-@aside-border-color: #ccc;
-@primary-color: #409eff;
+@aside-border-color      : #ccc;
+@primary-color           : #1890ff;
 @primary-background-color: #ecf5ff;
 
-@grid-color: #dca13e;
+@grid-color           : #dca13e;
 @grid-background-color: #fffdf2;
 @import "./kTable.less";
+
 .form-designer-container {
   height: 100vh;
+
   .content {
     display: flex;
-    height: calc(100% - 90px);
+    height : calc(100% - 90px);
+
     section {
       .title {
         border-bottom: 1px solid #efefef;
-        font-size: 14px;
-        text-align: center;
-        height: 45px;
-        line-height: 24px;
+        font-size    : 14px;
+        text-align   : center;
+        height       : 45px;
+        line-height  : 24px;
+
         &.content-title {
           text-align: right;
+
           a {
             margin-left: 8px;
           }
         }
       }
-      > div {
+
+      >div {
         padding: 10px;
       }
     }
+
     // 左右栏
     aside {
-      width: 270px;
+      width : 270px;
       height: 100%;
-      > .left-title {
-        padding: 12px 10px 8px;
+
+      >.left-title {
+        padding    : 12px 10px 8px;
         user-select: none;
       }
+
       &.left {
         border-right: 1px solid @aside-border-color;
-        height: 100%;
-        overflow: auto;
-        > ul {
-          padding: 0 10px;
-          list-style: none;
-          display: flex;
+        height      : 100%;
+        overflow    : auto;
+
+        >ul {
+          padding      : 0 10px;
+          list-style   : none;
+          display      : flex;
           margin-bottom: 0;
-          flex-wrap: wrap;
-          > li {
-            width: calc(50% - 8px);
-            margin: 4px 3px;
-            padding-left: 12px;
+          flex-wrap    : wrap;
+
+          >li {
+            width        : calc(50% - 8px);
+            margin       : 4px 3px;
+            padding-left : 12px;
             // text-align: center;
-            height: 30px;
-            line-height: 30px;
-            cursor: move;
-            user-select: none;
-            background: #f4f6fc;
-            border: 1px solid #f4f6fc;
+            height       : 30px;
+            line-height  : 30px;
+            cursor       : move;
+            user-select  : none;
+            background   : #f4f6fc;
+            border       : 1px solid #f4f6fc;
+
             &:hover {
-              color: #409eff;
-              border: 1px dashed #409eff;
+              color : @primary-color;
+              border: 1px dashed @primary-color;
             }
           }
         }
       }
+
       &.right {
-        height: 100%;
+        height     : 100%;
         border-left: 1px solid @aside-border-color;
+
         .properties-centent {
           overflow: auto;
-          padding: 0 18px;
+          padding : 0 18px;
+
           .ant-form-item {
-            margin-bottom: 0;
+            margin-bottom : 0;
             padding-bottom: 8px;
-            border-bottom: 1px solid #ddd;
+            border-bottom : 1px solid #ddd;
           }
         }
+
         .hint-box {
-          color: #999999;
-          height: 75vh;
+          color      : #999999;
+          height     : 75vh;
           line-height: 75vh;
-          text-align: center;
-          font-size: 20px;
+          text-align : center;
+          font-size  : 20px;
         }
       }
     }
+
     // 中间内容区域
     section {
-      flex: 1;
+      flex       : 1;
       user-select: none;
+
       .form-panel {
-        height: calc(100% - 50px);
+        height    : calc(100% - 50px);
         background: #efefef;
-        border: 1px solid #ccc;
-        overflow: auto;
-        position: relative;
-        > .hint-text {
-          position: absolute;
-          left: 0;
-          top: 45%;
-          width: 100%;
+        border    : 1px solid #ccc;
+        overflow  : auto;
+        position  : relative;
+
+        >.hint-text {
+          position  : absolute;
+          left      : 0;
+          top       : 45%;
+          width     : 100%;
           text-align: center;
-          font-size: 20px;
-          color: #999999;
+          font-size : 20px;
+          color     : #999999;
         }
+
         .a-form-box {
-          height: 100%;
-          background: #fff;
+          height       : 100%;
+          background   : #fff;
           // box-shadow: 0px 1px 5px 1px #ccc;
         }
+
         .draggable-box {
           height: 100%;
+
           .panel-box {
             min-height: 100%;
-            position: relative;
-            border: 1px #ccc dashed;
+            position  : relative;
+            border    : 1px #ccc dashed;
+
             .moving {
               // 拖放移动中
               // background: #f56c6c !important;
-              // border: 2px solid #f56c6c;
+              // border    : 2px solid #f56c6c;
               outline-width: 0;
-              height: 35px;
-              box-sizing: border-box;
-              font-size: 0;
-              overflow: hidden;
-              padding: 0 !important;
-              margin: 3px 0;
-              position: relative;
-              &.active {
-                outline: 0 !important;
-                border: 2px solid #f56c6c !important;
-                outline-offset: 0;
-              }
-              &::before{
-                content:'';
-                height: 100%;
-                width: 100%;
-                background: #e9edff;
-                border: 2px solid #3d71fb;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 1999;
+              min-height   : 35px;
+              box-sizing   : border-box;
+              font-size    : 0;
+              overflow     : hidden;
+              padding      : 0 !important;
+              margin       : 3px 0;
+              position     : relative;
+
+              // &.active {
+              //   outline       : 0 !important;
+              //   border        : 2px solid #f56c6c !important;
+              //   outline-offset: 0;
+              // }
+              &::before {
+                content   : '';
+                height    : 100%;
+                width     : 100%;
+                background: #fff;
+                border    : 2px solid @primary-color;
+                position  : absolute;
+                top       : 0;
+                left      : 0;
+                z-index   : 1999;
               }
             }
             .drag-move-box {
-              position: relative;
+              position  : relative;
               box-sizing: border-box;
-              padding: 8px;
-              outline: 2px solid transparent;
-              border: 1px #ccc dashed;
+              padding   : 8px;
+              outline   : 2px solid transparent;
+              border    : 1px #ccc dashed;
               background: #f8fbff;
-              margin: 2px 0;
+              margin    : 2px 0;
+              overflow: hidden;
               .form-item-box {
-                position: relative;
+                position  : relative;
                 box-sizing: border-box;
                 &::before {
-                  content: "";
+                  content : "";
                   position: absolute;
-                  width: 100%;
-                  height: 100%;
-                  top: 0;
-                  left: 0;
-                  z-index: 888;
+                  width   : 100%;
+                  height  : 100%;
+                  top     : 0;
+                  left    : 0;
+                  z-index : 888;
                 }
+
                 .ant-form-item {
                   // 修改ant form-item的margin为padding
-                  margin: 0;
+                  margin        : 0;
                   padding-bottom: 15px;
                 }
               }
 
               &:hover {
-                background: @primary-background-color;
-                outline: 1px solid @primary-color;
+                background    : @primary-background-color;
+                outline       : 1px solid @primary-color;
                 outline-offset: 0px;
               }
+
               &.active {
-                outline: 2px solid @primary-color;
-                border: 1px solid @primary-color;
+                outline       : 2px solid @primary-color;
+                border        : 1px solid @primary-color;
+                
                 outline-offset: 0;
               }
-              > .drag-move {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 24px;
-                height: 24px;
-                line-height: 24px;
-                transform: rotate(90deg);
-                text-align: center;
-                background: @primary-color;
-                color: #fff;
-                z-index: 980;
+
+              >.drag-move {
+                position   : absolute;
+                top        : 50%;
+                left       : -2px;
+                width      : 36px;
+                height     : 36px;
+                line-height: 36px;
+                transform  : rotate(90deg) translateX(-50%);
+                text-align : center;
+                font-size  : 16px;
+                border-radius: 8px 8px 0 0;
+                background : @primary-color;
+                color      : #fff;
+                z-index    : 980;
               }
-              .show-key-box{
-                position: absolute;
-                top: 2px;
-                right: 5px;
+
+              .show-key-box {
+                // 显示key
+                position : absolute;
+                top      : 2px;
+                right    : 5px;
                 font-size: 14px;
-                color: #2227f5;
+                color    : @primary-color;
               }
-              > .copy {
-                right: 24px;
+
+              >.copy,
+              >.delete {
+                position   : absolute;
+                bottom     : -2px;
+                width      : 30px;
+                height     : 30px;
+                line-height: 30px;
+                text-align : center;
+                color      : #fff;
+                z-index    : 989;
               }
-              > .delete {
-                right: 0;
+
+              >.copy {
+                border-radius: 8px 0 0 0;
+                right        : 30px;
+                background   : @primary-color;
               }
-              >.copy, >.delete{
-                position: absolute;
-                bottom: 0;
-                width: 24px;
-                height: 20px;
-                text-align: center;
-                background: @primary-color;
-                color: #fff;
-                z-index: 980;
+
+              >.delete {
+                right        : 0px;
+                background   : @primary-color;
               }
+
             }
+
             .grid-box,
             .table-box {
-              position: relative;
+              position  : relative;
               box-sizing: border-box;
-              padding: 8px;
-              outline: 2px solid transparent;
-              border: 1px #ccc dashed;
+              padding   : 8px;
+              outline   : 2px solid transparent;
+              border    : 1px #ccc dashed;
               background: @grid-background-color;
-              margin: 2px 0;
-              width: 100%;
+              margin    : 2px 0;
+              width     : 100%;
+
               .form-item-box {
-                position: relative;
+                position  : relative;
                 box-sizing: border-box;
+
                 .ant-form-item {
                   // 修改ant form-item的margin为padding
-                  margin: 0;
+                  margin        : 0;
                   padding-bottom: 15px;
                 }
               }
+
               .grid-row,
               .table-layout {
                 background: @grid-background-color;
+
                 .grid-col,
                 .table-td {
                   .draggable-box {
                     min-height: 60px;
-                    min-width: 50px;
-                    border: 1px #ccc dashed;
+                    min-width : 50px;
+                    border    : 1px #ccc dashed;
                     background: #fff;
                   }
                 }
               }
 
               &:hover {
-                outline: 1px solid @grid-color;
+                outline       : 1px solid @grid-color;
                 outline-offset: 0px;
               }
+
               &.active {
-                outline: 2px solid @grid-color;
-                border: 1px solid @grid-color;
+                outline       : 2px solid @grid-color;
+                border        : 1px solid @grid-color;
                 outline-offset: 0;
               }
-              > .drag-move {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 24px;
-                height: 24px;
-                line-height: 24px;
-                transform: rotate(90deg);
-                text-align: center;
-                background: @grid-color;
-                color: #fff;
+
+              >.drag-move {
+                position   : absolute;
+                top        : 50%;
+                left       : -2px;
+                width      : 36px;
+                height     : 36px;
+                line-height: 36px;
+                transform  : rotate(90deg) translateX(-50%);
+                text-align : center;
+                font-size  : 16px;
+                border-radius: 8px 8px 0 0;
+                background : @grid-color;
+                color      : #fff;
+                z-index    : 980;
               }
-              > .copy {
-                position: absolute;
-                bottom: 0;
-                right: 24px;
-                width: 24px;
-                height: 20px;
-                text-align: center;
-                background: @grid-color;
-                color: #fff;
+              >.copy,
+              >.delete {
+                position   : absolute;
+                bottom     : -2px;
+                width      : 30px;
+                height     : 30px;
+                line-height: 30px;
+                text-align : center;
+                color      : #fff;
+                z-index    : 989;
               }
-              > .delete {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width: 24px;
-                height: 20px;
-                text-align: center;
-                background: @grid-color;
-                color: #fff;
+
+              >.copy {
+                border-radius: 8px 0 0 0;
+                right        : 30px;
+                background   : @grid-color;
+              }
+
+              >.delete {
+                right        : 0px;
+                background   : @grid-color;
               }
             }
           }
@@ -300,31 +353,36 @@
     }
   }
 }
+
 .kk-checkbox {
   .ant-checkbox-wrapper {
-    margin-left: 0 !important;
+    margin-left : 0 !important;
     margin-right: 8px;
   }
 }
+
 .right-menu {
-  width: 190px;
+  width     : 190px;
   background: #fff;
-  border: 1px solid #ccc;
-  position: fixed;
+  border    : 1px solid #ccc;
+  position  : fixed;
   transition: all 0s;
   box-shadow: 3px 3px 5px #999;
-  padding: 8px 0;
+  padding   : 8px 0;
+
   ul {
-    padding: 0;
-    margin: 0;
+    padding   : 0;
+    margin    : 0;
     list-style: none;
+
     li {
-      cursor: pointer;
+      cursor     : pointer;
       user-select: none;
-      padding: 0 15px;
-      height: 30px;
+      padding    : 0 15px;
+      height     : 30px;
       line-height: 30px;
-      font-size: 14px;
+      font-size  : 14px;
+
       &:hover {
         background: #eee;
       }
