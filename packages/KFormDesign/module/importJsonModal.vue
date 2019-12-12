@@ -10,7 +10,7 @@
     width="850px"
   >
     <p class="hint-box">导入格式如下:</p>
-    <div class="json-box">
+    <div class="json-box-9136076486841527">
       <codemirror
         style="height:100%;"
         ref="myEditor"
@@ -71,20 +71,7 @@ export default {
   }
 };
 </script>
-<style lang="less">
-.json-box {
-  height: 580px;
-  overflow: auto;
-  .vue-codemirror-wrap {
-    height: 100%;
 
-    .CodeMirror-wrap {
-      height: 100%;
-      background: #f6f6f6;
-    }
-  }
-}
-</style>
 <style lang="less" scoped>
 .hint-box {
   background: #e9e9e9;

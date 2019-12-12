@@ -123,7 +123,7 @@
         @click="handleSelectItem(record)"
       >
         <table
-          class="table-layout kk-table"
+          class="table-layout kk-table-9136076486841527"
           :class="{
             bright: record.options.bright,
             small: record.options.small,

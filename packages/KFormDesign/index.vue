@@ -1,5 +1,5 @@
 <template>
-  <div class="form-designer-container">
+  <div class="form-designer-container-9136076486841527">
     <k-header :title="title" />
     <div class="content">
       <!-- 左侧控件区域 start -->

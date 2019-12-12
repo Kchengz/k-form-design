@@ -7,9 +7,10 @@
 @grid-background-color: #fffdf2;
 @import "./kTable.less";
 
-.form-designer-container {
+.form-designer-container-9136076486841527 {
   height: 100vh;
 
+  // 设计器内容样式
   .content {
     display: flex;
     height : calc(100% - 90px);
@@ -169,6 +170,7 @@
                 z-index   : 1999;
               }
             }
+
             .drag-move-box {
               position  : relative;
               box-sizing: border-box;
@@ -177,10 +179,12 @@
               border    : 1px #ccc dashed;
               background: #f8fbff;
               margin    : 2px 0;
-              overflow: hidden;
+              overflow  : hidden;
+
               .form-item-box {
                 position  : relative;
                 box-sizing: border-box;
+
                 &::before {
                   content : "";
                   position: absolute;
@@ -205,26 +209,26 @@
               }
 
               &.active {
-                outline       : 2px solid @primary-color;
-                border        : 1px solid @primary-color;
-                
+                outline: 2px solid @primary-color;
+                border : 1px solid @primary-color;
+
                 outline-offset: 0;
               }
 
               >.drag-move {
-                position   : absolute;
-                top        : 50%;
-                left       : -2px;
-                width      : 36px;
-                height     : 36px;
-                line-height: 36px;
-                transform  : rotate(90deg) translateX(-50%);
-                text-align : center;
-                font-size  : 16px;
+                position     : absolute;
+                top          : 50%;
+                left         : -2px;
+                width        : 36px;
+                height       : 36px;
+                line-height  : 36px;
+                transform    : rotate(90deg) translateX(-50%);
+                text-align   : center;
+                font-size    : 16px;
                 border-radius: 8px 8px 0 0;
-                background : @primary-color;
-                color      : #fff;
-                z-index    : 980;
+                background   : @primary-color;
+                color        : #fff;
+                z-index      : 980;
               }
 
               .show-key-box {
@@ -255,8 +259,8 @@
               }
 
               >.delete {
-                right        : 0px;
-                background   : @primary-color;
+                right     : 0px;
+                background: @primary-color;
               }
 
             }
@@ -310,20 +314,21 @@
               }
 
               >.drag-move {
-                position   : absolute;
-                top        : 50%;
-                left       : -2px;
-                width      : 36px;
-                height     : 36px;
-                line-height: 36px;
-                transform  : rotate(90deg) translateX(-50%);
-                text-align : center;
-                font-size  : 16px;
+                position     : absolute;
+                top          : 50%;
+                left         : -2px;
+                width        : 36px;
+                height       : 36px;
+                line-height  : 36px;
+                transform    : rotate(90deg) translateX(-50%);
+                text-align   : center;
+                font-size    : 16px;
                 border-radius: 8px 8px 0 0;
-                background : @grid-color;
-                color      : #fff;
-                z-index    : 980;
+                background   : @grid-color;
+                color        : #fff;
+                z-index      : 980;
               }
+
               >.copy,
               >.delete {
                 position   : absolute;
@@ -343,8 +348,8 @@
               }
 
               >.delete {
-                right        : 0px;
-                background   : @grid-color;
+                right     : 0px;
+                background: @grid-color;
               }
             }
           }
@@ -352,40 +357,71 @@
       }
     }
   }
-}
 
-.kk-checkbox {
-  .ant-checkbox-wrapper {
-    margin-left : 0 !important;
-    margin-right: 8px;
+  // 表格右键菜单样式
+  .right-menu {
+    width     : 190px;
+    background: #fff;
+    border    : 1px solid #ccc;
+    position  : fixed;
+    transition: all 0s;
+    box-shadow: 3px 3px 5px #999;
+    padding   : 8px 0;
+
+    ul {
+      padding   : 0;
+      margin    : 0;
+      list-style: none;
+
+      li {
+        cursor     : pointer;
+        user-select: none;
+        padding    : 0 15px;
+        height     : 30px;
+        line-height: 30px;
+        font-size  : 14px;
+
+        &:hover {
+          background: #eee;
+        }
+      }
+    }
+  }
+
+  // 控件属性复选组件样式
+  .kk-checkbox {
+    .ant-checkbox-wrapper {
+      margin-left : 0 !important;
+      margin-right: 8px;
+    }
   }
 }
 
-.right-menu {
-  width     : 190px;
-  background: #fff;
-  border    : 1px solid #ccc;
-  position  : fixed;
-  transition: all 0s;
-  box-shadow: 3px 3px 5px #999;
-  padding   : 8px 0;
 
-  ul {
-    padding   : 0;
-    margin    : 0;
-    list-style: none;
 
-    li {
-      cursor     : pointer;
-      user-select: none;
-      padding    : 0 15px;
-      height     : 30px;
-      line-height: 30px;
-      font-size  : 14px;
 
-      &:hover {
-        background: #eee;
-      }
+
+// code盒子样子
+.json-box-9136076486841527 {
+  height  : 580px;
+  overflow: auto;
+
+  .vue-codemirror-wrap {
+    height: 100%;
+
+    .CodeMirror-wrap {
+      height    : 100%;
+      background: #f6f6f6;
     }
+  }
+}
+
+// modal复制按钮样式
+.copy-btn-box-9136076486841527 {
+  padding-top: 8px;
+  text-align : center;
+
+  .copy-btn {
+    margin-right: 8px;
   }
 }

@@ -8,14 +8,14 @@
     width="850px"
     :destroyOnClose="true"
   >
-    <div class="json-box">
+    <div class="json-box-9136076486841527">
       <codemirror
         style="height:100%;"
         ref="myEditor"
         v-model="editorJson"
       ></codemirror>
     </div>
-    <div class="copy-btn-box">
+    <div class="copy-btn-box-9136076486841527">
       <a-button
         @click="handleCopyJson"
         type="primary"
@@ -130,24 +130,3 @@ export default {
   }
 };
 </script>
-<style lang="less">
-.json-box {
-  height: 580px;
-  overflow: auto;
-  .vue-codemirror-wrap {
-    height: 100%;
-
-    .CodeMirror-wrap {
-      height: 100%;
-      background: #f6f6f6;
-    }
-  }
-}
-.copy-btn-box {
-  padding-top: 8px;
-  text-align: center;
-  .copy-btn {
-    margin-right: 8px;
-  }
-}
-</style>

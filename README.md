@@ -46,7 +46,9 @@ npm i k-form-design --save
 ``` 
 在main.js引入
 
+
 import { KFormDesign, KFormBuild } from "k-form-design";
+import "k-form-design/lib/k-form-design.css";
 
 Vue.use(KFormDesign);
 Vue.use(KFormBuild);
@@ -55,12 +57,12 @@ Vue.use(KFormBuild);
 ### 表单设计器使用
 建议将表单设计器组件放到全屏组件或页面使用，如果是ant-design的Modal或者Drawer组件，使用className给容器添加类名，并设置width:100vw;height:100vh;
 
-表单设计器handleSave事件，点击保存时触发
+表单设计器save事件，点击保存时触发
 
 ``` 
 <template>
   <div>
-    <k-form-design @handleSave="handleSave" />
+    <k-form-design @save="handleSave" />
   </div>
 </template>
 <script>
@@ -122,9 +124,9 @@ handleSubmit (getData){
 }
 ```
 
-<p style="color:#ca6820;">
+<!-- <p style="color:#ca6820;">
 说明，该项目已经把所有需要的依赖全部打包了，包括UI组件，无需额外引入依赖即可使用，但是包的体积增大了许多
-</p>	
+</p>	 -->
 
 
 <!-- 
