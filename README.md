@@ -208,4 +208,4 @@ handleSubmit (getData){
 License
 ---
 [MIT](https://github.com/Kchengz/k-form-design/blob/master/LICENSE)
-Copyright (c) 2017-present kchengz
+Copyright (c) 2019-present kchengz
