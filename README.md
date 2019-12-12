@@ -54,6 +54,11 @@ Vue.use(KFormDesign);
 Vue.use(KFormBuild);
 ```
 
+### 引入样式
+```
+import "k-form-design/lib/k-form-design.css";
+```
+
 ### 表单设计器使用
 建议将表单设计器组件放到全屏组件或页面使用，如果是ant-design的Modal或者Drawer组件，使用className给容器添加类名，并设置width:100vw;height:100vh;
 
