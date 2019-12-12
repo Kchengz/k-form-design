@@ -54,11 +54,6 @@ Vue.use(KFormDesign);
 Vue.use(KFormBuild);
 ```
 
-### 引入样式
-```
-import "k-form-design/lib/k-form-design.css";
-```
-
 ### 表单设计器使用
 建议将表单设计器组件放到全屏组件或页面使用，如果是ant-design的Modal或者Drawer组件，使用className给容器添加类名，并设置width:100vw;height:100vh;
 
@@ -73,51 +68,53 @@ import "k-form-design/lib/k-form-design.css";
 <script>
 export default {
   methods: {
-    handleSave(val) {
+    handleSave(values) {
       this.$message.success("触发保存方法");
-      console.log(val);
+      console.log(values);
     }
   }
 };
 </script>
 ```
 
-修改顶部的title,只需要给k-form-design组件设置title就行了
-```
-<k-form-design title="我是设计器的标题" />
-```
-
-启用关闭按钮，设置showClose属性
-```
-<k-form-design showClose @close="handleClose" />
-
-```
-
 使用表格布局时，在设计界面右键可以添加行列和合并单元格
 
-### 表单构建器使用
+
+### API
+#### k-form-design组件
+参数 | 说明 | 类型 | 默认值
+- | - | - | - 
+title | 表单设计器标题 | string | "表单设计器 --by kcz"
+showClose | 是否显示关闭按钮 | boolean | false
+
+事件名称 | 说明 | 回调参数
+- | - | - 
+save | 点击保存按钮时回调 | object
+close | 点击关闭按钮时回调 | void
+
+#### k-form-build组件
+参数 | 说明 | 类型 | 默认值
+- | - | - | - 
+value | 表单设计器生成的json数据 | object | -
+
+事件名称 | 说明 | 回调参数
+- | - | - 
+submit | 提交时回调 | Promise对象
+
+说明：submit事件可以通过表单设计器的提交按钮触发，也可以给组件绑定ref，通过函数触发，代码如下：
+
 ``` 
 // jsonData 设计器生成的json数据
-<k-form-build
+  <k-form-build
       :value="jsonData"
       ref="KFormBuild"
       @submit="handleSubmit"
     />
-```
-如何触发提交操作
-```
-// 通过给k-form-build组件加ref="KFormBuild"
-
-// 然后可以通过下面函数触发了(如果表单中设置了提交按钮，可以直接点击表单的提交按钮触发)
+   
+// 触发submit事件
 this.$refs.KFormBuild.handleSubmit()
 
-
-```
-如何获取表单数据
-```
-// 通过上面代码，会触发组件submit事件，我们需要给组件加上@submit="handleSubmit"
-// 并在methods里面定义handleSubmit方法
-
+// 获取表单数据
 handleSubmit (getData){
 	getData.then(values=>{
 		// 表单验证通过，并拿到values值
@@ -127,8 +124,8 @@ handleSubmit (getData){
 		console.log(err)
 	})
 }
-```
 
+```
 <!-- <p style="color:#ca6820;">
 说明，该项目已经把所有需要的依赖全部打包了，包括UI组件，无需额外引入依赖即可使用，但是包的体积增大了许多
 </p>	 -->
