@@ -34,7 +34,7 @@
 - KFormBuild 表单构建器（根据设计器中获取的配置json数据，快速构建出表单页面）
 
 ## 安装依赖
-``` 
+```
 # 使用yarn 
 yarn add k-form-design
 
@@ -43,9 +43,8 @@ npm i k-form-design --save
 ```
 
 ### 引入组件
-``` 
-在main.js引入
-
+``` javascript
+// 在main.js引入
 
 import { KFormDesign, KFormBuild } from "k-form-design";
 import "k-form-design/lib/k-form-design.css";
@@ -59,7 +58,7 @@ Vue.use(KFormBuild);
 
 表单设计器save事件，点击保存时触发
 
-``` 
+```  javascript
 <template>
   <div>
     <k-form-design @save="handleSave" />
@@ -82,47 +81,113 @@ export default {
 
 ### API
 #### k-form-design组件
-参数 | 说明 | 类型 | 默认值
-- | - | - | - 
-title | 表单设计器标题 | string | "表单设计器 --by kcz"
-showClose | 是否显示关闭按钮 | boolean | false
 
-事件名称 | 说明 | 回调参数
-- | - | - 
-save | 点击保存按钮时回调 | object
-close | 点击关闭按钮时回调 | void
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td>表单设计器标题</td>
+        <td>string</td>
+        <td>"表单设计器 --by kcz"</td>
+      </tr>
+      <tr>
+        <td>showClose</td>
+        <td>是否显示关闭按钮</td>
+        <td>boolean</td>
+        <td>false</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th>事件名称</th>
+        <th colspan="2">说明</th>
+        <th>回调参数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>save</td>
+        <td colspan="2">点击保存按钮时回调</td>
+        <td>object</td>
+      </tr>
+      <tr>
+        <td>close</td>
+        <td colspan="2">点击关闭按钮时回调</td>
+        <td>void</td>
+      </tr>
+    </tbody>
+  </table>
 
 #### k-form-build组件
-参数 | 说明 | 类型 | 默认值
-- | - | - | - 
-value | 表单设计器生成的json数据 | object | -
+<table>
+    <thead>
+      <tr>
+        <th>参数</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>value</td>
+        <td>表单设计器生成的json数据</td>
+        <td>object</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
 
-事件名称 | 说明 | 回调参数
-- | - | - 
-submit | 提交时回调 | Promise对象
+  <table>
+    <thead>
+      <tr>
+        <th>事件名称</th>
+        <th>说明</th>
+        <th>回调参数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>submit</td>
+        <td>提交时回调</td>
+        <td>Promise对象</td>
+      </tr>
+    </tbody>
+  </table>
 
 说明：submit事件可以通过表单设计器的提交按钮触发，也可以给组件绑定ref，通过函数触发，代码如下：
 
-``` 
+``` javascript
 // jsonData 设计器生成的json数据
-  <k-form-build
-      :value="jsonData"
-      ref="KFormBuild"
-      @submit="handleSubmit"
-    />
+<k-form-build
+  :value="jsonData"
+  ref="KFormBuild"
+  @submit="handleSubmit"
+/>
    
 // 触发submit事件
 this.$refs.KFormBuild.handleSubmit()
 
 // 获取表单数据
 handleSubmit (getData){
-	getData.then(values=>{
-		// 表单验证通过，并拿到values值
-		console.log(value)
-	}).catch(err=>{
-		// 表单验证未通过
-		console.log(err)
-	})
+  getData.then(values=>{
+      // 表单验证通过，并拿到values值
+      console.log(value)
+    }).catch(err=>{
+      // 表单验证未通过
+      console.log(err)
+    })
 }
 
 ```
