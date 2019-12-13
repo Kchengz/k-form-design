@@ -8,7 +8,7 @@
 </template>
 <style lang="less" scoped>
 /*
- * athor kcz
+ * author kcz
  * date 2019-11-20
  */
 footer {

@@ -61,7 +61,7 @@
 </template>
 <script>
 /*
- * athor kcz
+ * author kcz
  * date 2019-11-20
  */
 import draggable from "vuedraggable";
