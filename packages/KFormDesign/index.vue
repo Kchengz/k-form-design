@@ -15,7 +15,11 @@
             ghostClass: 'moving'
           }"
         >
-          <li v-for="(val, index) in basicsList" :key="index">
+          <li
+            v-for="(val, index) in basicsList"
+            @dragstart="generateKey(basicsList, index)"
+            :key="index"
+          >
             {{ val.name }}
           </li>
         </draggable>
@@ -33,6 +37,7 @@
           <li
             v-for="(val, index) in layoutList"
             :key="index"
+            @dragstart="generateKey(layoutList, index)"
             v-text="val.name"
           ></li>
         </draggable>
@@ -156,6 +161,15 @@ export default {
       }
     };
   },
+  // watch: {
+  //   data: {
+  //     handler: val => {
+  //       console.log(new Date().getTime());
+  //       console.log(JSON.parse(JSON.stringify(val)));
+  //     },
+  //     deep: true
+  //   }
+  // },
   components: {
     kHeader,
     kFooter,
@@ -178,6 +192,30 @@ export default {
   //   this.oldRecord = JSON.stringify(this.data);
   // },
   methods: {
+    generateKey(list, index) {
+      // 生成key值
+      const key = list[index].type + "_" + new Date().getTime();
+      this.$set(list, index, {
+        ...list[index],
+        key,
+        model: key
+      });
+      if (
+        [
+          "button",
+          "divider",
+          "card",
+          "grid",
+          "table",
+          "alert",
+          "text"
+        ].includes(list[index].type)
+      ) {
+        // 删除不需要的model属性
+        delete list[index].model;
+      }
+      // console.log(val);
+    },
     handleOpenJsonModal() {
       // 打开json预览模态框
       this.$refs.jsonModal.jsonData = this.data;

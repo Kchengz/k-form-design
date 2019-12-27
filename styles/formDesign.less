@@ -135,8 +135,9 @@
         .draggable-box {
           height: 100%;
 
-          .panel-box {
+          .list-main {
             min-height: 100%;
+            padding: 6px 10px;
             position  : relative;
             border    : 1px #ccc dashed;
 
@@ -178,7 +179,7 @@
               outline   : 2px solid transparent;
               border    : 1px #ccc dashed;
               background: #f8fbff;
-              margin    : 2px 0;
+              margin    : 4px 0;
               overflow  : hidden;
 
               .form-item-box {
@@ -298,6 +299,11 @@
                     min-width : 50px;
                     border    : 1px #ccc dashed;
                     background: #fff;
+                    .list-main {
+                      min-height: 60px;
+                      position  : relative;
+                      border    : 1px #ccc dashed;
+                    }
                   }
                 }
               }
@@ -394,6 +400,21 @@
       margin-left : 0 !important;
       margin-right: 8px;
     }
+  }
+  // 列表动画
+  .list-enter-active {
+    transition: all .5s;
+  }
+  .list-leave-active {
+    transition: all .3s;
+  }
+  .list-enter, .list-leave-to
+  /* .list-leave-active for below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  .list-enter {
+    height: 30px;
   }
 }
 

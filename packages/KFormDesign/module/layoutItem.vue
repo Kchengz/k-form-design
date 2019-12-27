@@ -25,18 +25,20 @@
               v-model="colItem.list"
               @add="$emit('handleColAdd', $event, colItem.list)"
             >
-              <layoutItem
-                v-for="item in colItem.list"
-                :key="item.key"
-                :selectItem.sync="selectItem"
-                :record="item"
-                :config="config"
-                @handleSelectItem="handleSelectItem"
-                @handleColAdd="handleColAdd"
-                @handleCopy="$emit('handleCopy')"
-                @handleShowRightMenu="handleShowRightMenu"
-                @handleDetele="$emit('handleDetele')"
-              />
+              <transition-group tag="div" name="list" class="list-main">
+                <layoutItem
+                  v-for="item in colItem.list"
+                  :key="item.key"
+                  :selectItem.sync="selectItem"
+                  :record="item"
+                  :config="config"
+                  @handleSelectItem="handleSelectItem"
+                  @handleColAdd="handleColAdd"
+                  @handleCopy="$emit('handleCopy')"
+                  @handleShowRightMenu="handleShowRightMenu"
+                  @handleDetele="$emit('handleDetele')"
+                />
+              </transition-group>
             </draggable>
           </a-col>
         </a-row>
@@ -80,19 +82,20 @@
               v-model="record.list"
               @add="$emit('handleColAdd', $event, record.list)"
             >
-              <layoutItem
-                v-for="item in record.list"
-                :key="item.key"
-                :selectItem.sync="selectItem"
-                :record="item"
-                :config="config"
-                @handleSelectItem="handleSelectItem"
-                @handleColAdd="handleColAdd"
-                @handleCopy="$emit('handleCopy')"
-                @handleShowRightMenu="handleShowRightMenu"
-                @handleDetele="$emit('handleDetele')"
-              />
-              <!-- </transition-group> -->
+              <transition-group tag="div" name="list" class="list-main">
+                <layoutItem
+                  v-for="item in record.list"
+                  :key="item.key"
+                  :selectItem.sync="selectItem"
+                  :record="item"
+                  :config="config"
+                  @handleSelectItem="handleSelectItem"
+                  @handleColAdd="handleColAdd"
+                  @handleCopy="$emit('handleCopy')"
+                  @handleShowRightMenu="handleShowRightMenu"
+                  @handleDetele="$emit('handleDetele')"
+                />
+              </transition-group>
             </draggable>
           </div>
         </a-card>
@@ -160,18 +163,20 @@
                 v-model="tdItem.list"
                 @add="$emit('handleColAdd', $event, tdItem.list)"
               >
-                <layoutItem
-                  v-for="item in tdItem.list"
-                  :key="item.key"
-                  :selectItem.sync="selectItem"
-                  :record="item"
-                  :config="config"
-                  @handleSelectItem="handleSelectItem"
-                  @handleColAdd="handleColAdd"
-                  @handleCopy="$emit('handleCopy')"
-                  @handleShowRightMenu="handleShowRightMenu"
-                  @handleDetele="$emit('handleDetele')"
-                />
+                <transition-group tag="div" name="list" class="list-main">
+                  <layoutItem
+                    v-for="item in tdItem.list"
+                    :key="item.key"
+                    :selectItem.sync="selectItem"
+                    :record="item"
+                    :config="config"
+                    @handleSelectItem="handleSelectItem"
+                    @handleColAdd="handleColAdd"
+                    @handleCopy="$emit('handleCopy')"
+                    @handleShowRightMenu="handleShowRightMenu"
+                    @handleDetele="$emit('handleDetele')"
+                  />
+                </transition-group>
               </draggable>
             </td>
           </tr>
