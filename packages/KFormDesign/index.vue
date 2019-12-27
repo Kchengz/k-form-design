@@ -18,10 +18,9 @@
           <li
             v-for="(val, index) in basicsList"
             @dragstart="generateKey(basicsList, index)"
+            @dblclick="handleListPush(val)"
             :key="index"
-          >
-            {{ val.name }}
-          </li>
+          >{{ val.name }}</li>
         </draggable>
         <div class="title left-title">布局控件</div>
         <draggable
@@ -38,6 +37,7 @@
             v-for="(val, index) in layoutList"
             :key="index"
             @dragstart="generateKey(layoutList, index)"
+            @dblclick="handleListPush(val)"
             v-text="val.name"
           ></li>
         </draggable>
@@ -47,29 +47,26 @@
       <!-- 中间面板区域 start -->
       <section>
         <div class="title content-title">
-          <a size="small" @click="handleSave"> <a-icon type="save" /> 保存 </a>
+          <a size="small" @click="handleSave">
+            <a-icon type="save" />保存
+          </a>
           <a size="small" @click="handleOpenPreviewModal">
-            <a-icon type="eye" /> 预览
+            <a-icon type="eye" />预览
           </a>
           <a size="small" @click="handleOpenImportJsonModal">
-            <a-icon type="to-top" /> 导入JSON
+            <a-icon type="to-top" />导入JSON
           </a>
           <a size="small" @click="handleOpenJsonModal">
-            <a-icon type="file" /> 生成JSON
+            <a-icon type="file" />生成JSON
           </a>
           <a size="small" @click="handleOpenCodeModal">
-            <a-icon type="code" /> 生成代码
+            <a-icon type="code" />生成代码
           </a>
           <a size="small" @click="handleReset">
-            <a-icon type="delete" /> 清空
+            <a-icon type="delete" />清空
           </a>
-          <a
-            v-if="showClose"
-            size="small"
-            style="color:#f22;"
-            @click="handleClose"
-          >
-            <a-icon type="close" /> 关闭
+          <a v-if="showClose" size="small" style="color:#f22;" @click="handleClose">
+            <a-icon type="close" />关闭
           </a>
         </div>
         <k-form-component-panel
@@ -90,14 +87,12 @@
           <a-tab-pane style="height:100%" tab=" 控件属性设置" key="1">
             <formItemProperties :selectItem="selectItem" />
           </a-tab-pane>
-          <a-tab-pane tab="表单属性设置" key="2" forceRender
-            ><formProperties
-              :config="data.config"
-              :previewOptions="previewOptions"
-          /></a-tab-pane>
+          <a-tab-pane tab="表单属性设置" key="2" forceRender>
+            <formProperties :config="data.config" :previewOptions="previewOptions" />
+          </a-tab-pane>
         </a-tabs>
         <!-- <div class="title">控件属性</div>
-        <formItemProperties :selectItem="selectItem" /> -->
+        <formItemProperties :selectItem="selectItem" />-->
       </aside>
       <!-- 右侧控件属性区域 end -->
     </div>
@@ -214,7 +209,34 @@ export default {
         // 删除不需要的model属性
         delete list[index].model;
       }
-      // console.log(val);
+    },
+    handleListPush(item) {
+      // 双击控件按钮push到list
+      // 生成key值
+      const key = item.type + "_" + new Date().getTime();
+      item = {
+        ...item,
+        key,
+        model: key
+      };
+      if (
+        [
+          "button",
+          "divider",
+          "card",
+          "grid",
+          "table",
+          "alert",
+          "text"
+        ].includes(item.type)
+      ) {
+        // 删除不需要的model属性
+        delete item.model;
+      }
+      const itemString = JSON.stringify(item);
+      const record = JSON.parse(itemString)
+      this.data.list.push(record);
+      this.handleSetSelectItem(record)
     },
     handleOpenJsonModal() {
       // 打开json预览模态框
