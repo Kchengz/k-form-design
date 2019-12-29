@@ -202,7 +202,7 @@
       </div>
     </template>
     <template v-else>
-      <handleSelectItem
+      <formNode
         :key="record.key"
         :selectItem.sync="selectItem"
         :record="record"
@@ -219,9 +219,10 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 使用递归组件调用自己，生成布局结构及表单
  */
 import draggable from "vuedraggable";
-import handleSelectItem from "./handleSelectItem";
+import formNode from "./formNode";
 export default {
   name: "layoutItem",
   props: {
@@ -239,7 +240,7 @@ export default {
     }
   },
   components: {
-    handleSelectItem,
+    formNode,
     draggable
   },
   methods: {

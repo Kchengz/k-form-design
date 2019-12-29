@@ -35,6 +35,7 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 生成代码 Modal
  */
 let codeVueFront = `<template>
   <div>

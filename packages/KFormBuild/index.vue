@@ -29,6 +29,7 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 将json数据构建成表单
  */
 import buildBlocks from "./buildBlocks";
 import moment from "moment";

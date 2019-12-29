@@ -1,6 +1,6 @@
 <template>
   <div class="form-designer-container-9136076486841527">
-    <k-header :title="title" />
+    <k-header :title="title" v-if="showHead" />
     <div class="content">
       <!-- 左侧控件区域 start -->
       <aside class="left">
@@ -20,7 +20,9 @@
             @dragstart="generateKey(basicsList, index)"
             @dblclick="handleListPush(val)"
             :key="index"
-          >{{ val.name }}</li>
+          >
+            {{ val.name }}
+          </li>
         </draggable>
         <div class="title left-title">布局控件</div>
         <draggable
@@ -47,9 +49,7 @@
       <!-- 中间面板区域 start -->
       <section>
         <div class="title content-title">
-          <a size="small" @click="handleSave">
-            <a-icon type="save" />保存
-          </a>
+          <a size="small" @click="handleSave"> <a-icon type="save" />保存 </a>
           <a size="small" @click="handleOpenPreviewModal">
             <a-icon type="eye" />预览
           </a>
@@ -65,7 +65,12 @@
           <a size="small" @click="handleReset">
             <a-icon type="delete" />清空
           </a>
-          <a v-if="showClose" size="small" style="color:#f22;" @click="handleClose">
+          <a
+            v-if="showClose"
+            size="small"
+            style="color:#f22;"
+            @click="handleClose"
+          >
             <a-icon type="close" />关闭
           </a>
         </div>
@@ -88,7 +93,10 @@
             <formItemProperties :selectItem="selectItem" />
           </a-tab-pane>
           <a-tab-pane tab="表单属性设置" key="2" forceRender>
-            <formProperties :config="data.config" :previewOptions="previewOptions" />
+            <formProperties
+              :config="data.config"
+              :previewOptions="previewOptions"
+            />
           </a-tab-pane>
         </a-tabs>
         <!-- <div class="title">控件属性</div>
@@ -103,6 +111,7 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 表单设计器
  */
 import kHeader from "./module/header";
 import kFooter from "./module/footer";
@@ -121,6 +130,10 @@ export default {
     title: {
       type: String,
       default: "表单设计器 --by kcz"
+    },
+    showHead: {
+      type: Boolean,
+      default: true
     },
     showClose: {
       type: Boolean,
@@ -234,9 +247,9 @@ export default {
         delete item.model;
       }
       const itemString = JSON.stringify(item);
-      const record = JSON.parse(itemString)
+      const record = JSON.parse(itemString);
       this.data.list.push(record);
-      this.handleSetSelectItem(record)
+      this.handleSetSelectItem(record);
     },
     handleOpenJsonModal() {
       // 打开json预览模态框

@@ -1,0 +1,18 @@
+标题 name
+
+数据绑定key model
+
+占位内容 placeholder
+
+校验规制  rules  required
+options {
+  宽度  width
+  步长  step
+  最小值  min
+  最大值  max
+  默认值  defaultValue
+  禁用  disabled
+  只读  readonly
+  可清除  clearable
+  多选  multiple
+}

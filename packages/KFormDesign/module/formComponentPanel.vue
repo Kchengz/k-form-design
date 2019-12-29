@@ -63,6 +63,7 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 表单设计器内容展示操作组件
  */
 import draggable from "vuedraggable";
 import layoutItem from "./layoutItem";
@@ -97,52 +98,7 @@ export default {
   methods: {
     handleAdd(evt) {
       const newIndex = evt.newIndex;
-      // // 生成key值
-      // const key = this.data.list[newIndex].type + "_" + new Date().getTime();
-      // this.$set(this.data.list, newIndex, {
-      //   ...this.data.list[newIndex],
-      //   key,
-      //   model: key
-      // });
-      // if (
-      //   [
-      //     "button",
-      //     "divider",
-      //     "card",
-      //     "grid",
-      //     "table",
-      //     "alert",
-      //     "text"
-      //   ].includes(this.data.list[newIndex].type)
-      // ) {
-      //   // 删除不需要的model属性
-      //   delete this.data.list[newIndex].model;
-      // }
-      // if (typeof this.data.list[newIndex].options !== "undefined") {
-      //   // 深拷贝options
-
-      // }
-      // if (typeof this.data.list[newIndex].rules !== "undefined") {
-      //   // 深拷贝rules
-      //   const rulesStr = JSON.stringify(this.data.list[newIndex].rules);
-      //   this.data.list[newIndex].rules = JSON.parse(rulesStr);
-      // }
-      // if (typeof this.data.list[newIndex].list !== "undefined") {
-      //   // 深拷贝list
-      //   const listStr = JSON.stringify(this.data.list[newIndex].list);
-      //   this.data.list[newIndex].list = JSON.parse(listStr);
-      // }
-
-      // if (typeof this.data.list[newIndex].columns !== "undefined") {
-      //   // 深拷贝columns
-      //   const columnsStr = JSON.stringify(this.data.list[newIndex].columns);
-      //   this.data.list[newIndex].columns = JSON.parse(columnsStr);
-      // }
-      // if (this.data.list[newIndex].type === "table") {
-      //   // 深拷贝trs
-      //   const trsStr = JSON.stringify(this.data.list[newIndex].trs);
-      //   this.data.list[newIndex].trs = JSON.parse(trsStr);
-      // }
+      // json深拷贝一次
       const listString = JSON.stringify(this.data.list);
       this.data.list = JSON.parse(listString);
       this.$emit("handleSetSelectItem", this.data.list[newIndex]);
@@ -284,6 +240,7 @@ export default {
         });
         return array;
       };
+
       this.data.list = traverse(this.data.list);
     },
     handleDownMerge() {

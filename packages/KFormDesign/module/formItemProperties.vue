@@ -113,7 +113,18 @@
         />
       </a-form-item>
       <a-form-item
-        v-if="['input', 'textarea', 'time'].includes(selectItem.type)"
+        v-if="
+          ![
+            'number',
+            'radio',
+            'checkbox',
+            'date',
+            'rate',
+            'select',
+            'switch',
+            'slider'
+          ].includes(selectItem.type) && options.defaultValue !== 'undefined'
+        "
         label="默认值"
       >
         <a-input
@@ -188,7 +199,13 @@
       <a-form-item
         v-if="
           typeof options.disabled !== 'undefined' ||
-            typeof options.readonly !== 'undefined'
+            typeof options.readonly !== 'undefined' ||
+            typeof options.clearable !== 'undefined' ||
+            typeof options.multiple !== 'undefined' ||
+            typeof options.range !== 'undefined' ||
+            typeof options.showTime !== 'undefined' ||
+            typeof options.allowHalf !== 'undefined' ||
+            typeof options.showInput !== 'undefined'
         "
         label="操作属性"
       >
@@ -233,6 +250,7 @@
           label="显示输入框"
         />
       </a-form-item>
+
       <a-form-item
         v-if="
           typeof selectItem.rules !== 'undefined' && selectItem.rules.length > 0
@@ -242,6 +260,7 @@
         <kCheckbox v-model="selectItem.rules[0].required" label="必填" />
         <KChangeOption v-model="selectItem.rules" type="rules" />
       </a-form-item>
+      <!-- 表格选项 -->
       <a-form-item v-if="selectItem.type === 'table'" label="顶部外边距">
         <a-input v-model="selectItem.options.marginTop" />
       </a-form-item>
@@ -272,6 +291,7 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 表单控件属性设置组件
  */
 import KChangeOption from "../../KChangeOption/index.vue";
 import kCheckbox from "../../KCheckbox/index.vue";

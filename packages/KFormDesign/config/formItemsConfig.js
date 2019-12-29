@@ -1,6 +1,7 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 表单控件项
  */
 export const basicsList = [
   {
@@ -172,7 +173,7 @@ export const basicsList = [
     type: "rate", // 表单类型
     name: "评分", // 标题文字
     options: {
-      defaultValue: 3,
+      defaultValue: 0,
       max: 5, // 最大值
       disabled: false, // 是否禁用
       allowHalf: false // 是否允许半选

@@ -53,6 +53,7 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 修改多选、下拉、单选等控件options的组件，添加移除校验规制的组件
  */
 export default {
   name: "KChangeOption",

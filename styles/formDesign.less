@@ -9,11 +9,13 @@
 
 .form-designer-container-9136076486841527 {
   height: 100vh;
-
+  display: flex;
+  flex-direction: column;
   // 设计器内容样式
   .content {
     display: flex;
-    height : calc(100% - 90px);
+    // height : calc(100% - 90px);
+    flex:1;
 
     section {
       .title {
@@ -69,8 +71,8 @@
             cursor       : move;
             user-select  : none;
             background   : #f4f6fc;
-            border       : 1px solid #f4f6fc;
-
+            border       : 1px dashed transparent;
+            transition: all .3s;
             &:hover {
               color : @primary-color;
               border: 1px dashed @primary-color;
@@ -181,11 +183,11 @@
               background: #f8fbff;
               margin    : 4px 0;
               overflow  : hidden;
+              transition: all .5s;
 
               .form-item-box {
                 position  : relative;
                 box-sizing: border-box;
-
                 &::before {
                   content : "";
                   position: absolute;
@@ -276,7 +278,7 @@
               background: @grid-background-color;
               margin    : 2px 0;
               width     : 100%;
-
+              transition: all .4s;
               .form-item-box {
                 position  : relative;
                 box-sizing: border-box;

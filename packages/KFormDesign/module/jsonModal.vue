@@ -35,6 +35,7 @@
 /*
  * author kcz
  * date 2019-11-20
+ * description 生成json Modal
  */
 import { codemirror } from "vue-codemirror-lite";
 export default {
