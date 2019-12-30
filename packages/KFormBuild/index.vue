@@ -3,7 +3,7 @@
     v-if="
       typeof value.list !== 'undefined' && typeof value.config !== 'undefined'
     "
-    class="k-form-build"
+    class="k-form-build-9136076486841527"
     :layout="value.config.layout"
     :hideRequiredMark="value.config.hideRequiredMark"
     :form="form"

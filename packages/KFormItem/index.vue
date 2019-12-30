@@ -259,16 +259,14 @@
       :type="record.options.type"
       html-type="submit"
       v-text="record.name"
-    >
-    </a-button>
+    ></a-button>
     <a-button
       v-else
       :disabled="record.options.disabled"
       :type="record.options.type"
       @click="$emit('handleReset')"
       v-text="record.name"
-    >
-    </a-button>
+    ></a-button>
   </a-form-item>
   <!-- alert提示 -->
   <a-form-item v-else-if="record.type === 'alert'">
@@ -301,9 +299,9 @@
       :orientation="record.options.orientation"
       >{{ record.name }}</a-divider
     >
-    <a-divider v-else-if="record.type === 'divider' && record.name !== ''">{{
-      record.name
-    }}</a-divider>
+    <a-divider v-else-if="record.type === 'divider' && record.name !== ''">
+      {{ record.name }}
+    </a-divider>
     <a-divider v-else-if="record.type === 'divider' && record.name === ''" />
   </div>
 </template>

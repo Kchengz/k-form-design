@@ -1,20 +1,25 @@
 // 表单设计器样式
 @aside-border-color      : #ccc;
 @primary-color           : #1890ff;
-@primary-background-color: #ecf5ff;
+@primary-background-color: rgba(134, 197, 255, 0.12);
+@primary-hover-bg-color: rgba(109, 184, 255, 0.36);
 
 @grid-color           : #dca13e;
-@grid-background-color: #fffdf2;
+@grid-background-color: rgba(255, 242, 168, 0.10);
+@grid-hover-bg-color: #fff7c0;
+
+@moving-border-color: #ff7777;
 @import "./kTable.less";
 
 .form-designer-container-9136076486841527 {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
   // 设计器内容样式
   .content {
     display: flex;
-    // height : calc(100% - 90px);
+    height : calc(100% - 30px);
+    &.show-head{
+      height : calc(100% - 90px);
+    }
     flex:1;
 
     section {
@@ -115,8 +120,8 @@
         height    : calc(100% - 50px);
         background: #efefef;
         border    : 1px solid #ccc;
-        overflow  : auto;
         position  : relative;
+        overflow  : auto;
 
         >.hint-text {
           position  : absolute;
@@ -126,27 +131,25 @@
           text-align: center;
           font-size : 20px;
           color     : #999999;
+          z-index: 16;
         }
 
         .a-form-box {
-          height       : 100%;
-          background   : #fff;
-          // box-shadow: 0px 1px 5px 1px #ccc;
+          height : 100%;
+        // box-shadow: 0px 1px 5px 1px #ccc;
         }
 
         .draggable-box {
           height: 100%;
-
           .list-main {
             min-height: 100%;
             padding: 6px 10px;
             position  : relative;
+            background   : #fff;
             border    : 1px #ccc dashed;
 
             .moving {
               // 拖放移动中
-              // background: #f56c6c !important;
-              // border    : 2px solid #f56c6c;
               outline-width: 0;
               min-height   : 35px;
               box-sizing   : border-box;
@@ -156,17 +159,12 @@
               margin       : 3px 0;
               position     : relative;
 
-              // &.active {
-              //   outline       : 0 !important;
-              //   border        : 2px solid #f56c6c !important;
-              //   outline-offset: 0;
-              // }
               &::before {
                 content   : '';
                 height    : 100%;
                 width     : 100%;
                 background: #fff;
-                border    : 2px solid @primary-color;
+                border    : 3px solid @moving-border-color;
                 position  : absolute;
                 top       : 0;
                 left      : 0;
@@ -180,10 +178,10 @@
               padding   : 8px;
               outline   : 2px solid transparent;
               border    : 1px #ccc dashed;
-              background: #f8fbff;
+              background: @primary-background-color;
               margin    : 4px 0;
               overflow  : hidden;
-              transition: all .5s;
+              transition: all .3s;
 
               .form-item-box {
                 position  : relative;
@@ -201,14 +199,12 @@
                 .ant-form-item {
                   // 修改ant form-item的margin为padding
                   margin        : 0;
-                  padding-bottom: 15px;
+                  padding-bottom: 6px;
                 }
               }
 
               &:hover {
-                background    : @primary-background-color;
-                outline       : 1px solid @primary-color;
-                outline-offset: 0px;
+                background    : @primary-hover-bg-color;
               }
 
               &.active {
@@ -218,21 +214,30 @@
                 outline-offset: 0;
               }
 
-              >.drag-move {
-                position     : absolute;
-                top          : 50%;
-                left         : -2px;
-                width        : 36px;
-                height       : 36px;
-                line-height  : 36px;
-                transform    : rotate(90deg) translateX(-50%);
-                text-align   : center;
-                font-size    : 16px;
-                border-radius: 8px 8px 0 0;
-                background   : @primary-color;
-                color        : #fff;
-                z-index      : 980;
-              }
+              // >.drag-move {
+              //   position     : absolute;
+              //   top          : 50%;
+              //   left         : -2px;
+              //   width        : 36px;
+              //   height       : 36px;
+              //   line-height  : 36px;
+              //   transform    : rotate(90deg) translateX(-50%);
+              //   text-align   : center;
+              //   font-size    : 16px;
+              //   border-radius: 8px 8px 0 0;
+              //   background   : @primary-color;
+              //   color        : #fff;
+              //   z-index      : 980;
+              //   transition: all .3s;
+              //   &.unactivated{
+              //    opacity: 0 !important;
+              //    pointer-events: none;
+              //  }
+              //  &.active{
+              //    opacity: 1 !important;
+              //  }
+                
+              // }
 
               .show-key-box {
                 // 显示key
@@ -253,6 +258,14 @@
                 text-align : center;
                 color      : #fff;
                 z-index    : 989;
+                transition: all .3s;
+                &.unactivated{
+                 opacity: 0 !important;
+                 pointer-events: none;
+               }
+               &.active{
+                 opacity: 1 !important;
+               }
               }
 
               >.copy {
@@ -311,8 +324,14 @@
               }
 
               &:hover {
-                outline       : 1px solid @grid-color;
+                background    : @grid-hover-bg-color;
+                // outline       : 1px solid @grid-color;
                 outline-offset: 0px;
+                .grid-row,
+              .table-layout{
+                background    : @grid-hover-bg-color;
+
+              }
               }
 
               &.active {
@@ -321,21 +340,29 @@
                 outline-offset: 0;
               }
 
-              >.drag-move {
-                position     : absolute;
-                top          : 50%;
-                left         : -2px;
-                width        : 36px;
-                height       : 36px;
-                line-height  : 36px;
-                transform    : rotate(90deg) translateX(-50%);
-                text-align   : center;
-                font-size    : 16px;
-                border-radius: 8px 8px 0 0;
-                background   : @grid-color;
-                color        : #fff;
-                z-index      : 980;
-              }
+              // >.drag-move {
+              //   position     : absolute;
+              //   top          : 50%;
+              //   left         : -2px;
+              //   width        : 36px;
+              //   height       : 36px;
+              //   line-height  : 36px;
+              //   transform    : rotate(90deg) translateX(-50%);
+              //   text-align   : center;
+              //   font-size    : 16px;
+              //   border-radius: 8px 8px 0 0;
+              //   background   : @grid-color;
+              //   color        : #fff;
+              //   z-index      : 980;
+              //   transition: all .3s;
+              //    &.unactivated{
+              //     opacity: 0 !important;
+              //     pointer-events: none;
+              //   }
+              //   &.active{
+              //     opacity: 1 !important;
+              //   }
+              // }
 
               >.copy,
               >.delete {
@@ -347,6 +374,14 @@
                 text-align : center;
                 color      : #fff;
                 z-index    : 989;
+                transition: all .3s;
+                 &.unactivated{
+                  opacity: 0 !important;
+                  pointer-events: none;
+                }
+                &.active{
+                  opacity: 1 !important;
+                }
               }
 
               >.copy {
@@ -375,7 +410,7 @@
     transition: all 0s;
     box-shadow: 3px 3px 5px #999;
     padding   : 8px 0;
-
+    z-index: 999;
     ul {
       padding   : 0;
       margin    : 0;
@@ -418,9 +453,8 @@
   .list-enter {
     height: 30px;
   }
+
 }
-
-
 
 
 
@@ -447,4 +481,20 @@
   .copy-btn {
     margin-right: 8px;
   }
+}
+
+// k-form-build
+.k-form-build-9136076486841527{
+  .ant-form-item{
+    margin-bottom: 18px;
+  }
+  // 防止报错信息占位
+.ant-form-item-control{
+  position: relative;
+  .ant-form-explain{
+    bottom: -16px;
+    position: absolute;
+    z-index: 10;
+  }
+}
 }

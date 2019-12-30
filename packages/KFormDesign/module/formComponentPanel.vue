@@ -25,14 +25,17 @@
         }"
         v-model="data.list"
         @add="handleAdd"
+        @end="dragEnd($event, data.list)"
       >
         <transition-group tag="div" name="list" class="list-main">
           <layoutItem
+            class="drag-move"
             v-for="record in data.list"
             :key="record.key"
             :record="record"
             :config="data.config"
             :selectItem.sync="selectItem"
+            @dragEnd="dragEnd"
             @handleSelectItem="handleSelectItem"
             @handleCopy="handleCopy"
             @handleDetele="handleDetele"
@@ -164,16 +167,25 @@ export default {
       }
       this.$emit("handleSetSelectItem", columns[newIndex]);
     },
+    dragEnd(evt, list) {
+      // 拖拽结束,自动选择拖拽的控件项
+      this.$emit("handleSetSelectItem", list[evt.newIndex]);
+    },
     handleSelectItem(record) {
       // 修改选择Item
       this.$emit("handleSetSelectItem", record);
     },
-    handleCopy() {
-      // 复制已选择
+    handleCopy(isCopy = true, data) {
       const traverse = array => {
         array.forEach((element, index) => {
           if (element.key === this.selectItem.key) {
-            array.splice(index + 1, 0, element);
+            if (isCopy) {
+              // 复制添加到选择节点后面
+              array.splice(index + 1, 0, element);
+            } else {
+              // 双击添加到选择节点后面
+              array.splice(index + 1, 0, data);
+            }
             // 复制完成，重置key值
             const evt = {
               newIndex: index + 1

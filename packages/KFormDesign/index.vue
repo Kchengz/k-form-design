@@ -1,7 +1,7 @@
 <template>
   <div class="form-designer-container-9136076486841527">
     <k-header :title="title" v-if="showHead" />
-    <div class="content">
+    <div class="content" :class="{ 'show-head': showHead }">
       <!-- 左侧控件区域 start -->
       <aside class="left">
         <div class="title left-title">基础控件</div>
@@ -77,6 +77,7 @@
         <k-form-component-panel
           :data="data"
           :selectItem="selectItem"
+          ref="KFCP"
           @handleSetSelectItem="handleSetSelectItem"
         />
         <k-json-modal ref="jsonModal" />
@@ -99,8 +100,6 @@
             />
           </a-tab-pane>
         </a-tabs>
-        <!-- <div class="title">控件属性</div>
-        <formItemProperties :selectItem="selectItem" />-->
       </aside>
       <!-- 右侧控件属性区域 end -->
     </div>
@@ -160,7 +159,6 @@ export default {
           marginLeft: "0px"
         }
       },
-      // oldRecord: "",
       previewOptions: {
         width: 850
       },
@@ -169,15 +167,6 @@ export default {
       }
     };
   },
-  // watch: {
-  //   data: {
-  //     handler: val => {
-  //       console.log(new Date().getTime());
-  //       console.log(JSON.parse(JSON.stringify(val)));
-  //     },
-  //     deep: true
-  //   }
-  // },
   components: {
     kHeader,
     kFooter,
@@ -190,15 +179,6 @@ export default {
     formProperties,
     draggable
   },
-  // computed: {
-  //   record_data() {
-  //     this.handleRecord();
-  //     return JSON.stringify(this.data);
-  //   }
-  // },
-  // created() {
-  //   this.oldRecord = JSON.stringify(this.data);
-  // },
   methods: {
     generateKey(list, index) {
       // 生成key值
@@ -226,30 +206,36 @@ export default {
     handleListPush(item) {
       // 双击控件按钮push到list
       // 生成key值
-      const key = item.type + "_" + new Date().getTime();
-      item = {
-        ...item,
-        key,
-        model: key
-      };
-      if (
-        [
-          "button",
-          "divider",
-          "card",
-          "grid",
-          "table",
-          "alert",
-          "text"
-        ].includes(item.type)
-      ) {
-        // 删除不需要的model属性
-        delete item.model;
+      if (!this.selectItem.key) {
+        // 在没有选择表单时，将数据push到this.data.list
+        const key = item.type + "_" + new Date().getTime();
+        item = {
+          ...item,
+          key,
+          model: key
+        };
+        if (
+          [
+            "button",
+            "divider",
+            "card",
+            "grid",
+            "table",
+            "alert",
+            "text"
+          ].includes(item.type)
+        ) {
+          // 删除不需要的model属性
+          delete item.model;
+        }
+        const itemString = JSON.stringify(item);
+        const record = JSON.parse(itemString);
+        this.data.list.push(record);
+        this.handleSetSelectItem(record);
+        return false;
       }
-      const itemString = JSON.stringify(item);
-      const record = JSON.parse(itemString);
-      this.data.list.push(record);
-      this.handleSetSelectItem(record);
+
+      this.$refs.KFCP.handleCopy(false, item);
     },
     handleOpenJsonModal() {
       // 打开json预览模态框
@@ -278,37 +264,17 @@ export default {
       this.handleSetSelectItem({ key: "" });
       this.$message.success("已清空");
     },
-    // handleRecord() {
-    //   // 用户修改时记录json
-    //   // 操作间隔不能低于200毫秒
-    //   let newTime = new Date().getTime();
-    //   if (newTime - this.updateRecordTime < 70) {
-    //     return false;
-    //   } else {
-    //     this.updateRecordTime = newTime;
-    //     if (this.recordData.length < 24) {
-    //       this.recordData.push(this.oldRecord);
-    //     } else {
-    //       this.recordData = this.recordData.filter(
-    //         (item, index) => index !== 0
-    //       );
-    //       this.recordData.push(this.oldRecord);
-    //     }
-    //   }
-    //   setTimeout(() => {
-    //     this.oldRecord = JSON.stringify(this.data);
-    //   }, 50);
-    // },
     handleSetSelectItem(record) {
-      // 操作间隔不能低于200毫秒
+      // 操作间隔不能低于100毫秒
       let newTime = new Date().getTime();
       if (newTime - this.updateTime < 100) {
         return false;
       }
+      console.log(record);
+
       this.updateTime = newTime;
       this.selectItem = record;
       // 设置selectItem的值
-      // console.log(record);
     },
     handleSetData(data) {
       // 用于父组件赋值
@@ -321,32 +287,6 @@ export default {
     handleClose() {
       this.$emit("close");
     }
-    // handleBack(e) {
-    //   // 撤销操作
-    //   var keyCode = e.keyCode || e.which || e.charCode;
-    //   var ctrlKey = e.ctrlKey || e.metaKey;
-    //   // 按下ctrl加z时
-    //   if (ctrlKey && keyCode == 90) {
-    //     if (this.recordData.length === 0) {
-    //       return false;
-    //     }
-    //     let newTime = new Date().getTime();
-    //     if (newTime - this.updateRecordTime < 70) {
-    //       return false;
-    //     }
-    //     this.updateRecordTime = newTime;
-    //     this.data = JSON.parse(this.recordData.pop());
-    //   }
-    //   return false;
-    // }
   }
-  // mounted() {
-  //   // 监听当按下按键时
-  //   window.addEventListener("keydown", this.handleBack, true);
-  // },
-  // destroyed() {
-  //   // 取消监听
-  //   window.removeEventListener("keydown", this.handleBack, true);
-  // }
 };
 </script>

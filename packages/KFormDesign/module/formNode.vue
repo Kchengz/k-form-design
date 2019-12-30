@@ -1,27 +1,38 @@
+<!--
+ * @Author: kcz
+ * @Date: 2019-12-30 00:37:05
+ * @LastEditTime : 2019-12-30 18:10:25
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \k-form-design\packages\KFormDesign\module\formNode.vue
+ -->
 <template>
   <div
     class="drag-move-box"
-    @click="$emit('handleSelectItem', record)"
+    @click.stop="$emit('handleSelectItem', record)"
     :class="{ active: record.key === selectItem.key }"
   >
     <div class="form-item-box">
       <kFormItem :config="config" :record="record" />
     </div>
-    <div class="drag-move" v-if="record.key === selectItem.key">
+    <!-- <div
+      class="drag-move"
+      :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+    >
       <a-icon type="swap" />
-    </div>
+    </div> -->
     <div class="show-key-box" v-text="record.model" />
     <div
       class="copy"
-      v-if="record.key === selectItem.key"
-      @click="$emit('handleCopy')"
+      :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+      @click.stop="$emit('handleCopy')"
     >
       <a-icon type="copy" />
     </div>
     <div
       class="delete"
-      v-if="record.key === selectItem.key"
-      @click="$emit('handleDetele')"
+      :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+      @click.stop="$emit('handleDetele')"
     >
       <a-icon type="delete" />
     </div>

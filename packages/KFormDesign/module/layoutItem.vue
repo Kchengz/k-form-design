@@ -4,7 +4,7 @@
       <div
         class="grid-box"
         :class="{ active: record.key === selectItem.key }"
-        @click="handleSelectItem(record)"
+        @click.stop="handleSelectItem(record)"
       >
         <a-row class="grid-row" :gutter="record.options.gutter">
           <a-col
@@ -23,10 +23,12 @@
                 handle: '.drag-move'
               }"
               v-model="colItem.list"
+              @end="$emit('dragEnd', $event, colItem.list)"
               @add="$emit('handleColAdd', $event, colItem.list)"
             >
               <transition-group tag="div" name="list" class="list-main">
                 <layoutItem
+                  class="drag-move"
                   v-for="item in colItem.list"
                   :key="item.key"
                   :selectItem.sync="selectItem"
@@ -42,20 +44,23 @@
             </draggable>
           </a-col>
         </a-row>
-        <div class="drag-move" v-if="record.key === selectItem.key">
+        <!-- <div
+          class="drag-move"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+        >
           <a-icon type="swap" />
-        </div>
+        </div> -->
         <div
           class="copy"
-          v-if="record.key === selectItem.key"
-          @click="$emit('handleCopy')"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleCopy')"
         >
           <a-icon type="copy" />
         </div>
         <div
           class="delete"
-          v-if="record.key === selectItem.key"
-          @click="$emit('handleDetele')"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleDetele')"
         >
           <a-icon type="delete" />
         </div>
@@ -66,7 +71,7 @@
       <div
         class="grid-box"
         :class="{ active: record.key === selectItem.key }"
-        @click="handleSelectItem(record)"
+        @click.stop="handleSelectItem(record)"
       >
         <a-card class="grid-row" :title="record.name">
           <div class="grid-col">
@@ -80,10 +85,12 @@
                 handle: '.drag-move'
               }"
               v-model="record.list"
+              @end="$emit('dragEnd', $event, record.list)"
               @add="$emit('handleColAdd', $event, record.list)"
             >
               <transition-group tag="div" name="list" class="list-main">
                 <layoutItem
+                  class="drag-move"
                   v-for="item in record.list"
                   :key="item.key"
                   :selectItem.sync="selectItem"
@@ -99,20 +106,23 @@
             </draggable>
           </div>
         </a-card>
-        <div class="drag-move" v-if="record.key === selectItem.key">
+        <!-- <div
+          class="drag-move"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+        >
           <a-icon type="swap" />
-        </div>
+        </div> -->
         <div
           class="copy"
-          v-if="record.key === selectItem.key"
-          @click="$emit('handleCopy')"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleCopy')"
         >
           <a-icon type="copy" />
         </div>
         <div
           class="delete"
-          v-if="record.key === selectItem.key"
-          @click="$emit('handleDetele')"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleDetele')"
         >
           <a-icon type="delete" />
         </div>
@@ -123,7 +133,7 @@
       <div
         class="table-box"
         :class="{ active: record.key === selectItem.key }"
-        @click="handleSelectItem(record)"
+        @click.stop="handleSelectItem(record)"
       >
         <table
           class="table-layout kk-table-9136076486841527"
@@ -161,10 +171,12 @@
                   handle: '.drag-move'
                 }"
                 v-model="tdItem.list"
+                @end="$emit('dragEnd', $event, tdItem.list)"
                 @add="$emit('handleColAdd', $event, tdItem.list)"
               >
                 <transition-group tag="div" name="list" class="list-main">
                   <layoutItem
+                    class="drag-move"
                     v-for="item in tdItem.list"
                     :key="item.key"
                     :selectItem.sync="selectItem"
@@ -182,20 +194,23 @@
           </tr>
         </table>
 
-        <div class="drag-move" v-if="record.key === selectItem.key">
+        <!-- <div
+          class="drag-move"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+        >
           <a-icon type="swap" />
-        </div>
+        </div> -->
         <div
           class="copy"
-          v-if="record.key === selectItem.key"
-          @click="$emit('handleCopy')"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleCopy')"
         >
           <a-icon type="copy" />
         </div>
         <div
           class="delete"
-          v-if="record.key === selectItem.key"
-          @click="$emit('handleDetele')"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleDetele')"
         >
           <a-icon type="delete" />
         </div>
