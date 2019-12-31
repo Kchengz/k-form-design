@@ -99,6 +99,12 @@ export default {
         <td>"表单设计器 --by kcz"</td>
       </tr>
       <tr>
+        <td>showHead</td>
+        <td>是否显示head部分</td>
+        <td>boolean</td>
+        <td>true</td>
+      </tr>
+      <tr>
         <td>showClose</td>
         <td>是否显示关闭按钮</td>
         <td>boolean</td>
@@ -190,6 +196,29 @@ handleSubmit (getData){
     })
 }
 
+```
+
+### 上传接口api
+#### 文件上传响应数据
+```
+{
+  "code": 0, // 判断文件上传是否成功，结果为0成功，否则上传失败
+  "data":
+    {
+      "fileId": "文件ID",
+      "url": "文件下载地址"
+    }
+}
+```
+#### 图片上传响应数据
+```
+{
+  "code": 0, // 判断图片上传是否成功，结果为0成功，否则上传失败
+  "data":
+    {
+      "url": "图片url"
+    }
+}
 ```
 <!-- <p style="color:#ca6820;">
 说明，该项目已经把所有需要的依赖全部打包了，包括UI组件，无需额外引入依赖即可使用，但是包的体积增大了许多

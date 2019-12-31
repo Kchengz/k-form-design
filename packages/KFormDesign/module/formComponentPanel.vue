@@ -1,18 +1,14 @@
 <template>
   <div class="form-panel">
-    <p class="hint-text" v-show="data.list.length === 0">从左侧拖拽添加控件</p>
+    <p class="hint-text" v-show="data.list.length === 0">
+      从左侧拖拽或点击来添加控件
+    </p>
     <a-form
       class="a-form-box k-form-build"
       :form="form"
       :layout="data.config.layout"
       :hideRequiredMark="data.config.hideRequiredMark"
-      :style="{
-        width: data.config.width,
-        marginTop: data.config.marginTop,
-        marginRight: data.config.marginRight,
-        marginBottom: data.config.marginBottom,
-        marginLeft: data.config.marginLeft
-      }"
+      :style="data.config.customClass"
     >
       <draggable
         tag="div"

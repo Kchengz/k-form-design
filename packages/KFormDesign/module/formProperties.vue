@@ -27,10 +27,10 @@
       <a-form-item label="预览模态框宽度">
         <a-input-number style="width:100%;" v-model="previewOptions.width" />
       </a-form-item>
-      <a-form-item label="表单宽度">
-        <a-input v-model="config.width" />
+      <a-form-item label="表单CSS">
+        <a-input v-model="config.customClass" />
       </a-form-item>
-      <a-form-item label="表单顶部外边距">
+      <!-- <a-form-item label="表单顶部外边距">
         <a-input v-model="config.marginTop" />
       </a-form-item>
       <a-form-item label="表单右边外边距">
@@ -41,7 +41,7 @@
       </a-form-item>
       <a-form-item label="表单左边外边距">
         <a-input v-model="config.marginLeft" />
-      </a-form-item>
+      </a-form-item> -->
       <a-form-item label="表单属性">
         <kCheckbox
           v-if="typeof config.hideRequiredMark !== 'undefined'"

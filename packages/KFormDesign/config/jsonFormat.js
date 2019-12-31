@@ -14,12 +14,12 @@ export default `{
 				"placeholder": "请输入",
 				"disabled": false
 			},
-			"model": "input_1568988693010",
-			"key": "input_1568988693010",
+			"model": "input_1577777106711",
+			"key": "input_1577777106711",
 			"rules": [
 				{
 					"required": true,
-					"message": "单行文本必须填写"
+					"message": "必填项"
 				}
 			]
 		}
@@ -32,6 +32,7 @@ export default `{
 		"wrapperCol": {
 			"span": 18
 		},
-		"colon": true
+		"hideRequiredMark": false,
+		"customClass": ""
 	}
 }`;

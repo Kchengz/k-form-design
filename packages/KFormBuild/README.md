@@ -43,11 +43,7 @@ const jsonData = {
 			"span": 18
 		},
 		"hideRequiredMark": false,
-		"width": "100%",
-		"marginTop": "0px",
-		"marginRight": "0px",
-		"marginBottom": "0px",
-		"marginLeft": "0px"
+		"customClass": ""
 	}
 }
 export default {

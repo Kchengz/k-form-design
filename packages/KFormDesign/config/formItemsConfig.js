@@ -3,6 +3,7 @@
  * date 2019-11-20
  * description 表单控件项
  */
+// 基础控件
 export const basicsList = [
   {
     type: "input", // 表单类型
@@ -290,6 +291,55 @@ export const basicsList = [
   }
 ];
 
+// 高级控件
+export const highList = [
+  {
+    type: "uploadFile", // 表单类型
+    name: "上传文件", // 标题文字
+    options: {
+      multiple: false,
+      disabled: false,
+      drag: false,
+      width: "100%",
+      limit: 3,
+      data: "{}",
+      action: "http://cdn.kcz66.com/upload.txt",
+      placeholder: "上传"
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
+    type: "uploadImg",
+    name: "上传图片",
+    options: {
+      multiple: false,
+      disabled: false,
+      width: "100%",
+      data: "{}",
+      limit: 3,
+      placeholder: "上传",
+      action: "http://cdn.kcz66.com/upload-img.txt",
+      listType: "picture-card"
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  }
+];
+
+// 布局控件
 export const layoutList = [
   {
     type: "divider",
@@ -364,10 +414,7 @@ export const layoutList = [
       bordered: true,
       bright: false,
       small: true,
-      marginTop: "0px",
-      marginRight: "0px",
-      marginBottom: "0px",
-      marginLeft: "0px"
+      customClass: ""
     },
     key: "",
     model: ""

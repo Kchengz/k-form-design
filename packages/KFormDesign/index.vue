@@ -4,6 +4,7 @@
     <div class="content" :class="{ 'show-head': showHead }">
       <!-- 左侧控件区域 start -->
       <aside class="left">
+        <!-- 基础控件 start -->
         <div class="title left-title">基础控件</div>
         <draggable
           tag="ul"
@@ -17,13 +18,38 @@
         >
           <li
             v-for="(val, index) in basicsList"
-            @dragstart="generateKey(basicsList, index)"
-            @dblclick="handleListPush(val)"
             :key="index"
+            @dragstart="generateKey(basicsList, index)"
+            @click="handleListPush(val)"
           >
             {{ val.name }}
           </li>
         </draggable>
+        <!-- 基础控件 end -->
+        <!-- 高级控件 start -->
+        <div class="title left-title">高级控件</div>
+        <draggable
+          tag="ul"
+          :value="highList"
+          v-bind="{
+            group: { name: 'form-draggable', pull: 'clone', put: false },
+            sort: false,
+            animation: 180,
+            ghostClass: 'moving'
+          }"
+        >
+          <li
+            v-for="(val, index) in highList"
+            :key="index"
+            @dragstart="generateKey(highList, index)"
+            @click="handleListPush(val)"
+          >
+            {{ val.name }}
+          </li>
+        </draggable>
+        <!-- 高级控件 end -->
+
+        <!-- 布局控件 start -->
         <div class="title left-title">布局控件</div>
         <draggable
           tag="ul"
@@ -39,34 +65,61 @@
             v-for="(val, index) in layoutList"
             :key="index"
             @dragstart="generateKey(layoutList, index)"
-            @dblclick="handleListPush(val)"
+            @click="handleListPush(val)"
             v-text="val.name"
           ></li>
         </draggable>
+        <!-- 布局控件 end -->
       </aside>
       <!-- 左侧控件区域 end -->
 
       <!-- 中间面板区域 start -->
       <section>
         <div class="title content-title">
-          <a size="small" @click="handleSave"> <a-icon type="save" />保存 </a>
-          <a size="small" @click="handleOpenPreviewModal">
+          <a
+            v-if="showBtnList.includes('save')"
+            size="small"
+            @click="handleSave"
+          >
+            <a-icon type="save" />保存
+          </a>
+          <a
+            v-if="showBtnList.includes('preview')"
+            size="small"
+            @click="handleOpenPreviewModal"
+          >
             <a-icon type="eye" />预览
           </a>
-          <a size="small" @click="handleOpenImportJsonModal">
+          <a
+            v-if="showBtnList.includes('importJson')"
+            size="small"
+            @click="handleOpenImportJsonModal"
+          >
             <a-icon type="to-top" />导入JSON
           </a>
-          <a size="small" @click="handleOpenJsonModal">
+          <a
+            v-if="showBtnList.includes('exportJson')"
+            size="small"
+            @click="handleOpenJsonModal"
+          >
             <a-icon type="file" />生成JSON
           </a>
-          <a size="small" @click="handleOpenCodeModal">
+          <a
+            v-if="showBtnList.includes('exportCode')"
+            size="small"
+            @click="handleOpenCodeModal"
+          >
             <a-icon type="code" />生成代码
           </a>
-          <a size="small" @click="handleReset">
+          <a
+            v-if="showBtnList.includes('reset')"
+            size="small"
+            @click="handleReset"
+          >
             <a-icon type="delete" />清空
           </a>
           <a
-            v-if="showClose"
+            v-if="showBtnList.includes('close')"
             size="small"
             style="color:#f22;"
             @click="handleClose"
@@ -120,7 +173,7 @@ import kCodeModal from "./module/codeModal";
 import importJsonModal from "./module/importJsonModal";
 import previewModal from "./module/previewModal";
 import draggable from "vuedraggable";
-import { basicsList, layoutList } from "./config/formItemsConfig";
+import { basicsList, highList, layoutList } from "./config/formItemsConfig";
 import formItemProperties from "./module/formItemProperties";
 import formProperties from "./module/formProperties";
 export default {
@@ -134,15 +187,24 @@ export default {
       type: Boolean,
       default: true
     },
-    showClose: {
-      type: Boolean,
-      default: false
+    showBtnList: {
+      type: Array,
+      default: () => [
+        "save",
+        "preview",
+        "importJson",
+        "exportJson",
+        "exportCode",
+        "reset",
+        "close"
+      ]
     }
   },
   data() {
     return {
       basicsList,
       layoutList,
+      highList,
       updateTime: 0,
       updateRecordTime: 0,
       data: {
@@ -152,11 +214,7 @@ export default {
           labelCol: { span: 4 },
           wrapperCol: { span: 18 },
           hideRequiredMark: false,
-          width: "100%",
-          marginTop: "0px",
-          marginRight: "0px",
-          marginBottom: "0px",
-          marginLeft: "0px"
+          customClass: ""
         }
       },
       previewOptions: {

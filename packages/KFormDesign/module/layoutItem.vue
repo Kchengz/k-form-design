@@ -142,13 +142,7 @@
             small: record.options.small,
             bordered: record.options.bordered
           }"
-          :style="{
-            width: record.options.width,
-            marginTop: record.options.marginTop,
-            marginRight: record.options.marginRight,
-            marginBottom: record.options.marginBottom,
-            marginLeft: record.options.marginLeft
-          }"
+          :style="record.options.customClass"
         >
           <tr v-for="(trItem, trIndex) in record.trs" :key="trIndex">
             <td
