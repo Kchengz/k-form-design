@@ -17,10 +17,10 @@
 
 ## 简介
 基于vue和ant-design-vue实现的表单设计器，使用了最新的前端技术栈，让表单开发更简单高效
-- [预览地址](http://cdn.kcz66.com/form-design@1.3.3.html)
+- [预览地址](http://cdn.kcz66.com/form-design@2.1.3.html)
 <!-- - [开源地址](https://github.com/Kchengz/k-form-design) -->
 
-## 简介
+## 特性
 - 可视化配置页面
 - 提供栅格、表格等布局
 - 表单边距、布局等属性设置
@@ -105,10 +105,30 @@ export default {
         <td>true</td>
       </tr>
       <tr>
-        <td>showClose</td>
-        <td>是否显示关闭按钮</td>
-        <td>boolean</td>
-        <td>false</td>
+        <td>showBtnList</td>
+        <td>显示对应的操作按钮</td>
+        <td>array</td>
+        <td>[
+        "save",
+        "preview",
+        "importJson",
+        "exportJson",
+        "exportCode",
+        "reset",
+        "close"
+      ]</td>
+      </tr>
+      <tr>
+        <td>uploadFile</td>
+        <td>上传文件的默认api地址</td>
+        <td>string</td>
+        <td>http://cdn.kcz66.com/uploadFile.txt</td>
+      </tr>
+      <tr>
+        <td>uploadImage</td>
+        <td>上传图片的默认api地址</td>
+        <td>string</td>
+        <td>http://cdn.kcz66.com/uploadFile.txt</td>
       </tr>
     </tbody>
   </table>

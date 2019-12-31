@@ -8,6 +8,7 @@
       :data="optionsData"
       :fileList="fileList"
       :action="record.options.action"
+      @preview="handlePreview"
       @change="handleChange"
       :remove="remove"
       :beforeUpload="beforeUpload"
@@ -27,6 +28,7 @@
       :fileList="fileList"
       :data="optionsData"
       :action="record.options.action"
+      @preview="handlePreview"
       @change="handleChange"
       :remove="remove"
       :beforeUpload="beforeUpload"
@@ -93,6 +95,13 @@ export default {
         this.$emit("change", arr);
         this.$emit("input", arr);
       }, 10);
+    },
+    handlePreview(file) {
+      // 下载文件
+      let a = document.createElement("a");
+      a.href = file.url || file.thumbUrl;
+      a.download = file.name;
+      a.click();
     },
     remove() {
       this.handleSelectChange();

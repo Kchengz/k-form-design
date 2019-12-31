@@ -38,7 +38,7 @@
       </div>
     </a-upload>
     <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
-      <img alt="example" style="width: 100%" :src="previewImage" />
+      <img alt="example" style="width: 100%" :src="previewImageUrl" />
     </a-modal>
   </div>
 </template>
@@ -54,7 +54,8 @@ export default {
   data() {
     return {
       fileList: [],
-      previewVisible: false
+      previewVisible: false,
+      previewImageUrl: ""
     };
   },
   watch: {
@@ -101,7 +102,7 @@ export default {
     },
     handlePreview(file) {
       // 预览图片
-      this.previewImage = file.url || file.thumbUrl;
+      this.previewImageUrl = file.url || file.thumbUrl;
       this.previewVisible = true;
     },
     handleCancel() {

@@ -202,7 +202,7 @@ export default {
     },
     uploadFile: {
       type: String,
-      default: "http://cdn.kcz66.com/upload.txt"
+      default: "http://cdn.kcz66.com/uploadFile.txt"
     },
     uploadImage: {
       type: String,
@@ -333,8 +333,6 @@ export default {
       if (newTime - this.updateTime < 100) {
         return false;
       }
-      console.log(record);
-
       this.updateTime = newTime;
       this.selectItem = record;
       // 设置selectItem的值

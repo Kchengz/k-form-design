@@ -9,6 +9,7 @@ module.exports = {
       filename: "index.html"
     }
   },
+  productionSourceMap: false,
   css: {
     loaderOptions: {
       less: {
