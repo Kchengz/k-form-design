@@ -76,24 +76,50 @@
       <!-- 中间面板区域 start -->
       <section>
         <div class="title content-title">
-          <a size="small" @click="handleSave"> <a-icon type="save" />保存 </a>
-          <a size="small" @click="handleOpenPreviewModal">
+          <a
+            v-if="showBtnList.includes('save')"
+            size="small"
+            @click="handleSave"
+          >
+            <a-icon type="save" />保存
+          </a>
+          <a
+            v-if="showBtnList.includes('preview')"
+            size="small"
+            @click="handleOpenPreviewModal"
+          >
             <a-icon type="eye" />预览
           </a>
-          <a size="small" @click="handleOpenImportJsonModal">
+          <a
+            v-if="showBtnList.includes('importJson')"
+            size="small"
+            @click="handleOpenImportJsonModal"
+          >
             <a-icon type="to-top" />导入JSON
           </a>
-          <a size="small" @click="handleOpenJsonModal">
+          <a
+            v-if="showBtnList.includes('exportJson')"
+            size="small"
+            @click="handleOpenJsonModal"
+          >
             <a-icon type="file" />生成JSON
           </a>
-          <a size="small" @click="handleOpenCodeModal">
+          <a
+            v-if="showBtnList.includes('exportCode')"
+            size="small"
+            @click="handleOpenCodeModal"
+          >
             <a-icon type="code" />生成代码
           </a>
-          <a size="small" @click="handleReset">
+          <a
+            v-if="showBtnList.includes('reset')"
+            size="small"
+            @click="handleReset"
+          >
             <a-icon type="delete" />清空
           </a>
           <a
-            v-if="showClose"
+            v-if="showBtnList.includes('close')"
             size="small"
             style="color:#f22;"
             @click="handleClose"
@@ -161,9 +187,17 @@ export default {
       type: Boolean,
       default: true
     },
-    showClose: {
-      type: Boolean,
-      default: false
+    showBtnList: {
+      type: Array,
+      default: () => [
+        "save",
+        "preview",
+        "importJson",
+        "exportJson",
+        "exportCode",
+        "reset",
+        "close"
+      ]
     }
   },
   data() {

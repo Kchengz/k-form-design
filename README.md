@@ -99,6 +99,12 @@ export default {
         <td>"表单设计器 --by kcz"</td>
       </tr>
       <tr>
+        <td>showHead</td>
+        <td>是否显示head部分</td>
+        <td>boolean</td>
+        <td>true</td>
+      </tr>
+      <tr>
         <td>showClose</td>
         <td>是否显示关闭按钮</td>
         <td>boolean</td>
