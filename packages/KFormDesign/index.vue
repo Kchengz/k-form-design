@@ -4,6 +4,7 @@
     <div class="content" :class="{ 'show-head': showHead }">
       <!-- 左侧控件区域 start -->
       <aside class="left">
+        <!-- 基础控件 start -->
         <div class="title left-title">基础控件</div>
         <draggable
           tag="ul"
@@ -17,13 +18,38 @@
         >
           <li
             v-for="(val, index) in basicsList"
-            @dragstart="generateKey(basicsList, index)"
-            @dblclick="handleListPush(val)"
             :key="index"
+            @dragstart="generateKey(basicsList, index)"
+            @click="handleListPush(val)"
           >
             {{ val.name }}
           </li>
         </draggable>
+        <!-- 基础控件 end -->
+        <!-- 高级控件 start -->
+        <div class="title left-title">高级控件</div>
+        <draggable
+          tag="ul"
+          :value="highList"
+          v-bind="{
+            group: { name: 'form-draggable', pull: 'clone', put: false },
+            sort: false,
+            animation: 180,
+            ghostClass: 'moving'
+          }"
+        >
+          <li
+            v-for="(val, index) in highList"
+            :key="index"
+            @dragstart="generateKey(highList, index)"
+            @click="handleListPush(val)"
+          >
+            {{ val.name }}
+          </li>
+        </draggable>
+        <!-- 高级控件 end -->
+
+        <!-- 布局控件 start -->
         <div class="title left-title">布局控件</div>
         <draggable
           tag="ul"
@@ -39,10 +65,11 @@
             v-for="(val, index) in layoutList"
             :key="index"
             @dragstart="generateKey(layoutList, index)"
-            @dblclick="handleListPush(val)"
+            @click="handleListPush(val)"
             v-text="val.name"
           ></li>
         </draggable>
+        <!-- 布局控件 end -->
       </aside>
       <!-- 左侧控件区域 end -->
 
@@ -120,7 +147,7 @@ import kCodeModal from "./module/codeModal";
 import importJsonModal from "./module/importJsonModal";
 import previewModal from "./module/previewModal";
 import draggable from "vuedraggable";
-import { basicsList, layoutList } from "./config/formItemsConfig";
+import { basicsList, highList, layoutList } from "./config/formItemsConfig";
 import formItemProperties from "./module/formItemProperties";
 import formProperties from "./module/formProperties";
 export default {
@@ -143,6 +170,7 @@ export default {
     return {
       basicsList,
       layoutList,
+      highList,
       updateTime: 0,
       updateRecordTime: 0,
       data: {
@@ -152,11 +180,7 @@ export default {
           labelCol: { span: 4 },
           wrapperCol: { span: 18 },
           hideRequiredMark: false,
-          width: "100%",
-          marginTop: "0px",
-          marginRight: "0px",
-          marginBottom: "0px",
-          marginLeft: "0px"
+          customClass: ""
         }
       },
       previewOptions: {

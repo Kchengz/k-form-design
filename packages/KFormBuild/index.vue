@@ -8,13 +8,7 @@
     :hideRequiredMark="value.config.hideRequiredMark"
     :form="form"
     @submit="handleSubmit"
-    :style="{
-      width: value.config.width,
-      marginTop: value.config.marginTop,
-      marginRight: value.config.marginRight,
-      marginBottom: value.config.marginBottom,
-      marginLeft: value.config.marginLeft
-    }"
+    :style="value.config.customClass"
   >
     <buildBlocks
       @handleReset="handleReset"

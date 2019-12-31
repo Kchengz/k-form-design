@@ -87,11 +87,7 @@ export default {
           labelCol: { span: 4 },
           wrapperCol: { span: 18 },
           hideRequiredMark: false,
-          width: "100%",
-          marginTop: "0px",
-          marginRight: "0px",
-          marginBottom: "0px",
-          marginLeft: "0px"
+          customClass: ""
         }
       }
     };

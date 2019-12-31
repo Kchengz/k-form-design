@@ -123,14 +123,15 @@
             'select',
             'switch',
             'slider'
-          ].includes(selectItem.type) && options.defaultValue !== 'undefined'
+          ].includes(selectItem.type) &&
+            typeof options.defaultValue !== 'undefined'
         "
         label="默认值"
       >
         <a-input
           v-model="options.defaultValue"
           :placeholder="
-            typeof options.format === 'undefined' ? '' : options.format
+            typeof options.format === 'undefined' ? '请输入' : options.format
           "
         />
       </a-form-item>
@@ -184,7 +185,36 @@
         <kCheckbox v-model="options.banner" label="无边框" />
         <kCheckbox v-model="options.closable" label="可关闭" />
       </a-form-item>
-
+      <!-- 上传图片 -->
+      <a-form-item v-if="selectItem.type === 'uploadImg'" label="样式">
+        <a-radio-group buttonStyle="solid" v-model="options.listType">
+          <a-radio-button value="text">text</a-radio-button>
+          <a-radio-button value="picture">picture</a-radio-button>
+          <a-radio-button value="picture-card">card</a-radio-button>
+        </a-radio-group>
+      </a-form-item>
+      <!-- 上传数量 -->
+      <a-form-item
+        v-if="typeof options.limit !== 'undefined'"
+        label="最大上传数量"
+      >
+        <a-input-number :min="1" v-model="options.limit" />
+      </a-form-item>
+      <!-- 上传地址 -->
+      <a-form-item
+        v-if="typeof options.action !== 'undefined'"
+        label="上传地址"
+      >
+        <a-input v-model="options.action" placeholder="请输入"></a-input>
+      </a-form-item>
+      <!-- 上传额外参数 -->
+      <a-form-item
+        v-if="typeof options.data !== 'undefined'"
+        label="额外参数（JSON格式）"
+      >
+        <a-input v-model="options.data" placeholder="严格JSON格式"></a-input>
+      </a-form-item>
+      <!-- 文字对齐方式 -->
       <a-form-item v-if="selectItem.type === 'text'" label="文字对齐方式">
         <a-radio-group buttonStyle="solid" v-model="options.textAlign">
           <a-radio-button value="left">左</a-radio-button>
@@ -249,6 +279,11 @@
           v-model="options.showInput"
           label="显示输入框"
         />
+        <kCheckbox
+          v-if="typeof options.drag !== 'undefined'"
+          v-model="options.drag"
+          label="允许拖拽"
+        />
       </a-form-item>
 
       <a-form-item
@@ -260,18 +295,10 @@
         <kCheckbox v-model="selectItem.rules[0].required" label="必填" />
         <KChangeOption v-model="selectItem.rules" type="rules" />
       </a-form-item>
+
       <!-- 表格选项 -->
-      <a-form-item v-if="selectItem.type === 'table'" label="顶部外边距">
-        <a-input v-model="selectItem.options.marginTop" />
-      </a-form-item>
-      <a-form-item v-if="selectItem.type === 'table'" label="右边外边距">
-        <a-input v-model="selectItem.options.marginRight" />
-      </a-form-item>
-      <a-form-item v-if="selectItem.type === 'table'" label="底部外边距">
-        <a-input v-model="selectItem.options.marginBottom" />
-      </a-form-item>
-      <a-form-item v-if="selectItem.type === 'table'" label="左边外边距">
-        <a-input v-model="selectItem.options.marginLeft" />
+      <a-form-item v-if="selectItem.type === 'table'" label="表格样式CSS">
+        <a-input v-model="selectItem.options.customClass" />
       </a-form-item>
       <a-form-item v-if="selectItem.type === 'table'" label="属性">
         <kCheckbox v-model="selectItem.options.bordered" label="显示边框" />

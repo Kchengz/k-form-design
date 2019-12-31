@@ -2,24 +2,27 @@
 @aside-border-color      : #ccc;
 @primary-color           : #1890ff;
 @primary-background-color: rgba(134, 197, 255, 0.12);
-@primary-hover-bg-color: rgba(109, 184, 255, 0.36);
+@primary-hover-bg-color  : rgba(109, 184, 255, 0.36);
 
 @grid-color           : #dca13e;
 @grid-background-color: rgba(255, 242, 168, 0.10);
-@grid-hover-bg-color: #fff7c0;
+@grid-hover-bg-color  : #fff7c0;
 
 @moving-border-color: #ff7777;
 @import "./kTable.less";
 
 .form-designer-container-9136076486841527 {
   height: 100vh;
+
   // 设计器内容样式
   .content {
     display: flex;
     height : calc(100% - 30px);
-    &.show-head{
-      height : calc(100% - 90px);
+
+    &.show-head {
+      height: calc(100% - 90px);
     }
+
     flex:1;
 
     section {
@@ -67,17 +70,17 @@
           flex-wrap    : wrap;
 
           >li {
-            width        : calc(50% - 8px);
-            margin       : 4px 3px;
-            padding-left : 12px;
-            // text-align: center;
-            height       : 30px;
-            line-height  : 30px;
-            cursor       : move;
-            user-select  : none;
-            background   : #f4f6fc;
-            border       : 1px dashed transparent;
-            transition: all .3s;
+            width       : calc(50% - 8px);
+            margin      : 4px 3px;
+            padding-left: 12px;
+            height      : 30px;
+            line-height : 30px;
+            cursor      : move;
+            user-select : none;
+            background  : #f4f6fc;
+            border      : 1px dashed transparent;
+            transition  : all .3s;
+
             &:hover {
               color : @primary-color;
               border: 1px dashed @primary-color;
@@ -121,7 +124,6 @@
         background: #efefef;
         border    : 1px solid #ccc;
         position  : relative;
-        overflow  : auto;
 
         >.hint-text {
           position  : absolute;
@@ -131,21 +133,23 @@
           text-align: center;
           font-size : 20px;
           color     : #999999;
-          z-index: 16;
+          z-index   : 16;
         }
 
         .a-form-box {
-          height : 100%;
-        // box-shadow: 0px 1px 5px 1px #ccc;
+          height       : 100%;
+          // box-shadow: 0px 1px 5px 1px #ccc;
         }
 
         .draggable-box {
-          height: 100%;
+          height  : 100%;
+          overflow: auto;
+
           .list-main {
             min-height: 100%;
-            padding: 6px 10px;
+            padding   : 6px 10px;
             position  : relative;
-            background   : #fff;
+            background: #fff;
             border    : 1px #ccc dashed;
 
             .moving {
@@ -186,6 +190,7 @@
               .form-item-box {
                 position  : relative;
                 box-sizing: border-box;
+
                 &::before {
                   content : "";
                   position: absolute;
@@ -204,7 +209,7 @@
               }
 
               &:hover {
-                background    : @primary-hover-bg-color;
+                background: @primary-hover-bg-color;
               }
 
               &.active {
@@ -213,31 +218,6 @@
 
                 outline-offset: 0;
               }
-
-              // >.drag-move {
-              //   position     : absolute;
-              //   top          : 50%;
-              //   left         : -2px;
-              //   width        : 36px;
-              //   height       : 36px;
-              //   line-height  : 36px;
-              //   transform    : rotate(90deg) translateX(-50%);
-              //   text-align   : center;
-              //   font-size    : 16px;
-              //   border-radius: 8px 8px 0 0;
-              //   background   : @primary-color;
-              //   color        : #fff;
-              //   z-index      : 980;
-              //   transition: all .3s;
-              //   &.unactivated{
-              //    opacity: 0 !important;
-              //    pointer-events: none;
-              //  }
-              //  &.active{
-              //    opacity: 1 !important;
-              //  }
-                
-              // }
 
               .show-key-box {
                 // 显示key
@@ -258,14 +238,16 @@
                 text-align : center;
                 color      : #fff;
                 z-index    : 989;
-                transition: all .3s;
-                &.unactivated{
-                 opacity: 0 !important;
-                 pointer-events: none;
-               }
-               &.active{
-                 opacity: 1 !important;
-               }
+                transition : all .3s;
+
+                &.unactivated {
+                  opacity       : 0 !important;
+                  pointer-events: none;
+                }
+
+                &.active {
+                  opacity: 1 !important;
+                }
               }
 
               >.copy {
@@ -292,6 +274,7 @@
               margin    : 2px 0;
               width     : 100%;
               transition: all .4s;
+
               .form-item-box {
                 position  : relative;
                 box-sizing: border-box;
@@ -314,6 +297,7 @@
                     min-width : 50px;
                     border    : 1px #ccc dashed;
                     background: #fff;
+
                     .list-main {
                       min-height: 60px;
                       position  : relative;
@@ -324,14 +308,15 @@
               }
 
               &:hover {
-                background    : @grid-hover-bg-color;
+                background       : @grid-hover-bg-color;
                 // outline       : 1px solid @grid-color;
-                outline-offset: 0px;
-                .grid-row,
-              .table-layout{
-                background    : @grid-hover-bg-color;
+                outline-offset   : 0px;
 
-              }
+                .grid-row,
+                .table-layout {
+                  background: @grid-hover-bg-color;
+
+                }
               }
 
               &.active {
@@ -339,30 +324,6 @@
                 border        : 1px solid @grid-color;
                 outline-offset: 0;
               }
-
-              // >.drag-move {
-              //   position     : absolute;
-              //   top          : 50%;
-              //   left         : -2px;
-              //   width        : 36px;
-              //   height       : 36px;
-              //   line-height  : 36px;
-              //   transform    : rotate(90deg) translateX(-50%);
-              //   text-align   : center;
-              //   font-size    : 16px;
-              //   border-radius: 8px 8px 0 0;
-              //   background   : @grid-color;
-              //   color        : #fff;
-              //   z-index      : 980;
-              //   transition: all .3s;
-              //    &.unactivated{
-              //     opacity: 0 !important;
-              //     pointer-events: none;
-              //   }
-              //   &.active{
-              //     opacity: 1 !important;
-              //   }
-              // }
 
               >.copy,
               >.delete {
@@ -374,12 +335,14 @@
                 text-align : center;
                 color      : #fff;
                 z-index    : 989;
-                transition: all .3s;
-                 &.unactivated{
-                  opacity: 0 !important;
+                transition : all .3s;
+
+                &.unactivated {
+                  opacity       : 0 !important;
                   pointer-events: none;
                 }
-                &.active{
+
+                &.active {
                   opacity: 1 !important;
                 }
               }
@@ -410,7 +373,8 @@
     transition: all 0s;
     box-shadow: 3px 3px 5px #999;
     padding   : 8px 0;
-    z-index: 999;
+    z-index   : 999;
+
     ul {
       padding   : 0;
       margin    : 0;
@@ -438,22 +402,52 @@
       margin-right: 8px;
     }
   }
+
   // 列表动画
   .list-enter-active {
     transition: all .5s;
   }
+
   .list-leave-active {
     transition: all .3s;
   }
-  .list-enter, .list-leave-to
-  /* .list-leave-active for below version 2.1.8 */ {
-    opacity: 0;
+
+  .list-enter,
+  .list-leave-to
+
+  /* .list-leave-active for below version 2.1.8 */
+    {
+    opacity  : 0;
     transform: translateX(-100px);
   }
+
   .list-enter {
     height: 30px;
   }
 
+  ::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 6px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height               : 4px;
+    scrollbar-arrow-color: red;
+
+  }
+
+  ::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius        : 5px;
+    box-shadow           : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background           : rgba(0, 0, 0, 0.2);
+    scrollbar-arrow-color: red;
+  }
+
+  ::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    background   : rgba(0, 0, 0, 0.1);
+  }
 }
 
 
@@ -484,17 +478,19 @@
 }
 
 // k-form-build
-.k-form-build-9136076486841527{
-  .ant-form-item{
+.k-form-build-9136076486841527 {
+  .ant-form-item {
     margin-bottom: 18px;
   }
+
   // 防止报错信息占位
-.ant-form-item-control{
-  position: relative;
-  .ant-form-explain{
-    bottom: -16px;
-    position: absolute;
-    z-index: 10;
+  .ant-form-item-control {
+    position: relative;
+
+    .ant-form-explain {
+      bottom  : -16px;
+      position: absolute;
+      z-index : 10;
+    }
   }
-}
 }

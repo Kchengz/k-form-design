@@ -243,6 +243,32 @@
         />
       </div>
     </div>
+    <!-- 上传图片 -->
+    <UploadImg
+      v-else-if="record.type === 'uploadImg'"
+      :style="`width:${record.options.width}`"
+      :record="record"
+      v-decorator="[
+        record.model,
+        {
+          initialValue: record.options.defaultValue,
+          rules: record.rules
+        }
+      ]"
+    />
+    <!-- 上传文件 -->
+    <UploadFile
+      v-else-if="record.type === 'uploadFile'"
+      :style="`width:${record.options.width}`"
+      :record="record"
+      v-decorator="[
+        record.model,
+        {
+          initialValue: record.options.defaultValue,
+          rules: record.rules
+        }
+      ]"
+    />
   </a-form-item>
   <!-- button按钮 -->
   <a-form-item
@@ -279,7 +305,7 @@
       :banner="record.options.banner"
     />
   </a-form-item>
-  <!-- alert提示 -->
+  <!-- 文本 -->
   <a-form-item v-else-if="record.type === 'text'">
     <div :style="{ textAlign: record.options.textAlign }">
       <label
@@ -288,6 +314,7 @@
       ></label>
     </div>
   </a-form-item>
+
   <div v-else>
     <!-- 分割线 -->
     <a-divider
@@ -311,6 +338,9 @@
  * date 2019-11-20
  */
 import moment from "moment";
+
+const UploadFile = () => import("../UploadFile");
+const UploadImg = () => import("../UploadImg");
 export default {
   name: "KFormItem",
   props: {
@@ -324,6 +354,10 @@ export default {
       type: Object,
       required: true
     }
+  },
+  components: {
+    UploadImg,
+    UploadFile
   },
   methods: {
     moment
