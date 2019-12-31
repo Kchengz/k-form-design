@@ -122,7 +122,8 @@
             'rate',
             'select',
             'switch',
-            'slider'
+            'slider',
+            'html'
           ].includes(selectItem.type) &&
             typeof options.defaultValue !== 'undefined'
         "
@@ -134,6 +135,16 @@
             typeof options.format === 'undefined' ? '请输入' : options.format
           "
         />
+      </a-form-item>
+      <!-- 修改html -->
+      <a-form-item v-if="selectItem.type === 'html'" label="默认值">
+        <div class="code-box-9136076486841527">
+          <codemirror
+            style="height:100%;"
+            ref="myEditor"
+            v-model="options.defaultValue"
+          ></codemirror>
+        </div>
       </a-form-item>
       <a-form-item
         v-if="typeof options.format !== 'undefined'"
@@ -322,6 +333,7 @@
  */
 import KChangeOption from "../../KChangeOption/index.vue";
 import kCheckbox from "../../KCheckbox/index.vue";
+import { codemirror } from "vue-codemirror-lite";
 export default {
   name: "formItemProperties",
   data() {
@@ -336,7 +348,8 @@ export default {
   },
   components: {
     KChangeOption,
-    kCheckbox
+    kCheckbox,
+    codemirror
   },
   props: {
     selectItem: {

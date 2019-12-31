@@ -81,6 +81,10 @@ export default {
     };
   },
   props: {
+    noModel: {
+      type: Array,
+      required: true
+    },
     data: {
       type: Object,
       required: true
@@ -112,17 +116,7 @@ export default {
           key,
           model: key
         });
-        if (
-          [
-            "button",
-            "divider",
-            "card",
-            "grid",
-            "table",
-            "alert",
-            "text"
-          ].includes(columns[newIndex].type)
-        ) {
+        if (this.noModel.includes(columns[newIndex].type)) {
           // 删除不需要的model属性
           delete columns[newIndex].model;
         }

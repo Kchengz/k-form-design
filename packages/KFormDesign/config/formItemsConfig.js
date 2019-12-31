@@ -288,6 +288,14 @@ export const basicsList = [
       showRequiredMark: false
     },
     key: ""
+  },
+  {
+    type: "html",
+    name: "HTML",
+    options: {
+      defaultValue: "<strong>This is a HTML</strong>"
+    },
+    key: ""
   }
 ];
 
@@ -303,7 +311,7 @@ export const highList = [
       width: "100%",
       limit: 3,
       data: "{}",
-      action: "http://cdn.kcz66.com/upload.txt",
+      action: "",
       placeholder: "上传"
     },
     model: "",
@@ -325,7 +333,7 @@ export const highList = [
       data: "{}",
       limit: 3,
       placeholder: "上传",
-      action: "http://cdn.kcz66.com/upload-img.txt",
+      action: "",
       listType: "picture-card"
     },
     model: "",

@@ -186,6 +186,7 @@
               margin    : 4px 0;
               overflow  : hidden;
               transition: all .3s;
+              min-height: 36px;
 
               .form-item-box {
                 position  : relative;
@@ -452,7 +453,7 @@
 
 
 
-// code盒子样子
+// code盒子样式
 .json-box-9136076486841527 {
   height  : 580px;
   overflow: auto;
@@ -463,6 +464,26 @@
     .CodeMirror-wrap {
       height    : 100%;
       background: #f6f6f6;
+    }
+  }
+}
+
+// html code盒子样式
+.code-box-9136076486841527 {
+  height  : 300px;
+  overflow: auto;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+  .vue-codemirror-wrap {
+    height: 100%;
+
+    .CodeMirror-wrap {
+      height    : 100%;
+      background: #fcfcfc;
+      pre.CodeMirror-line,.CodeMirror-linenumber{
+        min-height: 24px;
+        line-height: 24px;
+      }
     }
   }
 }

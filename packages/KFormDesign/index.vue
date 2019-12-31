@@ -130,6 +130,7 @@
         <k-form-component-panel
           :data="data"
           :selectItem="selectItem"
+          :noModel="noModel"
           ref="KFCP"
           @handleSetSelectItem="handleSetSelectItem"
         />
@@ -198,15 +199,32 @@ export default {
         "reset",
         "close"
       ]
+    },
+    uploadFile: {
+      type: String,
+      default: "http://cdn.kcz66.com/upload.txt"
+    },
+    uploadImage: {
+      type: String,
+      default: "http://cdn.kcz66.com/upload-img.txt"
     }
   },
   data() {
     return {
       basicsList,
       layoutList,
-      highList,
       updateTime: 0,
       updateRecordTime: 0,
+      noModel: [
+        "button",
+        "divider",
+        "card",
+        "grid",
+        "table",
+        "alert",
+        "text",
+        "html"
+      ],
       data: {
         list: [],
         config: {
@@ -237,6 +255,13 @@ export default {
     formProperties,
     draggable
   },
+  computed: {
+    highList() {
+      highList[0].options.action = this.uploadFile;
+      highList[1].options.action = this.uploadImage;
+      return highList;
+    }
+  },
   methods: {
     generateKey(list, index) {
       // 生成key值
@@ -246,17 +271,7 @@ export default {
         key,
         model: key
       });
-      if (
-        [
-          "button",
-          "divider",
-          "card",
-          "grid",
-          "table",
-          "alert",
-          "text"
-        ].includes(list[index].type)
-      ) {
+      if (this.noModel.includes(list[index].type)) {
         // 删除不需要的model属性
         delete list[index].model;
       }
@@ -272,17 +287,7 @@ export default {
           key,
           model: key
         };
-        if (
-          [
-            "button",
-            "divider",
-            "card",
-            "grid",
-            "table",
-            "alert",
-            "text"
-          ].includes(item.type)
-        ) {
+        if (this.noModel.includes(item.type)) {
           // 删除不需要的model属性
           delete item.model;
         }

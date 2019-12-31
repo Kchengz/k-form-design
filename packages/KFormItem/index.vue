@@ -1,6 +1,6 @@
 <template>
   <a-form-item
-    v-if="!['divider', 'button', 'alert', 'text'].includes(record.type)"
+    v-if="!['divider', 'button', 'alert', 'text', 'html'].includes(record.type)"
     :label="record.name"
     :label-col="config.layout === 'horizontal' ? config.labelCol : {}"
     :wrapper-col="config.layout === 'horizontal' ? config.wrapperCol : {}"
@@ -314,7 +314,11 @@
       ></label>
     </div>
   </a-form-item>
-
+  <!-- html -->
+  <div
+    v-else-if="record.type === 'html'"
+    v-html="record.options.defaultValue"
+  ></div>
   <div v-else>
     <!-- 分割线 -->
     <a-divider
