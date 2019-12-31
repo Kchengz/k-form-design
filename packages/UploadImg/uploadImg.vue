@@ -13,6 +13,7 @@
       :action="record.options.action"
       accept="image/gif, image/jpeg, image/png"
       @change="handleChange"
+      @preview="handlePreview"
       :remove="remove"
       :beforeUpload="beforeUpload"
     >
@@ -36,6 +37,9 @@
         <div class="ant-upload-text">{{ record.options.placeholder }}</div>
       </div>
     </a-upload>
+    <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
+      <img alt="example" style="width: 100%" :src="previewImage" />
+    </a-modal>
   </div>
 </template>
 <script>
@@ -49,7 +53,8 @@ export default {
   props: ["record", "value"],
   data() {
     return {
-      fileList: []
+      fileList: [],
+      previewVisible: false
     };
   },
   watch: {
@@ -93,6 +98,15 @@ export default {
         this.$emit("change", arr);
         this.$emit("input", arr);
       }, 10);
+    },
+    handlePreview(file) {
+      // 预览图片
+      this.previewImage = file.url || file.thumbUrl;
+      this.previewVisible = true;
+    },
+    handleCancel() {
+      // 取消操作
+      this.previewVisible = false;
     },
     remove() {
       this.handleSelectChange();
