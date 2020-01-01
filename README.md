@@ -17,7 +17,7 @@
 
 ## 简介
 基于vue和ant-design-vue实现的表单设计器，使用了最新的前端技术栈，让表单开发更简单高效
-- [预览地址](http://cdn.kcz66.com/form-design@2.1.3.html)
+- [预览地址](http://cdn.kcz66.com/2.1.5/form-design.html)
 <!-- - [开源地址](https://github.com/Kchengz/k-form-design) -->
 
 ## 特性
@@ -33,7 +33,7 @@
 - KFormDesign 表单设计器（基于可视化操作快速设计出表单页面，生成配置json或页面）
 - KFormBuild 表单构建器（根据设计器中获取的配置json数据，快速构建出表单页面）
 
-## 安装依赖
+## 安装
 ```
 # 使用yarn 
 yarn add k-form-design

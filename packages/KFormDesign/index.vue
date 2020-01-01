@@ -323,9 +323,14 @@ export default {
     },
     handleReset() {
       // 清空
-      this.data.list = [];
-      this.handleSetSelectItem({ key: "" });
-      this.$message.success("已清空");
+      try {
+        this.data.list = [];
+        this.handleSetSelectItem({ key: "" });
+        this.$message.success("已清空");
+        return true;
+      } catch {
+        return false;
+      }
     },
     handleSetSelectItem(record) {
       // 操作间隔不能低于100毫秒
@@ -339,7 +344,12 @@ export default {
     },
     handleSetData(data) {
       // 用于父组件赋值
-      this.data = data;
+      try {
+        this.data = data;
+        return true;
+      } catch {
+        return false;
+      }
     },
     handleSave() {
       // 保存函数

@@ -1,5 +1,13 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-12-30 00:37:05
+ * @LastEditTime : 2020-01-01 11:05:03
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \k-form-design\packages\KFormDesign\module\header.vue
+ -->
 <template>
-  <header v-text="title"></header>
+  <header class="header-9136076486841527" v-text="title"></header>
 </template>
 <script>
 /*
@@ -16,15 +24,3 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
-header {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  background: #54c7f6;
-  color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-}
-</style>
