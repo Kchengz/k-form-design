@@ -370,7 +370,11 @@ export default {
     handleSetData(data) {
       // 用于父组件赋值
       try {
-        this.data = data;
+        if (typeof data !== "object") {
+          return false;
+        } else {
+          this.data = data;
+        }
         return true;
       } catch {
         return false;
