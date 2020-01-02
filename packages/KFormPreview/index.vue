@@ -19,9 +19,9 @@
  * author kcz
  * date 2019-11-20
  */
-import jsonModel from "./jsonModal";
+import jsonModel from "../KFormDesign/module/jsonModal";
 export default {
-  name: "previewModal",
+  name: "KFormPreview",
   data() {
     return {
       visible: false,

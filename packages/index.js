@@ -14,13 +14,14 @@ import "../styles/formDesign.less";
 // import KChangeOption from "./KChangeOption/index.vue";
 // import KCheckbox from "./KCheckbox/index.vue";
 import KFormDesign from "./KFormDesign/index";
+import KFormPreview from "./KFormPreview/index";
 import KFormBuild from "./KFormBuild/index";
 import KFormItem from "./KFormItem/index";
 import {
   customComponents,
   highList
 } from "./KFormDesign/config/formItemsConfig";
-const components = [KFormDesign, KFormBuild, KFormItem];
+const components = [KFormDesign, KFormBuild, KFormItem, KFormPreview];
 
 const install = function(Vue) {
   // use ant组件
@@ -36,6 +37,50 @@ if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 
+// import { Alert } from "ant-design-vue";
+
+// // const UploadImg = () => import("../../UploadImg");
+// // 自定义组件
+// const customComponents = {
+//   title: "自定义组件",
+//   list: [
+//     {
+//       name: "测试",
+//       type: "jkjksdf",
+//       component: Alert,
+//       options: {
+//         multiple: false,
+//         disabled: false,
+//         width: "100%",
+//         data: "{}",
+//         limit: 3,
+//         placeholder: "上传",
+//         action: "",
+//         listType: "picture-card"
+//       },
+//       model: "",
+//       key: "",
+//       rules: [
+//         {
+//           required: false,
+//           message: "必填项"
+//         }
+//       ]
+//     }
+//   ]
+// };
+
+// /**
+//  * @Author: kcz
+//  * @description:
+//  * @param {type}
+//  * @return:
+//  */
+// export function getCustomComponents(){
+//   // 获取自定义组件数据
+//   return customComponents
+// }
+
 /**
  * @Author: kcz
  * @description: 配置组件及添加自定义组件
@@ -44,8 +89,9 @@ if (typeof window !== "undefined" && window.Vue) {
  */
 function setFormDesignConfig(config) {
   try {
-    customComponents.title = config.customTitle || "自义定组件";
-    customComponents.list = config.customList || [];
+    customComponents.title = config.title || "自义定组件";
+    customComponents.list = config.list || [];
+    window.$customComponentList = config.list || [];
     highList[0].options.action =
       config.uploadFile || "http://cdn.kcz66.com/uploadFile.txt";
     highList[1].options.action =
@@ -57,7 +103,13 @@ function setFormDesignConfig(config) {
 }
 
 // 这里可以用es6的解构语法导入组件 大概就是这个意思 毕竟没有用插件
-export { KFormDesign, KFormBuild, KFormItem, setFormDesignConfig };
+export {
+  KFormDesign,
+  KFormBuild,
+  KFormItem,
+  KFormPreview,
+  setFormDesignConfig
+};
 export default {
   install
 };

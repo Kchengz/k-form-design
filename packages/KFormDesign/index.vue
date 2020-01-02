@@ -198,7 +198,7 @@ import kFormComponentPanel from "./module/formComponentPanel";
 import kJsonModal from "./module/jsonModal";
 import kCodeModal from "./module/codeModal";
 import importJsonModal from "./module/importJsonModal";
-import previewModal from "./module/previewModal";
+import previewModal from "../KFormPreview/index.vue";
 import draggable from "vuedraggable";
 import {
   basicsList,

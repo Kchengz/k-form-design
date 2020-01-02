@@ -366,10 +366,9 @@
  * date 2019-11-20
  */
 import moment from "moment";
-import { customComponents } from "../KFormDesign/config/formItemsConfig";
 import customComponent from "./customComponent";
-const UploadFile = () => import("../UploadFile");
-const UploadImg = () => import("../UploadImg");
+import UploadFile from "../UploadFile";
+import UploadImg from "../UploadImg";
 export default {
   name: "KFormItem",
   props: {
@@ -391,7 +390,11 @@ export default {
   },
   computed: {
     customList() {
-      return customComponents.list.map(item => item.type);
+      if (window.$customComponentList) {
+        return window.$customComponentList.map(item => item.type);
+      } else {
+        return [];
+      }
     }
   },
   methods: {

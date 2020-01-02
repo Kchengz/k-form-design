@@ -40,6 +40,9 @@
       <a-form-item v-if="typeof options.width !== 'undefined'" label="宽度">
         <a-input placeholder="请输入" v-model="options.width" />
       </a-form-item>
+      <a-form-item v-if="typeof options.height !== 'undefined'" label="高度">
+        <a-input-number v-model="options.height" />
+      </a-form-item>
       <a-form-item v-if="typeof options.step !== 'undefined'" label="步长">
         <a-input-number v-model="options.step" placeholder="请输入" />
       </a-form-item>
@@ -48,6 +51,12 @@
       </a-form-item>
       <a-form-item v-if="typeof options.max !== 'undefined'" label="最大值">
         <a-input-number v-model="options.max" placeholder="请输入" />
+      </a-form-item>
+      <a-form-item
+        v-if="typeof options.dictCode !== 'undefined'"
+        label="dictCode"
+      >
+        <a-input v-model="options.dictCode"></a-input>
       </a-form-item>
       <a-form-item
         v-if="typeof options.options !== 'undefined'"

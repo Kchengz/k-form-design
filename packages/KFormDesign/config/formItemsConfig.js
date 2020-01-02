@@ -347,6 +347,8 @@ export const highList = [
   }
 ];
 
+// import { Alert } from "ant-design-vue";
+
 // const UploadImg = () => import("../../UploadImg");
 // 自定义组件
 export const customComponents = {
@@ -355,7 +357,7 @@ export const customComponents = {
     // {
     //   name: "测试",
     //   type: "jkjksdf",
-    //   component: UploadImg,
+    //   component: Alert,
     //   options: {
     //     multiple: false,
     //     disabled: false,
