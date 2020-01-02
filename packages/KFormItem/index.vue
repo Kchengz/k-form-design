@@ -1,6 +1,23 @@
 <template>
   <a-form-item
-    v-if="!['divider', 'button', 'alert', 'text', 'html'].includes(record.type)"
+    v-if="
+      [
+        'input',
+        'textarea',
+        'date',
+        'time',
+        'number',
+        'radio',
+        'number',
+        'checkbox',
+        'select',
+        'rate',
+        'switch',
+        'slider',
+        'uploadImg',
+        'uploadFile'
+      ].includes(record.type)
+    "
     :label="record.name"
     :label-col="config.layout === 'horizontal' ? config.labelCol : {}"
     :wrapper-col="config.layout === 'horizontal' ? config.wrapperCol : {}"
@@ -319,6 +336,13 @@
     v-else-if="record.type === 'html'"
     v-html="record.options.defaultValue"
   ></div>
+  <!-- 自定义组件 -->
+  <customComponent
+    v-else-if="customList.includes(record.type)"
+    :record="record"
+    :config="config"
+  />
+
   <div v-else>
     <!-- 分割线 -->
     <a-divider
@@ -342,7 +366,8 @@
  * date 2019-11-20
  */
 import moment from "moment";
-
+import { customComponents } from "../KFormDesign/config/formItemsConfig";
+import customComponent from "./customComponent";
 const UploadFile = () => import("../UploadFile");
 const UploadImg = () => import("../UploadImg");
 export default {
@@ -361,7 +386,13 @@ export default {
   },
   components: {
     UploadImg,
-    UploadFile
+    UploadFile,
+    customComponent
+  },
+  computed: {
+    customList() {
+      return customComponents.list.map(item => item.type);
+    }
   },
   methods: {
     moment

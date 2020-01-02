@@ -311,7 +311,7 @@ export const highList = [
       width: "100%",
       limit: 3,
       data: "{}",
-      action: "",
+      action: "http://cdn.kcz66.com/uploadFile.txt",
       placeholder: "上传"
     },
     model: "",
@@ -333,7 +333,7 @@ export const highList = [
       data: "{}",
       limit: 3,
       placeholder: "上传",
-      action: "",
+      action: "http://cdn.kcz66.com/upload-img.txt",
       listType: "picture-card"
     },
     model: "",
@@ -346,6 +346,37 @@ export const highList = [
     ]
   }
 ];
+
+// const UploadImg = () => import("../../UploadImg");
+// 自定义组件
+export const customComponents = {
+  title: "自定义组件",
+  list: [
+    // {
+    //   name: "测试",
+    //   type: "jkjksdf",
+    //   component: UploadImg,
+    //   options: {
+    //     multiple: false,
+    //     disabled: false,
+    //     width: "100%",
+    //     data: "{}",
+    //     limit: 3,
+    //     placeholder: "上传",
+    //     action: "",
+    //     listType: "picture-card"
+    //   },
+    //   model: "",
+    //   key: "",
+    //   rules: [
+    //     {
+    //       required: false,
+    //       message: "必填项"
+    //     }
+    //   ]
+    // }
+  ]
+};
 
 // 布局控件
 export const layoutList = [

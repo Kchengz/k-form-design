@@ -48,6 +48,32 @@
           </li>
         </draggable>
         <!-- 高级控件 end -->
+        <!-- 自定义控件 start -->
+        <div
+          class="title left-title"
+          v-if="customComponents.list.length > 0"
+          v-text="customComponents.title"
+        ></div>
+        <draggable
+          tag="ul"
+          :value="customComponents.list"
+          v-bind="{
+            group: { name: 'form-draggable', pull: 'clone', put: false },
+            sort: false,
+            animation: 180,
+            ghostClass: 'moving'
+          }"
+        >
+          <li
+            v-for="(val, index) in customComponents.list"
+            :key="index"
+            @dragstart="generateKey(customComponents.list, index)"
+            @click="handleListPush(val)"
+          >
+            {{ val.name }}
+          </li>
+        </draggable>
+        <!-- 自定义控件 end -->
 
         <!-- 布局控件 start -->
         <div class="title left-title">布局控件</div>
@@ -174,7 +200,12 @@ import kCodeModal from "./module/codeModal";
 import importJsonModal from "./module/importJsonModal";
 import previewModal from "./module/previewModal";
 import draggable from "vuedraggable";
-import { basicsList, highList, layoutList } from "./config/formItemsConfig";
+import {
+  basicsList,
+  highList,
+  layoutList,
+  customComponents
+} from "./config/formItemsConfig";
 import formItemProperties from "./module/formItemProperties";
 import formProperties from "./module/formProperties";
 export default {
@@ -199,20 +230,14 @@ export default {
         "reset",
         "close"
       ]
-    },
-    uploadFile: {
-      type: String,
-      default: "http://cdn.kcz66.com/uploadFile.txt"
-    },
-    uploadImage: {
-      type: String,
-      default: "http://cdn.kcz66.com/upload-img.txt"
     }
   },
   data() {
     return {
       basicsList,
       layoutList,
+      highList,
+      customComponents,
       updateTime: 0,
       updateRecordTime: 0,
       noModel: [
@@ -255,13 +280,13 @@ export default {
     formProperties,
     draggable
   },
-  computed: {
-    highList() {
-      highList[0].options.action = this.uploadFile;
-      highList[1].options.action = this.uploadImage;
-      return highList;
-    }
-  },
+  // computed: {
+  //   highList() {
+  //     highList[0].options.action = this.uploadFile;
+  //     highList[1].options.action = this.uploadImage;
+  //     return highList;
+  //   }
+  // },
   methods: {
     generateKey(list, index) {
       // 生成key值
