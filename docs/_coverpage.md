@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-01 15:07:57
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-01 17:46:36
+ * @LastEditTime : 2020-01-02 09:06:29
  -->
 
 
@@ -25,7 +25,7 @@
 - 快速获取表单数据
 - 支持表单验证
 
-[GitHub](https://github.com/docsifyjs/docsify/)
+[GitHub](https://github.com/Kchengz/k-form-design)
 [文档](/zh-cn/guide/start) 
 
 <!-- background color -->
