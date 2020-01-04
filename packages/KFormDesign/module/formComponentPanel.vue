@@ -1,3 +1,10 @@
+<!--
+ * @Description: 表单设计器内容展示操作组件
+ * @Author: kcz
+ * @Date: 2019-12-31 19:39:48
+ * @LastEditors  : kcz
+ * @LastEditTime : 2020-01-04 17:30:56
+ -->
 <template>
   <div class="form-panel">
     <p class="hint-text" v-show="data.list.length === 0">
@@ -21,7 +28,7 @@
         }"
         v-model="data.list"
         @add="handleAdd"
-        @end="dragEnd($event, data.list)"
+        @start="dragStart($event, data.list)"
       >
         <transition-group tag="div" name="list" class="list-main">
           <layoutItem
@@ -31,7 +38,7 @@
             :record="record"
             :config="data.config"
             :selectItem.sync="selectItem"
-            @dragEnd="dragEnd"
+            @dragStart="dragStart"
             @handleSelectItem="handleSelectItem"
             @handleCopy="handleCopy"
             @handleDetele="handleDetele"
@@ -59,11 +66,6 @@
   </div>
 </template>
 <script>
-/*
- * author kcz
- * date 2019-11-20
- * description 表单设计器内容展示操作组件
- */
 import draggable from "vuedraggable";
 import layoutItem from "./layoutItem";
 import "codemirror/mode/javascript/javascript";
@@ -157,9 +159,9 @@ export default {
       }
       this.$emit("handleSetSelectItem", columns[newIndex]);
     },
-    dragEnd(evt, list) {
+    dragStart(evt, list) {
       // 拖拽结束,自动选择拖拽的控件项
-      this.$emit("handleSetSelectItem", list[evt.newIndex]);
+      this.$emit("handleSetSelectItem", list[evt.oldIndex]);
     },
     handleSelectItem(record) {
       // 修改选择Item

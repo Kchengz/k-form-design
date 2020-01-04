@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: kcz
+ * @Date: 2019-12-30 00:37:05
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-01-04 17:22:53
+ -->
 <template>
   <a-modal
     title="vue代码"
@@ -32,11 +39,6 @@
   </a-modal>
 </template>
 <script>
-/*
- * author kcz
- * date 2019-11-20
- * description 生成代码 Modal
- */
 let codeVueFront = `<template>
   <div>
     <k-form-build

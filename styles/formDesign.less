@@ -1,12 +1,12 @@
 // 表单设计器样式
 @aside-border-color      : #ccc;
 @primary-color           : #1890ff;
-@primary-background-color: rgba(134, 197, 255, 0.12);
-@primary-hover-bg-color  : rgba(109, 184, 255, 0.36);
+@primary-background-color: fade(@primary-color,5%);
+@primary-hover-bg-color  : fade(@primary-color,24%);
 
-@grid-color           : #dca13e;
-@grid-background-color: rgba(255, 242, 168, 0.10);
-@grid-hover-bg-color  : #fff7c0;
+@grid-color           : #9d5fe2;
+@grid-background-color: fade(@grid-color,12%);
+@grid-hover-bg-color  : fade(@grid-color,24%);
 
 @moving-border-color: #ff7777;
 @import "./kTable.less";
@@ -154,26 +154,26 @@
 
             .moving {
               // 拖放移动中
-              outline-width: 0;
-              min-height   : 35px;
-              box-sizing   : border-box;
-              font-size    : 0;
-              overflow     : hidden;
-              padding      : 0 !important;
-              margin       : 3px 0;
-              position     : relative;
+              // outline-width: 0;
+              // min-height   : 35px;
+              // box-sizing   : border-box;
+              // font-size    : 0;
+              // overflow     : hidden;
+              // padding      : 0 !important;
+              // margin       : 3px 0;
+              // position     : relative;
 
-              &::before {
-                content   : '';
-                height    : 100%;
-                width     : 100%;
-                background: #fff;
-                border    : 3px solid @moving-border-color;
-                position  : absolute;
-                top       : 0;
-                left      : 0;
-                z-index   : 1999;
-              }
+              // &::before {
+              //   content   : '';
+              //   height    : 100%;
+              //   width     : 100%;
+              //   background: #fff;
+              //   border    : 3px solid @moving-border-color;
+              //   position  : absolute;
+              //   top       : 0;
+              //   left      : 0;
+              //   z-index   : 1999;
+              // }
             }
 
             .drag-move-box {
@@ -226,7 +226,7 @@
                 top      : 2px;
                 right    : 5px;
                 font-size: 14px;
-                z-index: 2999;
+                z-index: 999;
                 color    : @primary-color;
               }
 

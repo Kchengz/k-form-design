@@ -1,3 +1,10 @@
+<!--
+ * @Description: 传入record数据，通过判断record.type，来渲染对应的组件
+ * @Author: kcz
+ * @Date: 2020-01-02 22:41:48
+ * @LastEditors  : kcz
+ * @LastEditTime : 2020-01-04 17:42:20
+ -->
 <template>
   <a-form-item
     v-if="
@@ -8,7 +15,6 @@
         'time',
         'number',
         'radio',
-        'number',
         'checkbox',
         'select',
         'rate',

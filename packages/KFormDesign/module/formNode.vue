@@ -1,9 +1,9 @@
 <!--
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
- * @LastEditTime : 2019-12-30 18:10:25
- * @LastEditors  : Please set LastEditors
- * @Description: In User Settings Edit
+ * @LastEditTime : 2020-01-04 17:22:24
+ * @LastEditors  : kcz
+ * @Description: 将数据通过k-form-item组件解析，生成控件
  * @FilePath: \k-form-design\packages\KFormDesign\module\formNode.vue
  -->
 <template>

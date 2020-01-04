@@ -1,6 +1,6 @@
 标题 name
 
-数据绑定key model
+数据字段 model
 
 占位内容 placeholder
 

@@ -23,7 +23,7 @@
                 handle: '.drag-move'
               }"
               v-model="colItem.list"
-              @end="$emit('dragEnd', $event, colItem.list)"
+              @start="$emit('dragStart', $event, colItem.list)"
               @add="$emit('handleColAdd', $event, colItem.list)"
             >
               <transition-group tag="div" name="list" class="list-main">
@@ -85,7 +85,7 @@
                 handle: '.drag-move'
               }"
               v-model="record.list"
-              @end="$emit('dragEnd', $event, record.list)"
+              @start="$emit('dragStart', $event, record.list)"
               @add="$emit('handleColAdd', $event, record.list)"
             >
               <transition-group tag="div" name="list" class="list-main">
@@ -165,7 +165,7 @@
                   handle: '.drag-move'
                 }"
                 v-model="tdItem.list"
-                @end="$emit('dragEnd', $event, tdItem.list)"
+                @start="$emit('dragStart', $event, tdItem.list)"
                 @add="$emit('handleColAdd', $event, tdItem.list)"
               >
                 <transition-group tag="div" name="list" class="list-main">

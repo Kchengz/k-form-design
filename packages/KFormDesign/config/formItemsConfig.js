@@ -14,7 +14,7 @@ export const basicsList = [
       placeholder: "请输入", // 没有输入时，提示文字
       disabled: false // 是否禁用，false不禁用，true禁用
     },
-    model: "", // 数据绑定Key
+    model: "", // 数据字段
     key: "",
     rules: [
       //验证规则
@@ -35,7 +35,7 @@ export const basicsList = [
       disabled: false,
       placeholder: "请输入"
     },
-    model: "", // 数据绑定Key
+    model: "", // 数据字段
     key: "",
     rules: [
       {
@@ -56,7 +56,7 @@ export const basicsList = [
       disabled: false, //是否禁用
       placeholder: "请输入"
     },
-    model: "", // 数据绑定Key
+    model: "", // 数据字段
     key: "",
     rules: [
       {
@@ -87,7 +87,7 @@ export const basicsList = [
         }
       ]
     },
-    model: "", // 数据绑定Key
+    model: "", // 数据字段
     key: "",
     rules: [
       {
