@@ -2,40 +2,32 @@
  * @Description: 
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
- * @LastEditors: kcz
- * @LastEditTime: 2020-01-04 17:22:53
+ * @LastEditors  : kcz
+ * @LastEditTime : 2020-01-05 22:07:25
  -->
 <template>
   <a-modal
-    title="vue代码"
+    title="代码"
     :footer="null"
     :visible="visible"
     @cancel="handleCancel"
+    wrapClassName="code-modal-9136076486841527"
     style="top:20px;"
     width="850px"
     :destroyOnClose="true"
   >
-    <div class="json-box-9136076486841527">
-      <codemirror
-        style="height:100%;"
-        ref="myEditor"
-        v-model="editorJson"
-      ></codemirror>
-    </div>
-    <div class="copy-btn-box-9136076486841527">
-      <a-button
-        @click="handleCopyJson"
-        type="primary"
-        class="copy-btn"
-        data-clipboard-action="copy"
-        :data-clipboard-text="editorJson"
-      >
-        复制数据
-      </a-button>
-      <a-button @click="handleExportJson" type="primary">
-        导出代码
-      </a-button>
-    </div>
+    <a-tabs tabPosition="left" style="height:100%">
+      <a-tab-pane style="height:100%" tab="VUE" key="1">
+        <!-- vue code start -->
+        <previewCode :editorJson="editorVueJson" fileFormat="vue" />
+        <!-- vue code end -->
+      </a-tab-pane>
+      <a-tab-pane tab="HTML" key="2">
+        <!-- html code start -->
+        <previewCode :editorJson="editorHtmlJson" fileFormat="html" />
+        <!-- html code end -->
+      </a-tab-pane>
+    </a-tabs>
   </a-modal>
 </template>
 <script>
@@ -43,9 +35,10 @@ let codeVueFront = `<template>
   <div>
     <k-form-build
       :value="jsonData"
-      ref="KFormBuild"
+      ref="KFB"
       @submit="handleSubmit"
     />
+    <button @click="getData">提交</button>
   </div>
 </template>
 <script>
@@ -55,80 +48,120 @@ export default {
     return {
       jsonData: `;
 /* eslint-disable */
-let codeVueBack = `
+let codeVueLast = `
     }
   },
   methods: {
-    handleSubmit (p) {
-      p().then(res => {
-          // 获取数据成功
-          alert(JSON.stringify(res))
-        })
-        .catch(err => {
-          console.log(err, '校验失败')
-        })
-    }
+    handleSubmit(p) {
+       // 通过表单提交按钮触发，获取promise对象
+       p().then(res => {
+         // 获取数据成功
+         alert(JSON.stringify(res))
+       })
+         .catch(err => {
+           console.log(err, '校验失败')
+         })
+     },
+     getData() {
+       // 通过函数获取数据
+       this.$refs.KFB.getData().then(res => {
+         // 获取数据成功
+         alert(JSON.stringify(res))
+       })
+         .catch(err => {
+           console.log(err, '校验失败')
+         })
+     }
   }
 }
 <\/script>`;
+
+let codeHtmlFront = `
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>表单设计器kcz</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="http://unpkg.com/k-form-design/lib/k-form-design.css">
+</head>
+
+<body>
+  <div class="app">
+    <k-form-build ref="KFB" @submit="handleSubmit" :value="jsonData"></k-form-build>
+    <button @click="getData">提交</button>
+  </div>
+  <script src="http://cdn.kcz66.com/vue.min.js"><\/script>
+  <script src="http://unpkg.com/k-form-design/lib/k-form-design.umd.min.js"><\/script>
+  <script>
+    let jsonData = `;
+    
+    let codeHtmlLast = `
+    let vm = new Vue({
+      el: '.app',
+      data: {
+        jsonData
+      },
+      methods: {
+        handleSubmit(p) {
+          // 通过表单提交按钮触发，获取promise对象
+          p().then(res => {
+            // 获取数据成功
+            alert(JSON.stringify(res))
+          })
+            .catch(err => {
+              console.log(err, '校验失败')
+            })
+        },
+        getData() {
+          // 通过函数获取数据
+          this.$refs.KFB.getData().then(res => {
+            // 获取数据成功
+            alert(JSON.stringify(res))
+          })
+            .catch(err => {
+              console.log(err, '校验失败')
+            })
+        }
+      }
+    })
+  <\/script>
+</body>
+
+</html>`
 /* eslint-enable */
-import { codemirror } from "vue-codemirror-lite";
+import previewCode from "../../PreviewCode/index";
 export default {
-  name: "JsonModal",
+  name: "CodeModal",
   data() {
     return {
       visible: false,
-      editorJson: "",
+      editorVueJson: "",
+      editorHtmlJson: "",
       jsonData: {}
     };
   },
   watch: {
     visible(val) {
       if (val) {
-        this.editorJson =
-          codeVueFront + JSON.stringify(this.jsonData) + codeVueBack;
+        this.editorVueJson =
+          codeVueFront +
+          JSON.stringify(this.jsonData, null, "\t\t") +
+          codeVueLast;
+
+        this.editorHtmlJson =
+          codeHtmlFront +
+          JSON.stringify(this.jsonData, null, "\t\t") +
+          codeHtmlLast;
       }
     }
   },
   components: {
-    codemirror
-  },
-  computed: {
-    editor() {
-      // get current editor object
-      return this.$refs.myEditor.editor;
-    }
+    previewCode
   },
   methods: {
     handleCancel() {
       this.visible = false;
-    },
-    exportData(data, fileName = "demo.vue") {
-      let content = "data:text/csv;charset=utf-8,";
-      content += data;
-      var encodedUri = encodeURI(content);
-      var actions = document.createElement("a");
-      actions.setAttribute("href", encodedUri);
-      actions.setAttribute("download", fileName);
-      actions.click();
-    },
-    handleExportJson() {
-      // 导出JSON
-      this.exportData(this.editorJson);
-    },
-    handleCopyJson() {
-      // 复制数据
-      let clipboard = new this.clipboard(".copy-btn");
-      clipboard.on("success", () => {
-        this.$message.success("复制成功");
-      });
-      clipboard.on("error", () => {
-        this.$message.error("复制失败");
-      });
-      setTimeout(() => {
-        // 销毁实例
-        clipboard.destroy();
-      }, 122);
     }
   }
 };

@@ -5,30 +5,11 @@
     :visible="visible"
     @cancel="handleCancel"
     :destroyOnClose="true"
+    wrapClassName="code-modal-9136076486841527"
     style="top:20px;"
     width="850px"
   >
-    <div class="json-box-9136076486841527">
-      <codemirror
-        style="height:100%;"
-        ref="myEditor"
-        v-model="editorJson"
-      ></codemirror>
-    </div>
-    <div class="copy-btn-box-9136076486841527">
-      <a-button
-        @click="handleCopyJson"
-        type="primary"
-        class="copy-btn"
-        data-clipboard-action="copy"
-        :data-clipboard-text="JSON.stringify(jsonData)"
-      >
-        复制数据
-      </a-button>
-      <a-button @click="handleExportJson" type="primary">
-        导出JSON
-      </a-button>
-    </div>
+    <previewCode :editorJson="editorJson" />
   </a-modal>
 </template>
 <script>
@@ -37,7 +18,7 @@
  * date 2019-11-20
  * description 生成json Modal
  */
-import { codemirror } from "vue-codemirror-lite";
+import previewCode from "../../PreviewCode/index";
 export default {
   name: "JsonModal",
   data() {
@@ -55,44 +36,11 @@ export default {
     }
   },
   components: {
-    codemirror
-  },
-  computed: {
-    editor() {
-      // get current editor object
-      return this.$refs.myEditor.editor;
-    }
+    previewCode
   },
   methods: {
     handleCancel() {
       this.visible = false;
-    },
-    exportData(data, fileName = "data.json") {
-      let content = "data:text/csv;charset=utf-8,";
-      content += data;
-      var encodedUri = encodeURI(content);
-      var actions = document.createElement("a");
-      actions.setAttribute("href", encodedUri);
-      actions.setAttribute("download", fileName);
-      actions.click();
-    },
-    handleExportJson() {
-      // 导出JSON
-      this.exportData(this.editorJson);
-    },
-    handleCopyJson() {
-      // 复制数据
-      let clipboard = new this.clipboard(".copy-btn");
-      clipboard.on("success", () => {
-        this.$message.success("复制成功");
-      });
-      clipboard.on("error", () => {
-        this.$message.error("复制失败");
-      });
-      setTimeout(() => {
-        // 销毁实例
-        clipboard.destroy();
-      }, 122);
     }
   }
 };

@@ -6,6 +6,7 @@
     @cancel="handleCancel"
     cancelText="关闭"
     :destroyOnClose="true"
+    wrapClassName="code-modal-9136076486841527"
     style="top:20px;"
     width="850px"
   >

@@ -9,6 +9,8 @@
 @grid-hover-bg-color  : fade(@grid-color,24%);
 
 @moving-border-color: #ff7777;
+
+@left-right-width: 270px;
 @import "./kTable.less";
 
 .form-designer-container-9136076486841527 {
@@ -117,6 +119,7 @@
     // 中间内容区域
     section {
       flex       : 1;
+      max-width: calc(100% - @left-right-width - @left-right-width);
       user-select: none;
 
       .form-panel {
@@ -191,7 +194,7 @@
               .form-item-box {
                 position  : relative;
                 box-sizing: border-box;
-
+                word-wrap: break-word;
                 &::before {
                   content : "";
                   position: absolute;
@@ -456,7 +459,7 @@
 
 // code盒子样式
 .json-box-9136076486841527 {
-  height  : 580px;
+  height  : 570px;
   overflow: auto;
 
   .vue-codemirror-wrap {
@@ -465,27 +468,22 @@
     .CodeMirror-wrap {
       height    : 100%;
       background: #f6f6f6;
+      .CodeMirror-scroll{
+        height: 100%;
+        width: 100%;
+      }
+      pre.CodeMirror-line,.CodeMirror-linenumber{
+        min-height: 21px;
+        line-height: 21px;
+      }
     }
   }
 }
 
-// html code盒子样式
-.code-box-9136076486841527 {
-  height  : 300px;
-  overflow: auto;
-  border: 1px solid rgb(217, 217, 217);
-  border-radius: 4px;
-  .vue-codemirror-wrap {
-    height: 100%;
-
-    .CodeMirror-wrap {
-      height    : 100%;
-      background: #fcfcfc;
-      pre.CodeMirror-line,.CodeMirror-linenumber{
-        min-height: 24px;
-        line-height: 24px;
-      }
-    }
+// code-modal盒子样式
+.code-modal-9136076486841527{
+  .ant-modal-body{
+    padding: 12px;
   }
 }
 

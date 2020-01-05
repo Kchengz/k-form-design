@@ -293,7 +293,7 @@ export const basicsList = [
     type: "html",
     name: "HTML",
     options: {
-      defaultValue: "<strong>This is a HTML</strong>"
+      defaultValue: "<strong>HTML</strong>"
     },
     key: ""
   }
