@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-05 22:07:25
+ * @LastEditTime : 2020-01-05 22:31:06
  -->
 <template>
   <a-modal
@@ -76,8 +76,7 @@ let codeVueLast = `
 }
 <\/script>`;
 
-let codeHtmlFront = `
-<!DOCTYPE html>
+let codeHtmlFront = `<!DOCTYPE html>
 <html>
 
 <head>
@@ -145,14 +144,10 @@ export default {
     visible(val) {
       if (val) {
         this.editorVueJson =
-          codeVueFront +
-          JSON.stringify(this.jsonData, null, "\t\t") +
-          codeVueLast;
+          codeVueFront + JSON.stringify(this.jsonData) + codeVueLast;
 
         this.editorHtmlJson =
-          codeHtmlFront +
-          JSON.stringify(this.jsonData, null, "\t\t") +
-          codeHtmlLast;
+          codeHtmlFront + JSON.stringify(this.jsonData) + codeHtmlLast;
       }
     }
   },

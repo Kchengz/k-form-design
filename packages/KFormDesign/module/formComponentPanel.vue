@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-04 17:30:56
+ * @LastEditTime : 2020-01-05 22:56:13
  -->
 <template>
   <div class="form-panel">
@@ -27,7 +27,7 @@
           handle: '.drag-move'
         }"
         v-model="data.list"
-        @add="handleAdd"
+        @add="deepClone"
         @start="dragStart($event, data.list)"
       >
         <transition-group tag="div" name="list" class="list-main">
@@ -101,7 +101,7 @@ export default {
     layoutItem
   },
   methods: {
-    handleAdd(evt) {
+    deepClone(evt) {
       const newIndex = evt.newIndex;
       // json深拷贝一次
       const listString = JSON.stringify(this.data.list);
@@ -157,6 +157,9 @@ export default {
           });
         }
       }
+      // 深拷贝数据
+      const listString = JSON.stringify(columns[newIndex]);
+      columns[newIndex] = JSON.parse(listString);
       this.$emit("handleSetSelectItem", columns[newIndex]);
     },
     dragStart(evt, list) {
