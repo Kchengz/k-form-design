@@ -455,7 +455,7 @@ export const layoutList = [
       bordered: true,
       bright: false,
       small: true,
-      customClass: ""
+      customStyle: ""
     },
     key: "",
     model: ""

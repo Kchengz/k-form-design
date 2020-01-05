@@ -15,7 +15,7 @@
       :form="form"
       :layout="data.config.layout"
       :hideRequiredMark="data.config.hideRequiredMark"
-      :style="data.config.customClass"
+      :style="data.config.customStyle"
     >
       <draggable
         tag="div"

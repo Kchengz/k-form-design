@@ -43,7 +43,7 @@ const jsonData = {
 			"span": 18
 		},
 		"hideRequiredMark": false,
-		"customClass": ""
+		"customStyle": ""
 	}
 }
 export default {

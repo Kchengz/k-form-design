@@ -142,7 +142,7 @@
             small: record.options.small,
             bordered: record.options.bordered
           }"
-          :style="record.options.customClass"
+          :style="record.options.customStyle"
         >
           <tr v-for="(trItem, trIndex) in record.trs" :key="trIndex">
             <td

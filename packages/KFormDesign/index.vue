@@ -257,7 +257,7 @@ export default {
           labelCol: { span: 4 },
           wrapperCol: { span: 18 },
           hideRequiredMark: false,
-          customClass: ""
+          customStyle: ""
         }
       },
       previewOptions: {

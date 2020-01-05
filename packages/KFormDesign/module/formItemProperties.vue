@@ -318,7 +318,7 @@
 
       <!-- 表格选项 -->
       <a-form-item v-if="selectItem.type === 'table'" label="表格样式CSS">
-        <a-input v-model="selectItem.options.customClass" />
+        <a-input v-model="selectItem.options.customStyle" />
       </a-form-item>
       <a-form-item v-if="selectItem.type === 'table'" label="属性">
         <kCheckbox v-model="selectItem.options.bordered" label="显示边框" />

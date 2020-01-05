@@ -8,7 +8,7 @@
     :hideRequiredMark="value.config.hideRequiredMark"
     :form="form"
     @submit="handleSubmit"
-    :style="value.config.customClass"
+    :style="value.config.customStyle"
   >
     <buildBlocks
       @handleReset="handleReset"

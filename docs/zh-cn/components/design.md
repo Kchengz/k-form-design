@@ -97,7 +97,7 @@ export default {
             'span': 18
           },
           'hideRequiredMark': false,
-          'customClass': ''
+          'customStyle': ''
         }
       }
     }
