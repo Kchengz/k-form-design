@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-04 17:42:20
+ * @LastEditTime : 2020-01-06 22:12:45
  -->
 <template>
   <a-form-item
@@ -34,6 +34,7 @@
       v-if="record.type === 'input'"
       :disabled="record.options.disabled"
       :placeholder="record.options.placeholder"
+      :type="record.options.type"
       v-decorator="[
         record.model, // input 的 name
         {

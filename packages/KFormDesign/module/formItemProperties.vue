@@ -5,6 +5,11 @@
       <a-form-item v-if="typeof selectItem.name !== 'undefined'" label="标题">
         <a-input v-model="selectItem.name" placeholder="请输入" />
       </a-form-item>
+      <!-- input type start -->
+      <a-form-item v-if="typeof options.type !== 'undefined'" label="type">
+        <a-input v-model="options.type" placeholder="请输入" />
+      </a-form-item>
+      <!-- input type end -->
       <a-form-item
         v-if="typeof selectItem.model !== 'undefined'"
         label="数据字段"

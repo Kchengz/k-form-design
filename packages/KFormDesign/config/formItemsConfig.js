@@ -7,8 +7,9 @@
 export const basicsList = [
   {
     type: "input", // 表单类型
-    name: "单行文本", // 标题文字
+    name: "输入框", // 标题文字
     options: {
+      type: "text",
       width: "100%", // 宽度
       defaultValue: "", // 默认值
       placeholder: "请输入", // 没有输入时，提示文字
@@ -26,7 +27,7 @@ export const basicsList = [
   },
   {
     type: "textarea", // 表单类型
-    name: "多行文本", // 标题文字
+    name: "文本框", // 标题文字
     options: {
       width: "100%", // 宽度
       minRows: 4,
@@ -46,7 +47,7 @@ export const basicsList = [
   },
   {
     type: "number", // 表单类型
-    name: "计数器", // 标题文字
+    name: "数字输入框", // 标题文字
     options: {
       width: "100%", // 宽度
       defaultValue: 0, // 默认值
@@ -66,8 +67,40 @@ export const basicsList = [
     ]
   },
   {
+    type: "select", // 表单类型
+    name: "选择器", // 标题文字
+    options: {
+      width: "100%", // 宽度
+      defaultValue: undefined, // 下拉选框请使用undefined为默认值
+      multiple: false, // 是否允许多选
+      disabled: false, // 是否禁用
+      clearable: false, // 是否显示清除按钮
+      placeholder: "请选择", // 默认提示文字
+      options: [
+        // 下拉选择项配置
+        {
+          value: "1",
+          label: "下拉框1"
+        },
+        {
+          value: "2",
+          label: "下拉框2"
+        }
+      ],
+      filterable: false // 是否显示搜索框，搜索选择的项的值，而不是文字
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
     type: "radio", // 表单类型
-    name: "单选框组", // 标题文字
+    name: "单选框", // 标题文字
     options: {
       disabled: false, //是否禁用
       defaultValue: "", // 默认值
@@ -98,7 +131,7 @@ export const basicsList = [
   },
   {
     type: "checkbox",
-    name: "多选框组",
+    name: "多选框",
     options: {
       disabled: false, //是否禁用
       defaultValue: [],
@@ -128,7 +161,7 @@ export const basicsList = [
   },
   {
     type: "time", // 表单类型
-    name: "时间选择器", // 标题文字
+    name: "时间选择框", // 标题文字
     options: {
       width: "100%", // 宽度
       defaultValue: "", // 默认值，字符串 12:00:00
@@ -148,7 +181,7 @@ export const basicsList = [
   },
   {
     type: "date", // 表单类型
-    name: "日期选择器", // 标题文字
+    name: "日期选择框", // 标题文字
     options: {
       width: "100%", // 宽度
       defaultValue: "", // 默认值，字符串 12:00:00
@@ -189,27 +222,17 @@ export const basicsList = [
     ]
   },
   {
-    type: "select", // 表单类型
-    name: "下拉选择框", // 标题文字
+    type: "slider", // 表单类型
+    name: "滑动输入条", // 标题文字
     options: {
       width: "100%", // 宽度
-      defaultValue: undefined, // 下拉选框请使用undefined为默认值
-      multiple: false, // 是否允许多选
+      defaultValue: 0, // 默认值， 如果range为true的时候，则需要改成数组,如：[12,15]
       disabled: false, // 是否禁用
-      clearable: false, // 是否显示清除按钮
-      placeholder: "请选择", // 默认提示文字
-      options: [
-        // 下拉选择项配置
-        {
-          value: "1",
-          label: "下拉框1"
-        },
-        {
-          value: "2",
-          label: "下拉框2"
-        }
-      ],
-      filterable: false // 是否显示搜索框，搜索选择的项的值，而不是文字
+      min: 0, // 最小值
+      max: 100, // 最大值
+      step: 1, // 步长，取值必须大于 0，并且可被 (max - min) 整除
+      showInput: false // 是否显示输入框，range为true时，请勿开启
+      // range: false // 双滑块模式
     },
     model: "",
     key: "",
@@ -237,28 +260,6 @@ export const basicsList = [
     ]
   },
   {
-    type: "slider", // 表单类型
-    name: "滑动输入条", // 标题文字
-    options: {
-      width: "100%", // 宽度
-      defaultValue: 0, // 默认值， 如果range为true的时候，则需要改成数组,如：[12,15]
-      disabled: false, // 是否禁用
-      min: 0, // 最小值
-      max: 100, // 最大值
-      step: 1, // 步长，取值必须大于 0，并且可被 (max - min) 整除
-      showInput: false // 是否显示输入框，range为true时，请勿开启
-      // range: false // 双滑块模式
-    },
-    model: "",
-    key: "",
-    rules: [
-      {
-        required: false,
-        message: "必填项"
-      }
-    ]
-  },
-  {
     type: "button", // 表单类型
     name: "按钮", // 标题文字
     options: {
@@ -270,7 +271,7 @@ export const basicsList = [
   },
   {
     type: "alert",
-    name: "提示",
+    name: "警告提示",
     options: {
       type: "success",
       description: "",
