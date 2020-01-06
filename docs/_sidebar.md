@@ -6,7 +6,10 @@
 - 组件
   * [k-form-design](zh-cn/components/design)
   * [k-form-build](zh-cn/components/build)
-  * [form属性](zh-cn/components/form)
+    * [form属性](zh-cn/components/form)
+
+- 控件
+  * [自定义控件](zh-cn/field/custom)
 
 * [上传接口](zh-cn/config)
 * [捐赠](zh-cn/donation)

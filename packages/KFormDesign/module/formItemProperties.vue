@@ -6,7 +6,10 @@
         <a-input v-model="selectItem.name" placeholder="请输入" />
       </a-form-item>
       <!-- input type start -->
-      <a-form-item v-if="typeof options.type !== 'undefined'" label="type">
+      <a-form-item
+        v-if="typeof options.type !== 'undefined'"
+        label="输入框type"
+      >
         <a-input v-model="options.type" placeholder="请输入" />
       </a-form-item>
       <!-- input type end -->
@@ -28,7 +31,7 @@
         v-else-if="typeof options.placeholder !== 'undefined'"
         label="占位内容"
       >
-        <a-input v-model="options.placeholder" />
+        <a-input placeholder="请输入" v-model="options.placeholder" />
       </a-form-item>
       <a-form-item v-if="selectItem.type === 'textarea'" label="自适应内容高度">
         <a-input-number

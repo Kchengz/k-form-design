@@ -1,3 +1,13 @@
+### 配置默认上传接口
+```javascript
+// 引入 setFormDesignConfig 函数
+import { setFormDesignConfig } form 'k-form-design'
+
+setFormDesignConfig({
+  uploadFile: "", // 上传文件地址
+  uploadImage: "" // 上传图片地址
+})
+```
 ### 文件上传响应数据
 ```
 {

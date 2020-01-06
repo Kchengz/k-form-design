@@ -151,18 +151,6 @@ export default {
         "close"
       ]</td>
       </tr>
-      <tr>
-        <td>uploadFile</td>
-        <td>上传文件的默认api地址</td>
-        <td>string</td>
-        <td>http://cdn.kcz66.com/uploadFile.txt</td>
-      </tr>
-      <tr>
-        <td>uploadImage</td>
-        <td>上传图片的默认api地址</td>
-        <td>string</td>
-        <td>http://cdn.kcz66.com/uploadFile.txt</td>
-      </tr>
     </tbody>
   </table>
 

@@ -53,8 +53,8 @@
 ![5.jpg](https://i.loli.net/2019/09/29/NTGmdoDPXvqHJMe.png) -->
 <!-- ## 支持
 如果你发现了新的bug或者有新的feature request，请新建一个issue -->
-## 捐赠
-如果觉得还不错，请作者喝杯咖啡吧
+## 打赏
+如果你觉得k-form-design对你有帮助，请点个star或者考虑给我捐赠
 ![](http://cdn.kcz66.com/donation.png)
 
 License

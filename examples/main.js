@@ -8,14 +8,19 @@ import {
   setFormDesignConfig
 } from "../packages/index";
 
-import { Alert } from "ant-design-vue";
+let Cmp = {
+  name: "cmp",
+  render: function(h) {
+    return h("div", "我是自定义组件");
+  }
+};
 setFormDesignConfig({
   title: "测试自定义字段",
   list: [
     {
       type: "demo", // 表单类型
       name: "自定义组件", // 标题文字
-      component: Alert,
+      component: Cmp,
       options: {
         defaultValue: undefined,
         multiple: false,
