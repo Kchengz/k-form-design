@@ -32,12 +32,13 @@ import {
   Divider,
   DatePicker,
   TimePicker,
-  Upload,
-  message
-  // notification
+  message,
+  Upload,  
+  Collapse
 } from 'ant-design-vue'
 
 Vue.use(LocaleProvider)
+Vue.use(Collapse)
 Vue.use(Layout)
 Vue.use(Input)
 Vue.use(Rate)

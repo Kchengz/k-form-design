@@ -4,98 +4,114 @@
     <div class="content" :class="{ 'show-head': showHead }">
       <!-- 左侧控件区域 start -->
       <aside class="left">
-        <!-- 基础控件 start -->
-        <div class="title left-title">基础控件</div>
-        <draggable
-          tag="ul"
-          :value="basicsList"
-          v-bind="{
-            group: { name: 'form-draggable', pull: 'clone', put: false },
-            sort: false,
-            animation: 180,
-            ghostClass: 'moving'
-          }"
-        >
-          <li
-            v-for="(val, index) in basicsList"
-            :key="index"
-            @dragstart="generateKey(basicsList, index)"
-            @click="handleListPush(val)"
-          >
-            {{ val.name }}
-          </li>
-        </draggable>
-        <!-- 基础控件 end -->
-        <!-- 高级控件 start -->
-        <div class="title left-title">高级控件</div>
-        <draggable
-          tag="ul"
-          :value="highList"
-          v-bind="{
-            group: { name: 'form-draggable', pull: 'clone', put: false },
-            sort: false,
-            animation: 180,
-            ghostClass: 'moving'
-          }"
-        >
-          <li
-            v-for="(val, index) in highList"
-            :key="index"
-            @dragstart="generateKey(highList, index)"
-            @click="handleListPush(val)"
-          >
-            {{ val.name }}
-          </li>
-        </draggable>
-        <!-- 高级控件 end -->
-        <!-- 自定义控件 start -->
-        <div
-          class="title left-title"
-          v-if="customComponents.list.length > 0"
-          v-text="customComponents.title"
-        ></div>
-        <draggable
-          tag="ul"
-          :value="customComponents.list"
-          v-bind="{
-            group: { name: 'form-draggable', pull: 'clone', put: false },
-            sort: false,
-            animation: 180,
-            ghostClass: 'moving'
-          }"
-        >
-          <li
-            v-for="(val, index) in customComponents.list"
-            :key="index"
-            @dragstart="generateKey(customComponents.list, index)"
-            @click="handleListPush(val)"
-          >
-            {{ val.name }}
-          </li>
-        </draggable>
-        <!-- 自定义控件 end -->
+        <a-collapse :defaultActiveKey="['1', '2', '4']">
+          <!-- 基础控件 start -->
+          <a-collapse-panel header="基础控件" key="1">
+            <draggable
+              tag="ul"
+              :value="basicsList"
+              v-bind="{
+                group: { name: 'form-draggable', pull: 'clone', put: false },
+                sort: false,
+                animation: 180,
+                ghostClass: 'moving'
+              }"
+            >
+              <li
+                v-for="(val, index) in basicsList"
+                :key="index"
+                @dragstart="generateKey(basicsList, index)"
+                @click="handleListPush(val)"
+              >
+                {{ val.name }}
+              </li>
+            </draggable>
+          </a-collapse-panel>
 
-        <!-- 布局控件 start -->
-        <div class="title left-title">布局控件</div>
-        <draggable
-          tag="ul"
-          :value="layoutList"
-          v-bind="{
-            group: { name: 'form-draggable', pull: 'clone', put: false },
-            sort: false,
-            animation: 180,
-            ghostClass: 'moving'
-          }"
-        >
-          <li
-            v-for="(val, index) in layoutList"
-            :key="index"
-            @dragstart="generateKey(layoutList, index)"
-            @click="handleListPush(val)"
-            v-text="val.name"
-          ></li>
-        </draggable>
-        <!-- 布局控件 end -->
+          <!-- 基础控件 end -->
+          <!-- 高级控件 start -->
+          <!-- <div class="title left-title">高级控件</div> -->
+          <a-collapse-panel header="高级控件" key="2">
+            <draggable
+              tag="ul"
+              :value="highList"
+              v-bind="{
+                group: { name: 'form-draggable', pull: 'clone', put: false },
+                sort: false,
+                animation: 180,
+                ghostClass: 'moving'
+              }"
+            >
+              <li
+                v-for="(val, index) in highList"
+                :key="index"
+                @dragstart="generateKey(highList, index)"
+                @click="handleListPush(val)"
+              >
+                {{ val.name }}
+              </li>
+            </draggable>
+          </a-collapse-panel>
+
+          <!-- 高级控件 end -->
+          <!-- 自定义控件 start -->
+          <!-- <div
+            class="title left-title"
+            
+            v-text="customComponents.title"
+          ></div> -->
+          <a-collapse-panel
+            v-if="customComponents.list.length > 0"
+            :header="customComponents.title"
+            key="3"
+          >
+            <draggable
+              tag="ul"
+              :value="customComponents.list"
+              v-bind="{
+                group: { name: 'form-draggable', pull: 'clone', put: false },
+                sort: false,
+                animation: 180,
+                ghostClass: 'moving'
+              }"
+            >
+              <li
+                v-for="(val, index) in customComponents.list"
+                :key="index"
+                @dragstart="generateKey(customComponents.list, index)"
+                @click="handleListPush(val)"
+              >
+                {{ val.name }}
+              </li>
+            </draggable>
+          </a-collapse-panel>
+
+          <!-- 自定义控件 end -->
+
+          <!-- 布局控件 start -->
+          <!-- <div class="title left-title">布局控件</div> -->
+          <a-collapse-panel header="布局控件" key="4">
+            <draggable
+              tag="ul"
+              :value="layoutList"
+              v-bind="{
+                group: { name: 'form-draggable', pull: 'clone', put: false },
+                sort: false,
+                animation: 180,
+                ghostClass: 'moving'
+              }"
+            >
+              <li
+                v-for="(val, index) in layoutList"
+                :key="index"
+                @dragstart="generateKey(layoutList, index)"
+                @click="handleListPush(val)"
+                v-text="val.name"
+              ></li>
+            </draggable>
+          </a-collapse-panel>
+          <!-- 布局控件 end -->
+        </a-collapse>
       </aside>
       <!-- 左侧控件区域 end -->
 
