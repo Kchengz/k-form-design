@@ -27,6 +27,7 @@
         <a-input placeholder="请输入" v-model="options.rangePlaceholder[0]" />
         <a-input placeholder="请输入" v-model="options.rangePlaceholder[1]" />
       </a-form-item>
+
       <a-form-item
         v-else-if="typeof options.placeholder !== 'undefined'"
         label="占位内容"
@@ -118,17 +119,31 @@
           v-model="options.defaultValue"
         />
       </a-form-item>
-      <a-form-item
-        v-if="selectItem.type === 'date' && !options.range"
-        label="默认值"
-      >
+      <!-- 日期选择器默认值 start -->
+      <a-form-item v-if="selectItem.type === 'date'" label="默认值">
         <a-input
+          v-if="!options.range"
           v-model="options.defaultValue"
           :placeholder="
             typeof options.format === 'undefined' ? '' : options.format
           "
         />
+        <a-input
+          v-if="options.range"
+          v-model="options.rangeDefaultValue[0]"
+          :placeholder="
+            typeof options.format === 'undefined' ? '' : options.format
+          "
+        />
+        <a-input
+          v-if="options.range"
+          v-model="options.rangeDefaultValue[1]"
+          :placeholder="
+            typeof options.format === 'undefined' ? '' : options.format
+          "
+        />
       </a-form-item>
+      <!-- 日期选择器默认值 start -->
       <a-form-item
         v-if="
           ![
@@ -318,6 +333,10 @@
         label="校验"
       >
         <kCheckbox v-model="selectItem.rules[0].required" label="必填" />
+        <a-input
+          v-model="selectItem.rules[0].message"
+          placeholder="必填校验提示信息"
+        />
         <KChangeOption v-model="selectItem.rules" type="rules" />
       </a-form-item>
 

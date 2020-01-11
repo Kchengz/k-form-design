@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-06 22:12:45
+ * @LastEditTime : 2020-01-11 17:35:43
  -->
 <template>
   <a-form-item
@@ -62,78 +62,29 @@
         }
       ]"
     />
-    <!-- 月份选择 -->
-    <a-monthPicker
-      :style="`width:${record.options.width}`"
-      v-else-if="
-        record.type === 'date' &&
-          record.options.format === 'YYYY-MM' &&
-          record.options.range === false
-      "
-      :disabled="record.options.disabled"
-      :allowClear="record.options.clearable"
-      :placeholder="record.options.placeholder"
-      :format="record.options.format"
-      v-decorator="[
-        record.model, // input 的 name
-        {
-          initialValue: record.options.defaultValue
-            ? moment(record.options.defaultValue, record.options.format)
-            : null, // 默认值
-          rules: record.rules // 验证规则
-        }
-      ]"
-    />
-    <!-- 日期选择 -->
-    <a-date-picker
-      :style="`width:${record.options.width}`"
-      v-else-if="record.type === 'date' && record.options.range === false"
-      :disabled="record.options.disabled"
-      :show-time="record.options.showTime"
-      :allowClear="record.options.clearable"
-      :placeholder="record.options.placeholder"
-      :format="record.options.format"
-      v-decorator="[
-        record.model, // input 的 name
-        {
-          initialValue: record.options.defaultValue
-            ? moment(record.options.defaultValue, record.options.format)
-            : null, // 默认值
-          rules: record.rules // 验证规则
-        }
-      ]"
-    />
 
-    <!-- 范围日期选择 -->
-    <a-range-picker
-      :style="`width:${record.options.width}`"
-      v-else-if="record.type === 'date' && record.options.range === true"
-      :show-time="record.options.showTime"
-      :disabled="record.options.disabled"
-      :allowClear="record.options.clearable"
-      :placeholder="record.options.rangePlaceholder"
-      :format="record.options.format"
+    <!-- 日期选择 -->
+    <KDatePicker
+      v-else-if="record.type === 'date'"
+      :record="record"
       v-decorator="[
         record.model, // input 的 name
         {
+          initialValue: record.options.range
+            ? record.options.rangeDefaultValue
+            : record.options.defaultValue, // 默认值
           rules: record.rules // 验证规则
         }
       ]"
     />
     <!-- 时间选择 -->
-    <a-time-picker
-      :style="`width:${record.options.width}`"
+    <KTimePicker
       v-else-if="record.type === 'time'"
-      :disabled="record.options.disabled"
-      :allowEmpty="record.options.clearable"
-      :placeholder="record.options.placeholder"
-      :format="record.options.format"
+      :record="record"
       v-decorator="[
         record.model, // input 的 name
         {
-          initialValue: record.options.defaultValue
-            ? moment(record.options.defaultValue, record.options.format)
-            : null, // 默认值
+          initialValue: record.options.defaultValue, // 默认值
           rules: record.rules // 验证规则
         }
       ]"
@@ -376,6 +327,8 @@ import moment from "moment";
 import customComponent from "./customComponent";
 import UploadFile from "../UploadFile";
 import UploadImg from "../UploadImg";
+import KDatePicker from "../KDatePicker";
+import KTimePicker from "../KTimePicker";
 export default {
   name: "KFormItem",
   props: {
@@ -393,6 +346,8 @@ export default {
   components: {
     UploadImg,
     UploadFile,
+    KDatePicker,
+    KTimePicker,
     customComponent
   },
   computed: {

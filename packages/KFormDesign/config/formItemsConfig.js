@@ -185,6 +185,7 @@ export const basicsList = [
     options: {
       width: "100%", // 宽度
       defaultValue: "", // 默认值，字符串 12:00:00
+      rangeDefaultValue: [], // 默认值，字符串 12:00:00
       // rangeDefaultValue: ["2015-10-15", "2015-10-15"], // 默认值，字符串 12:00:00
       range: false, // 范围日期选择，为true则会显示两个时间选择框（同时defaultValue和placeholder要改成数组），
       showTime: false, // 是否显示时间选择器
@@ -306,6 +307,7 @@ export const highList = [
     type: "uploadFile", // 表单类型
     name: "上传文件", // 标题文字
     options: {
+      defaultValue: "",
       multiple: false,
       disabled: false,
       drag: false,
@@ -328,6 +330,7 @@ export const highList = [
     type: "uploadImg",
     name: "上传图片",
     options: {
+      defaultValue: "",
       multiple: false,
       disabled: false,
       width: "100%",

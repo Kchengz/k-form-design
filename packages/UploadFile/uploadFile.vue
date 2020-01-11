@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ width: record.options.width }">
+  <div :style="{ width: record.options.width }" :getFileList="getFileList">
     <a-upload
       :disabled="record.options.disabled"
       v-if="!record.options.drag"
@@ -54,12 +54,21 @@ export default {
       fileList: []
     };
   },
-  watch: {
-    value(val) {
-      this.fileList = val;
-    }
-  },
+  // watch: {
+  //   value(val) {
+  //     this.fileList = val;
+  //   }
+  // },
   computed: {
+    getFileList() {
+      // 计算value长度，value有值时，修改fileList
+      if (this.value) {
+        this.setFileList();
+        return this.value.length;
+      } else {
+        return 0;
+      }
+    },
     optionsData() {
       try {
         return JSON.parse(this.record.options.data);
@@ -69,13 +78,24 @@ export default {
     }
   },
   methods: {
+    setFileList() {
+      // 当传入value改变时，fileList也要改变
+      // 如果传入的值为字符串，则转成json
+      if (typeof this.value === "string") {
+        this.fileList = JSON.parse(this.value);
+        // 将转好的json覆盖组件默认值的字符串
+        this.handleSelectChange();
+      } else {
+        this.fileList = this.value;
+      }
+    },
     handleSelectChange() {
       setTimeout(() => {
         const arr = this.fileList.map(item => {
           if (typeof item.response !== "undefined") {
             const res = item.response;
             return {
-              // type: "file",
+              type: "file",
               name: item.name,
               status: item.status,
               uid: res.data.fileId || new Date().getTime(),
@@ -83,7 +103,7 @@ export default {
             };
           } else {
             return {
-              // type: "file",
+              type: "file",
               name: item.name,
               status: item.status,
               uid: item.uid,
