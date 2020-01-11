@@ -3,6 +3,9 @@ node_modules/
 examples/
 packages/
 public/
+dist/
+styles/
+docs/
 vue.config.js
 babel.config.js
 *.map
