@@ -1,6 +1,6 @@
 # k-form-design
 ### 介绍
-表单设计器，通过拖拽或点击生成表单[预览地址](http://cdn.kcz66.com/2.1.5/form-design.html)
+表单设计器，通过拖拽或点击生成表单[预览地址](http://cdn.kcz66.com/k-form-design.html)
 
 建议将表单设计器组件放到全屏组件或页面使用，使用表格布局时，在设计界面右键可以添加行列和合并单元格
 ### 基础用法
@@ -8,6 +8,29 @@
 <template>
   <div>
     <k-form-design />
+  </div>
+</template>
+```
+
+### 自定义头部操作按钮
+通过showBtnList属性显示隐藏默认按钮
+
+```html
+<template>
+  <div>
+   <k-form-design :showBtnList="['save', 'preview', 'importJson']" />
+  </div>
+</template>
+```
+使用插槽插入自定义按钮
+```html
+<template>
+  <div>
+   <k-form-design >
+      <template slot="action">
+        <a><a-icon type="code" /> 代码</a>
+      </template>
+    </k-form-design>
   </div>
 </template>
 ```
@@ -142,17 +165,33 @@ export default {
         <td>显示对应的操作按钮</td>
         <td>array</td>
         <td>[
-        "save",
-        "preview",
-        "importJson",
-        "exportJson",
-        "exportCode",
-        "reset",
-        "close"
+        'save',
+        'preview',
+        'importJson',
+        'exportJson',
+        'exportCode',
+        'reset',
+        'close'
       ]</td>
       </tr>
     </tbody>
   </table>
+
+### Slots
+<table>
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr>
+     <td>action</td>
+     <td>设计器头部操作区域插槽</td>
+     </tr>
+     </tbody>
+</table>
 
 ### 函数
   <table>

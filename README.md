@@ -17,7 +17,7 @@
 
 ## 简介
 基于vue和ant-design-vue实现的表单设计器，可视化编辑，提高开发效率
-- [预览地址](http://cdn.kcz66.com/2.1.5/form-design.html)
+- [预览地址](http://cdn.kcz66.com/k-form-design.html)
 - [查看文档](http://www.kcz66.com/k-form-design/#/)
 
 ## 特性
@@ -30,7 +30,7 @@
 - 快速获取表单数据
 - 自定义组件插入
 - 提供高级控件
-- 在[Ant Design Pro Vue](https://github.com/sendya/ant-design-pro-vue)中使用，可随主题切换主题色
+- 自定义主题色
 
 ## 组件
 - KFormDesign 表单设计器（基于可视化操作快速设计出表单页面，生成配置json或页面）

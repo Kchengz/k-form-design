@@ -1,9 +1,19 @@
 <template>
   <div>
-    <k-form-design @save="handleSave" showClose @close="handleClose">
-      <template slot="action">
+    <k-form-design
+      @save="handleSave"
+      :showBtnList="[
+        'preview',
+        'importJson',
+        'exportJson',
+        'exportCode',
+        'reset'
+      ]"
+      @close="handleClose"
+    >
+      <!-- <template slot="action">
         <a><a-icon type="code" /> jksdf</a>
-      </template>
+      </template> -->
     </k-form-design>
   </div>
 </template>

@@ -17,7 +17,7 @@
 
 ## 简介
 基于vue和ant-design-vue实现的表单设计器，使用了最新的前端技术栈，让表单开发更简单高效
-- [预览地址](http://cdn.kcz66.com/2.1.5/form-design.html)
+- [预览地址](http://cdn.kcz66.com/k-form-design.html)
 <!-- - [开源地址](https://github.com/Kchengz/k-form-design) -->
 
 ## 特性

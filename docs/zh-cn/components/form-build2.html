@@ -15,7 +15,7 @@
   </div>
   <script src="http://cdn.kcz66.com/vue.min.js"></script>
   <script src="http://unpkg.com/k-form-design/lib/k-form-design.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
   <script>
     let jsonData = {
         list: [
@@ -98,7 +98,7 @@
         // 使用k-form-design组件的form属性修改表单数据
           this.$refs.kfb.form.setFieldsValue({
             input_1577875678405: '设置input值',
-            date_1577877450971: moment('2019-11-12'), // ant date组件默认值需要moment格式
+            date_1577877450971: '2019-11-12',
             textarea_1577877446659: '设置textarea值',
             rate_1577877468717: 3
           })

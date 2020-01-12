@@ -14,8 +14,6 @@ k-form-bulild有个this.form属性,可以用来修改表单值,参照[Ant Design
   </div>
 </template>
 <script>
-// 引入momentjs, 通过 npm i moment --save 下载
-import moment from 'moment'
 export default {
   data () {
     return {
@@ -96,7 +94,7 @@ export default {
       // 使用k-form-design组件的form属性修改表单数据
       this.$refs.kfb.form.setFieldsValue({
         input_1577875678405: '设置input值',
-        date_1577877450971: moment('2019-11-12'), // ant date组件默认值需要moment格式
+        date_1577877450971: '2019-11-12',
         textarea_1577877446659: '设置textarea值',
         rate_1577877468717: 3
       })
