@@ -123,42 +123,48 @@
             size="small"
             @click="handleSave"
           >
-            <a-icon type="save" />保存
+            <a-icon type="save" />
+            保存
           </a>
           <a
             v-if="showBtnList.includes('preview')"
             size="small"
             @click="handleOpenPreviewModal"
           >
-            <a-icon type="eye" />预览
+            <a-icon type="eye" />
+            预览
           </a>
           <a
             v-if="showBtnList.includes('importJson')"
             size="small"
             @click="handleOpenImportJsonModal"
           >
-            <a-icon type="to-top" />导入JSON
+            <a-icon type="to-top" />
+            导入JSON
           </a>
           <a
             v-if="showBtnList.includes('exportJson')"
             size="small"
             @click="handleOpenJsonModal"
           >
-            <a-icon type="file" />生成JSON
+            <a-icon type="file" />
+            生成JSON
           </a>
           <a
             v-if="showBtnList.includes('exportCode')"
             size="small"
             @click="handleOpenCodeModal"
           >
-            <a-icon type="code" />生成代码
+            <a-icon type="code" />
+            生成代码
           </a>
           <a
             v-if="showBtnList.includes('reset')"
             size="small"
             @click="handleReset"
           >
-            <a-icon type="delete" />清空
+            <a-icon type="delete" />
+            清空
           </a>
           <a
             v-if="showBtnList.includes('close')"
@@ -166,8 +172,11 @@
             style="color:#f22;"
             @click="handleClose"
           >
-            <a-icon type="close" />关闭
+            <a-icon type="close" />
+            关闭
           </a>
+          <!-- 按钮插槽 -->
+          <slot name="action"></slot>
         </div>
         <k-form-component-panel
           :data="data"

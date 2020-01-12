@@ -286,7 +286,7 @@ export const basicsList = [
     type: "text",
     name: "文字",
     options: {
-      textAlign: "right",
+      textAlign: "left",
       showRequiredMark: false
     },
     key: ""
