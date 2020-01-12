@@ -8,6 +8,7 @@ export const basicsList = [
   {
     type: "input", // 表单类型
     name: "输入框", // 标题文字
+    icon: "qiapian",
     options: {
       type: "text",
       width: "100%", // 宽度
@@ -28,6 +29,7 @@ export const basicsList = [
   {
     type: "textarea", // 表单类型
     name: "文本框", // 标题文字
+    icon: "wenbenyu",
     options: {
       width: "100%", // 宽度
       minRows: 4,

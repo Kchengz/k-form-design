@@ -4,10 +4,13 @@
     <div class="content" :class="{ 'show-head': showHead }">
       <!-- 左侧控件区域 start -->
       <aside class="left">
-        <a-collapse :defaultActiveKey="['1', '2', '4']">
+        <a-collapse
+          @change="collapseChange"
+          :defaultActiveKey="collapseDefaultActiveKey"
+        >
           <!-- 基础控件 start -->
           <a-collapse-panel header="基础控件" key="1">
-            <draggable
+            <!-- <draggable
               tag="ul"
               :value="basicsList"
               v-bind="{
@@ -23,16 +26,24 @@
                 @dragstart="generateKey(basicsList, index)"
                 @click="handleListPush(val)"
               >
+                <svg v-if="val.icon" class="icon" aria-hidden="true">
+                  <use :xlink:href="`#icon-${val.icon}`"></use>
+                </svg>
                 {{ val.name }}
               </li>
-            </draggable>
+            </draggable> -->
+            <collapseItem
+              :list="basicsList"
+              @generateKey="generateKey"
+              @handleListPush="handleListPush"
+            />
           </a-collapse-panel>
 
           <!-- 基础控件 end -->
           <!-- 高级控件 start -->
           <!-- <div class="title left-title">高级控件</div> -->
           <a-collapse-panel header="高级控件" key="2">
-            <draggable
+            <!-- <draggable
               tag="ul"
               :value="highList"
               v-bind="{
@@ -48,9 +59,17 @@
                 @dragstart="generateKey(highList, index)"
                 @click="handleListPush(val)"
               >
+                <svg v-if="val.icon" class="icon" aria-hidden="true">
+                  <use :xlink:href="`#icon-${val.icon}`"></use>
+                </svg>
                 {{ val.name }}
               </li>
-            </draggable>
+            </draggable> -->
+            <collapseItem
+              :list="highList"
+              @generateKey="generateKey"
+              @handleListPush="handleListPush"
+            />
           </a-collapse-panel>
 
           <!-- 高级控件 end -->
@@ -60,37 +79,30 @@
             
             v-text="customComponents.title"
           ></div> -->
+
           <a-collapse-panel
             v-if="customComponents.list.length > 0"
             :header="customComponents.title"
             key="3"
           >
-            <draggable
-              tag="ul"
-              :value="customComponents.list"
-              v-bind="{
-                group: { name: 'form-draggable', pull: 'clone', put: false },
-                sort: false,
-                animation: 180,
-                ghostClass: 'moving'
-              }"
-            >
-              <li
-                v-for="(val, index) in customComponents.list"
-                :key="index"
-                @dragstart="generateKey(customComponents.list, index)"
-                @click="handleListPush(val)"
-              >
-                {{ val.name }}
-              </li>
-            </draggable>
+            <collapseItem
+              :list="customComponents.list"
+              @generateKey="generateKey"
+              @handleListPush="handleListPush"
+            />
           </a-collapse-panel>
-
           <!-- 自定义控件 end -->
 
           <!-- 布局控件 start -->
           <!-- <div class="title left-title">布局控件</div> -->
           <a-collapse-panel header="布局控件" key="4">
+            <collapseItem
+              :list="layoutList"
+              @generateKey="generateKey"
+              @handleListPush="handleListPush"
+            />
+          </a-collapse-panel>
+          <!-- <a-collapse-panel header="布局控件" key="4">
             <draggable
               tag="ul"
               :value="layoutList"
@@ -109,7 +121,7 @@
                 v-text="val.name"
               ></li>
             </draggable>
-          </a-collapse-panel>
+          </a-collapse-panel> -->
           <!-- 布局控件 end -->
         </a-collapse>
       </aside>
@@ -222,6 +234,7 @@ import kFooter from "./module/footer";
 import kFormComponentPanel from "./module/formComponentPanel";
 import kJsonModal from "./module/jsonModal";
 import kCodeModal from "./module/codeModal";
+import collapseItem from "./module/collapseItem";
 import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
 import draggable from "vuedraggable";
@@ -296,6 +309,7 @@ export default {
   components: {
     kHeader,
     kFooter,
+    collapseItem,
     kJsonModal,
     kCodeModal,
     importJsonModal,
@@ -305,13 +319,18 @@ export default {
     formProperties,
     draggable
   },
-  // computed: {
-  //   highList() {
-  //     highList[0].options.action = this.uploadFile;
-  //     highList[1].options.action = this.uploadImage;
-  //     return highList;
-  //   }
-  // },
+  computed: {
+    collapseDefaultActiveKey() {
+      let defaultActiveKey = window.localStorage.getItem(
+        "collapseDefaultActiveKey"
+      );
+      if (defaultActiveKey) {
+        return defaultActiveKey.split(",");
+      } else {
+        return ["1"];
+      }
+    }
+  },
   methods: {
     generateKey(list, index) {
       // 生成key值
@@ -404,6 +423,10 @@ export default {
       } catch {
         return false;
       }
+    },
+    collapseChange(val) {
+      // 点击collapse时，保存当前collapse状态
+      window.localStorage.setItem("collapseDefaultActiveKey", val);
     },
     handleSave() {
       // 保存函数

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-12 20:54:52
+ * @LastEditTime : 2020-01-13 00:23:25
  */
 
 // 导入ant组件
@@ -105,6 +105,19 @@ function setFormDesignConfig(config) {
   }
 }
 
+/**
+ * @Author: kcz
+ * @description:导入iconfont
+ * @param {url}
+ * @return:
+ */
+function importIcon() {
+  let script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "http://at.alicdn.com/t/font_1609652_zmwe9ifljsh.js";
+  document.body.appendChild(script);
+}
+importIcon();
 // 这里可以用es6的解构语法导入组件 大概就是这个意思 毕竟没有用插件
 export {
   KFormDesign,

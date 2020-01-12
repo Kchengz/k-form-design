@@ -20,6 +20,7 @@ setFormDesignConfig({
     {
       type: "demo", // 表单类型
       name: "自定义组件", // 标题文字
+      icon: "shangchuan1",
       component: Cmp,
       options: {
         defaultValue: undefined,
