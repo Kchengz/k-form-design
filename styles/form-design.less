@@ -4,14 +4,14 @@
 @primary-background-color: fade(@primary-color, 2%);
 @primary-hover-bg-color  : fade(@primary-color, 20%);
 
-@grid-color           : #aaa;
-@grid-background-color: fade(@grid-color, 12%);
-@grid-hover-bg-color  : fade(@grid-color, 24%);
+@layout-color           : #aaa;
+@layout-background-color: fade(@layout-color, 12%);
+@layout-hover-bg-color  : fade(@layout-color, 24%);
 
-@moving-border-color: #ff7777;
+// @moving-border-color: #ff7777;
 
 @left-right-width: 270px;
-@import "./kTable.less";
+@import "./k-table.less";
 
 .form-designer-container-9136076486841527 {
   height: 100vh;
@@ -312,7 +312,7 @@
               // border    : 1px #ccc dashed;
               // border-left   : 0;
               // border-right   : 0;
-              background: @grid-background-color;
+              background: @layout-background-color;
               // margin    : 2px 0;
               width     : 100%;
               transition: all .3s;
@@ -330,7 +330,7 @@
 
               .grid-row,
               .table-layout {
-                background: @grid-background-color;
+                background: @layout-background-color;
 
                 .grid-col,
                 .table-td {
@@ -350,13 +350,13 @@
               }
 
               // &:hover {
-              //   // background       : @grid-hover-bg-color;
-              //   // outline       : 1px solid @grid-color;
+              //   // background       : @layout-hover-bg-color;
+              //   // outline       : 1px solid @layout-color;
               //   // outline-offset   : 0px;
 
               //   .grid-row,
               //   .table-layout {
-              //     background: @grid-hover-bg-color;
+              //     background: @layout-hover-bg-color;
 
               //   }
               // }
@@ -374,17 +374,17 @@
               }
               &.active {
                 &::before {
-                background: @grid-color;
+                background: @layout-color;
                 right      : 0;
                 }
-                background: @grid-hover-bg-color;
+                background: @layout-hover-bg-color;
                 outline-offset: 0;
               }
               // 选择时 end
               // &.active {
-              //   // outline       : 2px solid @grid-color;
-              //     background: @grid-hover-bg-color;
-              //     border-left        : 6px solid @grid-color;
+              //   // outline       : 2px solid @layout-color;
+              //     background: @layout-hover-bg-color;
+              //     border-left        : 6px solid @layout-color;
               //   // outline-offset: 0;
               // }
 
@@ -413,12 +413,12 @@
               >.copy {
                 border-radius: 0 0 0 8px;
                 right        : 30px;
-                background   : @grid-color;
+                background   : @layout-color;
               }
 
               >.delete {
                 right     : 0px;
-                background: @grid-color;
+                background: @layout-color;
               }
             }
           }
