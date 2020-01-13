@@ -130,66 +130,71 @@
       <!-- 中间面板区域 start -->
       <section>
         <div class="title content-title">
-          <a
-            v-if="showBtnList.includes('save')"
-            size="small"
-            @click="handleSave"
-          >
-            <a-icon type="save" />
-            保存
-          </a>
-          <a
-            v-if="showBtnList.includes('preview')"
-            size="small"
-            @click="handleOpenPreviewModal"
-          >
-            <a-icon type="eye" />
-            预览
-          </a>
-          <a
-            v-if="showBtnList.includes('importJson')"
-            size="small"
-            @click="handleOpenImportJsonModal"
-          >
-            <a-icon type="to-top" />
-            导入
-            <!-- 导入JSON -->
-          </a>
-          <a
-            v-if="showBtnList.includes('exportJson')"
-            size="small"
-            @click="handleOpenJsonModal"
-          >
-            <a-icon type="file" />
-            生成JSON
-          </a>
-          <a
-            v-if="showBtnList.includes('exportCode')"
-            size="small"
-            @click="handleOpenCodeModal"
-          >
-            <a-icon type="code" />
-            生成代码
-          </a>
-          <a
-            v-if="showBtnList.includes('reset')"
-            size="small"
-            @click="handleReset"
-          >
-            <a-icon type="delete" />
-            清空
-          </a>
-          <a
-            v-if="showBtnList.includes('close')"
-            size="small"
-            style="color:#f22;"
-            @click="handleClose"
-          >
-            <a-icon type="close" />
-            关闭
-          </a>
-          <!-- 按钮插槽 -->
-          <slot name="action"></slot>
+          <!-- <div class="left-btn-box">
+            <a-button type="primary" >Primary</a-button>
+          </div> -->
+          <div class="right-btn-box">
+            <a
+              v-if="showBtnList.includes('save')"
+              size="small"
+              @click="handleSave"
+            >
+              <a-icon type="save" />
+              保存
+            </a>
+            <a
+              v-if="showBtnList.includes('preview')"
+              size="small"
+              @click="handleOpenPreviewModal"
+            >
+              <a-icon type="eye" />
+              预览
+            </a>
+            <a
+              v-if="showBtnList.includes('importJson')"
+              size="small"
+              @click="handleOpenImportJsonModal"
+            >
+              <a-icon type="to-top" />
+              导入
+              <!-- 导入JSON -->
+            </a>
+            <a
+              v-if="showBtnList.includes('exportJson')"
+              size="small"
+              @click="handleOpenJsonModal"
+            >
+              <a-icon type="file" />
+              生成JSON
+            </a>
+            <a
+              v-if="showBtnList.includes('exportCode')"
+              size="small"
+              @click="handleOpenCodeModal"
+            >
+              <a-icon type="code" />
+              生成代码
+            </a>
+            <a
+              v-if="showBtnList.includes('reset')"
+              size="small"
+              @click="handleReset"
+            >
+              <a-icon type="delete" />
+              清空
+            </a>
+            <a
+              v-if="showBtnList.includes('close')"
+              size="small"
+              style="color:#f22;"
+              @click="handleClose"
+            >
+              <a-icon type="close" />
+              关闭
+            </a>
+            <!-- 按钮插槽 -->
+            <slot name="action"></slot>
+          </div>
         </div>
         <k-form-component-panel
           :data="data"
