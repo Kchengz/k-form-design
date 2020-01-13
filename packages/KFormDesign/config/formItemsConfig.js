@@ -8,7 +8,7 @@ export const basicsList = [
   {
     type: "input", // 表单类型
     name: "输入框", // 标题文字
-    icon: "qiapian",
+    icon: "icon-write",
     options: {
       type: "text",
       width: "100%", // 宽度
@@ -29,7 +29,7 @@ export const basicsList = [
   {
     type: "textarea", // 表单类型
     name: "文本框", // 标题文字
-    icon: "wenbenyu",
+    icon: "icon-edit",
     options: {
       width: "100%", // 宽度
       minRows: 4,
@@ -50,6 +50,7 @@ export const basicsList = [
   {
     type: "number", // 表单类型
     name: "数字输入框", // 标题文字
+    icon: "icon-number",
     options: {
       width: "100%", // 宽度
       defaultValue: 0, // 默认值
@@ -70,7 +71,8 @@ export const basicsList = [
   },
   {
     type: "select", // 表单类型
-    name: "选择器", // 标题文字
+    name: "下拉选择器", // 标题文字
+    icon: "icon-xiala",
     options: {
       width: "100%", // 宽度
       defaultValue: undefined, // 下拉选框请使用undefined为默认值
@@ -101,8 +103,40 @@ export const basicsList = [
     ]
   },
   {
+    type: "checkbox",
+    name: "多选框",
+    icon: "icon-duoxuan1",
+    options: {
+      disabled: false, //是否禁用
+      defaultValue: [],
+      options: [
+        {
+          value: "1",
+          label: "选项1"
+        },
+        {
+          value: "2",
+          label: "选项2"
+        },
+        {
+          value: "3",
+          label: "选项3"
+        }
+      ]
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
     type: "radio", // 表单类型
     name: "单选框", // 标题文字
+    icon: "icon-danxuan-cuxiantiao",
     options: {
       disabled: false, //是否禁用
       defaultValue: "", // 默认值
@@ -132,58 +166,9 @@ export const basicsList = [
     ]
   },
   {
-    type: "checkbox",
-    name: "多选框",
-    options: {
-      disabled: false, //是否禁用
-      defaultValue: [],
-      options: [
-        {
-          value: "1",
-          label: "选项1"
-        },
-        {
-          value: "2",
-          label: "选项2"
-        },
-        {
-          value: "3",
-          label: "选项3"
-        }
-      ]
-    },
-    model: "",
-    key: "",
-    rules: [
-      {
-        required: false,
-        message: "必填项"
-      }
-    ]
-  },
-  {
-    type: "time", // 表单类型
-    name: "时间选择框", // 标题文字
-    options: {
-      width: "100%", // 宽度
-      defaultValue: "", // 默认值，字符串 12:00:00
-      disabled: false, // 是否禁用
-      clearable: false, // 是否显示清除按钮
-      placeholder: "请选择",
-      format: "HH:mm:ss" // 展示格式
-    },
-    model: "",
-    key: "",
-    rules: [
-      {
-        required: false,
-        message: "必填项"
-      }
-    ]
-  },
-  {
     type: "date", // 表单类型
     name: "日期选择框", // 标题文字
+    icon: "icon-calendar",
     options: {
       width: "100%", // 宽度
       defaultValue: "", // 默认值，字符串 12:00:00
@@ -207,8 +192,30 @@ export const basicsList = [
     ]
   },
   {
+    type: "time", // 表单类型
+    name: "时间选择框", // 标题文字
+    icon: "icon-time",
+    options: {
+      width: "100%", // 宽度
+      defaultValue: "", // 默认值，字符串 12:00:00
+      disabled: false, // 是否禁用
+      clearable: false, // 是否显示清除按钮
+      placeholder: "请选择",
+      format: "HH:mm:ss" // 展示格式
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
     type: "rate", // 表单类型
     name: "评分", // 标题文字
+    icon: "icon-pingfen_moren",
     options: {
       defaultValue: 0,
       max: 5, // 最大值
@@ -227,6 +234,7 @@ export const basicsList = [
   {
     type: "slider", // 表单类型
     name: "滑动输入条", // 标题文字
+    icon: "icon-menu",
     options: {
       width: "100%", // 宽度
       defaultValue: 0, // 默认值， 如果range为true的时候，则需要改成数组,如：[12,15]
@@ -249,6 +257,7 @@ export const basicsList = [
   {
     type: "switch", // 表单类型
     name: "开关", // 标题文字
+    icon: "icon-kaiguan3",
     options: {
       defaultValue: false, // 默认值 Boolean 类型
       disabled: false // 是否禁用
@@ -265,6 +274,7 @@ export const basicsList = [
   {
     type: "button", // 表单类型
     name: "按钮", // 标题文字
+    icon: "icon-button-remove",
     options: {
       type: "primary",
       handle: "submit",
@@ -275,6 +285,7 @@ export const basicsList = [
   {
     type: "alert",
     name: "警告提示",
+    icon: "icon-zu",
     options: {
       type: "success",
       description: "",
@@ -287,6 +298,7 @@ export const basicsList = [
   {
     type: "text",
     name: "文字",
+    icon: "icon-zihao",
     options: {
       textAlign: "left",
       showRequiredMark: false
@@ -296,6 +308,7 @@ export const basicsList = [
   {
     type: "html",
     name: "HTML",
+    icon: "icon-ai-code",
     options: {
       defaultValue: "<strong>HTML</strong>"
     },
@@ -308,6 +321,7 @@ export const highList = [
   {
     type: "uploadFile", // 表单类型
     name: "上传文件", // 标题文字
+    icon: "icon-upload",
     options: {
       defaultValue: "",
       multiple: false,
@@ -331,6 +345,7 @@ export const highList = [
   {
     type: "uploadImg",
     name: "上传图片",
+    icon: "icon-image",
     options: {
       defaultValue: "",
       multiple: false,
@@ -391,6 +406,7 @@ export const layoutList = [
   {
     type: "divider",
     name: "分割线",
+    icon: "icon-fengexian",
     options: {
       orientation: "left"
     },
@@ -400,6 +416,7 @@ export const layoutList = [
   {
     type: "card",
     name: "卡片布局",
+    icon: "icon-qiapian",
     list: [],
     key: "",
     model: ""
@@ -407,6 +424,7 @@ export const layoutList = [
   {
     type: "grid",
     name: "栅格布局",
+    icon: "icon-zhage",
     columns: [
       {
         span: 12,
@@ -426,6 +444,7 @@ export const layoutList = [
   {
     type: "table",
     name: "表格布局",
+    icon: "icon-biaoge",
     trs: [
       {
         tds: [

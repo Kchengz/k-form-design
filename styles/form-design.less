@@ -1,7 +1,7 @@
 // 表单设计器样式
 @aside-border-color      : #ccc;
 @primary-color           : #1890ff;
-@primary-background-color: fade(@primary-color, 2%);
+@primary-background-color: fade(@primary-color, 6%);
 @primary-hover-bg-color  : fade(@primary-color, 20%);
 
 @layout-color           : #aaa;
@@ -13,6 +13,7 @@
 @left-right-width: 270px;
 @import "./k-table.less";
 
+// iconfont 样式
 .icon {
   width: 1em; height: 1em;
   vertical-align: -0.15em;
@@ -20,6 +21,7 @@
   overflow: hidden;
 }
 
+// 表单设计器样式
 .form-designer-container-9136076486841527 {
   height: 100vh;
 
@@ -41,7 +43,7 @@
         text-align   : center;
         height       : 45px;
         line-height  : 45px;
-        padding: 0px 5px;
+        padding: 0px 12px;
         &.content-title {
           text-align: right;
 
@@ -60,7 +62,6 @@
     aside {
       width : 270px;
       height: 100%;
-
       // >.left-title {
       //   padding    : 12px 10px 8px;
       //   user-select: none;
@@ -101,7 +102,7 @@
             cursor            : move;
             user-select       : none;
            
-            background     : #fafafa;
+            // background     : #fafafa;
             // color          : #777;
               border         : 1px solid transparent;
               border-radius: 3px;
@@ -110,7 +111,7 @@
 
             &:hover {
               // background     : @primary-color;
-            background     : #fff;
+            // background     : #fff;
             color: @primary-color;
               border         : 1px solid @primary-color;
               position          : relative;

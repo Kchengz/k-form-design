@@ -152,7 +152,8 @@
             @click="handleOpenImportJsonModal"
           >
             <a-icon type="to-top" />
-            导入JSON
+            导入
+            <!-- 导入JSON -->
           </a>
           <a
             v-if="showBtnList.includes('exportJson')"
@@ -237,7 +238,7 @@ import kCodeModal from "./module/codeModal";
 import collapseItem from "./module/collapseItem";
 import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
-import draggable from "vuedraggable";
+// import draggable from "vuedraggable";
 import {
   basicsList,
   highList,
@@ -316,8 +317,8 @@ export default {
     previewModal,
     kFormComponentPanel,
     formItemProperties,
-    formProperties,
-    draggable
+    formProperties
+    // draggable
   },
   computed: {
     collapseDefaultActiveKey() {

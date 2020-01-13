@@ -18,6 +18,14 @@
         v-model="jsonFormat"
       ></codemirror>
     </div>
+    <a-upload
+      action="/abc"
+      :beforeUpload="beforeUpload"
+      :showUploadList="false"
+      accept="application/json"
+    >
+      <a-button type="primary"> 导入json文件 </a-button>
+    </a-upload>
   </a-modal>
 </template>
 <script>
@@ -56,6 +64,17 @@ export default {
   methods: {
     handleCancel() {
       this.visible = false;
+    },
+    beforeUpload(e) {
+      // 通过json文件导入
+      let _this = this;
+      let reader = new FileReader();
+      reader.readAsText(e);
+      reader.onload = function() {
+        _this.jsonFormat = this.result;
+        _this.handleImportJson();
+      };
+      return false;
     },
     handleImportJson() {
       // 导入JSON

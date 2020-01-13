@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-13 00:23:25
+ * @LastEditTime : 2020-01-13 12:27:46
  */
 
 // 导入ant组件
@@ -114,7 +114,7 @@ function setFormDesignConfig(config) {
 function importIcon() {
   let script = document.createElement("script");
   script.type = "text/javascript";
-  script.src = "http://at.alicdn.com/t/font_1609652_zmwe9ifljsh.js";
+  script.src = "http://at.alicdn.com/t/font_1609652_6t0xgemy3mk.js";
   document.body.appendChild(script);
 }
 importIcon();

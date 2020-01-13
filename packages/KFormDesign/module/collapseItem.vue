@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-13 00:37:54
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-13 00:49:24
+ * @LastEditTime : 2020-01-13 10:51:05
  -->
 <template>
   <draggable
@@ -23,7 +23,7 @@
       @click="$emit('handleListPush', val)"
     >
       <svg v-if="val.icon" class="icon" aria-hidden="true">
-        <use :xlink:href="`#icon-${val.icon}`"></use>
+        <use :xlink:href="`#${val.icon}`"></use>
       </svg>
       {{ val.name }}
     </li>
