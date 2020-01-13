@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <div
+    :class="{
+      'layout-width': ['grid', 'table', 'card', 'divider', 'html'].includes(
+        record.type
+      )
+    }"
+  >
     <template v-if="record.type === 'grid'">
       <div
         class="grid-box"

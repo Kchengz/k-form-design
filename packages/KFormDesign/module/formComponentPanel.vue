@@ -3,12 +3,12 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-05 22:56:13
+ * @LastEditTime : 2020-01-13 20:36:43
  -->
 <template>
   <div class="form-panel">
     <p class="hint-text" v-show="data.list.length === 0">
-      从左侧拖拽或点击来添加控件
+      请点击或拖拽左侧添加
     </p>
     <a-form
       class="a-form-box k-form-build"
@@ -106,6 +106,9 @@ export default {
       // json深拷贝一次
       const listString = JSON.stringify(this.data.list);
       this.data.list = JSON.parse(listString);
+      // 删除icon及compoent属性
+      delete this.data.list[newIndex].icon;
+      delete this.data.list[newIndex].component;
       this.$emit("handleSetSelectItem", this.data.list[newIndex]);
     },
     handleColAdd(evt, columns, isCopy = false) {

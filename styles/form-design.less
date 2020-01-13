@@ -71,6 +71,7 @@
         border-right: 1px solid @aside-border-color;
         height      : 100%;
         overflow    : auto;
+        user-select       : none;
 
         .ant-collapse-content-box {
           padding: 0;
@@ -100,7 +101,6 @@
             height            : 36px;
             line-height    : 20px;
             cursor            : move;
-            user-select       : none;
            
             // background     : #fafafa;
             // color          : #777;
@@ -522,6 +522,15 @@
 
   // 行内组件宽度默认175px
   .ant-form-inline{
+    .list-main{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+      .layout-width{
+        width: 100%;
+      }
+    }
     .ant-form-item-control-wrapper{
       width: 175px !important;
     }

@@ -363,6 +363,9 @@ export default {
         }
         const itemString = JSON.stringify(item);
         const record = JSON.parse(itemString);
+        // 删除icon及compoent属性
+        delete record.icon;
+        delete record.component;
         this.data.list.push(record);
         this.handleSetSelectItem(record);
         return false;
