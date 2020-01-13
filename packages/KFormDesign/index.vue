@@ -10,61 +10,15 @@
         >
           <!-- 基础控件 start -->
           <a-collapse-panel header="基础控件" key="1">
-            <!-- <draggable
-              tag="ul"
-              :value="basicsList"
-              v-bind="{
-                group: { name: 'form-draggable', pull: 'clone', put: false },
-                sort: false,
-                animation: 180,
-                ghostClass: 'moving'
-              }"
-            >
-              <li
-                v-for="(val, index) in basicsList"
-                :key="index"
-                @dragstart="generateKey(basicsList, index)"
-                @click="handleListPush(val)"
-              >
-                <svg v-if="val.icon" class="icon" aria-hidden="true">
-                  <use :xlink:href="`#icon-${val.icon}`"></use>
-                </svg>
-                {{ val.name }}
-              </li>
-            </draggable> -->
             <collapseItem
               :list="basicsList"
               @generateKey="generateKey"
               @handleListPush="handleListPush"
             />
           </a-collapse-panel>
-
           <!-- 基础控件 end -->
           <!-- 高级控件 start -->
-          <!-- <div class="title left-title">高级控件</div> -->
           <a-collapse-panel header="高级控件" key="2">
-            <!-- <draggable
-              tag="ul"
-              :value="highList"
-              v-bind="{
-                group: { name: 'form-draggable', pull: 'clone', put: false },
-                sort: false,
-                animation: 180,
-                ghostClass: 'moving'
-              }"
-            >
-              <li
-                v-for="(val, index) in highList"
-                :key="index"
-                @dragstart="generateKey(highList, index)"
-                @click="handleListPush(val)"
-              >
-                <svg v-if="val.icon" class="icon" aria-hidden="true">
-                  <use :xlink:href="`#icon-${val.icon}`"></use>
-                </svg>
-                {{ val.name }}
-              </li>
-            </draggable> -->
             <collapseItem
               :list="highList"
               @generateKey="generateKey"
@@ -74,12 +28,6 @@
 
           <!-- 高级控件 end -->
           <!-- 自定义控件 start -->
-          <!-- <div
-            class="title left-title"
-            
-            v-text="customComponents.title"
-          ></div> -->
-
           <a-collapse-panel
             v-if="customComponents.list.length > 0"
             :header="customComponents.title"
@@ -94,7 +42,6 @@
           <!-- 自定义控件 end -->
 
           <!-- 布局控件 start -->
-          <!-- <div class="title left-title">布局控件</div> -->
           <a-collapse-panel header="布局控件" key="4">
             <collapseItem
               :list="layoutList"
@@ -102,26 +49,6 @@
               @handleListPush="handleListPush"
             />
           </a-collapse-panel>
-          <!-- <a-collapse-panel header="布局控件" key="4">
-            <draggable
-              tag="ul"
-              :value="layoutList"
-              v-bind="{
-                group: { name: 'form-draggable', pull: 'clone', put: false },
-                sort: false,
-                animation: 180,
-                ghostClass: 'moving'
-              }"
-            >
-              <li
-                v-for="(val, index) in layoutList"
-                :key="index"
-                @dragstart="generateKey(layoutList, index)"
-                @click="handleListPush(val)"
-                v-text="val.name"
-              ></li>
-            </draggable>
-          </a-collapse-panel> -->
           <!-- 布局控件 end -->
         </a-collapse>
       </aside>
@@ -130,9 +57,6 @@
       <!-- 中间面板区域 start -->
       <section>
         <div class="title content-title">
-          <!-- <div class="left-btn-box">
-            <a-button type="primary" >Primary</a-button>
-          </div> -->
           <div class="right-btn-box">
             <a
               v-if="showBtnList.includes('save')"
@@ -147,7 +71,7 @@
               size="small"
               @click="handleOpenPreviewModal"
             >
-              <a-icon type="eye" />
+              <a-icon type="chrome" />
               预览
             </a>
             <a
@@ -155,16 +79,15 @@
               size="small"
               @click="handleOpenImportJsonModal"
             >
-              <a-icon type="to-top" />
+              <a-icon type="upload" />
               导入
-              <!-- 导入JSON -->
             </a>
             <a
               v-if="showBtnList.includes('exportJson')"
               size="small"
               @click="handleOpenJsonModal"
             >
-              <a-icon type="file" />
+              <a-icon type="credit-card" />
               生成JSON
             </a>
             <a
@@ -214,15 +137,28 @@
       <aside class="right">
         <a-tabs style="height:100%">
           <a-tab-pane style="height:100%" tab=" 控件属性设置" key="1">
-            <formItemProperties :selectItem="selectItem" />
+            <formItemProperties :showHead="showHead" :selectItem="selectItem" />
           </a-tab-pane>
           <a-tab-pane tab="表单属性设置" key="2" forceRender>
             <formProperties
+              :showHead="showHead"
               :config="data.config"
               :previewOptions="previewOptions"
             />
           </a-tab-pane>
         </a-tabs>
+        <!-- <a-collapse>
+          <a-collapse-panel header="控件属性设置" key="1">
+            <formItemProperties :showHead="showHead" :selectItem="selectItem" />
+          </a-collapse-panel>
+          <a-collapse-panel header="表单属性设置" key="2">
+            <formProperties
+              :showHead="showHead"
+              :config="data.config"
+              :previewOptions="previewOptions"
+            />
+          </a-collapse-panel>
+        </a-collapse> -->
       </aside>
       <!-- 右侧控件属性区域 end -->
     </div>
@@ -271,8 +207,8 @@ export default {
         "importJson",
         "exportJson",
         "exportCode",
-        "reset",
-        "close"
+        "reset"
+        // "close"
       ]
     }
   },

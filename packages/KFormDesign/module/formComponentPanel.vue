@@ -3,12 +3,12 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-13 20:36:43
+ * @LastEditTime : 2020-01-14 00:10:23
  -->
 <template>
   <div class="form-panel">
     <p class="hint-text" v-show="data.list.length === 0">
-      请点击或拖拽左侧添加
+      从左侧选择控件添加
     </p>
     <a-form
       class="a-form-box k-form-build"

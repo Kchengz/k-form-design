@@ -1,6 +1,6 @@
 <template>
   <div class="properties-centent kk-checkbox" ref="propertiesCentent">
-    <p class="hint-box" v-show="selectItem.key === ''">请选择控件</p>
+    <p class="hint-box" v-show="selectItem.key === ''">未选择控件</p>
     <a-form v-show="selectItem.key !== ''">
       <a-form-item v-if="typeof selectItem.name !== 'undefined'" label="标题">
         <a-input v-model="selectItem.name" placeholder="请输入" />
@@ -375,20 +375,26 @@ export default {
       this.options = val.options || {};
     }
   },
-  components: {
-    KChangeOption,
-    kCheckbox
-  },
   props: {
+    showHead: {
+      type: Boolean,
+      required: true
+    },
     selectItem: {
       type: Object,
       required: true
     }
   },
+  components: {
+    KChangeOption,
+    kCheckbox
+  },
+
   methods: {
     setOropertiesCentent() {
+      let height = this.showHead ? 130 : 70;
       this.$refs.propertiesCentent.style.height =
-        document.body.clientHeight - 140 + "px";
+        document.body.clientHeight - height + "px";
     }
   },
   mounted() {

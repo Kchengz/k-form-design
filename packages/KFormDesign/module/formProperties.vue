@@ -10,13 +10,13 @@
       </a-form-item>
       <a-form-item label="labelCol（水平布局生效）">
         <div class="change-col-box">
-          <div>
-            <label>span:</label>
-            <a-input-number
-              v-model="config.labelCol.span"
-              @change="config.wrapperCol.span = 24 - config.labelCol.span"
-            />
-          </div>
+          <a-slider
+            id="test"
+            :max="24"
+            :min="0"
+            v-model="config.labelCol.span"
+            @change="config.wrapperCol.span = 24 - config.labelCol.span"
+          />
         </div>
       </a-form-item>
       <a-form-item label="wrapperCol（水平布局生效）">
@@ -33,18 +33,6 @@
       <a-form-item label="表单CSS">
         <a-input v-model="config.customStyle" />
       </a-form-item>
-      <!-- <a-form-item label="表单顶部外边距">
-        <a-input v-model="config.marginTop" />
-      </a-form-item>
-      <a-form-item label="表单右边外边距">
-        <a-input v-model="config.marginRight" />
-      </a-form-item>
-      <a-form-item label="表单底部外边距">
-        <a-input v-model="config.marginBottom" />
-      </a-form-item>
-      <a-form-item label="表单左边外边距">
-        <a-input v-model="config.marginLeft" />
-      </a-form-item> -->
       <a-form-item label="表单属性">
         <kCheckbox
           v-if="typeof config.hideRequiredMark !== 'undefined'"
@@ -64,17 +52,19 @@
  * date 2019-11-20
  * description 表单属性设置面板组件
  */
-// import changeOption from "@/components/ChangeOption/index.vue";
 import kCheckbox from "../../KCheckbox/index.vue";
 export default {
   name: "formProperties",
   components: {
-    //   changeOption,
     kCheckbox
   },
   props: {
     config: {
       type: Object,
+      required: true
+    },
+    showHead: {
+      type: Boolean,
       required: true
     },
     previewOptions: {
@@ -84,8 +74,9 @@ export default {
   },
   methods: {
     setOropertiesCentent() {
+      let height = this.showHead ? 130 : 70;
       this.$refs.propertiesCentent.style.height =
-        document.body.clientHeight - 140 + "px";
+        document.body.clientHeight - height + "px";
     }
   },
   mounted() {
