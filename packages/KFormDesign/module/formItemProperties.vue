@@ -5,21 +5,18 @@
       <a-form-item v-if="typeof selectItem.name !== 'undefined'" label="标题">
         <a-input v-model="selectItem.name" placeholder="请输入" />
       </a-form-item>
-      <!-- input type start -->
-      <a-form-item
-        v-if="typeof options.type !== 'undefined'"
-        label="输入框type"
-      >
-        <a-input v-model="options.type" placeholder="请输入" />
-      </a-form-item>
-      <!-- input type end -->
+
       <a-form-item
         v-if="typeof selectItem.model !== 'undefined'"
         label="数据字段"
       >
         <a-input v-model="selectItem.model" placeholder="请输入" />
       </a-form-item>
-
+      <!-- input type start -->
+      <a-form-item v-if="selectItem.type === 'input'" label="输入框type">
+        <a-input v-model="options.type" placeholder="请输入" />
+      </a-form-item>
+      <!-- input type end -->
       <a-form-item
         v-if="typeof options.rangePlaceholder !== 'undefined' && options.range"
         label="占位内容"
@@ -391,7 +388,7 @@ export default {
   methods: {
     setOropertiesCentent() {
       this.$refs.propertiesCentent.style.height =
-        document.body.clientHeight - 160 + "px";
+        document.body.clientHeight - 140 + "px";
     }
   },
   mounted() {

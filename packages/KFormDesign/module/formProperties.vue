@@ -12,7 +12,10 @@
         <div class="change-col-box">
           <div>
             <label>span:</label>
-            <a-input-number v-model="config.labelCol.span" />
+            <a-input-number
+              v-model="config.labelCol.span"
+              @change="config.wrapperCol.span = 24 - config.labelCol.span"
+            />
           </div>
         </div>
       </a-form-item>
@@ -82,7 +85,7 @@ export default {
   methods: {
     setOropertiesCentent() {
       this.$refs.propertiesCentent.style.height =
-        document.body.clientHeight - 160 + "px";
+        document.body.clientHeight - 140 + "px";
     }
   },
   mounted() {

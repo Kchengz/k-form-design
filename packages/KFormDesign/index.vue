@@ -221,7 +221,7 @@
       </aside>
       <!-- 右侧控件属性区域 end -->
     </div>
-    <k-footer />
+    <!-- <k-footer /> -->
   </div>
 </template>
 <script>
