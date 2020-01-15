@@ -15,10 +15,11 @@
 
 // iconfont 样式
 .icon {
-  width: 1em; height: 1em;
+  width         : 1em;
+  height        : 1em;
   vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
+  fill          : currentColor;
+  overflow      : hidden;
 }
 
 // 表单设计器样式
@@ -49,7 +50,7 @@
         border-right: 1px solid @aside-border-color;
         height      : 100%;
         overflow    : auto;
-        user-select       : none;
+        user-select : none;
 
         .ant-collapse-content-box {
           padding: 0;
@@ -64,59 +65,79 @@
           // background: #efefef;
 
           li {
-            @shadowColor: #aaa;
-            border-radius     : 0;
-            border            : 0;
-            box-shadow        : 1px 0 0 0 @shadowColor, 0 1px 0 0 @shadowColor, 1px 1px 0 0 @shadowColor, 1px 0 0 0 @shadowColor inset, 0 1px 0 0 @shadowColor inset;
-            // width          : 33.33%;
+            @shadowColor         : #aaa;
+            border-radius        : 0;
+            border               : 0;
+            box-shadow           : 1px 0 0 0 @shadowColor, 0 1px 0 0 @shadowColor, 1px 1px 0 0 @shadowColor, 1px 0 0 0 @shadowColor inset, 0 1px 0 0 @shadowColor inset;
+            // width             : 33.33%;
             // float             : left;
-            padding           : 8px 12px;
+            padding              : 8px 12px;
             // -webkit-transition: all 0.3s;
-            transition        : all 0.3s;
-            width             : calc(50% - 6px);
-            margin         : 2.7px;
-            // padding-left   : 12px;
-            height            : 36px;
-            line-height    : 20px;
-            cursor            : move;
-           
+            transition           : all 0.3s;
+            width                : calc(50% - 6px);
+            margin               : 2.7px;
+            // padding-left      : 12px;
+            height               : 36px;
+            line-height          : 20px;
+            cursor               : move;
+
             // background     : #fafafa;
             // color          : #777;
-              border         : 1px solid transparent;
-              border-radius: 3px;
+            border            : 1px solid transparent;
+            border-radius     : 3px;
             // border         : 1px dashed @shadowColor;
             transition        : all .3s;
 
             &:hover {
-              // background     : @primary-color;
-            // background     : #fff;
-            color: @primary-color;
-              border         : 1px solid @primary-color;
-              position          : relative;
-              z-index           : 1;
+              // background        : @primary-color;
+              // background        : #fff;
+              color                : @primary-color;
+              border               : 1px solid @primary-color;
+              position             : relative;
+              z-index              : 1;
               // -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-              box-shadow        : 0 2px 6px @primary-color;
-              // outline: 1px dashed @primary-color;
+              box-shadow           : 0 2px 6px @primary-color;
+              // outline           : 1px dashed @primary-color;
             }
           }
         }
       }
+
       // 右侧区域
       &.right {
-        height     : 100%;
-        border-left: 1px solid @aside-border-color;
+        height       : 100%;
+        border-left  : 1px solid @aside-border-color;
         // background: @layout-hover-bg-color;
-        color: #fff;
-        overflow: auto;
+        color        : #fff;
+        overflow     : auto;
+        overflow-X     : hidden;
+        position: relative;
+        .form-item-properties{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: 12;
+          left:100%;
+          top:0;
+          box-shadow: 0 0px 3px 3px #aaa;
+          transition: all .5s;
+          &.show-properties{
+            left:0px;
+
+          }
+        }
         .properties-centent {
           overflow: auto;
-          padding : 0 18px;
-
+          background: #fff;
+          .ant-card-body{
+            padding: 8px 16px;
+          }
           .ant-form-item {
-            margin-bottom : 0;
-            padding: 6px 0;
-            border-bottom : 1px solid #ddd;
-            .ant-form-item-label{
+            margin-bottom: 0;
+            padding      : 6px 0;
+            border-bottom: 1px solid #ddd;
+
+            .ant-form-item-label {
               line-height: 2;
             }
           }
@@ -137,29 +158,29 @@
       flex       : 1;
       max-width  : calc(100% - @left-right-width - @left-right-width);
       user-select: none;
-      margin: 0 5px 0;
-      box-shadow        : 0px 5px 5px 5px #aaa;
+      margin     : 0 5px 0;
+      box-shadow : 0px 5px 5px 5px #aaa;
 
       // 头部操作按钮区域
       .title {
-         border-bottom: 2px solid #dcdcdc;
-      font-size    : 14px;
-        text-align   : center;
+        border-bottom: 2px solid #dcdcdc;
+        font-size    : 16px;
+        text-align   : left;
         height       : 45px;
         line-height  : 45px;
-        padding: 0px 12px;
-        &.content-title {
-          display: flex;
-          justify-content: space-between;
-          align-content: center;
-          & > .left-btn-box{
+        padding      : 0px 12px;
 
-          }
+        &.content-title {
+          display        : flex;
+          justify-content: space-between;
+          align-content  : center;
+       
           a {
-            color: #666;
-            margin-left: 8px;
-            &:hover{
-              color:@primary-color;
+            color      : #666;
+            margin-left: 10px;
+
+            &:hover {
+              color: @primary-color;
             }
           }
         }
@@ -167,10 +188,10 @@
 
       // 内容操作区域
       .form-panel {
-        height    : calc(100% - 50px);
-        background: #efefef;
+        height       : calc(100% - 50px);
+        background   : #efefef;
         // border    : 1px solid #ccc;
-        position  : relative;
+        position     : relative;
 
         >.hint-text {
           position  : absolute;
@@ -193,21 +214,22 @@
           overflow: auto;
 
           .list-main {
-            min-height: 100%;
-            padding   : 5px;
-            position  : relative;
-            background: #fafafa;
+            min-height   : 100%;
+            padding      : 5px;
+            position     : relative;
+            background   : #fafafa;
             // border    : 1px #ccc dashed;
 
             .moving {
               // 拖放移动中
               // outline-width: 0;
-              min-height   : 35px;
-              box-sizing   : border-box;
-              overflow     : hidden;
-              padding      : 0 !important;
+              min-height      : 35px;
+              box-sizing      : border-box;
+              overflow        : hidden;
+              padding         : 0 !important;
               // margin       : 3px 0;
-              position     : relative;
+              position        : relative;
+
               &::before {
                 content   : '';
                 height    : 5px;
@@ -215,28 +237,29 @@
                 background: @primary-color;
                 position  : absolute;
                 top       : 0;
-                right      : 0;
+                right     : 0;
               }
             }
 
             .drag-move-box {
-              position  : relative;
-              box-sizing: border-box;
-              padding   : 8px;
-              // outline   : 2px solid transparent;
-              // border    : 1px #ccc dashed;
-              // border-left: 0;
+              position       : relative;
+              box-sizing     : border-box;
+              padding        : 8px;
+              // outline     : 2px solid transparent;
+              // border      : 1px #ccc dashed;
+              // border-left : 0;
               // border-right: 0;
-              // background: @primary-background-color;
-              // margin    : 4px 0;
-              overflow  : hidden;
-              transition: all .3s;
-              min-height: 36px;
-  
+              // background  : @primary-background-color;
+              // margin      : 4px 0;
+              overflow       : hidden;
+              transition     : all .3s;
+              min-height     : 36px;
+
               &:hover {
-                background: @primary-hover-bg-color;
+                background     : @primary-hover-bg-color;
                 // border-left : 6px solid @primary-color;
               }
+
               // 选择时 start
               &::before {
                 content   : '';
@@ -245,16 +268,19 @@
                 background: @primary-color;
                 position  : absolute;
                 top       : 0;
-                right      : -100%;
+                right     : -100%;
                 transition: all .3s;
               }
+
               &.active {
                 &::before {
-                right      : 0;
-              }
-                background: @primary-hover-bg-color;
+                  right: 0;
+                }
+
+                background    : @primary-hover-bg-color;
                 outline-offset: 0;
               }
+
               // 选择时 end
               .form-item-box {
                 position  : relative;
@@ -270,6 +296,7 @@
                   left    : 0;
                   z-index : 888;
                 }
+
                 .ant-form-item {
                   // 修改ant form-item的margin为padding
                   margin        : 0;
@@ -280,7 +307,7 @@
               .show-key-box {
                 // 显示key
                 position : absolute;
-                bottom      : 2px;
+                bottom   : 2px;
                 right    : 5px;
                 font-size: 14px;
                 z-index  : 999;
@@ -290,7 +317,7 @@
               >.copy,
               >.delete {
                 position   : absolute;
-                top     : 0;
+                top        : 0;
                 width      : 30px;
                 height     : 30px;
                 line-height: 30px;
@@ -324,18 +351,19 @@
 
             .grid-box,
             .table-box {
-              position  : relative;
-              box-sizing: border-box;
-              padding   : 5px;
-              // outline   : 2px solid transparent;
-              // border    : 1px #ccc dashed;
-              // border-left   : 0;
+              position          : relative;
+              box-sizing        : border-box;
+              padding           : 5px;
+              // outline        : 2px solid transparent;
+              // border         : 1px #ccc dashed;
+              // border-left    : 0;
               // border-right   : 0;
-              background: @layout-background-color;
-              // margin    : 2px 0;
-              width     : 100%;
-              transition: all .3s;
-              overflow: hidden;
+              background        : @layout-background-color;
+              // margin         : 2px 0;
+              width             : 100%;
+              transition        : all .3s;
+              overflow          : hidden;
+
               .form-item-box {
                 position  : relative;
                 box-sizing: border-box;
@@ -370,7 +398,7 @@
 
               // &:hover {
               //   // background       : @layout-hover-bg-color;
-              //   // outline       : 1px solid @layout-color;
+              //   // outline          : 1px solid @layout-color;
               //   // outline-offset   : 0px;
 
               //   .grid-row,
@@ -388,29 +416,32 @@
                 background: transparent;
                 position  : absolute;
                 top       : 0;
-                right      : -100%;
+                right     : -100%;
                 transition: all .3s;
               }
+
               &.active {
                 &::before {
-                background: @layout-color;
-                right      : 0;
+                  background: @layout-color;
+                  right     : 0;
                 }
-                background: @layout-hover-bg-color;
+
+                background    : @layout-hover-bg-color;
                 outline-offset: 0;
               }
+
               // 选择时 end
               // &.active {
-              //   // outline       : 2px solid @layout-color;
-              //     background: @layout-hover-bg-color;
+              //   // outline           : 2px solid @layout-color;
+              //     background         : @layout-hover-bg-color;
               //     border-left        : 6px solid @layout-color;
-              //   // outline-offset: 0;
+              //   // outline-offset    : 0;
               // }
 
               >.copy,
               >.delete {
                 position   : absolute;
-                top     : 0px;
+                top        : 0px;
                 width      : 30px;
                 height     : 30px;
                 line-height: 30px;
@@ -532,17 +563,19 @@
   }
 
   // 行内组件宽度默认175px
-  .ant-form-inline{
-    .list-main{
-      display: flex;
-      flex-wrap: wrap;
+  .ant-form-inline {
+    .list-main {
+      display        : flex;
+      flex-wrap      : wrap;
       justify-content: flex-start;
-      align-content: flex-start;
-      .layout-width{
+      align-content  : flex-start;
+
+      .layout-width {
         width: 100%;
       }
     }
-    .ant-form-item-control-wrapper{
+
+    .ant-form-item-control-wrapper {
       width: 175px !important;
     }
   }
@@ -609,14 +642,16 @@
       z-index : 10;
     }
   }
-  &.ant-form-inline{
-    .ant-form-item-control-wrapper{
+
+  &.ant-form-inline {
+    .ant-form-item-control-wrapper {
       width: 175px !important;
     }
   }
 }
+
 // .k-form-build-9136076486841527 {
- 
+
 // }
 // header样式
 .header-9136076486841527 {

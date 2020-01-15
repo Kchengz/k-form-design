@@ -34,10 +34,12 @@ import {
   TimePicker,
   message,
   Upload,  
+  Tooltip,
   Collapse
 } from 'ant-design-vue'
 
 Vue.use(LocaleProvider)
+Vue.use(Tooltip)
 Vue.use(Collapse)
 Vue.use(Layout)
 Vue.use(Input)

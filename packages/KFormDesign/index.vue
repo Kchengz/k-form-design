@@ -57,68 +57,76 @@
       <!-- 中间面板区域 start -->
       <section>
         <div class="title content-title">
-          <div class="right-btn-box">
-            <a
-              v-if="showBtnList.includes('save')"
-              size="small"
-              @click="handleSave"
-            >
-              <a-icon type="save" />
-              保存
-            </a>
-            <a
-              v-if="showBtnList.includes('preview')"
-              size="small"
-              @click="handleOpenPreviewModal"
-            >
-              <a-icon type="chrome" />
-              预览
-            </a>
-            <a
-              v-if="showBtnList.includes('importJson')"
-              size="small"
-              @click="handleOpenImportJsonModal"
-            >
-              <a-icon type="upload" />
-              导入
-            </a>
-            <a
-              v-if="showBtnList.includes('exportJson')"
-              size="small"
-              @click="handleOpenJsonModal"
-            >
-              <a-icon type="credit-card" />
-              生成JSON
-            </a>
-            <a
-              v-if="showBtnList.includes('exportCode')"
-              size="small"
-              @click="handleOpenCodeModal"
-            >
-              <a-icon type="code" />
-              生成代码
-            </a>
-            <a
-              v-if="showBtnList.includes('reset')"
-              size="small"
-              @click="handleReset"
-            >
-              <a-icon type="delete" />
-              清空
-            </a>
-            <a
-              v-if="showBtnList.includes('close')"
-              size="small"
-              style="color:#f22;"
-              @click="handleClose"
-            >
-              <a-icon type="close" />
-              关闭
-            </a>
-            <!-- 按钮插槽 -->
-            <slot name="action"></slot>
+          <!-- 头部操作按钮区域 start -->
+          <!-- 操作左侧区域 start -->
+          <div class="left-btn-box">
+            <a-tooltip title="保存">
+              <a v-if="showBtnList.includes('save')" @click="handleSave">
+                <a-icon type="save" />
+              </a>
+            </a-tooltip>
+
+            <a-tooltip title="预览">
+              <a
+                v-if="showBtnList.includes('preview')"
+                @click="handleOpenPreviewModal"
+              >
+                <a-icon type="chrome" />
+              </a>
+            </a-tooltip>
+
+            <a-tooltip title="导入">
+              <a
+                v-if="showBtnList.includes('importJson')"
+                @click="handleOpenImportJsonModal"
+              >
+                <a-icon type="upload" />
+              </a>
+            </a-tooltip>
+
+            <a-tooltip title="生成JSON">
+              <a
+                v-if="showBtnList.includes('exportJson')"
+                @click="handleOpenJsonModal"
+              >
+                <a-icon type="credit-card" />
+              </a>
+            </a-tooltip>
+
+            <a-tooltip title="生成代码">
+              <a
+                v-if="showBtnList.includes('exportCode')"
+                @click="handleOpenCodeModal"
+              >
+                <a-icon type="code" />
+              </a>
+            </a-tooltip>
+
+            <a-tooltip title="清空">
+              <a v-if="showBtnList.includes('reset')" @click="handleReset">
+                <a-icon type="delete" />
+              </a>
+            </a-tooltip>
+            <slot name="left-action"></slot>
           </div>
+          <!-- 操作左侧区域 end -->
+
+          <!-- 操作右侧区域 start -->
+          <div class="right-btn-box">
+            <slot name="right-action"></slot>
+
+            <a-tooltip title="关闭">
+              <a v-if="showBtnList.includes('close')" @click="handleClose">
+                <a-icon type="close" />
+              </a>
+            </a-tooltip>
+            <!-- 按钮插槽 -->
+          </div>
+          <!-- 操作右侧区域 end -->
+
+          <!-- 头部操作按钮区域 end -->
         </div>
+        <!-- 操作区域 start -->
         <k-form-component-panel
           :data="data"
           :selectItem="selectItem"
@@ -126,6 +134,7 @@
           ref="KFCP"
           @handleSetSelectItem="handleSetSelectItem"
         />
+        <!-- 操作区域 start -->
         <k-json-modal ref="jsonModal" />
         <k-code-modal ref="codeModal" />
         <importJsonModal ref="importJsonModal" />
@@ -135,30 +144,20 @@
 
       <!-- 右侧控件属性区域 start -->
       <aside class="right">
-        <a-tabs style="height:100%">
+        <!-- <a-tabs style="height:100%">
           <a-tab-pane style="height:100%" tab=" 控件属性设置" key="1">
-            <formItemProperties :showHead="showHead" :selectItem="selectItem" />
           </a-tab-pane>
-          <a-tab-pane tab="表单属性设置" key="2" forceRender>
-            <formProperties
-              :showHead="showHead"
-              :config="data.config"
-              :previewOptions="previewOptions"
-            />
-          </a-tab-pane>
-        </a-tabs>
-        <!-- <a-collapse>
-          <a-collapse-panel header="控件属性设置" key="1">
-            <formItemProperties :showHead="showHead" :selectItem="selectItem" />
-          </a-collapse-panel>
-          <a-collapse-panel header="表单属性设置" key="2">
-            <formProperties
-              :showHead="showHead"
-              :config="data.config"
-              :previewOptions="previewOptions"
-            />
-          </a-collapse-panel>
-        </a-collapse> -->
+          <a-tab-pane tab="表单属性设置" key="2" forceRender> </a-tab-pane>
+        </a-tabs> -->
+        <formProperties
+          :config="data.config"
+          :previewOptions="previewOptions"
+        />
+        <formItemProperties
+          :class="{ 'show-properties': showPropertie }"
+          class="form-item-properties"
+          :selectItem="selectItem"
+        />
       </aside>
       <!-- 右侧控件属性区域 end -->
     </div>
@@ -172,7 +171,7 @@
  * description 表单设计器
  */
 import kHeader from "./module/header";
-import kFooter from "./module/footer";
+// import kFooter from "./module/footer";
 import kFormComponentPanel from "./module/formComponentPanel";
 import kJsonModal from "./module/jsonModal";
 import kCodeModal from "./module/codeModal";
@@ -207,8 +206,8 @@ export default {
         "importJson",
         "exportJson",
         "exportCode",
-        "reset"
-        // "close"
+        "reset",
+        "close"
       ]
     }
   },
@@ -220,6 +219,7 @@ export default {
       customComponents,
       updateTime: 0,
       updateRecordTime: 0,
+      showPropertie: false,
       noModel: [
         "button",
         "divider",
@@ -250,7 +250,7 @@ export default {
   },
   components: {
     kHeader,
-    kFooter,
+    // kFooter,
     collapseItem,
     kJsonModal,
     kCodeModal,
@@ -260,6 +260,16 @@ export default {
     formItemProperties,
     formProperties
     // draggable
+  },
+  watch: {
+    "selectItem.key"(val) {
+      // 监听是否选中控件，选中则弹出属性面板，否则就关闭属性面板
+      if (val) {
+        this.showPropertie = true;
+      } else {
+        this.showPropertie = false;
+      }
+    }
   },
   computed: {
     collapseDefaultActiveKey() {

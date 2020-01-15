@@ -1,16 +1,6 @@
 <template>
   <div>
-    <k-form-design
-      @save="handleSave"
-      :showBtnList="[
-        'preview',
-        'importJson',
-        'exportJson',
-        'exportCode',
-        'reset'
-      ]"
-      @close="handleClose"
-    >
+    <k-form-design @save="handleSave" :showHead="false" @close="handleClose">
       <!-- <template slot="action">
         <a><a-icon type="code" /> jksdf</a>
       </template> -->
