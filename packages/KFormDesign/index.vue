@@ -157,6 +157,7 @@
           :class="{ 'show-properties': showPropertie }"
           class="form-item-properties"
           :selectItem="selectItem"
+          @handleHide="showPropertie = false"
         />
       </aside>
       <!-- 右侧控件属性区域 end -->
@@ -261,16 +262,6 @@ export default {
     formProperties
     // draggable
   },
-  watch: {
-    "selectItem.key"(val) {
-      // 监听是否选中控件，选中则弹出属性面板，否则就关闭属性面板
-      if (val) {
-        this.showPropertie = true;
-      } else {
-        this.showPropertie = false;
-      }
-    }
-  },
   computed: {
     collapseDefaultActiveKey() {
       let defaultActiveKey = window.localStorage.getItem(
@@ -362,9 +353,18 @@ export default {
       if (newTime - this.updateTime < 100) {
         return false;
       }
+
       this.updateTime = newTime;
-      this.selectItem = record;
+
       // 设置selectItem的值
+      this.selectItem = record;
+
+      // 判断是否选中控件，如果选中则弹出属性面板，否则关闭属性面板
+      if (record.key) {
+        this.showPropertie = true;
+      } else {
+        this.showPropertie = false;
+      }
     },
     handleSetData(data) {
       // 用于父组件赋值

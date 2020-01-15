@@ -8,7 +8,7 @@
 @layout-background-color: fade(@layout-color, 12%);
 @layout-hover-bg-color  : fade(@layout-color, 24%);
 
-// @moving-border-color: #ff7777;
+@border-color: #e8e8e8;
 
 @left-right-width: 270px;
 @import "./k-table.less";
@@ -54,6 +54,10 @@
 
         .ant-collapse-content-box {
           padding: 0;
+        }
+        .ant-collapse > .ant-collapse-item > .ant-collapse-header{
+          padding: 7px 0 7px 40px;
+          // background-color: @border-color;
         }
 
         ul {
@@ -105,37 +109,74 @@
 
       // 右侧区域
       &.right {
-        height       : 100%;
-        border-left  : 1px solid @aside-border-color;
-        // background: @layout-hover-bg-color;
-        color        : #fff;
-        overflow     : auto;
-        overflow-X     : hidden;
-        position: relative;
-        .form-item-properties{
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          z-index: 12;
-          left:100%;
-          top:0;
+        height          : 100%;
+        border-left     : 1px solid @aside-border-color;
+        // background   : @layout-hover-bg-color;
+        color           : #fff;
+        // overflow     : auto;
+        overflow        : hidden;
+        position        : relative;
+
+        // 控件属性设置
+        .form-item-properties {
+          position  : absolute;
+          width     : 100%;
+          height    : 100%;
+          z-index   : 12;
+          left      : 100%;
+          top       : 0;
           box-shadow: 0 0px 3px 3px #aaa;
           transition: all .5s;
-          &.show-properties{
-            left:0px;
+
+          &.show-properties {
+            left: 0px;
+
+            .close-box {
+              right  : @left-right-width - 1px;
+              opacity: 1;
+            }
+          }
+
+          // 关闭控件属性面板按钮
+          .close-box {
+            opacity      : 0;
+            transition   : all .5s;
+            position     : fixed;
+            background   : @primary-color;
+            padding      : 8px;
+            cursor       : pointer;
+            user-select  : none;
+            border-radius: 5px 0 0 5px;
+            color        : #fff;
+            bottom       : 10px;
+            right        : 0px;
 
           }
         }
+
         .properties-centent {
-          overflow: auto;
+          height    : 100%;
+          overflow  : hidden;
           background: #fff;
-          .ant-card-body{
+          .head-title{
+            height: 48px;
+            line-height: 48px;
+            padding: 0 24px;
+            font-size: 16px;
+            border-bottom: 2px solid @border-color;
+            color: rgba(0, 0, 0, 0.85);
+          }
+          .properties-body {
+          overflow  : auto;
+          height    : calc(100% - 48px);
             padding: 8px 16px;
           }
+
+
           .ant-form-item {
             margin-bottom: 0;
             padding      : 6px 0;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid @border-color;
 
             .ant-form-item-label {
               line-height: 2;
@@ -174,7 +215,7 @@
           display        : flex;
           justify-content: space-between;
           align-content  : center;
-       
+
           a {
             color      : #666;
             margin-left: 10px;

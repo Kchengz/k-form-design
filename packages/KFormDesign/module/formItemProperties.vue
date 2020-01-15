@@ -1,6 +1,9 @@
 <template>
   <div class="properties-centent kk-checkbox">
-    <a-card title="控件属性设置">
+    <div class="head-title">
+      控件属性设置
+    </div>
+    <div class="properties-body">
       <p class="hint-box" v-show="selectItem.key === ''">未选择控件</p>
       <a-form v-show="selectItem.key !== ''">
         <a-form-item v-if="typeof selectItem.name !== 'undefined'" label="标题">
@@ -360,7 +363,10 @@
           </p>
         </a-form-item>
       </a-form>
-    </a-card>
+    </div>
+    <div class="close-box" @click="$emit('handleHide')">
+      <a-icon type="double-right" />
+    </div>
   </div>
 </template>
 <script>

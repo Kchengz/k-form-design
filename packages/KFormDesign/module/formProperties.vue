@@ -1,6 +1,9 @@
 <template>
   <div class="properties-centent kk-checkbox">
-    <a-card title="表单设置">
+    <div class="head-title">
+      表单属性设置
+    </div>
+    <div class="properties-body">
       <a-form>
         <a-form-item
           v-if="typeof config.layout !== 'undefined'"
@@ -48,7 +51,7 @@
           实际预览效果请点击预览查看
         </a-form-item>
       </a-form>
-    </a-card>
+    </div>
   </div>
 </template>
 <script>
