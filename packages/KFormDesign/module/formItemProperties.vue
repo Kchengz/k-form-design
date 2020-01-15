@@ -6,7 +6,7 @@
     <div class="properties-body">
       <p class="hint-box" v-show="selectItem.key === ''">未选择控件</p>
       <a-form v-show="selectItem.key !== ''">
-        <a-form-item v-if="typeof selectItem.name !== 'undefined'" label="标题">
+        <a-form-item v-if="typeof selectItem.name !== 'undefined'" label="标签">
           <a-input v-model="selectItem.name" placeholder="请输入" />
         </a-form-item>
 
@@ -193,7 +193,7 @@
 
         <a-form-item
           v-if="typeof options.orientation !== 'undefined'"
-          label="标题位置"
+          label="标签位置"
         >
           <a-radio-group buttonStyle="solid" v-model="options.orientation">
             <a-radio-button value="left">左</a-radio-button>
