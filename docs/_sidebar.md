@@ -1,8 +1,10 @@
+* [KFormDesign](README)
 - 基础
   * [快速上手](zh-cn/guide/start?id=快速上手)
   * [使用组件](zh-cn/guide/start?id=引入-k-form-design)
-  * [定制主题](zh-cn/guide/start?id=定制主题)
   * [建议](zh-cn/guide/start?id=使用建议)
+
+  * [定制主题](zh-cn/guide/customize-theme)
 
 - 组件
   * [k-form-design](zh-cn/components/design)

@@ -4,7 +4,7 @@ examples/
 packages/
 public/
 dist/
-styles/
+static/
 docs/
 vue.config.js
 babel.config.js

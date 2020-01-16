@@ -16,7 +16,7 @@
 </p>
 
 ## 简介
-基于vue和ant-design-vue实现的表单设计器，可视化编辑，提高开发效率
+基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
 - [预览地址](http://cdn.kcz66.com/k-form-design.html)
 - [查看文档](http://www.kcz66.com/k-form-design/#/)
 
@@ -38,7 +38,32 @@
 
 
 
+## 安装
+```
+# 使用yarn 
+yarn add k-form-design
 
+# 使用npm 
+npm i k-form-design --save
+```
+
+## 引入组件
+``` javascript
+// 在main.js引入
+
+import KFormDesign from 'k-form-design'
+import 'k-form-design/lib/k-form-design.css'
+Vue.use(KFormDesign)
+```
+
+## 使用组件
+``` javascript
+<template>
+  <div>
+   <k-form-design />
+  </div>
+</template>
+```
 
 <!-- <p style="color:#ca6820;">
 说明，该项目已经把所有需要的依赖全部打包了，包括UI组件，无需额外引入依赖即可使用，但是包的体积增大了许多
