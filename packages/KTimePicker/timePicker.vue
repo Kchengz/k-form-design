@@ -3,10 +3,10 @@
  * @Author: kcz
  * @Date: 2020-01-11 17:30:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-11 17:39:47
+ * @LastEditTime : 2020-01-18 00:47:16
  -->
 <template>
-  <a-time-picker
+  <a-time-picker 
     :style="`width:${record.options.width}`"
     :disabled="record.options.disabled"
     :allowEmpty="record.options.clearable"
@@ -26,7 +26,7 @@ export default {
       if (!this.value) {
         return undefined;
       } else {
-        return moment(moment().format("YYYY-MM-DD") + " " + this.value);
+        return moment(this.value, this.record.options.format);
       }
     }
   },

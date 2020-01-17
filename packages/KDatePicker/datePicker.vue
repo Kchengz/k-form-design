@@ -3,9 +3,9 @@
  * @Author: kcz
  * @Date: 2020-01-11 15:38:28
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-11 17:43:18
+ * @LastEditTime : 2020-01-18 00:46:52
  -->
-<template>
+<template> 
   <!-- 月份选择 -->
   <a-month-picker
     :style="`width:${record.options.width}`"
@@ -65,9 +65,9 @@ export default {
       ) {
         return undefined;
       } else if (this.record.options.range) {
-        return this.value.map(item => moment(item));
+        return this.value.map(item => moment(item, this.record.options.format));
       } else {
-        return moment(this.value);
+        return moment(this.value, this.record.options.format);
       }
     }
   },

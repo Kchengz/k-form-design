@@ -15,7 +15,7 @@
       v-for="(record, index) in value.list"
       :record="record"
       :config="value.config"
-      :key="index"
+      :key="index" 
     />
   </a-form>
 </template>
@@ -26,7 +26,7 @@
  * description 将json数据构建成表单
  */
 import buildBlocks from "./buildBlocks";
-import moment from "moment";
+// import moment from "moment";
 export default {
   name: "KFormBuild",
   data() {
@@ -42,7 +42,7 @@ export default {
     buildBlocks
   },
   methods: {
-    moment,
+    // moment,
     handleSubmit(e) {
       // 提交按钮触发，并触发submit函数，返回getData函数
       e.preventDefault();
