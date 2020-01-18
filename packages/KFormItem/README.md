@@ -8,24 +8,25 @@ KFormItem
 
 ```
 # 参数record：
-		{
-			"type": "input",
-			"name": "单行文本",
-			"options": {
-				"width": "100%",
-				"defaultValue": "",
-				"placeholder": "请输入",
-				"disabled": false
-			},
-			"model": "input_1569051592984",
-			"key": "input_1569051592984",
-			"rules": [
-				{
-					"required": false,
-					"message": "必填项"
-				}
-			]
-		}
+{
+    type: "input", // 表单类型
+    name: "输入框", // 标题文字
+    options: {
+      type: "text", // input的type类型
+      width: "100%", // 宽度
+      defaultValue: "", // 默认值
+      placeholder: "请输入", // 占位内容
+      disabled: false // 是否禁用
+    },
+    model: "", // 数据字段
+    key: "",
+    rules: [  //验证规则
+      {
+        required: false, // 是否必填
+        message: "必填项"
+      }
+    ]
+  }
 	
 ```
 
