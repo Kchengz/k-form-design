@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-11 17:35:43
+ * @LastEditTime : 2020-01-18 00:47:02
  -->
 <template>
   <a-form-item
@@ -17,7 +17,7 @@
         'radio',
         'checkbox',
         'select',
-        'rate',
+        'rate', 
         'switch',
         'slider',
         'uploadImg',
@@ -323,7 +323,7 @@
  * author kcz
  * date 2019-11-20
  */
-import moment from "moment";
+// import moment from "moment";
 import customComponent from "./customComponent";
 import UploadFile from "../UploadFile";
 import UploadImg from "../UploadImg";
@@ -360,7 +360,7 @@ export default {
     }
   },
   methods: {
-    moment
+    // moment
   }
 };
 </script>
