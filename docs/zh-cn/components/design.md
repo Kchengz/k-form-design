@@ -94,7 +94,7 @@ export default {
         'list': [
           {
             'type': 'input',
-            'name': '单行文本',
+            'label': '单行文本',
             'options': {
               'width': '100%',
               'defaultValue': '',
@@ -181,7 +181,7 @@ export default {
 <table>
     <thead>
       <tr>
-        <th>name</th>
+        <th>label</th>
         <th>说明</th>
       </tr>
     </thead>

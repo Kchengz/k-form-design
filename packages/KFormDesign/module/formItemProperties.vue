@@ -6,8 +6,11 @@
     <div class="properties-body">
       <p class="hint-box" v-show="selectItem.key === ''">未选择控件</p>
       <a-form v-show="selectItem.key !== ''">
-        <a-form-item v-if="typeof selectItem.name !== 'undefined'" label="标签">
-          <a-input v-model="selectItem.name" placeholder="请输入" />
+        <a-form-item
+          v-if="typeof selectItem.label !== 'undefined'"
+          label="标签"
+        >
+          <a-input v-model="selectItem.label" placeholder="请输入" />
         </a-form-item>
 
         <a-form-item

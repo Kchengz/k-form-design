@@ -17,14 +17,14 @@
         'radio',
         'checkbox',
         'select',
-        'rate', 
+        'rate',
         'switch',
         'slider',
         'uploadImg',
         'uploadFile'
       ].includes(record.type)
     "
-    :label="record.name"
+    :label="record.label"
     :label-col="config.layout === 'horizontal' ? config.labelCol : {}"
     :wrapper-col="config.layout === 'horizontal' ? config.wrapperCol : {}"
   >
@@ -259,20 +259,20 @@
       :disabled="record.options.disabled"
       :type="record.options.type"
       html-type="submit"
-      v-text="record.name"
+      v-text="record.label"
     ></a-button>
     <a-button
       v-else
       :disabled="record.options.disabled"
       :type="record.options.type"
       @click="$emit('handleReset')"
-      v-text="record.name"
+      v-text="record.label"
     ></a-button>
   </a-form-item>
   <!-- alert提示 -->
   <a-form-item v-else-if="record.type === 'alert'">
     <a-alert
-      :message="record.name"
+      :message="record.label"
       :description="record.options.description"
       :type="record.options.type"
       :showIcon="record.options.showIcon"
@@ -285,7 +285,7 @@
     <div :style="{ textAlign: record.options.textAlign }">
       <label
         :class="{ 'ant-form-item-required': record.options.showRequiredMark }"
-        v-text="record.name"
+        v-text="record.label"
       ></label>
     </div>
   </a-form-item>
@@ -306,16 +306,16 @@
     <a-divider
       v-if="
         record.type === 'divider' &&
-          record.name !== '' &&
+          record.label !== '' &&
           record.options.orientation
       "
       :orientation="record.options.orientation"
-      >{{ record.name }}</a-divider
+      >{{ record.label }}</a-divider
     >
-    <a-divider v-else-if="record.type === 'divider' && record.name !== ''">
-      {{ record.name }}
+    <a-divider v-else-if="record.type === 'divider' && record.label !== ''">
+      {{ record.label }}
     </a-divider>
-    <a-divider v-else-if="record.type === 'divider' && record.name === ''" />
+    <a-divider v-else-if="record.type === 'divider' && record.label === ''" />
   </div>
 </template>
 <script>

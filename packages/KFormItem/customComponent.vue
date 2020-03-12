@@ -1,6 +1,6 @@
 <template>
   <a-form-item
-    :label="record.name"
+    :label="record.label"
     :label-col="config.layout === 'horizontal' ? config.labelCol : {}"
     :wrapper-col="config.layout === 'horizontal' ? config.wrapperCol : {}"
   >

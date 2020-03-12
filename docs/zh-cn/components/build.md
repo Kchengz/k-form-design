@@ -18,7 +18,7 @@ export default {
         list: [
           {
             type: 'input',
-            name: '单行文本',
+            label: '单行文本',
             options: {
               width: '100%',
               defaultValue: '',
@@ -31,7 +31,7 @@ export default {
           },
           {
             type: 'date',
-            name: '日期选择器',
+            label: '日期选择器',
             options: {
               width: '100%',
               defaultValue: '',
@@ -49,7 +49,7 @@ export default {
           },
           {
             type: 'textarea',
-            name: '多行文本',
+            label: '多行文本',
             options: {
               width: '100%',
               minRows: 4,
@@ -64,7 +64,7 @@ export default {
           },
           {
             type: 'rate',
-            name: '评分',
+            label: '评分',
             options: {
               defaultValue: 0,
               max: 5,
@@ -90,7 +90,7 @@ export default {
 </script>
 ```
 
-[filename](./form-build1.html ':include :type=iframe width=100% height=300px')
+[filelabel](./form-build1.html ':include :type=iframe width=100% height=300px')
 
 
 ### 使用getData函数获取数据
@@ -109,7 +109,7 @@ export default {
         list: [
           {
             type: 'input',
-            name: '单行文本',
+            label: '单行文本',
             options: {
               width: '100%',
               defaultValue: '',
@@ -122,7 +122,7 @@ export default {
           },
           {
             type: 'date',
-            name: '日期选择器',
+            label: '日期选择器',
             options: {
               width: '100%',
               defaultValue: '',
@@ -140,7 +140,7 @@ export default {
           },
           {
             type: 'textarea',
-            name: '多行文本',
+            label: '多行文本',
             options: {
               width: '100%',
               minRows: 4,
@@ -155,7 +155,7 @@ export default {
           },
           {
             type: 'rate',
-            name: '评分',
+            label: '评分',
             options: {
               defaultValue: 0,
               max: 5,
@@ -206,7 +206,7 @@ export default {
         list: [
           {
             type: 'input',
-            name: '单行文本',
+            label: '单行文本',
             options: {
               width: '100%',
               defaultValue: '',
@@ -219,7 +219,7 @@ export default {
           },
           {
             type: 'button',
-            name: '提交',
+            label: '提交',
             options: { type: 'primary', handle: 'submit', disabled: false },
             key: 'button_1577880512173'
           }

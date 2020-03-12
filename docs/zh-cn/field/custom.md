@@ -13,7 +13,7 @@ import { setFormDesignConfig } form 'k-form-design'
 
 // 自定义组件
 let Cmp = {
-  name: "cmp",
+  label: "cmp",
   render: function(h) {
     return h("div", "我是自定义组件");
   }
@@ -28,7 +28,7 @@ setFormDesignConfig({
   list: [
     {
       type: "demo", // 组件类型
-      name: "自定义组件", // 组件名称
+      label: "自定义组件", // 组件名称
       component: Cmp, // 组件
       options: {
         defaultValue: undefined, // 可选值

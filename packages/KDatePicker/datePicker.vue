@@ -5,7 +5,7 @@
  * @LastEditors  : kcz
  * @LastEditTime : 2020-01-18 00:46:52
  -->
-<template> 
+<template>
   <!-- 月份选择 -->
   <a-month-picker
     :style="`width:${record.options.width}`"

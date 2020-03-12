@@ -12,11 +12,11 @@ export default {
         list: [
           {
             type: "card",
-            name: "卡片布局",
+            label: "卡片布局",
             list: [
               {
                 type: "number",
-                name: "计数器",
+                label: "计数器",
                 options: {
                   width: "100%",
                   defaultValue: 0,
@@ -32,7 +32,7 @@ export default {
               },
               {
                 type: "checkbox",
-                name: "多选框组",
+                label: "多选框组",
                 options: {
                   disabled: false,
                   defaultValue: [],
@@ -48,7 +48,7 @@ export default {
               },
               {
                 type: "textarea",
-                name: "多行文本",
+                label: "多行文本",
                 options: {
                   width: "100%",
                   defaultValue: "",
@@ -61,7 +61,7 @@ export default {
               },
               {
                 type: "input",
-                name: "单行文本",
+                label: "单行文本",
                 options: {
                   width: "100%",
                   defaultValue: "",
@@ -74,7 +74,7 @@ export default {
               },
               {
                 type: "button",
-                name: "按钮",
+                label: "按钮",
                 options: { type: "primary", disabled: false },
                 key: "button_1569147542203"
               }

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-13 00:37:54
  * @LastEditors  : kcz
- * @LastEditTime : 2020-01-13 10:51:05
+ * @LastEditTime : 2020-01-24 19:28:53
  -->
 <template>
   <draggable
@@ -25,7 +25,7 @@
       <svg v-if="val.icon" class="icon" aria-hidden="true">
         <use :xlink:href="`#${val.icon}`"></use>
       </svg>
-      {{ val.name }}
+      {{ val.label }}
     </li>
   </draggable>
 </template>
