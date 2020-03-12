@@ -255,6 +255,54 @@ export const basicsList = [
     ]
   },
   {
+    type: "uploadFile", // 表单类型
+    label: "上传文件", // 标题文字
+    icon: "icon-upload",
+    options: {
+      defaultValue: "",
+      multiple: false,
+      disabled: false,
+      drag: false,
+      width: "100%",
+      limit: 3,
+      data: "{}",
+      action: "http://cdn.kcz66.com/uploadFile.txt",
+      placeholder: "上传"
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
+    type: "uploadImg",
+    label: "上传图片",
+    icon: "icon-image",
+    options: {
+      defaultValue: "",
+      multiple: false,
+      disabled: false,
+      width: "100%",
+      data: "{}",
+      limit: 3,
+      placeholder: "上传",
+      action: "http://cdn.kcz66.com/upload-img.txt",
+      listType: "picture-card"
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
     type: "switch", // 表单类型
     label: "开关", // 标题文字
     icon: "icon-kaiguan3",
@@ -317,56 +365,7 @@ export const basicsList = [
 ];
 
 // 高级控件
-export const highList = [
-  {
-    type: "uploadFile", // 表单类型
-    label: "上传文件", // 标题文字
-    icon: "icon-upload",
-    options: {
-      defaultValue: "",
-      multiple: false,
-      disabled: false,
-      drag: false,
-      width: "100%",
-      limit: 3,
-      data: "{}",
-      action: "http://cdn.kcz66.com/uploadFile.txt",
-      placeholder: "上传"
-    },
-    model: "",
-    key: "",
-    rules: [
-      {
-        required: false,
-        message: "必填项"
-      }
-    ]
-  },
-  {
-    type: "uploadImg",
-    label: "上传图片",
-    icon: "icon-image",
-    options: {
-      defaultValue: "",
-      multiple: false,
-      disabled: false,
-      width: "100%",
-      data: "{}",
-      limit: 3,
-      placeholder: "上传",
-      action: "http://cdn.kcz66.com/upload-img.txt",
-      listType: "picture-card"
-    },
-    model: "",
-    key: "",
-    rules: [
-      {
-        required: false,
-        message: "必填项"
-      }
-    ]
-  }
-];
+// export const highList = [];
 
 // import { Alert } from "ant-design-vue";
 

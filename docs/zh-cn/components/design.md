@@ -13,12 +13,12 @@
 ```
 
 ### 自定义头部操作按钮
-通过showBtnList属性显示隐藏默认按钮
+通过toolbars属性显示隐藏默认按钮
 
 ```html
 <template>
   <div>
-   <k-form-design :showBtnList="['save', 'preview', 'importJson']" />
+   <k-form-design :toolbars="['save', 'preview', 'importJson']" />
   </div>
 </template>
 ```
@@ -61,7 +61,7 @@ export default {
   <div>
     <k-form-design 
       :title="title" 
-      :showBtnList="showBtnList" 
+      :toolbars="toolbars" 
      />
   </div>
 </template>
@@ -70,7 +70,7 @@ export default {
   data(){
       return {
         title: "表单设计器 -by kcz",
-        showBtnList: [ "save", "preview", "importJson", "exportJson", "exportCode", "reset"]
+        toolbars: [ "save", "preview", "importJson", "exportJson", "exportCode", "reset"]
       }
     }
 };
@@ -161,7 +161,7 @@ export default {
         <td>true</td>
       </tr>
       <tr>
-        <td>showBtnList</td>
+        <td>toolbars</td>
         <td>显示对应的操作按钮</td>
         <td>array</td>
         <td>[
@@ -174,8 +174,37 @@ export default {
         'close'
       ]</td>
       </tr>
+            <tr>
+        <td>fields</td>
+        <td>自定义左侧控件列表</td>
+        <td>array</td>
+        <td style="max-width:280px;">[
+    "input",
+        "textarea",
+        "number",
+        "select",
+        "checkbox",
+        "radio",
+        "date",
+        "time",
+        "rate",
+        "slider",
+        "uploadFile",
+        "uploadImg",
+        "switch",
+        "button",
+        "alert",
+        "text",
+        "html",
+        "divider",
+        "card",
+        "grid",
+        "table"
+      ]</td>
+      </tr>
     </tbody>
   </table>
+
 
 ### Slots
 <table>
@@ -188,7 +217,7 @@ export default {
     <tbody>
      <tr>
      <td>action</td>
-     <td>设计器头部操作区域插槽</td>
+     <td>表单设计器头部操作区域插槽</td>
      </tr>
      </tbody>
 </table>

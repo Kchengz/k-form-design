@@ -10,22 +10,26 @@
             :defaultActiveKey="collapseDefaultActiveKey"
           >
             <!-- 基础控件 start -->
-            <a-collapse-panel header="基础控件" key="1">
+            <a-collapse-panel
+              v-if="basicsArray.length > 0"
+              header="基础控件"
+              key="1"
+            >
               <collapseItem
-                :list="basicsList"
+                :list="basicsArray"
                 @generateKey="generateKey"
                 @handleListPush="handleListPush"
               />
             </a-collapse-panel>
             <!-- 基础控件 end -->
             <!-- 高级控件 start -->
-            <a-collapse-panel header="高级控件" key="2">
+            <!-- <a-collapse-panel header="高级控件" key="2">
               <collapseItem
                 :list="highList"
                 @generateKey="generateKey"
                 @handleListPush="handleListPush"
               />
-            </a-collapse-panel>
+            </a-collapse-panel> -->
 
             <!-- 高级控件 end -->
             <!-- 自定义控件 start -->
@@ -43,9 +47,13 @@
             <!-- 自定义控件 end -->
 
             <!-- 布局控件 start -->
-            <a-collapse-panel header="布局控件" key="4">
+            <a-collapse-panel
+              v-if="layoutArray.length > 0"
+              header="布局控件"
+              key="4"
+            >
               <collapseItem
-                :list="layoutList"
+                :list="layoutArray"
                 @generateKey="generateKey"
                 @handleListPush="handleListPush"
               />
@@ -62,14 +70,14 @@
             <!-- 操作左侧区域 start -->
             <div class="left-btn-box">
               <a-tooltip title="保存">
-                <a v-if="showBtnList.includes('save')" @click="handleSave">
+                <a v-if="toolbars.includes('save')" @click="handleSave">
                   <a-icon type="save" />
                 </a>
               </a-tooltip>
 
               <a-tooltip title="预览">
                 <a
-                  v-if="showBtnList.includes('preview')"
+                  v-if="toolbars.includes('preview')"
                   @click="handleOpenPreviewModal"
                 >
                   <a-icon type="chrome" />
@@ -78,7 +86,7 @@
 
               <a-tooltip title="导入">
                 <a
-                  v-if="showBtnList.includes('importJson')"
+                  v-if="toolbars.includes('importJson')"
                   @click="handleOpenImportJsonModal"
                 >
                   <a-icon type="upload" />
@@ -87,7 +95,7 @@
 
               <a-tooltip title="生成JSON">
                 <a
-                  v-if="showBtnList.includes('exportJson')"
+                  v-if="toolbars.includes('exportJson')"
                   @click="handleOpenJsonModal"
                 >
                   <a-icon type="credit-card" />
@@ -96,7 +104,7 @@
 
               <a-tooltip title="生成代码">
                 <a
-                  v-if="showBtnList.includes('exportCode')"
+                  v-if="toolbars.includes('exportCode')"
                   @click="handleOpenCodeModal"
                 >
                   <a-icon type="code" />
@@ -104,7 +112,7 @@
               </a-tooltip>
 
               <a-tooltip title="清空">
-                <a v-if="showBtnList.includes('reset')" @click="handleReset">
+                <a v-if="toolbars.includes('reset')" @click="handleReset">
                   <a-icon type="delete" />
                 </a>
               </a-tooltip>
@@ -117,7 +125,7 @@
               <slot name="right-action"></slot>
 
               <a-tooltip title="关闭">
-                <a v-if="showBtnList.includes('close')" @click="handleClose">
+                <a v-if="toolbars.includes('close')" @click="handleClose">
                   <a-icon type="close" />
                 </a>
               </a-tooltip>
@@ -185,7 +193,7 @@ import previewModal from "../KFormPreview/index.vue";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 import {
   basicsList,
-  highList,
+  // highList,
   layoutList,
   customComponents
 } from "./config/formItemsConfig";
@@ -202,7 +210,7 @@ export default {
       type: Boolean,
       default: true
     },
-    showBtnList: {
+    toolbars: {
       type: Array,
       default: () => [
         "save",
@@ -213,14 +221,40 @@ export default {
         "reset",
         "close"
       ]
+    },
+    fields: {
+      type: Array,
+      default: () => [
+        "input",
+        "textarea",
+        "number",
+        "select",
+        "checkbox",
+        "radio",
+        "date",
+        "time",
+        "rate",
+        "slider",
+        "uploadFile",
+        "uploadImg",
+        "switch",
+        "button",
+        "alert",
+        "text",
+        "html",
+        "divider",
+        "card",
+        "grid",
+        "table"
+      ]
     }
   },
   data() {
     return {
       locale: zhCN,
-      basicsList,
-      layoutList,
-      highList,
+      // basicsList,
+      // layoutList,
+      // highList,
       customComponents,
       updateTime: 0,
       updateRecordTime: 0,
@@ -267,7 +301,16 @@ export default {
     // draggable
   },
   computed: {
+    basicsArray() {
+      // 计算需要显示的基础字段
+      return basicsList.filter(item => this.fields.includes(item.type));
+    },
+    layoutArray() {
+      // 计算需要显示的布局字段
+      return layoutList.filter(item => this.fields.includes(item.type));
+    },
     collapseDefaultActiveKey() {
+      // 计算当前展开的控件列表
       let defaultActiveKey = window.localStorage.getItem(
         "collapseDefaultActiveKey"
       );

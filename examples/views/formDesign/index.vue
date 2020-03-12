@@ -1,6 +1,6 @@
 <template>
   <div>
-    <k-form-design @save="handleSave" @close="handleClose">
+    <k-form-design @save="handleSave" @close="handleClose" :fields="['input']">
       <!-- <template slot="action">
         <a><a-icon type="code" /> jksdf</a>
       </template> -->

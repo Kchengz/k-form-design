@@ -79,7 +79,7 @@ Vue.use(KFormDesign)
 <!-- ## 支持
 如果你发现了新的bug或者有新的feature request，请新建一个issue -->
 ## 交流
-欢迎点击下面链接加入群聊，可以直接提问及反馈bug
+点击链接加入qq群聊，可以直接提问及反馈bug
 [【k-form-desgin交流群：1020643215】](https://jq.qq.com/?_wv=1027&k=5BeoFAr)
 
 License
