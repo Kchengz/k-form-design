@@ -1,23 +1,25 @@
 <template>
-  <a-form
-    v-if="
-      typeof value.list !== 'undefined' && typeof value.config !== 'undefined'
-    "
-    class="k-form-build-9136076486841527"
-    :layout="value.config.layout"
-    :hideRequiredMark="value.config.hideRequiredMark"
-    :form="form"
-    @submit="handleSubmit"
-    :style="value.config.customStyle"
-  >
-    <buildBlocks
-      @handleReset="handleReset"
-      v-for="(record, index) in value.list"
-      :record="record"
-      :config="value.config"
-      :key="index" 
-    />
-  </a-form>
+  <a-locale-provider :locale="locale">
+    <a-form
+      v-if="
+        typeof value.list !== 'undefined' && typeof value.config !== 'undefined'
+      "
+      class="k-form-build-9136076486841527"
+      :layout="value.config.layout"
+      :hideRequiredMark="value.config.hideRequiredMark"
+      :form="form"
+      @submit="handleSubmit"
+      :style="value.config.customStyle"
+    >
+      <buildBlocks
+        @handleReset="handleReset"
+        v-for="(record, index) in value.list"
+        :record="record"
+        :config="value.config"
+        :key="index"
+      />
+    </a-form>
+  </a-locale-provider>
 </template>
 <script>
 /*
@@ -26,11 +28,13 @@
  * description 将json数据构建成表单
  */
 import buildBlocks from "./buildBlocks";
+import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 // import moment from "moment";
 export default {
   name: "KFormBuild",
   data() {
     return {
+      locale: zhCN,
       form: this.$form.createForm(this)
     };
   },

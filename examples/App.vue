@@ -1,18 +1,10 @@
 <template>
-  <a-locale-provider :locale="locale">
-    <div id="app">
-      <router-view />
-    </div>
-  </a-locale-provider>
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 <script>
-import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 export default {
-  name: "app",
-  data() {
-    return {
-      locale: zhCN
-    };
-  }
+  name: "app"
 };
 </script>
