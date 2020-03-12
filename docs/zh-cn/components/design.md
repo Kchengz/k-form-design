@@ -179,7 +179,7 @@ export default {
         <td>自定义左侧控件列表</td>
         <td>array</td>
         <td style="max-width:280px;">[
-    "input",
+         "input",
         "textarea",
         "number",
         "select",
