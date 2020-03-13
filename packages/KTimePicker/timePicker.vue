@@ -6,7 +6,7 @@
  * @LastEditTime : 2020-01-18 00:47:16
  -->
 <template>
-  <a-time-picker 
+  <a-time-picker
     :style="`width:${record.options.width}`"
     :disabled="record.options.disabled"
     :allowEmpty="record.options.clearable"

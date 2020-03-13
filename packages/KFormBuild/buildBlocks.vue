@@ -24,7 +24,7 @@
   <a-card
     v-else-if="record.type === 'card'"
     class="grid-row"
-    :title="record.name"
+    :title="record.label"
   >
     <buildBlocks
       @handleReset="$emit('handleReset')"

@@ -78,9 +78,9 @@ Vue.use(KFormDesign)
 ![5.jpg](https://i.loli.net/2019/09/29/NTGmdoDPXvqHJMe.png) -->
 <!-- ## 支持
 如果你发现了新的bug或者有新的feature request，请新建一个issue -->
-## 打赏
-如果你觉得k-form-design对你有帮助，请点个star或者考虑给我捐赠
-![](http://cdn.kcz66.com/donation.png)
+## 交流
+点击链接加入qq群聊，可以直接提问及反馈bug
+[【k-form-desgin交流群：1020643215】](https://jq.qq.com/?_wv=1027&k=5BeoFAr)
 
 License
 ---

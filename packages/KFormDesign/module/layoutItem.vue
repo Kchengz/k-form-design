@@ -79,7 +79,7 @@
         :class="{ active: record.key === selectItem.key }"
         @click.stop="handleSelectItem(record)"
       >
-        <a-card class="grid-row" :title="record.name">
+        <a-card class="grid-row" :title="record.label">
           <div class="grid-col">
             <draggable
               tag="div"

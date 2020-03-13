@@ -1,4 +1,4 @@
-标题 name
+标题 label
 
 数据字段 model
 

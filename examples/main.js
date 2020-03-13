@@ -19,7 +19,7 @@ setFormDesignConfig({
   list: [
     {
       type: "demo", // 表单类型
-      name: "自定义组件", // 标题文字
+      label: "自定义组件", // 标题文字
       icon: "icon-gallery",
       component: Cmp,
       options: {

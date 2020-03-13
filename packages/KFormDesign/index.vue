@@ -1,182 +1,192 @@
 <template>
-  <div class="form-designer-container-9136076486841527">
-    <k-header :title="title" v-if="showHead" />
-    <div
-      :style="
-        `height: ${
-          showHead ? 'calc(100% - 60px);' : 'calc(100% - ' + headHeight + 'px);'
-        }`
-      "
-      class="content"
-    >
-      <!-- 左侧控件区域 start -->
-      <aside class="left">
-        <a-collapse
-          @change="collapseChange"
-          :defaultActiveKey="collapseDefaultActiveKey"
+  <a-locale-provider :locale="locale">
+    <div class="form-designer-container-9136076486841527">
+      <k-header :title="title" v-if="showHead" />
+      <div
+          :style="
+            `height: ${
+              showHead ? 'calc(100% - 60px);' : 'calc(100% - ' + headHeight + 'px);'
+            }`
+          "
+          class="content"
         >
-          <!-- 基础控件 start -->
-          <a-collapse-panel header="基础控件" key="1">
-            <collapseItem
-              :list="basicsList"
-              @generateKey="generateKey"
-              @handleListPush="handleListPush"
-            />
-          </a-collapse-panel>
-          <!-- 基础控件 end -->
-          <!-- 高级控件 start -->
-          <a-collapse-panel header="高级控件" key="2">
-            <collapseItem
-              :list="highList"
-              @generateKey="generateKey"
-              @handleListPush="handleListPush"
-            />
-          </a-collapse-panel>
-
-          <!-- 高级控件 end -->
-          <!-- 自定义控件 start -->
-          <a-collapse-panel
-            v-if="customComponents.list.length > 0"
-            :header="customComponents.title"
-            key="3"
+        <!-- 左侧控件区域 start -->
+        <aside class="left">
+          <a-collapse
+            @change="collapseChange"
+            :defaultActiveKey="collapseDefaultActiveKey"
           >
-            <collapseItem
-              :list="customComponents.list"
-              @generateKey="generateKey"
-              @handleListPush="handleListPush"
-            />
-          </a-collapse-panel>
-          <!-- 自定义控件 end -->
+            <!-- 基础控件 start -->
+            <a-collapse-panel
+              v-if="basicsArray.length > 0"
+              header="基础控件"
+              key="1"
+            >
+              <collapseItem
+                :list="basicsArray"
+                @generateKey="generateKey"
+                @handleListPush="handleListPush"
+              />
+            </a-collapse-panel>
+            <!-- 基础控件 end -->
+            <!-- 高级控件 start -->
+            <!-- <a-collapse-panel header="高级控件" key="2">
+              <collapseItem
+                :list="highList"
+                @generateKey="generateKey"
+                @handleListPush="handleListPush"
+              />
+            </a-collapse-panel> -->
 
-          <!-- 布局控件 start -->
-          <a-collapse-panel header="布局控件" key="4">
-            <collapseItem
-              :list="layoutList"
-              @generateKey="generateKey"
-              @handleListPush="handleListPush"
-            />
-          </a-collapse-panel>
-          <!-- 布局控件 end -->
-        </a-collapse>
-      </aside>
-      <!-- 左侧控件区域 end -->
+            <!-- 高级控件 end -->
+            <!-- 自定义控件 start -->
+            <a-collapse-panel
+              v-if="customComponents.list.length > 0"
+              :header="customComponents.title"
+              key="3"
+            >
+              <collapseItem
+                :list="customComponents.list"
+                @generateKey="generateKey"
+                @handleListPush="handleListPush"
+              />
+            </a-collapse-panel>
+            <!-- 自定义控件 end -->
 
-      <!-- 中间面板区域 start -->
-      <section>
-        <div class="title content-title">
-          <!-- 头部操作按钮区域 start -->
-          <!-- 操作左侧区域 start -->
-          <div class="left-btn-box">
-            <a-tooltip title="保存">
-              <a v-if="showBtnList.includes('save')" @click="handleSave">
-                <a-icon type="save" />
-                <span v-if="showBtnText">保存</span>
-              </a>
-            </a-tooltip>
+            <!-- 布局控件 start -->
+            <a-collapse-panel
+              v-if="layoutArray.length > 0"
+              header="布局控件"
+              key="4"
+            >
+              <collapseItem
+                :list="layoutArray"
+                @generateKey="generateKey"
+                @handleListPush="handleListPush"
+              />
+            </a-collapse-panel>
+            <!-- 布局控件 end -->
+          </a-collapse>
+        </aside>
+        <!-- 左侧控件区域 end -->
 
-            <a-tooltip title="预览">
-              <a
-                v-if="showBtnList.includes('preview')"
-                @click="handleOpenPreviewModal"
-              >
-                <a-icon type="chrome" />
-                <span v-if="showBtnText">预览</span>
-              </a>
-            </a-tooltip>
+        <!-- 中间面板区域 start -->
+        <section>
+          <div class="title content-title">
+            <!-- 头部操作按钮区域 start -->
+            <!-- 操作左侧区域 start -->
+            <div class="left-btn-box">
+              <a-tooltip title="保存">
+                <a v-if="toolbars.includes('save')" @click="handleSave">
+                  <a-icon type="save" />
+                  <span v-if="showBtnText">保存</span>
+                </a>
+              </a-tooltip>
 
-            <a-tooltip title="导入">
-              <a
-                v-if="showBtnList.includes('importJson')"
-                @click="handleOpenImportJsonModal"
-              >
-                <a-icon type="upload" />
-                <span v-if="showBtnText">导入</span>
-              </a>
-            </a-tooltip>
+              <a-tooltip title="预览">
+                <a
+                  v-if="toolbars.includes('preview')"
+                  @click="handleOpenPreviewModal"
+                >
+                  <a-icon type="chrome" />
+                  <span v-if="showBtnText">预览</span>
+                </a>
+              </a-tooltip>
 
-            <a-tooltip title="生成JSON">
-              <a
-                v-if="showBtnList.includes('exportJson')"
-                @click="handleOpenJsonModal"
-              >
-                <a-icon type="credit-card" />
-                <span v-if="showBtnText">生成JSON</span>
-              </a>
-            </a-tooltip>
+              <a-tooltip title="导入">
+                <a
+                  v-if="toolbars.includes('importJson')"
+                  @click="handleOpenImportJsonModal"
+                >
+                  <a-icon type="upload" />
+                  <span v-if="showBtnText">导入</span>
+                </a>
+              </a-tooltip>
 
-            <a-tooltip title="生成代码">
-              <a
-                v-if="showBtnList.includes('exportCode')"
-                @click="handleOpenCodeModal"
-              >
-                <a-icon type="code" />
-                <span v-if="showBtnText">生成代码</span>
-              </a>
-            </a-tooltip>
+              <a-tooltip title="生成JSON">
+                <a
+                  v-if="toolbars.includes('exportJson')"
+                  @click="handleOpenJsonModal"
+                >
+                  <a-icon type="credit-card" />
+                  <span v-if="showBtnText">生成JSON</span>
+                </a>
+              </a-tooltip>
 
-            <a-tooltip title="清空">
-              <a v-if="showBtnList.includes('reset')" @click="handleReset">
-                <a-icon type="delete" />
-                <span v-if="showBtnText">清空</span>
-              </a>
-            </a-tooltip>
-            <slot name="left-action"></slot>
+              <a-tooltip title="生成代码">
+                <a
+                  v-if="toolbars.includes('exportCode')"
+                  @click="handleOpenCodeModal"
+                >
+                  <a-icon type="code" />
+                  <span v-if="showBtnText">生成代码</span>
+                </a>
+              </a-tooltip>
+
+              <a-tooltip title="清空">
+                <a v-if="toolbars.includes('reset')" @click="handleReset">
+                  <a-icon type="delete" />
+                  <span v-if="showBtnText">清空</span>
+                </a>
+              </a-tooltip>
+              <slot name="left-action"></slot>
+            </div>
+            <!-- 操作左侧区域 end -->
+
+            <!-- 操作右侧区域 start -->
+            <div class="right-btn-box">
+              <slot name="right-action"></slot>
+
+              <a-tooltip title="关闭">
+                <a v-if="toolbars.includes('close')" @click="handleClose">
+                  <a-icon type="close" />
+                </a>
+              </a-tooltip>
+              <!-- 按钮插槽 -->
+            </div>
+            <!-- 操作右侧区域 end -->
+
+            <!-- 头部操作按钮区域 end -->
           </div>
-          <!-- 操作左侧区域 end -->
+          <!-- 操作区域 start -->
+          <k-form-component-panel
+            :data="data"
+            :selectItem="selectItem"
+            :noModel="noModel"
+            ref="KFCP"
+            @handleSetSelectItem="handleSetSelectItem"
+          />
+          <!-- 操作区域 start -->
+          <k-json-modal ref="jsonModal" />
+          <k-code-modal ref="codeModal" />
+          <importJsonModal ref="importJsonModal" />
+          <previewModal ref="previewModal" />
+        </section>
+        <!-- 中间面板区域 end -->
 
-          <!-- 操作右侧区域 start -->
-          <div class="right-btn-box">
-            <slot name="right-action"></slot>
-
-            <a-tooltip title="关闭">
-              <a v-if="showBtnList.includes('close')" @click="handleClose">
-                <a-icon type="close" />
-              </a>
-            </a-tooltip>
-            <!-- 按钮插槽 -->
-          </div>
-          <!-- 操作右侧区域 end -->
-
-          <!-- 头部操作按钮区域 end -->
-        </div>
-        <!-- 操作区域 start -->
-        <k-form-component-panel
-          :data="data"
-          :selectItem="selectItem"
-          :noModel="noModel"
-          ref="KFCP"
-          @handleSetSelectItem="handleSetSelectItem"
-        />
-        <!-- 操作区域 start -->
-        <k-json-modal ref="jsonModal" />
-        <k-code-modal ref="codeModal" />
-        <importJsonModal ref="importJsonModal" />
-        <previewModal ref="previewModal" />
-      </section>
-      <!-- 中间面板区域 end -->
-
-      <!-- 右侧控件属性区域 start -->
-      <aside class="right">
-        <!-- <a-tabs style="height:100%">
+        <!-- 右侧控件属性区域 start -->
+        <aside class="right">
+          <!-- <a-tabs style="height:100%">
           <a-tab-pane style="height:100%" tab=" 控件属性设置" key="1">
           </a-tab-pane>
           <a-tab-pane tab="表单属性设置" key="2" forceRender> </a-tab-pane>
         </a-tabs> -->
-        <formProperties
-          :config="data.config"
-          :previewOptions="previewOptions"
-        />
-        <formItemProperties
-          :class="{ 'show-properties': showPropertie }"
-          class="form-item-properties"
-          :selectItem="selectItem"
-          @handleHide="showPropertie = false"
-        />
-      </aside>
-      <!-- 右侧控件属性区域 end -->
+          <formProperties
+            :config="data.config"
+            :previewOptions="previewOptions"
+          />
+          <formItemProperties
+            :class="{ 'show-properties': showPropertie }"
+            class="form-item-properties"
+            :selectItem="selectItem"
+            @handleHide="showPropertie = false"
+          />
+        </aside>
+        <!-- 右侧控件属性区域 end -->
+      </div>
+      <!-- <k-footer /> -->
     </div>
-    <!-- <k-footer /> -->
-  </div>
+  </a-locale-provider>
 </template>
 <script>
 /*
@@ -193,9 +203,10 @@ import collapseItem from "./module/collapseItem";
 import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
 // import draggable from "vuedraggable";
+import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 import {
   basicsList,
-  highList,
+  // highList,
   layoutList,
   customComponents
 } from "./config/formItemsConfig";
@@ -216,7 +227,7 @@ export default {
       type: Number,
       default: 0
     },
-    showBtnList: {
+    toolbars: {
       type: Array,
       default: () => [
         "save",
@@ -231,13 +242,40 @@ export default {
     showBtnText: {
       type: Boolean,
       default: false
+    },
+    fields: {
+      type: Array,
+      default: () => [
+        "input",
+        "textarea",
+        "number",
+        "select",
+        "checkbox",
+        "radio",
+        "date",
+        "time",
+        "rate",
+        "slider",
+        "uploadFile",
+        "uploadImg",
+        "switch",
+        "button",
+        "alert",
+        "text",
+        "html",
+        "divider",
+        "card",
+        "grid",
+        "table"
+      ]
     }
   },
   data() {
     return {
-      basicsList,
-      layoutList,
-      highList,
+      locale: zhCN,
+      // basicsList,
+      // layoutList,
+      // highList,
       customComponents,
       updateTime: 0,
       updateRecordTime: 0,
@@ -284,7 +322,16 @@ export default {
     // draggable
   },
   computed: {
+    basicsArray() {
+      // 计算需要显示的基础字段
+      return basicsList.filter(item => this.fields.includes(item.type));
+    },
+    layoutArray() {
+      // 计算需要显示的布局字段
+      return layoutList.filter(item => this.fields.includes(item.type));
+    },
     collapseDefaultActiveKey() {
+      // 计算当前展开的控件列表
       let defaultActiveKey = window.localStorage.getItem(
         "collapseDefaultActiveKey"
       );

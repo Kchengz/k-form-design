@@ -7,7 +7,7 @@
 export const basicsList = [
   {
     type: "input", // 表单类型
-    name: "输入框", // 标题文字
+    label: "输入框", // 标题文字
     icon: "icon-write",
     options: {
       type: "text",
@@ -28,7 +28,7 @@ export const basicsList = [
   },
   {
     type: "textarea", // 表单类型
-    name: "文本框", // 标题文字
+    label: "文本框", // 标题文字
     icon: "icon-edit",
     options: {
       width: "100%", // 宽度
@@ -49,7 +49,7 @@ export const basicsList = [
   },
   {
     type: "number", // 表单类型
-    name: "数字输入框", // 标题文字
+    label: "数字输入框", // 标题文字
     icon: "icon-number",
     options: {
       width: "100%", // 宽度
@@ -71,7 +71,7 @@ export const basicsList = [
   },
   {
     type: "select", // 表单类型
-    name: "下拉选择器", // 标题文字
+    label: "下拉选择器", // 标题文字
     icon: "icon-xiala",
     options: {
       width: "100%", // 宽度
@@ -104,7 +104,7 @@ export const basicsList = [
   },
   {
     type: "checkbox",
-    name: "多选框",
+    label: "多选框",
     icon: "icon-duoxuan1",
     options: {
       disabled: false, //是否禁用
@@ -135,7 +135,7 @@ export const basicsList = [
   },
   {
     type: "radio", // 表单类型
-    name: "单选框", // 标题文字
+    label: "单选框", // 标题文字
     icon: "icon-danxuan-cuxiantiao",
     options: {
       disabled: false, //是否禁用
@@ -167,7 +167,7 @@ export const basicsList = [
   },
   {
     type: "date", // 表单类型
-    name: "日期选择框", // 标题文字
+    label: "日期选择框", // 标题文字
     icon: "icon-calendar",
     options: {
       width: "100%", // 宽度
@@ -193,7 +193,7 @@ export const basicsList = [
   },
   {
     type: "time", // 表单类型
-    name: "时间选择框", // 标题文字
+    label: "时间选择框", // 标题文字
     icon: "icon-time",
     options: {
       width: "100%", // 宽度
@@ -214,7 +214,7 @@ export const basicsList = [
   },
   {
     type: "rate", // 表单类型
-    name: "评分", // 标题文字
+    label: "评分", // 标题文字
     icon: "icon-pingfen_moren",
     options: {
       defaultValue: 0,
@@ -233,7 +233,7 @@ export const basicsList = [
   },
   {
     type: "slider", // 表单类型
-    name: "滑动输入条", // 标题文字
+    label: "滑动输入条", // 标题文字
     icon: "icon-menu",
     options: {
       width: "100%", // 宽度
@@ -255,72 +255,8 @@ export const basicsList = [
     ]
   },
   {
-    type: "switch", // 表单类型
-    name: "开关", // 标题文字
-    icon: "icon-kaiguan3",
-    options: {
-      defaultValue: false, // 默认值 Boolean 类型
-      disabled: false // 是否禁用
-    },
-    model: "",
-    key: "",
-    rules: [
-      {
-        required: false,
-        message: "必填项"
-      }
-    ]
-  },
-  {
-    type: "button", // 表单类型
-    name: "按钮", // 标题文字
-    icon: "icon-button-remove",
-    options: {
-      type: "primary",
-      handle: "submit",
-      disabled: false // 是否禁用，false不禁用，true禁用
-    },
-    key: ""
-  },
-  {
-    type: "alert",
-    name: "警告提示",
-    icon: "icon-zu",
-    options: {
-      type: "success",
-      description: "",
-      showIcon: false,
-      banner: false,
-      closable: false
-    },
-    key: ""
-  },
-  {
-    type: "text",
-    name: "文字",
-    icon: "icon-zihao",
-    options: {
-      textAlign: "left",
-      showRequiredMark: false
-    },
-    key: ""
-  },
-  {
-    type: "html",
-    name: "HTML",
-    icon: "icon-ai-code",
-    options: {
-      defaultValue: "<strong>HTML</strong>"
-    },
-    key: ""
-  }
-];
-
-// 高级控件
-export const highList = [
-  {
     type: "uploadFile", // 表单类型
-    name: "上传文件", // 标题文字
+    label: "上传文件", // 标题文字
     icon: "icon-upload",
     options: {
       defaultValue: "",
@@ -344,7 +280,7 @@ export const highList = [
   },
   {
     type: "uploadImg",
-    name: "上传图片",
+    label: "上传图片",
     icon: "icon-image",
     options: {
       defaultValue: "",
@@ -365,8 +301,71 @@ export const highList = [
         message: "必填项"
       }
     ]
+  },
+  {
+    type: "switch", // 表单类型
+    label: "开关", // 标题文字
+    icon: "icon-kaiguan3",
+    options: {
+      defaultValue: false, // 默认值 Boolean 类型
+      disabled: false // 是否禁用
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
+    type: "button", // 表单类型
+    label: "按钮", // 标题文字
+    icon: "icon-button-remove",
+    options: {
+      type: "primary",
+      handle: "submit",
+      disabled: false // 是否禁用，false不禁用，true禁用
+    },
+    key: ""
+  },
+  {
+    type: "alert",
+    label: "警告提示",
+    icon: "icon-zu",
+    options: {
+      type: "success",
+      description: "",
+      showIcon: false,
+      banner: false,
+      closable: false
+    },
+    key: ""
+  },
+  {
+    type: "text",
+    label: "文字",
+    icon: "icon-zihao",
+    options: {
+      textAlign: "left",
+      showRequiredMark: false
+    },
+    key: ""
+  },
+  {
+    type: "html",
+    label: "HTML",
+    icon: "icon-ai-code",
+    options: {
+      defaultValue: "<strong>HTML</strong>"
+    },
+    key: ""
   }
 ];
+
+// 高级控件
+// export const highList = [];
 
 // import { Alert } from "ant-design-vue";
 
@@ -376,7 +375,7 @@ export const customComponents = {
   title: "自定义组件",
   list: [
     // {
-    //   name: "测试",
+    //   label: "测试",
     //   type: "jkjksdf",
     //   component: Alert,
     //   options: {
@@ -405,7 +404,7 @@ export const customComponents = {
 export const layoutList = [
   {
     type: "divider",
-    name: "分割线",
+    label: "分割线",
     icon: "icon-fengexian",
     options: {
       orientation: "left"
@@ -415,7 +414,7 @@ export const layoutList = [
   },
   {
     type: "card",
-    name: "卡片布局",
+    label: "卡片布局",
     icon: "icon-qiapian",
     list: [],
     key: "",
@@ -423,7 +422,7 @@ export const layoutList = [
   },
   {
     type: "grid",
-    name: "栅格布局",
+    label: "栅格布局",
     icon: "icon-zhage",
     columns: [
       {
@@ -443,7 +442,7 @@ export const layoutList = [
   },
   {
     type: "table",
-    name: "表格布局",
+    label: "表格布局",
     icon: "icon-biaoge",
     trs: [
       {
