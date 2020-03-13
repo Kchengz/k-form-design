@@ -3,13 +3,15 @@
     <div class="form-designer-container-9136076486841527">
       <k-header :title="title" v-if="showHead" />
       <div
-          :style="
-            `height: ${
-              showHead ? 'calc(100% - 60px);' : 'calc(100% - ' + headHeight + 'px);'
-            }`
-          "
-          class="content"
-        >
+        :style="
+          `height: ${
+            showHead
+              ? 'calc(100% - 60px);'
+              : 'calc(100% - ' + headHeight + 'px);'
+          }`
+        "
+        class="content"
+      >
         <!-- 左侧控件区域 start -->
         <aside class="left">
           <a-collapse

@@ -25,7 +25,7 @@ import KFormBuild from "./KFormBuild/index";
 import KFormItem from "./KFormItem/index";
 import {
   customComponents,
-  highList
+  basicsList
 } from "./KFormDesign/config/formItemsConfig";
 const components = [KFormDesign, KFormBuild, KFormItem, KFormPreview];
 
@@ -98,9 +98,9 @@ function setFormDesignConfig(config) {
     customComponents.title = config.title || "自义定组件";
     customComponents.list = config.list || [];
     window.$customComponentList = config.list || [];
-    highList[0].options.action =
+    basicsList[10].options.action =
       config.uploadFile || "http://cdn.kcz66.com/uploadFile.txt";
-    highList[1].options.action =
+    basicsList[11].options.action =
       config.uploadImage || "http://cdn.kcz66.com/upload-img.txt";
     return true;
   } catch {
