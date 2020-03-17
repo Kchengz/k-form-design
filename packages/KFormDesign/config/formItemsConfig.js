@@ -14,6 +14,7 @@ export const basicsList = [
       width: "100%", // 宽度
       defaultValue: "", // 默认值
       placeholder: "请输入", // 没有输入时，提示文字
+      clearable: true,
       disabled: false // 是否禁用，false不禁用，true禁用
     },
     model: "", // 数据字段
@@ -35,6 +36,7 @@ export const basicsList = [
       minRows: 4,
       maxRows: 6,
       defaultValue: "",
+      clearable: false,
       disabled: false,
       placeholder: "请输入"
     },

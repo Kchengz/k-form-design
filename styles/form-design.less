@@ -216,6 +216,12 @@
         line-height  : 45px;
         padding      : 0px 12px;
 
+        // position: fixed;
+        // z-index: 99;
+        // background-color: #efefef;
+        // width: 100%;
+        // top: 60px;
+        // left: 0;
         &.content-title {
           display        : flex;
           justify-content: space-between;
@@ -224,9 +230,12 @@
           a {
             color      : #666;
             margin-left: 10px;
-
             &:hover {
               color: @primary-color;
+            }
+            >span{
+              font-size: 14px;
+              padding-left: 2px;
             }
           }
         }

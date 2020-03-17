@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-17 14:18:44
+ * @LastEditTime: 2020-03-17 15:33:51
  -->
 <template>
   <a-form-item
@@ -35,6 +35,7 @@
       :disabled="record.options.disabled"
       :placeholder="record.options.placeholder"
       :type="record.options.type"
+      :allowClear="record.options.clearable"
       v-decorator="[
         record.model, // input 的 name
         {
@@ -51,6 +52,7 @@
         minRows: record.options.minRows,
         maxRows: record.options.maxRows
       }"
+      :allowClear="record.options.clearable"
       :disabled="record.options.disabled"
       :placeholder="record.options.placeholder"
       :rows="4"
