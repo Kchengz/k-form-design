@@ -1,5 +1,5 @@
 <template>
-  <a-locale-provider :locale="locale">
+  <a-config-provider :locale="locale">
     <a-form
       v-if="
         typeof value.list !== 'undefined' && typeof value.config !== 'undefined'
@@ -19,7 +19,7 @@
         :key="index"
       />
     </a-form>
-  </a-locale-provider>
+  </a-config-provider>
 </template>
 <script>
 /*

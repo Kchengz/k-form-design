@@ -181,7 +181,7 @@
         <a-form-item v-if="selectItem.type === 'html'" label="默认值">
           <a-textarea
             v-model="options.defaultValue"
-            :autosize="{ minRows: 4, maxRows: 8 }"
+            :autoSize="{ minRows: 4, maxRows: 8 }"
           />
         </a-form-item>
         <a-form-item

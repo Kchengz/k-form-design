@@ -9,7 +9,7 @@
   <a-time-picker
     :style="`width:${record.options.width}`"
     :disabled="record.options.disabled"
-    :allowEmpty="record.options.clearable"
+    :allowClear="record.options.clearable"
     :placeholder="record.options.placeholder"
     :format="record.options.format"
     @change="handleSelectChange"

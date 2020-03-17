@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-17 15:33:51
+ * @LastEditTime: 2020-03-17 20:02:38
  -->
 <template>
   <a-form-item
@@ -36,6 +36,7 @@
       :placeholder="record.options.placeholder"
       :type="record.options.type"
       :allowClear="record.options.clearable"
+      :maxLength="record.options.maxLength"
       v-decorator="[
         record.model, // input 的 name
         {
@@ -48,13 +49,14 @@
     <a-textarea
       :style="`width:${record.options.width}`"
       v-else-if="record.type === 'textarea'"
-      :autosize="{
+      :autoSize="{
         minRows: record.options.minRows,
         maxRows: record.options.maxRows
       }"
-      :allowClear="record.options.clearable"
       :disabled="record.options.disabled"
       :placeholder="record.options.placeholder"
+      :allowClear="record.options.clearable"
+      :maxLength="record.options.maxLength"
       :rows="4"
       v-decorator="[
         record.model, // input 的 name
@@ -174,11 +176,11 @@
     <a-switch
       v-else-if="record.type === 'switch'"
       :disabled="record.options.disabled"
-      :defaultChecked="record.options.defaultValue"
       v-decorator="[
         record.model,
         {
           initialValue: record.options.defaultValue,
+          valuePropName: 'checked',
           rules: record.rules
         }
       ]"
@@ -314,9 +316,9 @@
       :orientation="record.options.orientation"
       >{{ record.label }}</a-divider
     >
-    <a-divider v-else-if="record.type === 'divider' && record.label !== ''">
-      {{ record.label }}
-    </a-divider>
+    <a-divider v-else-if="record.type === 'divider' && record.label !== ''">{{
+      record.label
+    }}</a-divider>
     <a-divider v-else-if="record.type === 'divider' && record.label === ''" />
   </div>
 </template>

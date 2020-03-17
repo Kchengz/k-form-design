@@ -1,5 +1,5 @@
 <template>
-  <a-locale-provider :locale="locale">
+  <a-config-provider :locale="locale">
     <div class="form-designer-container-9136076486841527">
       <k-header :title="title" v-if="showHead" />
       <div class="content" :class="{ 'show-head': showHead }">
@@ -183,7 +183,7 @@
       </div>
       <!-- <k-footer /> -->
     </div>
-  </a-locale-provider>
+  </a-config-provider>
 </template>
 <script>
 /*
