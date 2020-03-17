@@ -2,16 +2,11 @@
   <a-locale-provider :locale="locale">
     <div class="form-designer-container-9136076486841527">
       <k-header :title="title" v-if="showHead" />
-      <div
-        :style="
-          `height: ${
-            showHead
-              ? 'calc(100% - 60px);'
-              : 'calc(100% - ' + headHeight + 'px);'
-          }`
-        "
+      <div class="content" :class="{ 'show-head': showHead }">
+        <!-- <div
+        :style="`height: ${showHead ? 'calc(100% - 60px);' : '100%'}`"
         class="content"
-      >
+      > -->
         <!-- 左侧控件区域 start -->
         <aside class="left">
           <a-collapse
@@ -81,7 +76,7 @@
               <a-tooltip title="保存">
                 <a v-if="toolbars.includes('save')" @click="handleSave">
                   <a-icon type="save" />
-                  <span v-if="showBtnText">保存</span>
+                  <span v-if="showToolbarsText">保存</span>
                 </a>
               </a-tooltip>
 
@@ -91,7 +86,7 @@
                   @click="handleOpenPreviewModal"
                 >
                   <a-icon type="chrome" />
-                  <span v-if="showBtnText">预览</span>
+                  <span v-if="showToolbarsText">预览</span>
                 </a>
               </a-tooltip>
 
@@ -101,7 +96,7 @@
                   @click="handleOpenImportJsonModal"
                 >
                   <a-icon type="upload" />
-                  <span v-if="showBtnText">导入</span>
+                  <span v-if="showToolbarsText">导入</span>
                 </a>
               </a-tooltip>
 
@@ -111,7 +106,7 @@
                   @click="handleOpenJsonModal"
                 >
                   <a-icon type="credit-card" />
-                  <span v-if="showBtnText">生成JSON</span>
+                  <span v-if="showToolbarsText">生成JSON</span>
                 </a>
               </a-tooltip>
 
@@ -121,14 +116,14 @@
                   @click="handleOpenCodeModal"
                 >
                   <a-icon type="code" />
-                  <span v-if="showBtnText">生成代码</span>
+                  <span v-if="showToolbarsText">生成代码</span>
                 </a>
               </a-tooltip>
 
               <a-tooltip title="清空">
                 <a v-if="toolbars.includes('reset')" @click="handleReset">
                   <a-icon type="delete" />
-                  <span v-if="showBtnText">清空</span>
+                  <span v-if="showToolbarsText">清空</span>
                 </a>
               </a-tooltip>
               <slot name="left-action"></slot>
@@ -241,7 +236,7 @@ export default {
         "close"
       ]
     },
-    showBtnText: {
+    showToolbarsText: {
       type: Boolean,
       default: false
     },

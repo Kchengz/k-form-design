@@ -30,11 +30,16 @@
   .content {
     display: flex;
     height : 100%;
-    flex:1;
+    flex   : 1;
+
+    // 显示头部时
+    &.show-head {
+      height: calc(100% - 60px);
+    }
 
     // 左右栏
     aside {
-      width : 270px;
+      width : @left-right-width;
       height: 100%;
       // >.left-title {
       //   padding    : 12px 10px 8px;
@@ -50,8 +55,9 @@
         .ant-collapse-content-box {
           padding: 0;
         }
-        .ant-collapse > .ant-collapse-item > .ant-collapse-header{
-          padding: 7px 0 7px 40px;
+
+        .ant-collapse>.ant-collapse-item>.ant-collapse-header {
+          padding            : 7px 0 7px 40px;
           // background-color: @border-color;
         }
 
@@ -134,19 +140,19 @@
 
           // 关闭控件属性面板按钮
           .close-box {
-            opacity      : 0;
-            transition   : all .5s;
-            position     : fixed;
-            background   : @primary-color;
+            opacity         : 0;
+            transition      : all .5s;
+            position        : fixed;
+            background      : @primary-color;
             // background   : fade(@primary-color,70%);
-            padding      : 8px 10px;
-            cursor       : pointer;
-            user-select  : none;
-            border-radius: 5px 0 0 5px;
-            font-size: 16px;
-            color        : #fff;
-            bottom       : 10px;
-            right        : 0px;
+            padding         : 8px 10px;
+            cursor          : pointer;
+            user-select     : none;
+            border-radius   : 5px 0 0 5px;
+            font-size       : 16px;
+            color           : #fff;
+            bottom          : 10px;
+            right           : 0px;
 
           }
         }
@@ -155,18 +161,20 @@
           height    : 100%;
           overflow  : hidden;
           background: #fff;
-          .head-title{
-            height: 48px;
-            line-height: 48px;
-            padding: 0 24px;
-            font-size: 16px;
+
+          .head-title {
+            height       : 48px;
+            line-height  : 48px;
+            padding      : 0 24px;
+            font-size    : 16px;
             border-bottom: 2px solid @border-color;
-            color: rgba(0, 0, 0, 0.85);
+            color        : rgba(0, 0, 0, 0.85);
           }
+
           .properties-body {
-          overflow  : auto;
-          height    : calc(100% - 48px);
-            padding: 8px 16px;
+            overflow: auto;
+            height  : calc(100% - 48px);
+            padding : 8px 16px;
           }
 
 
