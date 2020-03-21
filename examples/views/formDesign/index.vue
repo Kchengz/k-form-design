@@ -1,9 +1,6 @@
 <template>
   <div>
     <k-form-design @save="handleSave" showToolbarsText @close="handleClose">
-      <!-- <template slot="action">
-        <a><a-icon type="code" /> jksdf</a>
-      </template> -->
     </k-form-design>
   </div>
 </template>

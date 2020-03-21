@@ -20,7 +20,7 @@ setFormDesignConfig({
 })
 ```
 ### 文件上传响应数据
-```
+```json
 {
   "code": 0, // 判断文件上传是否成功，结果为0成功，否则上传失败
   "data":
@@ -31,7 +31,7 @@ setFormDesignConfig({
 }
 ```
 ### 图片上传响应数据
-```
+```json
 {
   "code": 0, // 判断图片上传是否成功，结果为0成功，否则上传失败
   "data":
@@ -40,3 +40,4 @@ setFormDesignConfig({
     }
 }
 ```
+

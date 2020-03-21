@@ -2,9 +2,11 @@
 ### 介绍
 表单构建组件，将表单设计器生成的json数据构建成表单
 
-
 ### 基础用法
-```  javascript
+
+![3](assets/3.png)
+
+```  html
 <template>
   <div>
     <k-form-build :value="jsonData" />
@@ -90,11 +92,11 @@ export default {
 </script>
 ```
 
-[filelabel](./form-build1.html ':include :type=iframe width=100% height=300px')
-
-
 ### 使用getData函数获取数据
-```  javascript
+
+[filelabel](./form-build1.html ':include :type=iframe width=100% height=320px')
+
+```  html
 <template>
   <div>
     <k-form-build ref="kfb" :value="jsonData" />
@@ -192,7 +194,10 @@ export default {
 ```
 
 ### 通过提交按钮触发submit事件
-```  javascript
+
+![2](assets/2-1584794814249.gif)
+
+```  html
 <template>
   <div>
     <k-form-build @submit="submitData" :value="jsonData" />
@@ -299,7 +304,7 @@ export default {
     </tbody>
   </table>
 
-  
+
 
 ### 事件
   <table>

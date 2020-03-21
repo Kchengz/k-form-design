@@ -3,8 +3,12 @@
 表单设计器，通过拖拽或点击生成表单[预览地址](http://cdn.kcz66.com/k-form-design.html)
 
 建议将表单设计器组件放到全屏组件或页面使用，使用表格布局时，在设计界面右键可以添加行列和合并单元格
+
 ### 基础用法
-```  javascript
+
+![2](assets/2-1584791563798.gif)
+
+```  html
 <template>
   <div>
     <k-form-design />
@@ -12,8 +16,40 @@
 </template>
 ```
 
+### 自定义标题
+
+![2](assets/2-1584792004589.gif)
+
+> 使用title属性自定义标题
+
+```  html
+<template>
+  <div>
+    <k-form-design 
+      title="我是修改后的标题" 
+     />
+  </div>
+</template>
+<script>
+```
+
+### 自定义左侧控件列表
+
+![2](assets/2-1584793506316.gif)
+
+> 使用组件fields属性，自定义左侧控件列表
+
+```html
+<template>
+  <k-form-design showToolbarsText :fields="['input', 'textarea']" />
+</template>
+```
+
 ### 自定义头部操作按钮
-通过toolbars属性显示隐藏默认按钮
+
+![2](assets/2-1584791471830.gif)
+
+> 通过toolbars属性显示隐藏默认按钮
 
 ```html
 <template>
@@ -22,14 +58,36 @@
   </div>
 </template>
 ```
-使用插槽插入自定义按钮
+### 插入自定义按钮
+
+![2](assets/2-1584791416791.gif)
+
+> 使用插槽插入自定义按钮（需要项目引入a-tooltip，a-icon组件）
+
 ```html
 <template>
   <div>
    <k-form-design >
-      <template slot="action">
-        <a><a-icon type="code" /> 代码</a>
+     <!-- 左侧操作区域插槽 start -->
+      <template slot="left-action">
+        <a-tooltip title="测试左侧插槽">
+          <a>
+            <a-icon type="experiment" />
+            <!-- <span>测试左侧插槽（showToolbarsText属性为true时需要）</span> -->
+          </a>
+        </a-tooltip>
       </template>
+     <!-- 左侧操作区域插槽 end -->
+     <!-- 右侧操作区域插槽 start -->
+      <template slot="right-action">
+        <a-tooltip title="测试右侧插槽">
+          <a>
+            <a-icon type="experiment" />
+            <!-- <span>测试右侧插槽（showToolbarsText属性为true时需要）</span> -->
+          </a>
+        </a-tooltip>
+      </template>
+     <!-- 右侧操作区域插槽 end -->
     </k-form-design>
   </div>
 </template>
@@ -37,7 +95,11 @@
 
 ### 表单设计器save事件，点击保存时触发
 
-```  javascript
+![2](assets/2-1584791884885.gif)
+
+> 使用组件save事件保存json
+
+```  html
 <template>
   <div>
     <k-form-design @save="handleSave" />
@@ -47,89 +109,72 @@
 export default {
   methods: {
     handleSave(values) {
-      this.$message.success("触发保存方法");
+      alert("触发保存方法");
       console.log(values);
     }
   }
 };
 </script>
 ```
-### 使用API
+### 导入json数据
 
-```  javascript
-<template>
-  <div>
-    <k-form-design 
-      :title="title" 
-      :toolbars="toolbars" 
-     />
-  </div>
-</template>
-<script>
-export default {
-  data(){
-      return {
-        title: "表单设计器 -by kcz",
-        toolbars: [ "save", "preview", "importJson", "exportJson", "exportCode", "reset"]
-      }
-    }
-};
-</script>
-```
-### 使用handleSetData函数
+![2](assets/2-1584792430622.gif)
 
-```  javascript
+> 使用组件handleSetData函数导入json数据
+
+```  html
 <template>
-  <div>
-    <k-form-design
-      ref="kfd"
-     />
-  </div>
+  <k-form-design ref='kfd' />
 </template>
 <script>
 export default {
   data () {
     return {
       jsonData: {
-        'list': [
+        list: [
           {
-            'type': 'input',
-            'label': '单行文本',
-            'options': {
-              'width': '100%',
-              'defaultValue': '',
-              'placeholder': '请输入',
-              'disabled': false
+            type: 'textarea',
+            label: '文本框',
+            icon: 'icon-edit',
+            options: {
+              width: '100%',
+              minRows: 4,
+              maxRows: 6,
+              defaultValue: '',
+              disabled: false,
+              placeholder: '请输入'
             },
-            'model': 'input_1577875678405',
-            'key': 'input_1577875678405',
-            'rules': [
+            model: 'textarea_1584772782841',
+            key: 'textarea_1584772782841',
+            rules: [
               {
-                'required': true,
-                'message': '必填项'
+                required: false,
+                message: '必填项'
               }
             ]
           }
         ],
-        'config': {
-          'layout': 'horizontal',
-          'labelCol': {
-            'span': 4
+        config: {
+          layout: 'horizontal',
+          labelCol: {
+            span: 4
           },
-          'wrapperCol': {
-            'span': 18
+          wrapperCol: {
+            span: 18
           },
-          'hideRequiredMark': false,
-          'customStyle': ''
+          hideRequiredMark: false,
+          customStyle: ''
         }
       }
     }
   },
   methods: {
     importData () {
-      // 导入数据
       this.$refs.kfd.handleSetData(this.jsonData)
     }
+  },
+  mounted () {
+    this.importData()
   }
 }
 </script>
@@ -145,6 +190,7 @@ export default {
         <th>说明</th>
         <th>类型</th>
         <th>默认值</th>
+        <th>版本</th>
       </tr>
     </thead>
     <tbody>
@@ -153,12 +199,14 @@ export default {
         <td>表单设计器标题</td>
         <td>string</td>
         <td>"表单设计器 --by kcz"</td>
+        <td></td>
       </tr>
       <tr>
         <td>showHead</td>
         <td>是否显示head部分</td>
         <td>boolean</td>
         <td>true</td>
+        <td></td>
       </tr>
       <tr>
         <td>toolbars</td>
@@ -173,8 +221,16 @@ export default {
         'reset',
         'close'
       ]</td>
+        <td>3.0.7</td>
       </tr>
-            <tr>
+       <tr>
+        <td>showToolbarsText</td>
+        <td>是否显示操作按钮文本</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>3.1.1</td>
+      </tr>
+       <tr>
         <td>fields</td>
         <td>自定义左侧控件列表</td>
         <td>array</td>
@@ -201,12 +257,17 @@ export default {
         "grid",
         "table"
       ]</td>
+       <td>3.0.7</td>
       </tr>
     </tbody>
   </table>
 
 
-### Slots
+
+### Slots 
+
+3.0.7及更高版本
+
 <table>
     <thead>
       <tr>
@@ -216,8 +277,12 @@ export default {
     </thead>
     <tbody>
      <tr>
-     <td>action</td>
-     <td>表单设计器头部操作区域插槽</td>
+     <td>left-action</td>
+     <td>表单设计器头部左侧操作区域插槽</td>
+     </tr>
+         <tr>
+     <td>right-action</td>
+     <td>表单设计器头部右侧操作区域插槽</td>
      </tr>
      </tbody>
 </table>

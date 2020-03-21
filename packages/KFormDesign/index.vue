@@ -126,20 +126,23 @@
                   <span v-if="showToolbarsText">清空</span>
                 </a>
               </a-tooltip>
+              <!-- 按钮左侧插槽 start -->
               <slot name="left-action"></slot>
+              <!-- 按钮左侧插槽 end -->
             </div>
             <!-- 操作左侧区域 end -->
 
             <!-- 操作右侧区域 start -->
             <div class="right-btn-box">
+              <!-- 按钮右侧插槽 start -->
               <slot name="right-action"></slot>
+              <!-- 按钮右侧插槽 end -->
 
               <a-tooltip title="关闭">
                 <a v-if="toolbars.includes('close')" @click="handleClose">
                   <a-icon type="close" />
                 </a>
               </a-tooltip>
-              <!-- 按钮插槽 -->
             </div>
             <!-- 操作右侧区域 end -->
 

@@ -5,6 +5,9 @@ k-form-bulild有个this.form属性,可以用来修改表单值,参照[Ant Design
   
 
 ### 使用form属性修改表单value
+
+[filename](./form-build2.html ':include :type=iframe width=100% height=340px')
+
 ```javascript
 <template>
   <div>
@@ -108,5 +111,4 @@ export default {
 </script>
 ```
 
-[filename](./form-build2.html ':include :type=iframe width=100% height=340px')
 

@@ -13,6 +13,7 @@
 
 - 控件
   * [自定义控件](zh-cn/field/custom)
+  * [上传接口](zh-cn/config)
 
-* [上传接口](zh-cn/config)
+* [交流](zh-cn/communication)
 * [捐赠](zh-cn/donation)
