@@ -1,6 +1,3 @@
-
-
-
 # 表单设计器 k-form-design
 
 <p align="center">
