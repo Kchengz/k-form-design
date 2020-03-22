@@ -14,7 +14,7 @@
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
   </a>
 </p>
-![1](assets/1.gif)
+![1](http://cdn.kcz66.com/demo.gif)
 
 ## 简介
 
