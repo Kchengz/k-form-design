@@ -2,13 +2,14 @@
  * @Description: 组件输出文件
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
- * @LastEditors  : kcz
- * @LastEditTime : 2020-01-16 16:51:58
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-25 14:06:28
  */
-
+// 引入@babel/polyfill处理兼容
+import "@babel/polyfill";
 // 导入ant组件
 import "./core/components_use";
-import "ant-design-vue/dist/antd.less";
+// import "ant-design-vue/dist/antd.less";
 
 // 导入样式
 import "../styles/form-design.less";
