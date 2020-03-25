@@ -50,3 +50,11 @@ To install them, you can run: npm install --save core-js/modules/es6.array.copy-
 ```
 
 这是因为最新的 vue-cli 版本，core-js是3.x的版本，而这个版本中，对那些polly补丁包进行了整理，所以，在项目的根目录，```yarn add core-js@2.6.9 --save ```安装这个版本就没问题
+
+
+
+#### 参考文章：
+
+[ant-design-vue的兼容问题](https://blog.csdn.net/lydxwj/article/details/89912983)
+
+[npm 解决缺失 core-js 的问题,遇到core-js/modules/es6.regexp.replace 问题](https://www.jianshu.com/p/fe6900748aa3)
