@@ -1,4 +1,5 @@
-# k-form-design
+k-form-design
+
 ### 介绍
 表单设计器，通过拖拽或点击生成表单[预览地址](http://cdn.kcz66.com/k-form-design.html)
 
@@ -55,6 +56,19 @@
 <template>
   <div>
    <k-form-design :toolbars="['save', 'preview', 'importJson']" />
+  </div>
+</template>
+```
+### 切换操作按钮位置
+
+![12312](assets/12312.jpg)
+
+> 使用toolbarsTop属性切换操作按钮位置
+
+```html
+<template>
+  <div>
+   <k-form-design toolbarsTop />
   </div>
 </template>
 ```
@@ -223,6 +237,13 @@ export default {
       ]</td>
         <td>3.0.7</td>
       </tr>
+      <tr>
+        <td>toolbarsTop</td>
+        <td>切换操作按钮位置</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>3.1.6</td>
+      </tr>
        <tr>
         <td>showToolbarsText</td>
         <td>是否显示操作按钮文本</td>
@@ -261,6 +282,7 @@ export default {
       </tr>
     </tbody>
   </table>
+
 
 
 
