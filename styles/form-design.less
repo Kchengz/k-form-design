@@ -1,21 +1,63 @@
 // 表单设计器样式
 @aside-border-color      : #ccc;
-@primary-color           : #1890ff;
 @primary-background-color: fade(@primary-color, 6%);
 @primary-hover-bg-color  : fade(@primary-color, 20%);
+@layout-background-color : fade(@layout-color, 12%);
+@layout-hover-bg-color   : fade(@layout-color, 24%);
 
-@layout-color           : #aaa;
-@layout-background-color: fade(@layout-color, 12%);
-@layout-hover-bg-color  : fade(@layout-color, 24%);
+@border-color: #ccc;
 
-@border-color: #e8e8e8;
-
-@left-right-width: 270px;
+@left-right-width      : 270px;
+@header-height         : 56px;
+@operating-area-height : 45px;
 @import "./k-table.less";
 
 // 表单设计器样式
 .form-designer-container-9136076486841527 {
-  height: 100vh;
+  height  : 100vh;
+  width   : 100%;
+  overflow: hidden;
+
+  // header样式
+  .header {
+    width           : 100%;
+    height          : @header-height;
+    text-align      : center;
+    background      : @primary-color;
+    color           : #fff;
+    // margin-bottom: 6px;
+    // border-bottom: 1px solid @border-color;
+    line-height     : @header-height;
+    font-size       : 18px;
+    font-weight     : bold;
+  }
+
+  // 头部操作按钮区域
+  .operating-area {
+    border-bottom  : 2px solid #dcdcdc;
+    font-size      : 16px;
+    text-align     : left;
+    height         : @operating-area-height;
+    line-height    : @operating-area-height;
+    padding        : 0px 12px;
+    display        : flex;
+    justify-content: space-between;
+    align-content  : center;
+
+    a {
+      color      : #666;
+      margin-left: 10px;
+
+      &:hover {
+        color: @primary-color;
+      }
+
+      >span {
+        font-size   : 14px;
+        padding-left: 2px;
+      }
+    }
+  }
 
   // iconfont 样式
   .icon {
@@ -32,13 +74,24 @@
     height : 100%;
     flex   : 1;
 
-    // 显示头部时
     &.show-head {
-      height: calc(100% - 60px);
+      margin-top: 6px;
+      height    : calc(100% - @header-height - 6px);
+    }
+
+    &.toolbars-top {
+      margin-top: 6px;
+      height    : calc(100% - @operating-area-height - 6px);
+    }
+
+    &.show-head-and-toolbars-top {
+      margin-top: 6px;
+      height    : calc(100% - @header-height - @operating-area-height - 6px);
     }
 
     // 左右栏
     aside {
+      box-shadow : 0px 0px 1px 1px @border-color;
       width : @left-right-width;
       height: 100%;
       // >.left-title {
@@ -47,7 +100,7 @@
       // }
 
       &.left {
-        border-right: 1px solid @aside-border-color;
+        // border-right: 1px solid @aside-border-color;
         height      : 100%;
         overflow    : auto;
         user-select : none;
@@ -70,39 +123,27 @@
           // background: #efefef;
 
           li {
-            @shadowColor         : #aaa;
-            border-radius        : 0;
-            border               : 0;
-            box-shadow           : 1px 0 0 0 @shadowColor, 0 1px 0 0 @shadowColor, 1px 1px 0 0 @shadowColor, 1px 0 0 0 @shadowColor inset, 0 1px 0 0 @shadowColor inset;
-            // width             : 33.33%;
-            // float             : left;
-            padding              : 8px 12px;
-            // -webkit-transition: all 0.3s;
-            transition           : all 0.3s;
-            width                : calc(50% - 6px);
-            margin               : 2.7px;
-            // padding-left      : 12px;
-            height               : 36px;
-            line-height          : 20px;
-            cursor               : move;
-
-            // background     : #fafafa;
-            // color          : #777;
-            border            : 1px solid transparent;
-            border-radius     : 3px;
-            // border         : 1px dashed @shadowColor;
-            transition        : all .3s;
+            @shadowColor : #aaa;
+            border-radius: 0;
+            border       : 0;
+            box-shadow   : 1px 0 0 0 @shadowColor, 0 1px 0 0 @shadowColor, 1px 1px 0 0 @shadowColor, 1px 0 0 0 @shadowColor inset, 0 1px 0 0 @shadowColor inset;
+            padding      : 8px 12px;
+            transition   : all 0.3s;
+            width        : calc(50% - 6px);
+            margin       : 2.7px;
+            height       : 36px;
+            line-height  : 20px;
+            cursor       : move;
+            border       : 1px solid transparent;
+            border-radius: 3px;
+            transition   : all .3s;
 
             &:hover {
-              // background        : @primary-color;
-              // background        : #fff;
-              color                : @primary-color;
-              border               : 1px solid @primary-color;
-              position             : relative;
-              z-index              : 1;
-              // -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-              box-shadow           : 0 2px 6px @primary-color;
-              // outline           : 1px dashed @primary-color;
+              color     : @primary-color;
+              border    : 1px solid @primary-color;
+              position  : relative;
+              z-index   : 1;
+              box-shadow: 0 2px 6px @primary-color;
             }
           }
         }
@@ -110,24 +151,23 @@
 
       // 右侧区域
       &.right {
-        height          : 100%;
-        border-left     : 1px solid @aside-border-color;
-        // background   : @layout-hover-bg-color;
-        color           : #fff;
-        // overflow     : auto;
-        overflow        : hidden;
-        position        : relative;
+        height     : 100%;
+        // border-left: 1px solid @aside-border-color;
+        // border-top : 1px solid @aside-border-color;
+        color      : #fff;
+        overflow   : hidden;
+        position   : relative;
 
         // 控件属性设置
         .form-item-properties {
-          position  : absolute;
-          width     : 100%;
-          height    : 100%;
-          z-index   : 12;
-          left      : 100%;
-          top       : 0;
-          box-shadow: 0 0px 3px 3px #aaa;
-          transition: all .5s;
+          position     : absolute;
+          width        : 100%;
+          height       : 100%;
+          z-index      : 12;
+          left         : 100%;
+          top          : 0;
+          // box-shadow: 0 0px 3px 3px #aaa;
+          transition   : all .5s;
 
           &.show-properties {
             left: 0px;
@@ -204,49 +244,22 @@
       flex       : 1;
       max-width  : calc(100% - @left-right-width - @left-right-width);
       user-select: none;
-      margin     : 0 5px 0;
-      box-shadow : 0px 5px 5px 5px #aaa;
+      margin     : 0 8px 0;
+      box-shadow : 0px 0px 1px 1px @border-color;
 
-      // 头部操作按钮区域
-      .title {
-        border-bottom: 2px solid #dcdcdc;
-        font-size    : 16px;
-        text-align   : left;
-        height       : 45px;
-        line-height  : 45px;
-        padding      : 0px 12px;
 
-        // position: fixed;
-        // z-index: 99;
-        // background-color: #efefef;
-        // width: 100%;
-        // top: 60px;
-        // left: 0;
-        &.content-title {
-          display        : flex;
-          justify-content: space-between;
-          align-content  : center;
-
-          a {
-            color      : #666;
-            margin-left: 10px;
-            &:hover {
-              color: @primary-color;
-            }
-            >span{
-              font-size: 14px;
-              padding-left: 2px;
-            }
-          }
-        }
-      }
 
       // 内容操作区域
       .form-panel {
-        height       : calc(100% - 50px);
-        background   : #efefef;
-        // border    : 1px solid #ccc;
-        position     : relative;
+        // height       : calc(100% - 50px);
+        height          : 100%;
+        background      : #eee;
+        // border       : 1px solid #ccc;
+        position        : relative;
+
+        &.no-toolbars-top {
+          height: calc(100% - 50px);
+        }
 
         >.hint-text {
           position  : absolute;
@@ -297,22 +310,15 @@
             }
 
             .drag-move-box {
-              position       : relative;
-              box-sizing     : border-box;
-              padding        : 8px;
-              // outline     : 2px solid transparent;
-              // border      : 1px #ccc dashed;
-              // border-left : 0;
-              // border-right: 0;
-              // background  : @primary-background-color;
-              // margin      : 4px 0;
-              overflow       : hidden;
-              transition     : all .3s;
-              min-height     : 36px;
+              position  : relative;
+              box-sizing: border-box;
+              padding   : 8px;
+              overflow  : hidden;
+              transition: all .3s;
+              min-height: 36px;
 
               &:hover {
-                background     : @primary-hover-bg-color;
-                // border-left : 6px solid @primary-color;
+                background: @primary-hover-bg-color;
               }
 
               // 选择时 start
@@ -406,18 +412,13 @@
 
             .grid-box,
             .table-box {
-              position          : relative;
-              box-sizing        : border-box;
-              padding           : 5px;
-              // outline        : 2px solid transparent;
-              // border         : 1px #ccc dashed;
-              // border-left    : 0;
-              // border-right   : 0;
-              background        : @layout-background-color;
-              // margin         : 2px 0;
-              width             : 100%;
-              transition        : all .3s;
-              overflow          : hidden;
+              position  : relative;
+              box-sizing: border-box;
+              padding   : 5px;
+              background: @layout-background-color;
+              width     : 100%;
+              transition: all .3s;
+              overflow  : hidden;
 
               .form-item-box {
                 position  : relative;
@@ -451,18 +452,6 @@
                 }
               }
 
-              // &:hover {
-              //   // background       : @layout-hover-bg-color;
-              //   // outline          : 1px solid @layout-color;
-              //   // outline-offset   : 0px;
-
-              //   .grid-row,
-              //   .table-layout {
-              //     background: @layout-hover-bg-color;
-
-              //   }
-              // }
-
               // 选择时 start
               &::before {
                 content   : '';
@@ -484,14 +473,6 @@
                 background    : @layout-hover-bg-color;
                 outline-offset: 0;
               }
-
-              // 选择时 end
-              // &.active {
-              //   // outline           : 2px solid @layout-color;
-              //     background         : @layout-hover-bg-color;
-              //     border-left        : 6px solid @layout-color;
-              //   // outline-offset    : 0;
-              // }
 
               >.copy,
               >.delete {
@@ -708,17 +689,7 @@
 // .k-form-build-9136076486841527 {
 
 // }
-// header样式
-.header-9136076486841527 {
-  width      : 100%;
-  height     : 60px;
-  line-height: 60px;
-  text-align : center;
-  background : @primary-color;
-  color      : #fff;
-  font-size  : 18px;
-  font-weight: bold;
-}
+
 
 // footer样式
 // .footer-9136076486841527 {

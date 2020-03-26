@@ -1,7 +1,6 @@
 <template>
   <div>
-    <k-form-design @save="handleSave" showToolbarsText @close="handleClose">
-    </k-form-design>
+    <k-form-design toolbarsTop showToolbarsText> </k-form-design>
   </div>
 </template>
 <script>
