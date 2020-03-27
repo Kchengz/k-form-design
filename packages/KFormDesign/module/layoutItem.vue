@@ -13,7 +13,7 @@
         :class="{ active: record.key === selectItem.key }"
         @click.stop="handleSelectItem(record)"
       >
-        <labei>子表单</labei>
+        <div class="batch-label">子表单</div>
         <draggable
           tag="div"
           class="draggable-box"

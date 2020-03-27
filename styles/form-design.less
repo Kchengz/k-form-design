@@ -412,6 +412,11 @@
 
             // 子表单设计面板样式
             .batch-box {
+              >.batch-label{
+                font-size: 16px;
+                font-weight: 500;
+                padding: 10px 10px;
+              }
               .draggable-box {
                 min-height: 60px;
                 width     : 100%;
@@ -425,7 +430,7 @@
                   overflow-x : auto;
                   overflow-y : auto;
                   white-space: nowrap;
-
+                 
                   .moving {
                     // 拖放移动中
                     width     : 175px;
@@ -434,9 +439,9 @@
                   }
 
                   >div {
-                    width  : 185px;
+                    min-width  : 185px;
                     display: inline-block;
-
+                    vertical-align: top;
                     .ant-form-item>.ant-form-item-label,
                     .ant-form-item>.ant-form-item-control-wrapper {
                       text-align: left;
@@ -622,7 +627,7 @@
     /*滚动条整体样式*/
     width: 6px;
     /*高宽分别对应横竖滚动条的尺寸*/
-    height               : 4px;
+    height               : 6px;
     scrollbar-arrow-color: red;
 
   }

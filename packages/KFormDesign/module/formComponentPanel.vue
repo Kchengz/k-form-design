@@ -2,8 +2,8 @@
  * @Description: 表单设计器内容展示操作组件
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
- * @LastEditors  : kcz
- * @LastEditTime : 2020-01-14 00:10:23
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-27 20:38:02
  -->
 <template>
   <div class="form-panel">
@@ -174,6 +174,8 @@ export default {
       this.$emit("handleSetSelectItem", record);
     },
     handleCopy(isCopy = true, data) {
+      // console.log(data);
+      // console.log(isCopy);
       const traverse = array => {
         array.forEach((element, index) => {
           if (element.key === this.selectItem.key) {
@@ -197,8 +199,8 @@ export default {
               traverse(item.list);
             });
           }
-          if (element.type === "card") {
-            // 卡片布局
+          if (element.type === "card" || element.type === "batch") {
+            // 卡片布局或者子表单内复制
             traverse(element.list);
           }
           if (element.type === "table") {
@@ -223,7 +225,7 @@ export default {
               item.list = traverse(item.list);
             });
           }
-          if (element.type === "card") {
+          if (element.type === "card" || element.type === "batch") {
             // 卡片布局
             element.list = traverse(element.list);
           }
