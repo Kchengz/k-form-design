@@ -307,6 +307,26 @@ export const basicsList = [
     ]
   },
   {
+    type: "batch",
+    label: "子表单",
+    icon: "icon-image",
+    list: [],
+    options: {
+      defaultValue: "",
+      disabled: false,
+      hideLabel: false,
+      width: "100%"
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
     type: "switch", // 表单类型
     label: "开关", // 标题文字
     icon: "icon-kaiguan3",

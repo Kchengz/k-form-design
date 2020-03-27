@@ -91,9 +91,9 @@
 
     // 左右栏
     aside {
-      box-shadow : 0px 0px 1px 1px @border-color;
-      width : @left-right-width;
-      height: 100%;
+      box-shadow: 0px 0px 1px 1px @border-color;
+      width     : @left-right-width;
+      height    : 100%;
       // >.left-title {
       //   padding    : 12px 10px 8px;
       //   user-select: none;
@@ -101,9 +101,9 @@
 
       &.left {
         // border-right: 1px solid @aside-border-color;
-        height      : 100%;
-        overflow    : auto;
-        user-select : none;
+        height         : 100%;
+        overflow       : auto;
+        user-select    : none;
 
         .ant-collapse-content-box {
           padding: 0;
@@ -151,12 +151,12 @@
 
       // 右侧区域
       &.right {
-        height     : 100%;
+        height        : 100%;
         // border-left: 1px solid @aside-border-color;
         // border-top : 1px solid @aside-border-color;
-        color      : #fff;
-        overflow   : hidden;
-        position   : relative;
+        color         : #fff;
+        overflow      : hidden;
+        position      : relative;
 
         // 控件属性设置
         .form-item-properties {
@@ -207,7 +207,7 @@
             line-height  : 48px;
             padding      : 0 24px;
             font-size    : 16px;
-            border-bottom: 2px solid @border-color;
+            border-bottom: 1px solid @border-color;
             color        : rgba(0, 0, 0, 0.85);
           }
 
@@ -410,6 +410,49 @@
 
             }
 
+            // 子表单设计面板样式
+            .batch-box {
+              .draggable-box {
+                min-height: 60px;
+                width     : 100%;
+                border    : 1px #ccc dashed;
+                background: #fff;
+
+                .list-main {
+                  min-height : 60px;
+                  position   : relative;
+                  border     : 1px #ccc dashed;
+                  overflow-x : auto;
+                  overflow-y : auto;
+                  white-space: nowrap;
+
+                  .moving {
+                    // 拖放移动中
+                    width     : 175px;
+                    min-height: 94px;
+                    display   : inline-block;
+                  }
+
+                  >div {
+                    width  : 185px;
+                    display: inline-block;
+
+                    .ant-form-item>.ant-form-item-label,
+                    .ant-form-item>.ant-form-item-control-wrapper {
+                      text-align: left;
+                      display   : block;
+                    }
+
+                    .ant-col {
+                      width: 100%;
+                    }
+
+                  }
+                }
+              }
+            }
+
+            .batch-box,
             .grid-box,
             .table-box {
               position  : relative;
@@ -434,6 +477,7 @@
               .grid-row,
               .table-layout {
                 background: @layout-background-color;
+
 
                 .grid-col,
                 .table-td {
@@ -684,6 +728,22 @@
       width: 175px !important;
     }
   }
+
+  // 子表单样式
+  .batch-table {
+    .ant-form-item {
+      margin: 0;
+    }
+
+    .ant-form-inline .ant-form-item-with-help {
+      margin: 0;
+    }
+
+    .ant-table-placeholder {
+      padding: 0;
+    }
+  }
+
 }
 
 // .k-form-build-9136076486841527 {

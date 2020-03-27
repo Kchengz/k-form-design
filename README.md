@@ -21,8 +21,8 @@
 - [github](https://github.com/Kchengz/k-form-design)
 - [码云](https://gitee.com/kcz66/k-form-design)
 - [项目预览](http://cdn.kcz66.com/k-form-design.html)
-- [查看文档 Github Pages](http://www.kcz66.com/k-form-design/#/)
-- [查看文档 Gitee Pages](http://kcz66.gitee.io/k-form-design/#/)
+- [项目文档 Github Pages](https://kchengz.github.io/k-form-design/)
+- [项目文档 Gitee Pages 较快](http://kcz66.gitee.io/k-form-design/#/)
 
 ## 特性
 - 可视化配置页面

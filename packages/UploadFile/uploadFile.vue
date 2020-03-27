@@ -1,3 +1,10 @@
+<!--
+ * @Description: 对上传文件组件进行封装
+ * @Author: kcz
+ * @Date: 2020-03-17 12:53:50
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-27 18:41:50
+ -->
 <template>
   <div :style="{ width: record.options.width }" :getFileList="getFileList">
     <a-upload
@@ -47,6 +54,7 @@
  * description 上传文件组件
  */
 export default {
+  name: "KUploadFile",
   // eslint-disable-next-line vue/require-prop-types
   props: ["record", "value"],
   data() {

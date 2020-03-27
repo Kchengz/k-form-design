@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-17 20:02:38
+ * @LastEditTime: 2020-03-27 19:12:19
  -->
 <template>
   <a-form-item
@@ -249,6 +249,33 @@
       ]"
     />
   </a-form-item>
+  <!-- 子表单 -->
+  <a-form-item
+    v-else-if="record.type === 'batch'"
+    :label="record.options.hideLabel ? '' : record.label"
+    :label-col="
+      config.layout === 'horizontal' && !record.options.hideLabel
+        ? config.labelCol
+        : {}
+    "
+    :wrapper-col="
+      config.layout === 'horizontal' && !record.options.hideLabel
+        ? config.wrapperCol
+        : {}
+    "
+  >
+    <KBatch
+      :style="`width:${record.options.width}`"
+      :record="record"
+      v-decorator="[
+        record.model,
+        {
+          initialValue: record.options.defaultValue,
+          rules: record.rules
+        }
+      ]"
+    />
+  </a-form-item>
   <!-- button按钮 -->
   <a-form-item
     v-else-if="record.type === 'button'"
@@ -329,6 +356,8 @@
  */
 // import moment from "moment";
 import customComponent from "./customComponent";
+
+import KBatch from "../KBatch";
 import UploadFile from "../UploadFile";
 import UploadImg from "../UploadImg";
 import KDatePicker from "../KDatePicker";
@@ -348,6 +377,7 @@ export default {
     }
   },
   components: {
+    KBatch,
     UploadImg,
     UploadFile,
     KDatePicker,

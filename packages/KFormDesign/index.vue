@@ -213,6 +213,7 @@ export default {
         "slider",
         "uploadFile",
         "uploadImg",
+        "batch",
         "switch",
         "button",
         "alert",

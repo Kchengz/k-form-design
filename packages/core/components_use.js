@@ -35,11 +35,13 @@ import {
   message,
   Upload,  
   Tooltip,
+  FormModel,
   Collapse
 } from 'ant-design-vue'
 
 Vue.use(ConfigProvider)
 Vue.use(Tooltip)
+Vue.use(FormModel)
 Vue.use(Collapse)
 Vue.use(Layout)
 Vue.use(Input)
