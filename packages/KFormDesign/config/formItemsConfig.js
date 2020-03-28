@@ -308,8 +308,8 @@ export const basicsList = [
   },
   {
     type: "batch",
-    label: "子表单",
-    icon: "icon-image",
+    label: "动态表格",
+    icon: "icon-biaoge",
     list: [],
     options: {
       scrollY: 0,

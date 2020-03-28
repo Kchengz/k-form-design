@@ -225,7 +225,7 @@ export default {
             // 卡片布局
             traverse(element.list);
           } else if (element.type === "batch") {
-            // 子表单内复制
+            // 动态表格内复制
             if (!isCopy && !this.insertAllowedType.includes(data.type)) {
               // 插入不允许的字段时，直接return false
               return false;

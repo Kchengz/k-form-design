@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     validationSubform() {
-      // 验证子表单
+      // 验证动态表格
       return this.$refs.nestedComponents.validationSubform();
     }
   }

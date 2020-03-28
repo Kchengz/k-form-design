@@ -249,7 +249,7 @@
       ]"
     />
   </a-form-item>
-  <!-- 子表单 -->
+  <!-- 动态表格 -->
   <a-form-item
     v-else-if="record.type === 'batch'"
     :label="record.options.hideLabel ? '' : record.label"
@@ -397,7 +397,7 @@ export default {
   methods: {
     // KBatch
     validationSubform() {
-      // 验证子表单
+      // 验证动态表格
       if (!this.$refs.KBatch) return true;
       return this.$refs.KBatch.validationSubform();
     }

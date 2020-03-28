@@ -6,14 +6,14 @@
       )
     }"
   >
-    <!-- 子表单设计模块 start -->
+    <!-- 动态表格设计模块 start -->
     <template v-if="record.type === 'batch'">
       <div
         class="batch-box"
         :class="{ active: record.key === selectItem.key }"
         @click.stop="handleSelectItem(record)"
       >
-        <div class="batch-label">子表单</div>
+        <div class="batch-label">动态表格</div>
         <draggable
           tag="div"
           class="draggable-box"
@@ -59,7 +59,7 @@
         </div>
       </div>
     </template>
-    <!-- 子表单设计模块 end -->
+    <!-- 动态表格设计模块 end -->
     <!-- 栅格布局 start -->
     <template v-else-if="record.type === 'grid'">
       <div

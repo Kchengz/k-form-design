@@ -1,5 +1,5 @@
 <!--
- * @Description: 子表单 用于批量填入数据
+ * @Description: 动态表格 用于批量填入数据
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
