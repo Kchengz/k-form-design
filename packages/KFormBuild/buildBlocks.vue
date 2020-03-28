@@ -12,6 +12,7 @@
       :span="colItem.span || 0"
     >
       <buildBlocks
+        ref="nestedComponents"
         @handleReset="$emit('handleReset')"
         v-for="item in colItem.list"
         :key="item.key"
@@ -27,6 +28,7 @@
     :title="record.label"
   >
     <buildBlocks
+      ref="nestedComponents"
       @handleReset="$emit('handleReset')"
       v-for="item in record.list"
       :key="item.key"
@@ -54,6 +56,7 @@
         :rowspan="tdItem.rowspan"
       >
         <buildBlocks
+          ref="nestedComponents"
           @handleReset="$emit('handleReset')"
           v-for="item in tdItem.list"
           :key="item.key"
@@ -65,6 +68,7 @@
   </table>
 
   <KFormItem
+    ref="nestedComponents"
     @handleReset="$emit('handleReset')"
     v-else
     :key="record.key"
@@ -92,6 +96,12 @@ export default {
   },
   components: {
     KFormItem
+  },
+  methods: {
+    validationSubform() {
+      // 验证子表单
+      return this.$refs.nestedComponents.validationSubform();
+    }
   }
 };
 </script>

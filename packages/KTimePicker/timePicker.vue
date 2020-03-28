@@ -2,13 +2,13 @@
  * @Description: 时间选择器
  * @Author: kcz
  * @Date: 2020-01-11 17:30:48
- * @LastEditors  : kcz
- * @LastEditTime : 2020-01-18 00:47:16
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-28 17:35:43
  -->
 <template>
   <a-time-picker
     :style="`width:${record.options.width}`"
-    :disabled="record.options.disabled"
+    :disabled="record.options.disabled || parentDisabled"
     :allowClear="record.options.clearable"
     :placeholder="record.options.placeholder"
     :format="record.options.format"
@@ -20,7 +20,7 @@
 import moment from "moment";
 export default {
   // eslint-disable-next-line vue/require-prop-types
-  props: ["record", "value"],
+  props: ["record", "value", "parentDisabled"],
   computed: {
     time() {
       if (!this.value) {

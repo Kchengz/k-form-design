@@ -249,6 +249,15 @@
         >
           <a-input-number :min="1" v-model="options.limit" />
         </a-form-item>
+
+        <!-- scrollY -->
+        <a-form-item
+          v-if="typeof options.scrollY !== 'undefined'"
+          label="scrollY"
+        >
+          <a-input-number :min="0" v-model="options.scrollY" />
+        </a-form-item>
+
         <!-- 上传地址 -->
         <a-form-item
           v-if="typeof options.action !== 'undefined'"

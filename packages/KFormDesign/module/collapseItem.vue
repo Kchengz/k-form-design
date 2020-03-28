@@ -2,8 +2,8 @@
  * @Description: 折叠组件
  * @Author: kcz
  * @Date: 2020-01-13 00:37:54
- * @LastEditors  : kcz
- * @LastEditTime : 2020-01-24 19:28:53
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-28 11:32:39
  -->
 <template>
   <draggable
@@ -15,6 +15,7 @@
       animation: 180,
       ghostClass: 'moving'
     }"
+    @start="handleStart($event, list)"
   >
     <li
       v-for="(val, index) in list"
@@ -36,6 +37,11 @@ export default {
   props: ["list"],
   components: {
     draggable
+  },
+  methods: {
+    handleStart(e, list) {
+      this.$emit("start", list[e.oldIndex].type);
+    }
   }
 };
 </script>

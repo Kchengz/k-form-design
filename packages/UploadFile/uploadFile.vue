@@ -3,12 +3,12 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-27 18:41:50
+ * @LastEditTime: 2020-03-28 17:33:35
  -->
 <template>
   <div :style="{ width: record.options.width }" :getFileList="getFileList">
     <a-upload
-      :disabled="record.options.disabled"
+      :disabled="record.options.disabled || parentDisabled"
       v-if="!record.options.drag"
       :name="record.model"
       :multiple="record.options.multiple"
@@ -22,14 +22,14 @@
     >
       <a-button
         v-if="fileList.length < record.options.limit"
-        :disabled="record.options.disabled"
+        :disabled="record.options.disabled || parentDisabled"
       >
         <a-icon type="upload" /> {{ record.options.placeholder }}
       </a-button>
     </a-upload>
     <a-upload-dragger
       v-else
-      :disabled="record.options.disabled"
+      :disabled="record.options.disabled || parentDisabled"
       :name="record.model"
       :multiple="record.options.multiple"
       :fileList="fileList"
@@ -56,7 +56,7 @@
 export default {
   name: "KUploadFile",
   // eslint-disable-next-line vue/require-prop-types
-  props: ["record", "value"],
+  props: ["record", "value", "parentDisabled"],
   data() {
     return {
       fileList: []

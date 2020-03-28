@@ -48,6 +48,7 @@
                 :list="basicsArray"
                 @generateKey="generateKey"
                 @handleListPush="handleListPush"
+                @start="handleStart"
               />
             </a-collapse-panel>
             <!-- 基础控件 end -->
@@ -61,6 +62,7 @@
                 :list="customComponents.list"
                 @generateKey="generateKey"
                 @handleListPush="handleListPush"
+                @start="handleStart"
               />
             </a-collapse-panel>
             <!-- 自定义控件 end -->
@@ -75,6 +77,7 @@
                 :list="layoutArray"
                 @generateKey="generateKey"
                 @handleListPush="handleListPush"
+                @start="handleStart"
               />
             </a-collapse-panel>
             <!-- 布局控件 end -->
@@ -111,6 +114,7 @@
             :data="data"
             :selectItem="selectItem"
             :noModel="noModel"
+            :startType="startType"
             ref="KFCP"
             @handleSetSelectItem="handleSetSelectItem"
           />
@@ -229,13 +233,11 @@ export default {
   data() {
     return {
       locale: zhCN,
-      // basicsList,
-      // layoutList,
-      // highList,
       customComponents,
       updateTime: 0,
       updateRecordTime: 0,
       showPropertie: false,
+      startType: "",
       noModel: [
         "button",
         "divider",
@@ -337,7 +339,6 @@ export default {
         this.handleSetSelectItem(record);
         return false;
       }
-
       this.$refs.KFCP.handleCopy(false, item);
     },
     handleOpenJsonModal() {
@@ -386,6 +387,7 @@ export default {
 
       // 判断是否选中控件，如果选中则弹出属性面板，否则关闭属性面板
       if (record.key) {
+        this.startType = record.type;
         this.showPropertie = true;
       } else {
         this.showPropertie = false;
@@ -407,6 +409,9 @@ export default {
     collapseChange(val) {
       // 点击collapse时，保存当前collapse状态
       window.localStorage.setItem("collapseDefaultActiveKey", val);
+    },
+    handleStart(type) {
+      this.startType = type;
     },
     handleSave() {
       // 保存函数

@@ -12,6 +12,7 @@
       :style="value.config.customStyle"
     >
       <buildBlocks
+        ref="buildBlocks"
         @handleReset="handleReset"
         v-for="(record, index) in value.list"
         :record="record"
@@ -64,51 +65,11 @@ export default {
             if (err) {
               reject(err);
             }
-            // 处理时间 start
-            // let dateList = [];
-            // let getDateList = array => {
-            //   array.forEach(item => {
-            //     if (["time", "date"].includes(item.type)) {
-            //       dateList.push(item);
-            //     } else if (item.type === "grid") {
-            //       item.columns.forEach(val => {
-            //         getDateList(val.list);
-            //       });
-            //     } else if (item.type === "table") {
-            //       item.trs.forEach(val => {
-            //         val.tds.forEach(tdItem => {
-            //           getDateList(tdItem.list);
-            //         });
-            //       });
-            //     } else if (item.type === "card") {
-            //       getDateList(item.list);
-            //     }
-            //   });
-            // };
-            // getDateList(this.value.list);
-            // 时间为moment，在上传前需要处理
-            // const timeComponents = this.value.list.filter(
-            //   item => item.type === "time" || item.type === "date"
-            // );
-            // for (let i = 0; i < dateList.length; i++) {
-            //   if (!values[dateList[i].model]) {
-            //     // 没有值跳出循环
-            //     continue;
-            //   }
-            //   if (!Array.isArray(values[dateList[i].model])) {
-            //     // 处理单个时间
-            //     values[dateList[i].model] = values[dateList[i].model].format(
-            //       dateList[i].options.format
-            //     );
-            //   } else {
-            //     // 处理多个时间
-            //     values[dateList[i].model] = values[dateList[i].model].map(
-            //       item => item.format(dateList[i].options.format)
-            //     );
-            //   }
-            // }
-            // 处理时间 end
-            // console.log(values);
+            this.$refs.buildBlocks.forEach(item => {
+              if (!item.validationSubform()) {
+                reject(err);
+              }
+            });
             resolve(values);
           });
         } catch (err) {

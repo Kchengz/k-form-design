@@ -18,7 +18,7 @@
           tag="div"
           class="draggable-box"
           v-bind="{
-            group: 'form-draggable',
+            group: insertAllowed ? 'form-draggable' : '',
             ghostClass: 'moving',
             animation: 180,
             handle: '.drag-move'
@@ -294,6 +294,19 @@ export default {
     config: {
       type: Object,
       required: true
+    },
+    startType: {
+      type: String,
+      required: true
+    },
+    insertAllowedType: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    insertAllowed() {
+      return this.insertAllowedType.includes(this.startType);
     }
   },
   components: {

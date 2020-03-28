@@ -312,6 +312,7 @@ export const basicsList = [
     icon: "icon-image",
     list: [],
     options: {
+      scrollY: 0,
       defaultValue: "",
       disabled: false,
       hideLabel: false,

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-27 19:12:19
+ * @LastEditTime: 2020-03-28 14:56:58
  -->
 <template>
   <a-form-item
@@ -265,6 +265,7 @@
     "
   >
     <KBatch
+      ref="KBatch"
       :style="`width:${record.options.width}`"
       :record="record"
       v-decorator="[
@@ -394,7 +395,12 @@ export default {
     }
   },
   methods: {
-    // moment
+    // KBatch
+    validationSubform() {
+      // 验证子表单
+      if (!this.$refs.KBatch) return true;
+      return this.$refs.KBatch.validationSubform();
+    }
   }
 };
 </script>

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-27 18:42:02
+ * @LastEditTime: 2020-03-28 17:40:06
  -->
 <template>
   <div
@@ -15,7 +15,7 @@
       :name="record.model"
       :multiple="record.options.multiple"
       :listType="record.options.listType"
-      :disabled="record.options.disabled"
+      :disabled="record.options.disabled || parentDisabled"
       :data="optionsData"
       :fileList="fileList"
       :action="record.options.action"
@@ -30,7 +30,7 @@
           record.options.listType !== 'picture-card' &&
             fileList.length < record.options.limit
         "
-        :disabled="record.options.disabled"
+        :disabled="record.options.disabled || parentDisabled"
       >
         <a-icon type="upload" /> {{ record.options.placeholder }}
       </a-button>
@@ -39,7 +39,7 @@
           record.options.listType === 'picture-card' &&
             fileList.length < record.options.limit
         "
-        :disabled="record.options.disabled"
+        :disabled="record.options.disabled || parentDisabled"
       >
         <a-icon type="plus" />
         <div class="ant-upload-text">{{ record.options.placeholder }}</div>
@@ -59,7 +59,7 @@
 export default {
   name: "KUploadImg",
   // eslint-disable-next-line vue/require-prop-types
-  props: ["record", "value"],
+  props: ["record", "value", "parentDisabled"],
   data() {
     return {
       fileList: [],
