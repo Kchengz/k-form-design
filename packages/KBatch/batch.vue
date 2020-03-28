@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-28 17:44:54
+ * @LastEditTime: 2020-03-28 18:48:26
  -->
 <template>
   <a-form-model
@@ -67,21 +67,39 @@ export default {
   },
   computed: {
     columns() {
-      let columns = this.record.list.map((item, index) => {
-        return {
-          title: item.label,
-          dataIndex: item.key,
-          width: index === this.record.list.length - 1 ? "" : "190px",
-          scopedSlots: { customRender: item.key }
-        };
-      });
+      let columns = [];
+      if (!this.record.options.hideSequence) {
+        columns.push({
+          title: "序号",
+          dataIndex: "sequence_index_number",
+          width: "60px",
+          align: "center",
+          customRender: (text, record, index) => {
+            return index + 1;
+          }
+        });
+      }
+
+      columns.push(
+        ...this.record.list.map((item, index) => {
+          return {
+            title: item.label,
+            dataIndex: item.key,
+            width: index === this.record.list.length - 1 ? "" : "190px",
+            scopedSlots: { customRender: item.key }
+          };
+        })
+      );
+
       columns.push({
         title: "操作",
         dataIndex: "dynamic-delete-button",
         fixed: "right",
         width: "80px",
+        align: "center",
         scopedSlots: { customRender: "dynamic-delete-button" }
       });
+
       return columns;
     },
     disabled() {
@@ -133,7 +151,7 @@ export default {
   transition: all 0.3s;
 }
 .dynamic-delete-button:hover {
-  color: #777;
+  color: #e89;
 }
 .dynamic-delete-button[disabled] {
   cursor: not-allowed;

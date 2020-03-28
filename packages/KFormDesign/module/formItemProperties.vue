@@ -338,9 +338,14 @@
             label="显示输入框"
           />
           <kCheckbox
-            v-if="typeof options.hideLabel !== 'undefined'"
-            v-model="options.hideLabel"
-            label="隐藏Label"
+            v-if="typeof options.showLabel !== 'undefined'"
+            v-model="options.showLabel"
+            label="显示Label"
+          />
+          <kCheckbox
+            v-if="typeof options.hideSequence !== 'undefined'"
+            v-model="options.hideSequence"
+            label="隐藏序号"
           />
           <kCheckbox
             v-if="typeof options.drag !== 'undefined'"

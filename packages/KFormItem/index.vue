@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-28 14:56:58
+ * @LastEditTime: 2020-03-28 18:51:05
  -->
 <template>
   <a-form-item
@@ -252,14 +252,14 @@
   <!-- 动态表格 -->
   <a-form-item
     v-else-if="record.type === 'batch'"
-    :label="record.options.hideLabel ? '' : record.label"
+    :label="!record.options.showLabel ? '' : record.label"
     :label-col="
-      config.layout === 'horizontal' && !record.options.hideLabel
+      config.layout === 'horizontal' && record.options.showLabel
         ? config.labelCol
         : {}
     "
     :wrapper-col="
-      config.layout === 'horizontal' && !record.options.hideLabel
+      config.layout === 'horizontal' && record.options.showLabel
         ? config.wrapperCol
         : {}
     "
