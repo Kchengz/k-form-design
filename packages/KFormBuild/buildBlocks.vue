@@ -15,6 +15,7 @@
         ref="nestedComponents"
         @handleReset="$emit('handleReset')"
         v-for="item in colItem.list"
+        :disabled="disabled"
         :dynamicData="dynamicData"
         :key="item.key"
         :record="item"
@@ -32,6 +33,7 @@
       ref="nestedComponents"
       @handleReset="$emit('handleReset')"
       v-for="item in record.list"
+      :disabled="disabled"
       :dynamicData="dynamicData"
       :key="item.key"
       :record="item"
@@ -61,6 +63,7 @@
           ref="nestedComponents"
           @handleReset="$emit('handleReset')"
           v-for="item in tdItem.list"
+          :disabled="disabled"
           :dynamicData="dynamicData"
           :key="item.key"
           :record="item"
@@ -74,6 +77,7 @@
     ref="nestedComponents"
     @handleReset="$emit('handleReset')"
     v-else
+    :disabled="disabled"
     :dynamicData="dynamicData"
     :key="record.key"
     :record="record"
@@ -100,6 +104,10 @@ export default {
     dynamicData: {
       type: Object,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   components: {

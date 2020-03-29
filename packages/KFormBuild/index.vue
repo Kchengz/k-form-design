@@ -17,6 +17,7 @@
         v-for="(record, index) in value.list"
         :record="record"
         :dynamicData="dynamicData"
+        :disabled="disabled"
         :config="value.config"
         :key="index"
       />
@@ -51,6 +52,10 @@ export default {
       default: () => {
         return {};
       }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   components: {

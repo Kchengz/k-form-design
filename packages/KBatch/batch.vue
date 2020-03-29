@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 15:58:45
+ * @LastEditTime: 2020-03-29 16:35:07
  -->
 <template>
   <a-form-model
@@ -55,7 +55,7 @@
 import KFormModelItem from "./module/KFormModelItem";
 export default {
   name: "KBatch",
-  props: ["record", "value", "dynamicData"],
+  props: ["record", "value", "dynamicData", "parentDisabled"],
   components: {
     KFormModelItem
   },
@@ -104,7 +104,7 @@ export default {
       return columns;
     },
     disabled() {
-      return this.record.options.disabled;
+      return this.record.options.disabled || this.parentDisabled;
     }
   },
   methods: {

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 15:57:25
+ * @LastEditTime: 2020-03-29 16:35:51
  -->
 <template>
   <a-form-item
@@ -32,7 +32,7 @@
     <a-input
       :style="`width:${record.options.width}`"
       v-if="record.type === 'input'"
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :placeholder="record.options.placeholder"
       :type="record.options.type"
       :allowClear="record.options.clearable"
@@ -53,7 +53,7 @@
         minRows: record.options.minRows,
         maxRows: record.options.maxRows
       }"
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :placeholder="record.options.placeholder"
       :allowClear="record.options.clearable"
       :maxLength="record.options.maxLength"
@@ -71,6 +71,7 @@
     <KDatePicker
       v-else-if="record.type === 'date'"
       :record="record"
+      :parentDisabled="disabled"
       v-decorator="[
         record.model, // input 的 name
         {
@@ -85,6 +86,7 @@
     <KTimePicker
       v-else-if="record.type === 'time'"
       :record="record"
+      :parentDisabled="disabled"
       v-decorator="[
         record.model, // input 的 name
         {
@@ -99,7 +101,7 @@
       :style="`width:${record.options.width}`"
       :min="record.options.min"
       :max="record.options.max"
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :step="record.options.step"
       :placeholder="record.options.placeholder"
       v-decorator="[
@@ -120,7 +122,7 @@
           ? dynamicData[record.options.dynamicKey]
           : []
       "
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :placeholder="record.options.placeholder"
       v-decorator="[
         record.model,
@@ -140,7 +142,7 @@
           ? dynamicData[record.options.dynamicKey]
           : []
       "
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :placeholder="record.options.placeholder"
       v-decorator="[
         record.model,
@@ -154,7 +156,7 @@
     <a-rate
       v-else-if="record.type === 'rate'"
       :count="record.options.max"
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :placeholder="record.options.placeholder"
       :allowHalf="record.options.allowHalf"
       v-decorator="[
@@ -178,7 +180,7 @@
           ? dynamicData[record.options.dynamicKey]
           : []
       "
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :allowClear="record.options.clearable"
       :mode="record.options.multiple ? 'multiple' : ''"
       v-decorator="[
@@ -192,7 +194,7 @@
     <!-- 开关 -->
     <a-switch
       v-else-if="record.type === 'switch'"
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       v-decorator="[
         record.model,
         {
@@ -210,7 +212,7 @@
     >
       <div class="slider">
         <a-slider
-          :disabled="record.options.disabled"
+          :disabled="disabled || record.options.disabled"
           :min="record.options.min"
           :max="record.options.max"
           :step="record.options.step"
@@ -226,7 +228,7 @@
       <div class="number" v-if="record.options.showInput">
         <a-input-number
           style="width:100%"
-          :disabled="record.options.disabled"
+          :disabled="disabled || record.options.disabled"
           :min="record.options.min"
           :max="record.options.max"
           :step="record.options.step"
@@ -243,6 +245,7 @@
     <UploadImg
       v-else-if="record.type === 'uploadImg'"
       :style="`width:${record.options.width}`"
+      :parentDisabled="disabled"
       :record="record"
       v-decorator="[
         record.model,
@@ -257,6 +260,7 @@
       v-else-if="record.type === 'uploadFile'"
       :style="`width:${record.options.width}`"
       :record="record"
+      :parentDisabled="disabled"
       v-decorator="[
         record.model,
         {
@@ -285,6 +289,7 @@
       ref="KBatch"
       :style="`width:${record.options.width}`"
       :record="record"
+      :parentDisabled="disabled"
       :dynamicData="dynamicData"
       v-decorator="[
         record.model,
@@ -306,14 +311,14 @@
   >
     <a-button
       v-if="record.options.handle === 'submit'"
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :type="record.options.type"
       html-type="submit"
       v-text="record.label"
     ></a-button>
     <a-button
       v-else
-      :disabled="record.options.disabled"
+      :disabled="disabled || record.options.disabled"
       :type="record.options.type"
       @click="$emit('handleReset')"
       v-text="record.label"
@@ -399,6 +404,10 @@ export default {
       default: () => {
         return {};
       }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
