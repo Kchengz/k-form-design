@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-28 18:51:05
+ * @LastEditTime: 2020-03-29 15:57:25
  -->
 <template>
   <a-form-item
@@ -113,7 +113,13 @@
     <!-- 单选框 -->
     <a-radio-group
       v-else-if="record.type === 'radio'"
-      :options="record.options.options"
+      :options="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
       :disabled="record.options.disabled"
       :placeholder="record.options.placeholder"
       v-decorator="[
@@ -127,7 +133,13 @@
     <!-- 多选框 -->
     <a-checkbox-group
       v-else-if="record.type === 'checkbox'"
-      :options="record.options.options"
+      :options="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
       :disabled="record.options.disabled"
       :placeholder="record.options.placeholder"
       v-decorator="[
@@ -142,7 +154,6 @@
     <a-rate
       v-else-if="record.type === 'rate'"
       :count="record.options.max"
-      :options="record.options.options"
       :disabled="record.options.disabled"
       :placeholder="record.options.placeholder"
       :allowHalf="record.options.allowHalf"
@@ -160,7 +171,13 @@
       v-else-if="record.type === 'select'"
       :placeholder="record.options.placeholder"
       :showSearch="record.options.filterable"
-      :options="record.options.options"
+      :options="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
       :disabled="record.options.disabled"
       :allowClear="record.options.clearable"
       :mode="record.options.multiple ? 'multiple' : ''"
@@ -268,6 +285,7 @@
       ref="KBatch"
       :style="`width:${record.options.width}`"
       :record="record"
+      :dynamicData="dynamicData"
       v-decorator="[
         record.model,
         {
@@ -375,6 +393,12 @@ export default {
     config: {
       type: Object,
       required: true
+    },
+    dynamicData: {
+      type: Object,
+      default: () => {
+        return {};
+      }
     }
   },
   components: {

@@ -84,6 +84,8 @@ export const basicsList = [
       disabled: false, // 是否禁用
       clearable: false, // 是否显示清除按钮
       placeholder: "请选择", // 默认提示文字
+      dynamicKey: "",
+      dynamic: false,
       options: [
         // 下拉选择项配置
         {
@@ -113,6 +115,8 @@ export const basicsList = [
     options: {
       disabled: false, //是否禁用
       defaultValue: [],
+      dynamicKey: "",
+      dynamic: false,
       options: [
         {
           value: "1",
@@ -144,6 +148,8 @@ export const basicsList = [
     options: {
       disabled: false, //是否禁用
       defaultValue: "", // 默认值
+      dynamicKey: "",
+      dynamic: false,
       options: [
         // 按钮选项配置，value为选项值，label为选项文字
         {

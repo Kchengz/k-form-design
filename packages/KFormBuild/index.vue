@@ -16,6 +16,7 @@
         @handleReset="handleReset"
         v-for="(record, index) in value.list"
         :record="record"
+        :dynamicData="dynamicData"
         :config="value.config"
         :key="index"
       />
@@ -39,10 +40,19 @@ export default {
       form: this.$form.createForm(this)
     };
   },
-  // model:{
-  //   prop:['value']
-  // },
-  props: ["value"],
+  // props: ["value", "dynamicData"],
+  props: {
+    value: {
+      type: Object,
+      required: true
+    },
+    dynamicData: {
+      type: Object,
+      default: () => {
+        return {};
+      }
+    }
+  },
   components: {
     buildBlocks
   },
@@ -77,15 +87,6 @@ export default {
         }
       });
     }
-    // selectUser (val, item) {
-    //   const formJson = {}
-    //   formJson[item.model] = val
-
-    //   this.form.setFieldsValue(formJson)
-    // },
-    // handleSelectChange (value) {
-    //   this.$emit('change', value)
-    // }
   }
 };
 </script>

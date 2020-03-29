@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-28 17:39:17
+ * @LastEditTime: 2020-03-29 15:59:48
  -->
 <template>
   <a-form-model-item
@@ -87,7 +87,13 @@
     <!-- 单选框 -->
     <a-radio-group
       v-else-if="record.type === 'radio'"
-      :options="record.options.options"
+      :options="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
       :disabled="record.options.disabled || parentDisabled"
       :placeholder="record.options.placeholder"
       :value="value"
@@ -96,7 +102,13 @@
     <!-- 多选框 -->
     <a-checkbox-group
       v-else-if="record.type === 'checkbox'"
-      :options="record.options.options"
+      :options="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
       :disabled="record.options.disabled || parentDisabled"
       :placeholder="record.options.placeholder"
       :value="value"
@@ -106,7 +118,6 @@
     <a-rate
       v-else-if="record.type === 'rate'"
       :count="record.options.max"
-      :options="record.options.options"
       :disabled="record.options.disabled || parentDisabled"
       :placeholder="record.options.placeholder"
       :allowHalf="record.options.allowHalf"
@@ -119,7 +130,13 @@
       v-else-if="record.type === 'select'"
       :placeholder="record.options.placeholder"
       :showSearch="record.options.filterable"
-      :options="record.options.options"
+      :options="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
       :disabled="record.options.disabled || parentDisabled"
       :allowClear="record.options.clearable"
       :mode="record.options.multiple ? 'multiple' : ''"
@@ -209,7 +226,14 @@ import KDatePicker from "../../KDatePicker";
 import KTimePicker from "../../KTimePicker";
 export default {
   name: "KFormItem",
-  props: ["record", "domains", "index", "value", "parentDisabled"],
+  props: [
+    "record",
+    "domains",
+    "index",
+    "value",
+    "parentDisabled",
+    "dynamicData"
+  ],
   components: {
     UploadImg,
     UploadFile,
@@ -227,8 +251,6 @@ export default {
   },
   methods: {
     handleChange(e) {
-      console.log(e);
-
       this.$emit("input", e);
     }
   }

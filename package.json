@@ -1,6 +1,6 @@
 {
   "name": "k-form-design",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "private": false,
   "description": "这是一个基于vue、ant-design-vue的表单设计器",
   "license": "MIT",
