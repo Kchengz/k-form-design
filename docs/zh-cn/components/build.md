@@ -92,9 +92,11 @@ export default {
 </script>
 ```
 
-## 使用getData函数获取数据
+## 获取数据
 
 [filelabel](./form-build1.html ':include :type=iframe width=100% height=320px')
+
+> 使用getData函数获取数据
 
 ```  html
 <template>
@@ -192,6 +194,181 @@ export default {
 }
 </script>
 ```
+
+## 插入数据
+
+![1](assets/1-1585492231794.gif)
+
+> 使用getData函数获取数据
+
+```html
+<template>
+  <div>
+    <k-form-build ref="kfb" :value="jsonData" />
+    <button @click="handleChange">修改数据</button>
+    <button @click="handleReset">重置表单</button>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      jsonData: {
+        list: [
+          {
+            type: "input",
+            label: "输入框",
+            icon: "icon-write",
+            options: {
+              type: "text",
+              width: "100%",
+              defaultValue: "",
+              placeholder: "请输入",
+              clearable: false,
+              maxLength: null,
+              disabled: false
+            },
+            model: "input_1585491903047",
+            key: "input_1585491903047",
+            rules: [
+              {
+                required: false,
+                message: "必填项"
+              }
+            ]
+          },
+          {
+            type: "rate",
+            label: "评分",
+            options: {
+              defaultValue: 0,
+              max: 5,
+              disabled: false,
+              allowHalf: false
+            },
+            model: "rate_1585491911405",
+            key: "rate_1585491911405",
+            rules: [
+              {
+                required: false,
+                message: "必填项"
+              }
+            ]
+          },
+          {
+            type: "batch",
+            label: "动态表格",
+            list: [
+              {
+                type: "input",
+                label: "输入框",
+                icon: "icon-write",
+                options: {
+                  type: "text",
+                  width: "100%",
+                  defaultValue: "",
+                  placeholder: "请输入",
+                  clearable: false,
+                  maxLength: null,
+                  disabled: false
+                },
+                model: "input_1585491918383",
+                key: "input_1585491918383",
+                rules: [
+                  {
+                    required: false,
+                    message: "必填项"
+                  }
+                ]
+              },
+              {
+                type: "date",
+                label: "日期选择框",
+                icon: "icon-calendar",
+                options: {
+                  width: "100%",
+                  defaultValue: "",
+                  rangeDefaultValue: [],
+                  range: false,
+                  showTime: false,
+                  disabled: false,
+                  clearable: false,
+                  placeholder: "请选择",
+                  rangePlaceholder: ["开始时间", "结束时间"],
+                  format: "YYYY-MM-DD"
+                },
+                model: "date_1585491929847",
+                key: "date_1585491929847",
+                rules: [
+                  {
+                    required: false,
+                    message: "必填项"
+                  }
+                ]
+              }
+            ],
+            options: {
+              scrollY: 0,
+              defaultValue: "",
+              disabled: false,
+              showLabel: false,
+              hideSequence: false,
+              width: "100%"
+            },
+            model: "batch_1585491902024",
+            key: "batch_1585491902024",
+            rules: [
+              {
+                required: false,
+                message: "必填项"
+              }
+            ]
+          }
+        ],
+        config: {
+          layout: "horizontal",
+          labelCol: {
+            span: 4
+          },
+          wrapperCol: {
+            span: 18
+          },
+          hideRequiredMark: false,
+          customStyle: ""
+        }
+      }
+    };
+  },
+  methods: {
+    handleChange() {
+      // 使用k-form-design组件的form属性修改表单数据
+      this.$refs.kfb.setData({
+        input_1585491903047: "信息输入",
+        rate_1585491911405: 3,
+        batch_1585491902024: [
+          {
+            input_1585491918383: "数据1",
+            date_1585491929847: "2020-03-12",
+            key: 1585491980422
+          },
+          {
+            input_1585491918383: "数据2",
+            date_1585491929847: "2020-03-12",
+            key: 1585491983966
+          }
+        ]
+      });
+    },
+    handleReset() {
+      // 重置表单
+      this.$refs.kfb.reset();
+    }
+  }
+};
+</script>
+```
+
+
 
 ## 通过提交按钮触发submit事件
 
@@ -494,8 +671,16 @@ export default {
         <td>false</td>
         <td>3.3.0</td>
       </tr>
+ 		<tr>
+        <td>outputString</td>
+        <td>将获取的值都转成字符串，插入数据时请使用setData函数</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>3.3.1</td>
+      </tr>
     </tbody>
   </table>
+
 
 
 ## 函数
@@ -515,14 +700,21 @@ export default {
         <td>-</td>
         <td>Promise</td>
       </tr>
+        <tr>
+        <td>setData</td>
+        <td>插入表单数据</td>
+        <td>json</td>
+        <td>Promise</td>
+      </tr>
          <tr>
-        <td>handleReset</td>
+        <td>reset</td>
         <td>重置表单</td>
         <td>-</td>
         <td>void</td>
       </tr>
     </tbody>
   </table>
+
 
 
 

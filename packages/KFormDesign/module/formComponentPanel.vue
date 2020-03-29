@@ -197,8 +197,6 @@ export default {
       this.$emit("handleSetSelectItem", record);
     },
     handleCopy(isCopy = true, data) {
-      // console.log(data);
-      // console.log(isCopy);
       const traverse = array => {
         array.forEach((element, index) => {
           if (element.key === this.selectItem.key) {

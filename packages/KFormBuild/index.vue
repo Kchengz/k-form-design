@@ -13,7 +13,7 @@
     >
       <buildBlocks
         ref="buildBlocks"
-        @handleReset="handleReset"
+        @handleReset="reset"
         v-for="(record, index) in value.list"
         :record="record"
         :dynamicData="dynamicData"
@@ -56,6 +56,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    outputString: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -68,7 +72,7 @@ export default {
       e.preventDefault();
       this.$emit("submit", this.getData);
     },
-    handleReset() {
+    reset() {
       // 重置表单
       this.form.resetFields();
     },
@@ -85,8 +89,52 @@ export default {
                 reject(err);
               }
             });
-            resolve(values);
+            if (this.outputString) {
+              // 需要所有value转成字符串
+              for (let key in values) {
+                let type = typeof values[key];
+                if (type === "string" || type === "undefined") {
+                  continue;
+                } else if (type === "object") {
+                  values[key] = `k-form-design#${type}#${JSON.stringify(
+                    values[key]
+                  )}`;
+                } else {
+                  values[key] = `k-form-design#${type}#${String(values[key])}`;
+                }
+              }
+              resolve(values);
+            } else {
+              resolve(values);
+            }
           });
+        } catch (err) {
+          reject(err);
+        }
+      });
+    },
+    setData(json) {
+      return new Promise((resolve, reject) => {
+        try {
+          if (this.outputString) {
+            // 将非string数据还原
+            for (let key in json) {
+              if (!json[key].startsWith("k-form-design#")) {
+                continue;
+              }
+              let array = json[key].split("#");
+              if (array[1] === "object") {
+                json[key] = JSON.parse(array[2]);
+              } else if (array[1] === "number") {
+                json[key] = Number(array[2]);
+              } else if (array[1] === "boolean") {
+                json[key] = Boolean(array[2]);
+              }
+            }
+            this.form.setFieldsValue(json);
+          } else {
+            this.form.setFieldsValue(json);
+          }
         } catch (err) {
           reject(err);
         }

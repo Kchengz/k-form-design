@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 15:59:48
+ * @LastEditTime: 2020-03-29 21:48:32
  -->
 <template>
   <a-form-model-item
@@ -147,6 +147,7 @@
     <a-switch
       v-else-if="record.type === 'switch'"
       :disabled="record.options.disabled || parentDisabled"
+      :checked="value"
       @change="handleChange"
     />
     <!-- 滑块 -->
@@ -184,6 +185,7 @@
       :parentDisabled="parentDisabled"
       :record="record"
       :value="value"
+      @change="handleChange"
     />
     <!-- 上传文件 -->
     <UploadFile
@@ -191,6 +193,7 @@
       :style="`width:${record.options.width}`"
       :parentDisabled="parentDisabled"
       :record="record"
+      :value="value"
       @change="handleChange"
     />
   </a-form-model-item>
@@ -253,6 +256,9 @@ export default {
     handleChange(e) {
       this.$emit("input", e);
     }
+  },
+  mounted() {
+    console.log(this.value);
   }
 };
 </script>

@@ -3,10 +3,10 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-28 17:33:35
+ * @LastEditTime: 2020-03-29 22:03:27
  -->
 <template>
-  <div :style="{ width: record.options.width }" :getFileList="getFileList">
+  <div :style="{ width: record.options.width }">
     <a-upload
       :disabled="record.options.disabled || parentDisabled"
       v-if="!record.options.drag"
@@ -62,21 +62,20 @@ export default {
       fileList: []
     };
   },
-  // watch: {
-  //   value(val) {
-  //     this.fileList = val;
-  //   }
-  // },
+  watch: {
+    value: {
+      // value 需要深度监听及默认先执行handler函数
+      handler(val) {
+        if (val) {
+          this.setFileList();
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
+
   computed: {
-    getFileList() {
-      // 计算value长度，value有值时，修改fileList
-      if (this.value) {
-        this.setFileList();
-        return this.value.length;
-      } else {
-        return 0;
-      }
-    },
     optionsData() {
       try {
         return JSON.parse(this.record.options.data);
@@ -106,7 +105,7 @@ export default {
               type: "file",
               name: item.name,
               status: item.status,
-              uid: res.data.fileId || new Date().getTime(),
+              uid: res.data.fileId || Date.now(),
               url: res.data.url || ""
             };
           } else {

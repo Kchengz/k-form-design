@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 19:41:45
+ * @LastEditTime: 2020-03-29 21:37:38
  -->
 <template>
   <a-form-model
@@ -56,8 +56,19 @@ import KFormModelItem from "./module/KFormModelItem";
 export default {
   name: "KBatch",
   props: ["record", "value", "dynamicData", "parentDisabled"],
+
   components: {
     KFormModelItem
+  },
+  watch: {
+    value: {
+      // value 需要深度监听及默认先执行handler函数
+      handler(val) {
+        this.dynamicValidateForm.domains = val || [];
+      },
+      immediate: true,
+      deep: true
+    }
   },
   data() {
     return {

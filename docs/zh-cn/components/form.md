@@ -106,7 +106,7 @@ export default {
     },
     handleReset () {
       // 重置表单
-      this.$refs.kfb.handleReset()
+      this.$refs.kfb.reset()
     }
   }
 }
