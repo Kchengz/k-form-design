@@ -8,7 +8,7 @@
 - 组件
   * [k-form-design](zh-cn/components/design)
   * [k-form-build](zh-cn/components/build)
-    * [form属性（比较重要）](zh-cn/components/form)
+    * [form属性（插入数据或重置表单）](zh-cn/components/form)
 
 - 控件
 

@@ -1,11 +1,11 @@
-k-form-design
+# k-form-design
 
-### 介绍
+## 介绍
 表单设计器，通过拖拽或点击生成表单[预览地址](http://cdn.kcz66.com/k-form-design.html)
 
 建议将表单设计器组件放到全屏组件或页面使用，使用表格布局时，在设计界面右键可以添加行列和合并单元格
 
-### 基础用法
+## 基础用法
 
 ![2](assets/2-1584791563798.gif)
 
@@ -17,7 +17,7 @@ k-form-design
 </template>
 ```
 
-### 自定义标题
+## 自定义标题
 
 ![2](assets/2-1584792004589.gif)
 
@@ -34,7 +34,7 @@ k-form-design
 <script>
 ```
 
-### 自定义左侧控件列表
+## 自定义左侧控件列表
 
 ![2](assets/2-1584793506316.gif)
 
@@ -46,7 +46,7 @@ k-form-design
 </template>
 ```
 
-### 自定义头部操作按钮
+## 自定义头部操作按钮
 
 ![2](assets/2-1584791471830.gif)
 
@@ -59,7 +59,7 @@ k-form-design
   </div>
 </template>
 ```
-### 切换操作按钮位置
+## 切换操作按钮位置
 
 ![12312](assets/12312.jpg)
 
@@ -72,7 +72,7 @@ k-form-design
   </div>
 </template>
 ```
-### 插入自定义按钮
+## 插入自定义按钮
 
 ![2](assets/2-1584791416791.gif)
 
@@ -107,7 +107,7 @@ k-form-design
 </template>
 ```
 
-### 表单设计器save事件，点击保存时触发
+## 表单设计器save事件，点击保存时触发
 
 ![2](assets/2-1584791884885.gif)
 
@@ -130,7 +130,7 @@ export default {
 };
 </script>
 ```
-### 导入json数据
+## 导入json数据
 
 ![2](assets/2-1584792430622.gif)
 
@@ -196,7 +196,7 @@ export default {
 
 
 
-### API
+## API
   <table>
     <thead>
       <tr>
@@ -286,7 +286,7 @@ export default {
 
 
 
-### Slots 
+## Slots 
 
 3.0.7及更高版本
 
@@ -309,7 +309,7 @@ export default {
      </tbody>
 </table>
 
-### 函数
+## 函数
   <table>
     <thead>
       <tr>
@@ -347,7 +347,7 @@ export default {
     </tbody>
   </table>
 
-  ### 事件
+  ## 事件
   <table>
     <thead>
       <tr>
