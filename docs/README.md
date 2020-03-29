@@ -15,12 +15,12 @@
   </a>
 </p>
 
-## 简介
+### 简介
 基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
 - [预览地址](http://cdn.kcz66.com/k-form-design.html)
 <!-- - [开源地址](https://github.com/Kchengz/k-form-design) -->
 
-## 特性
+### 特性
 - 可视化配置页面
 - 提供栅格、表格等布局
 - 布局嵌套使用
@@ -32,14 +32,14 @@
 - 提供高级控件
 - 自定义主题色
 
-## 版本
+### 版本
 [![](https://img.shields.io/npm/v/k-form-design.svg?style=flat-square)](https://www.npmjs.com/package/k-form-design)
 
-## 组件
+### 组件
 - KFormDesign 表单设计器（基于可视化操作快速设计出表单页面，生成配置json或页面）
 - KFormBuild 表单构建器（根据设计器中获取的配置json数据，快速构建出表单页面）
 
-## 安装
+### 安装
 ```
 # 使用yarn 
 yarn add k-form-design
@@ -48,7 +48,7 @@ yarn add k-form-design
 npm i k-form-design --save
 ```
 
-## 引入组件
+### 引入组件
 ``` javascript
 // 在main.js引入
 
@@ -57,7 +57,7 @@ import 'k-form-design/lib/k-form-design.css'
 Vue.use(KFormDesign)
 ```
 
-## 使用组件
+### 使用组件
 ``` javascript
 <template>
   <div>
@@ -66,15 +66,14 @@ Vue.use(KFormDesign)
 </template>
 ```
 
-## 交流
+### 交流
 点击链接加入qq群聊，可以直接提问及反馈bug
 [【k-form-desgin交流群：1020643215】](https://jq.qq.com/?_wv=1027&k=5BeoFAr)
 
-## 捐赠
+### 捐赠
 如果你觉得k-form-design对你有帮助，欢迎给我捐赠
 ![](http://cdn.kcz66.com/donation.png)
 
-License
----
+### License
 [MIT](https://github.com/Kchengz/k-form-design/blob/master/LICENSE)
 Copyright (c) 2019-present kchengz
