@@ -227,9 +227,15 @@
         </a-form-item>
         <a-form-item v-if="selectItem.type === 'button'" label="按钮操作">
           <a-radio-group buttonStyle="solid" v-model="options.handle">
-            <a-radio-button value="submit">提交表单</a-radio-button>
-            <a-radio-button value="reset">重置表单</a-radio-button>
+            <a-radio-button value="submit">提交</a-radio-button>
+            <a-radio-button value="reset">重置</a-radio-button>
+            <a-radio-button value="dynamic">动态函数</a-radio-button>
           </a-radio-group>
+          <a-input
+            v-show="options.handle === 'dynamic'"
+            v-model="options.dynamicFun"
+            placeholder="动态函数名"
+          ></a-input>
         </a-form-item>
         <a-form-item v-if="selectItem.type === 'alert'" label="辅助描述">
           <a-input v-model="options.description"></a-input>

@@ -2,8 +2,8 @@
   <div>
     <k-form-build
       :value="jsonData"
-      :dynamicData="dynamicData"
       ref="KFB"
+      :dynamicData="dynamicData"
       @submit="handleSubmit"
     />
     <button @click="getData">提交</button>
@@ -15,43 +15,36 @@ export default {
   data() {
     return {
       dynamicData: {
-        dataKey: [
-          {
-            label: "动态数据1",
-            value: 1
-          },
-          {
-            label: "动态数据2",
-            value: 2
-          },
-          {
-            label: "动态数据3",
-            value: 3
-          }
-        ]
+        funName: this.printHelloWorld
       },
       jsonData: {
         list: [
           {
-            type: "select",
-            label: "下拉选择器",
+            type: "input",
+            label: "输入框",
             options: {
+              type: "text",
               width: "100%",
-              multiple: false,
-              disabled: false,
+              defaultValue: "",
+              placeholder: "请输入",
               clearable: false,
-              placeholder: "请选择",
-              dynamicKey: "dataKey",
-              dynamic: true,
-              options: [
-                { value: "1", label: "下拉框1" },
-                { value: "2", label: "下拉框2" }
-              ],
-              filterable: false
+              maxLength: null,
+              disabled: false
             },
-            model: "select_1585474682040",
-            key: "select_1585474682040",
+            model: "input_1585484534818",
+            key: "input_1585484534818",
             rules: [{ required: false, message: "必填项" }]
+          },
+          {
+            type: "button",
+            label: "按钮",
+            options: {
+              type: "primary",
+              handle: "dynamic",
+              dynamicFun: "funName",
+              disabled: false
+            },
+            key: "button_1585484533580"
           }
         ],
         config: {
@@ -86,6 +79,9 @@ export default {
         .catch(err => {
           console.log(err, "校验失败");
         });
+    },
+    printHelloWorld() {
+      alert("hello world");
     }
   }
 };

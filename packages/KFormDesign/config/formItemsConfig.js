@@ -151,7 +151,6 @@ export const basicsList = [
       dynamicKey: "",
       dynamic: false,
       options: [
-        // 按钮选项配置，value为选项值，label为选项文字
         {
           value: "1",
           label: "选项1"
@@ -166,7 +165,7 @@ export const basicsList = [
         }
       ]
     },
-    model: "", // 数据字段
+    model: "",
     key: "",
     rules: [
       {
@@ -183,7 +182,6 @@ export const basicsList = [
       width: "100%", // 宽度
       defaultValue: "", // 默认值，字符串 12:00:00
       rangeDefaultValue: [], // 默认值，字符串 12:00:00
-      // rangeDefaultValue: ["2015-10-15", "2015-10-15"], // 默认值，字符串 12:00:00
       range: false, // 范围日期选择，为true则会显示两个时间选择框（同时defaultValue和placeholder要改成数组），
       showTime: false, // 是否显示时间选择器
       disabled: false, // 是否禁用
@@ -358,6 +356,7 @@ export const basicsList = [
     options: {
       type: "primary",
       handle: "submit",
+      dynamicFun: "",
       disabled: false // 是否禁用，false不禁用，true禁用
     },
     key: ""

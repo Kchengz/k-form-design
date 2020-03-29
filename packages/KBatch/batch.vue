@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 16:35:07
+ * @LastEditTime: 2020-03-29 19:41:45
  -->
 <template>
   <a-form-model
@@ -18,7 +18,7 @@
       :columns="columns"
       :dataSource="dynamicValidateForm.domains"
       bordered
-      :scroll="{ x: record.list.length * 190 + 80, y: record.options.scrollX }"
+      :scroll="{ x: record.list.length * 190 + 80, y: record.options.scrollY }"
     >
       <template
         v-for="item in record.list"

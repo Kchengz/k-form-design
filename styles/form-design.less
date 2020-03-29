@@ -1,12 +1,11 @@
 // 表单设计器样式
-@aside-border-color      : #ccc;
 @primary-background-color: fade(@primary-color, 6%);
 @primary-hover-bg-color  : fade(@primary-color, 20%);
 @layout-background-color : fade(@layout-color, 12%);
 @layout-hover-bg-color   : fade(@layout-color, 24%);
 
 @title-text-color: #fff;
-@border-color: #ccc;
+@border-color    : #ccc;
 
 @left-right-width      : 270px;
 @header-height         : 56px;
@@ -35,7 +34,7 @@
 
   // 头部操作按钮区域
   .operating-area {
-    border-bottom  : 2px solid #dcdcdc;
+    border-bottom  : 2px solid @border-color;
     font-size      : 16px;
     text-align     : left;
     height         : @operating-area-height;
@@ -110,10 +109,20 @@
           padding: 0;
         }
 
-        .ant-collapse>.ant-collapse-item>.ant-collapse-header {
-          padding            : 7px 0 7px 40px;
-          // background-color: @border-color;
+        .ant-collapse {
+          border: 0;
+          >.ant-collapse-item {
+              border-color: @border-color;
+              >.ant-collapse-header {
+              padding: 7px 0 7px 40px;
+            }
+
+            >.ant-collapse-content {
+              border-color: @border-color;
+            }
+          }
         }
+
 
         ul {
           padding      : 5px;
@@ -124,10 +133,9 @@
           // background: #efefef;
 
           li {
-            @shadowColor : #aaa;
             border-radius: 0;
             border       : 0;
-            box-shadow   : 1px 0 0 0 @shadowColor, 0 1px 0 0 @shadowColor, 1px 1px 0 0 @shadowColor, 1px 0 0 0 @shadowColor inset, 0 1px 0 0 @shadowColor inset;
+            box-shadow   : 1px 0 0 0 @border-color, 0 1px 0 0 @border-color, 1px 1px 0 0 @border-color, 1px 0 0 0 @border-color inset, 0 1px 0 0 @border-color inset;
             padding      : 8px 12px;
             transition   : all 0.3s;
             width        : calc(50% - 6px);
@@ -413,12 +421,12 @@
 
             // 动态表格设计面板样式
             .batch-box {
-              >.batch-label{
-                font-size: 16px;
+              >.batch-label {
+                font-size  : 16px;
                 font-weight: 500;
-                padding: 10px 10px;
+                padding    : 10px 10px;
               }
-              
+
               .draggable-box {
                 min-height: 60px;
                 width     : 100%;
@@ -432,7 +440,7 @@
                   overflow-x : auto;
                   overflow-y : auto;
                   white-space: nowrap;
-                 
+
                   .moving {
                     // 拖放移动中
                     width     : 175px;
@@ -441,10 +449,10 @@
                   }
 
                   >div {
-                    min-width  : 185px;
-                    display: inline-block;
+                    min-width     : 185px;
+                    display       : inline-block;
                     vertical-align: top;
-                    
+
                     .ant-form-item>.ant-form-item-label,
                     .ant-form-item>.ant-form-item-control-wrapper {
                       text-align: left;
@@ -742,17 +750,20 @@
     .ant-form-item {
       margin: 0;
     }
-    .ant-form-item-control-wrapper{
+
+    .ant-form-item-control-wrapper {
       width: 170px !important;
     }
 
-    .ant-table-thead > tr > th{
+    .ant-table-thead>tr>th {
 
       padding: 12px;
     }
-    .ant-table-tbody > tr > td{
+
+    .ant-table-tbody>tr>td {
       padding: 8px;
     }
+
     .ant-form-inline .ant-form-item-with-help {
       margin: 0;
     }

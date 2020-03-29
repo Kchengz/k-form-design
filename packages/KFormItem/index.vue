@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 17:13:48
+ * @LastEditTime: 2020-03-29 20:30:14
  -->
 <template>
   <a-form-item
@@ -310,17 +310,18 @@
     "
   >
     <a-button
-      v-if="record.options.handle === 'submit'"
       :disabled="disabled || record.options.disabled"
+      @click="
+        record.options.handle === 'submit'
+          ? false
+          : record.options.handle === 'reset'
+          ? $emit('handleReset')
+          : dynamicData[record.options.dynamicFun]
+          ? dynamicData[record.options.dynamicFun]()
+          : false
+      "
       :type="record.options.type"
-      html-type="submit"
-      v-text="record.label"
-    ></a-button>
-    <a-button
-      v-else
-      :disabled="disabled || record.options.disabled"
-      :type="record.options.type"
-      @click="$emit('handleReset')"
+      :html-type="record.options.handle === 'submit' ? 'submit' : undefined"
       v-text="record.label"
     ></a-button>
   </a-form-item>
@@ -428,7 +429,6 @@ export default {
     }
   },
   methods: {
-    // KBatch
     validationSubform() {
       // 验证动态表格
       if (!this.$refs.KBatch) return true;
