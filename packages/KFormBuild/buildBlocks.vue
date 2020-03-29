@@ -116,6 +116,8 @@ export default {
   methods: {
     validationSubform() {
       // 验证动态表格
+      if (typeof this.$refs.nestedComponents.validationSubform === "undefined")
+        return true;
       return this.$refs.nestedComponents.validationSubform();
     }
   }
