@@ -13,6 +13,7 @@
 - 控件
 
   * [自定义控件](zh-cn/field/custom)
+  * [富文本](zh-cn/field/editor)
   * [上传接口](zh-cn/config)
 
 * [交流](zh-cn/communication)

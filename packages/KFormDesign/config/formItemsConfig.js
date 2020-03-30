@@ -317,7 +317,6 @@ export const basicsList = [
     list: [],
     options: {
       scrollY: 0,
-      defaultValue: "",
       disabled: false,
       showLabel: false,
       hideSequence: false,
