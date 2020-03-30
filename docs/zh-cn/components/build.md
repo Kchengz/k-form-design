@@ -199,7 +199,7 @@ export default {
 
 ![1](assets/1-1585492231794.gif)
 
-> 使用getData函数获取数据
+> 使用setData函数获取数据
 
 ```html
 <template>
