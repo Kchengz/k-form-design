@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 21:48:32
+ * @LastEditTime: 2020-03-30 12:57:54
  -->
 <template>
   <a-form-model-item
@@ -256,9 +256,6 @@ export default {
     handleChange(e) {
       this.$emit("input", e);
     }
-  },
-  mounted() {
-    console.log(this.value);
   }
 };
 </script>

@@ -362,6 +362,11 @@
             label="显示Label"
           />
           <kCheckbox
+            v-if="typeof options.chinesization !== 'undefined'"
+            v-model="options.chinesization"
+            label="汉化"
+          />
+          <kCheckbox
             v-if="typeof options.hideSequence !== 'undefined'"
             v-model="options.hideSequence"
             label="隐藏序号"

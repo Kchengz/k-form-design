@@ -78,6 +78,4 @@ Vue.prototype.$message = message
 // Vue.prototype.$error = Modal.error
 // Vue.prototype.$warning = Modal.warning
 
-// 剪切板组件
-import clipboard from "clipboard";
-Vue.prototype.clipboard = clipboard;
+

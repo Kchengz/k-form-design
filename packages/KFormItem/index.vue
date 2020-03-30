@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 20:30:14
+ * @LastEditTime: 2020-03-30 12:57:10
  -->
 <template>
   <a-form-item
@@ -270,9 +270,9 @@
       ]"
     />
   </a-form-item>
-  <!-- 动态表格 -->
+  <!-- 可隐藏label -->
   <a-form-item
-    v-else-if="record.type === 'batch'"
+    v-else-if="record.type === 'batch' || record.type === 'editor'"
     :label="!record.options.showLabel ? '' : record.label"
     :label-col="
       config.layout === 'horizontal' && record.options.showLabel
@@ -285,8 +285,26 @@
         : {}
     "
   >
+    <!-- 动态表格 -->
     <KBatch
+      v-if="record.type === 'batch'"
       ref="KBatch"
+      :style="`width:${record.options.width}`"
+      :record="record"
+      :parentDisabled="disabled"
+      :dynamicData="dynamicData"
+      v-decorator="[
+        record.model,
+        {
+          initialValue: record.options.defaultValue,
+          rules: record.rules
+        }
+      ]"
+    />
+    <!-- 富文本编辑器 -->
+    <KEditor
+      v-else
+      ref="KEditor"
       :style="`width:${record.options.width}`"
       :record="record"
       :parentDisabled="disabled"
@@ -383,6 +401,7 @@
 import customComponent from "./customComponent";
 
 import KBatch from "../KBatch";
+import KEditor from "../KEditor";
 import UploadFile from "../UploadFile";
 import UploadImg from "../UploadImg";
 import KDatePicker from "../KDatePicker";
@@ -413,6 +432,7 @@ export default {
   },
   components: {
     KBatch,
+    KEditor,
     UploadImg,
     UploadFile,
     KDatePicker,

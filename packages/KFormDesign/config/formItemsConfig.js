@@ -324,6 +324,23 @@ export const basicsList = [
       width: "100%"
     },
     model: "",
+    key: ""
+  },
+  {
+    type: "editor",
+    label: "富文本",
+    icon: "icon-biaoge",
+    list: [],
+    options: {
+      height: 300,
+      placeholder: "请输入",
+      defaultValue: "",
+      chinesization: true,
+      disabled: false,
+      showLabel: false,
+      width: "100%"
+    },
+    model: "",
     key: "",
     rules: [
       {

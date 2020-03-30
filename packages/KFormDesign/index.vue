@@ -218,6 +218,7 @@ export default {
         "uploadFile",
         "uploadImg",
         "batch",
+        "editor",
         "switch",
         "button",
         "alert",
