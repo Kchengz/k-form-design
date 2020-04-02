@@ -60,6 +60,12 @@ export default {
     outputString: {
       type: Boolean,
       default: false
+    },
+    defaultValue: {
+      type: Object,
+      default: () => {
+        return {};
+      }
     }
   },
   components: {
@@ -140,6 +146,11 @@ export default {
         }
       });
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.setData(this.defaultValue);
+    });
   }
 };
 </script>
