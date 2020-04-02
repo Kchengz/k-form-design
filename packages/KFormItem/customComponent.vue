@@ -7,6 +7,7 @@
     <component
       :record="record"
       :style="`width:${record.options.width}`"
+      @change="$emit('change')"
       :height="
         typeof record.options.height !== 'undefined'
           ? record.options.height

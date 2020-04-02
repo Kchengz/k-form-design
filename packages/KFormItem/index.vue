@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-30 12:57:10
+ * @LastEditTime: 2020-04-02 20:52:46
  -->
 <template>
   <a-form-item
@@ -37,6 +37,7 @@
       :type="record.options.type"
       :allowClear="record.options.clearable"
       :maxLength="record.options.maxLength"
+      @change="handleChange($event.target.value, record.model)"
       v-decorator="[
         record.model, // input 的 name
         {
@@ -58,6 +59,7 @@
       :allowClear="record.options.clearable"
       :maxLength="record.options.maxLength"
       :rows="4"
+      @change="handleChange($event.target.value, record.model)"
       v-decorator="[
         record.model, // input 的 name
         {
@@ -72,6 +74,7 @@
       v-else-if="record.type === 'date'"
       :record="record"
       :parentDisabled="disabled"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model, // input 的 name
         {
@@ -87,6 +90,7 @@
       v-else-if="record.type === 'time'"
       :record="record"
       :parentDisabled="disabled"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model, // input 的 name
         {
@@ -104,6 +108,7 @@
       :disabled="disabled || record.options.disabled"
       :step="record.options.step"
       :placeholder="record.options.placeholder"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -124,6 +129,7 @@
       "
       :disabled="disabled || record.options.disabled"
       :placeholder="record.options.placeholder"
+      @change="handleChange($event.target.value, record.model)"
       v-decorator="[
         record.model,
         {
@@ -144,6 +150,7 @@
       "
       :disabled="disabled || record.options.disabled"
       :placeholder="record.options.placeholder"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -159,6 +166,7 @@
       :disabled="disabled || record.options.disabled"
       :placeholder="record.options.placeholder"
       :allowHalf="record.options.allowHalf"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -183,6 +191,7 @@
       :disabled="disabled || record.options.disabled"
       :allowClear="record.options.clearable"
       :mode="record.options.multiple ? 'multiple' : ''"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -195,6 +204,7 @@
     <a-switch
       v-else-if="record.type === 'switch'"
       :disabled="disabled || record.options.disabled"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -216,6 +226,7 @@
           :min="record.options.min"
           :max="record.options.max"
           :step="record.options.step"
+          @change="handleChange($event, record.model)"
           v-decorator="[
             record.model,
             {
@@ -232,6 +243,7 @@
           :min="record.options.min"
           :max="record.options.max"
           :step="record.options.step"
+          @change="handleChange($event, record.model)"
           v-decorator="[
             record.model,
             {
@@ -247,6 +259,7 @@
       :style="`width:${record.options.width}`"
       :parentDisabled="disabled"
       :record="record"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -261,6 +274,7 @@
       :style="`width:${record.options.width}`"
       :record="record"
       :parentDisabled="disabled"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -293,6 +307,7 @@
       :record="record"
       :parentDisabled="disabled"
       :dynamicData="dynamicData"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -309,6 +324,7 @@
       :record="record"
       :parentDisabled="disabled"
       :dynamicData="dynamicData"
+      @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
         {
@@ -372,6 +388,7 @@
   <customComponent
     v-else-if="customList.includes(record.type)"
     :record="record"
+    @change="handleChange($event, record.model)"
     :config="config"
   />
 
@@ -453,6 +470,10 @@ export default {
       // 验证动态表格
       if (!this.$refs.KBatch) return true;
       return this.$refs.KBatch.validationSubform();
+    },
+    handleChange(value, key) {
+      // change事件
+      this.$emit("change", value, key);
     }
   }
 };

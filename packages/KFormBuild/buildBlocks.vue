@@ -14,6 +14,7 @@
       <buildBlocks
         ref="nestedComponents"
         @handleReset="$emit('handleReset')"
+        @change="handleChange"
         v-for="item in colItem.list"
         :disabled="disabled"
         :dynamicData="dynamicData"
@@ -32,6 +33,7 @@
     <buildBlocks
       ref="nestedComponents"
       @handleReset="$emit('handleReset')"
+      @change="handleChange"
       v-for="item in record.list"
       :disabled="disabled"
       :dynamicData="dynamicData"
@@ -62,6 +64,7 @@
         <buildBlocks
           ref="nestedComponents"
           @handleReset="$emit('handleReset')"
+          @change="handleChange"
           v-for="item in tdItem.list"
           :disabled="disabled"
           :dynamicData="dynamicData"
@@ -76,6 +79,7 @@
   <KFormItem
     ref="nestedComponents"
     @handleReset="$emit('handleReset')"
+    @change="handleChange"
     v-else
     :disabled="disabled"
     :dynamicData="dynamicData"
@@ -116,9 +120,16 @@ export default {
   methods: {
     validationSubform() {
       // 验证动态表格
-      if (typeof this.$refs.nestedComponents.validationSubform === "undefined")
+      if (
+        typeof this.$refs.nestedComponents === "undefined" ||
+        typeof this.$refs.nestedComponents.validationSubform === "undefined"
+      )
         return true;
+
       return this.$refs.nestedComponents.validationSubform();
+    },
+    handleChange(value, key) {
+      this.$emit("change", value, key);
     }
   }
 };

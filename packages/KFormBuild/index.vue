@@ -20,6 +20,7 @@
         :disabled="disabled"
         :config="value.config"
         :key="index"
+        @change="handleChange"
       />
     </a-form>
   </a-config-provider>
@@ -145,6 +146,10 @@ export default {
           reject(err);
         }
       });
+    },
+    handleChange(value, key) {
+      // 触发change事件
+      this.$emit("change", value, key);
     }
   },
   mounted() {
