@@ -745,7 +745,7 @@ export default {
 </script>
 ```
 
-## 监听表单数据是否变化
+## 监听表单数据变化
 
 ![444](assets/444.gif)
 
