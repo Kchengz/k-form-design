@@ -7,13 +7,13 @@ import {
   KFormBuild,
   setFormDesignConfig
 } from "../packages/index";
-
-let Cmp = {
-  name: "cmp",
-  render: function(h) {
-    return h("div", "我是自定义组件");
-  }
-};
+import Cmp from "./components/CustomComponent/index.vue";
+// let Cmp = {
+//   name: "cmp",
+//   render: function(h) {
+//     return h("div", "我是自定义组件");
+//   }
+// };
 setFormDesignConfig({
   title: "测试自定义字段",
   list: [

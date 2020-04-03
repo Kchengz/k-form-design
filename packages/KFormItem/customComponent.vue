@@ -7,7 +7,8 @@
     <component
       :record="record"
       :style="`width:${record.options.width}`"
-      @change="$emit('change')"
+      @change="handleChange"
+      :disabled="disabled"
       :height="
         typeof record.options.height !== 'undefined'
           ? record.options.height
@@ -27,7 +28,7 @@
 <script>
 export default {
   name: "customComponent",
-  props: ["record", "config"],
+  props: ["record", "config", "disabled"],
   computed: {
     customComponent() {
       // 计算需要显示的组件
@@ -39,6 +40,11 @@ export default {
         });
       }
       return customComponentList[this.record.type];
+    }
+  },
+  methods: {
+    handleChange(value, key) {
+      this.$emit("change", value, key);
     }
   }
 };
