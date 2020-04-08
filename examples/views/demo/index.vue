@@ -1,6 +1,7 @@
 <template>
   <div>
     <k-form-build :value="jsonData" @change="handleChange" ref="KFB" />
+    <a-textarea placeholder="Basic usage" :rows="4" />
   </div>
 </template>
 <script>
