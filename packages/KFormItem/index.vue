@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-03 13:27:44
+ * @LastEditTime: 2020-04-11 16:00:11
  -->
 <template>
   <a-form-item
@@ -389,6 +389,7 @@
     v-else-if="customList.includes(record.type)"
     :record="record"
     :disabled="disabled"
+    :dynamicData="dynamicData"
     @change="handleChange($event, record.model)"
     :config="config"
   />

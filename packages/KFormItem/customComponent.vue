@@ -9,6 +9,7 @@
       :style="`width:${record.options.width}`"
       @change="handleChange"
       :disabled="disabled"
+      :dynamicData="dynamicData"
       :height="
         typeof record.options.height !== 'undefined'
           ? record.options.height
@@ -28,7 +29,7 @@
 <script>
 export default {
   name: "customComponent",
-  props: ["record", "config", "disabled"],
+  props: ["record", "config", "disabled", "dynamicData"],
   computed: {
     customComponent() {
       // 计算需要显示的组件

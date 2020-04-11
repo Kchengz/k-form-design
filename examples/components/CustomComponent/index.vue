@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-13 10:50:49
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-03 13:28:14
+ * @LastEditTime: 2020-04-11 15:58:34
  -->
 <template>
   <div>
@@ -18,7 +18,7 @@
 <script>
 export default {
   name: "cc",
-  props: ["record", "value", "disabled"],
+  props: ["record", "value", "disabled", "dynamicData"],
   // props: {
   //   record: {
   //     type: Object,
@@ -39,6 +39,7 @@ export default {
   mounted() {
     // 打印接收的options
     console.log(this.record);
+    console.log(this.dynamicData);
   }
 };
 </script>
