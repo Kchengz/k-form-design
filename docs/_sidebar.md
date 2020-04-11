@@ -14,6 +14,8 @@
 
   * [自定义控件](zh-cn/field/custom)
   * [富文本](zh-cn/field/editor)
+  * [树选择器](zh-cn/field/treeSelect)
+  * [联级选择器](zh-cn/field/cascader)
   * [上传接口](zh-cn/config)
 
 * [交流](zh-cn/communication)

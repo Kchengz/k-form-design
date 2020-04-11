@@ -323,7 +323,7 @@ export const basicsList = [
       treeCheckable: false,
       placeholder: "请选择",
       dynamicKey: "",
-      dynamic: false,
+      dynamic: true,
       options: [
         {
           value: "1",
@@ -367,7 +367,7 @@ export const basicsList = [
       placeholder: "请选择",
       clearable: false, // 是否显示清除按钮
       dynamicKey: "",
-      dynamic: false,
+      dynamic: true,
       options: [
         {
           value: "1",

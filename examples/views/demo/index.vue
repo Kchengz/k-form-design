@@ -2,8 +2,8 @@
   <div>
     <k-form-build
       :value="jsonData"
-      ref="KFB"
       :dynamicData="dynamicData"
+      ref="KFB"
       @submit="handleSubmit"
     />
     <button @click="getData">提交</button>
@@ -15,105 +15,55 @@ export default {
   data() {
     return {
       dynamicData: {
-        treeData: [
-          {
-            value: "3333",
-            label: "选项133",
-            children: [{ value: "113", label: "选项311" }]
-          },
-          {
-            value: "2",
-            label: "选项233",
-            children: [{ value: "22", label: "选项2233" }]
-          }
-        ],
         cascaderData: [
           {
             value: "1",
-            label: "选项1sdfsd",
-            children: [{ value: "11", label: "选项11dsfs" }]
+            label: "级联1",
+            children: [
+              { value: "11", label: "级联1-1" },
+              { value: "12", label: "级联1-2" }
+            ]
           },
           {
             value: "2",
-            label: "选项2sdf",
-            children: [{ value: "22", label: "选项22sdfsd" }]
+            label: "级联2",
+            children: [
+              { value: "22", label: "级联2-2" },
+              { value: "222", label: "级联2-2" },
+              { value: "232", label: "级联2-3" }
+            ]
           }
         ]
       },
       jsonData: {
         list: [
           {
-            type: "batch",
-            label: "动态表格",
-            list: [
-              {
-                type: "treeSelect",
-                label: "树选择器",
-                icon: "icon-tree",
-                options: {
-                  disabled: false,
-                  multiple: false,
-                  clearable: false,
-                  showSearch: false,
-                  treeCheckable: false,
-                  placeholder: "请选择",
-                  dynamicKey: "treeData",
-                  dynamic: true,
-                  options: [
-                    {
-                      value: "1",
-                      label: "选项1",
-                      children: [{ value: "11", label: "选项11" }]
-                    },
-                    {
-                      value: "2",
-                      label: "选项2",
-                      children: [{ value: "22", label: "选项22" }]
-                    }
-                  ]
-                },
-                model: "treeSelect_1586599364501",
-                key: "treeSelect_1586599364501",
-                rules: [{ required: false, message: "必填项" }]
-              },
-              {
-                type: "cascader",
-                label: "级联选择器",
-                icon: "icon-guanlian",
-                options: {
-                  disabled: false,
-                  showSearch: false,
-                  placeholder: "请选择",
-                  clearable: false,
-                  dynamicKey: "cascaderData",
-                  dynamic: true,
-                  options: [
-                    {
-                      value: "1",
-                      label: "选项1",
-                      children: [{ value: "11", label: "选项11" }]
-                    },
-                    {
-                      value: "2",
-                      label: "选项2",
-                      children: [{ value: "22", label: "选项22" }]
-                    }
-                  ]
-                },
-                model: "cascader_1586599365832",
-                key: "cascader_1586599365832",
-                rules: [{ required: false, message: "必填项" }]
-              }
-            ],
+            type: "cascader",
+            label: "级联选择器",
+            icon: "icon-guanlian",
             options: {
-              scrollY: 0,
               disabled: false,
-              showLabel: false,
-              hideSequence: false,
-              width: "100%"
+              showSearch: false,
+              placeholder: "请选择",
+              clearable: false,
+              dynamicKey: "cascaderData",
+              dynamic: true,
+              options: [
+                {
+                  value: "1",
+                  label: "选项1",
+                  children: [{ value: "11", label: "选项11" }]
+                },
+                {
+                  value: "2",
+                  label: "选项2",
+                  children: [{ value: "22", label: "选项22" }]
+                }
+              ]
             },
-            model: "batch_1586599364018",
-            key: "batch_1586599364018"
+            model: "cascader_1586601654906",
+            key: "cascader_1586601654906",
+            rules: [{ required: false, message: "必填项" }]
           }
         ],
         config: {
