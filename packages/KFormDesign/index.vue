@@ -217,6 +217,8 @@ export default {
         "slider",
         "uploadFile",
         "uploadImg",
+        "cascader",
+        "treeSelect",
         "batch",
         "editor",
         "switch",

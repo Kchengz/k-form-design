@@ -36,10 +36,14 @@ import {
   Upload,  
   Tooltip,
   FormModel,
-  Collapse
+  Collapse,
+  Cascader,
+  TreeSelect
 } from 'ant-design-vue'
 
+Vue.use(TreeSelect)
 Vue.use(ConfigProvider)
+Vue.use(Cascader)
 Vue.use(Tooltip)
 Vue.use(FormModel)
 Vue.use(Collapse)

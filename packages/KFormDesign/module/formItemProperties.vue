@@ -376,6 +376,16 @@
             v-model="options.drag"
             label="允许拖拽"
           />
+          <kCheckbox
+            v-if="typeof options.showSearch !== 'undefined'"
+            v-model="options.showSearch"
+            label="可搜索"
+          />
+          <kCheckbox
+            v-if="typeof options.treeCheckable !== 'undefined'"
+            v-model="options.treeCheckable"
+            label="可勾选"
+          />
         </a-form-item>
 
         <a-form-item

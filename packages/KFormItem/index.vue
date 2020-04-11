@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-11 16:00:11
+ * @LastEditTime: 2020-04-11 17:39:18
  -->
 <template>
   <a-form-item
@@ -21,7 +21,9 @@
         'switch',
         'slider',
         'uploadImg',
-        'uploadFile'
+        'uploadFile',
+        'cascader',
+        'treeSelect'
       ].includes(record.type)
     "
     :label="record.label"
@@ -180,7 +182,7 @@
       :style="`width:${record.options.width}`"
       v-else-if="record.type === 'select'"
       :placeholder="record.options.placeholder"
-      :showSearch="record.options.filterable"
+      :showSearch="record.options.showSearch"
       :options="
         !record.options.dynamic
           ? record.options.options
@@ -274,6 +276,56 @@
       :style="`width:${record.options.width}`"
       :record="record"
       :parentDisabled="disabled"
+      @change="handleChange($event, record.model)"
+      v-decorator="[
+        record.model,
+        {
+          initialValue: record.options.defaultValue,
+          rules: record.rules
+        }
+      ]"
+    />
+    <!-- 树选择器 -->
+    <a-tree-select
+      v-else-if="record.type === 'treeSelect'"
+      :style="`width:${record.options.width}`"
+      :placeholder="record.options.placeholder"
+      :multiple="record.options.multiple"
+      :showSearch="record.options.showSearch"
+      :treeCheckable="record.options.treeCheckable"
+      :treeData="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
+      :disabled="disabled || record.options.disabled"
+      :allowClear="record.options.clearable"
+      @change="handleChange($event, record.model)"
+      v-decorator="[
+        record.model,
+        {
+          initialValue: record.options.defaultValue,
+          rules: record.rules
+        }
+      ]"
+    />
+    <!-- 级联选择器 -->
+    <a-cascader
+      v-else-if="record.type === 'cascader'"
+      :style="`width:${record.options.width}`"
+      :placeholder="record.options.placeholder"
+      :showSearch="record.options.showSearch"
+      :options="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
+      :disabled="disabled || record.options.disabled"
+      :allowClear="record.options.clearable"
       @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,

@@ -97,7 +97,7 @@ export const basicsList = [
           label: "下拉框2"
         }
       ],
-      filterable: false // 是否显示搜索框，搜索选择的项的值，而不是文字
+      showSearch: false // 是否显示搜索框，搜索选择的项的值，而不是文字
     },
     model: "",
     key: "",
@@ -300,6 +300,96 @@ export const basicsList = [
       placeholder: "上传",
       action: "http://cdn.kcz66.com/upload-img.txt",
       listType: "picture-card"
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
+    type: "treeSelect", // 表单类型
+    label: "树选择器", // 标题文字
+    icon: "icon-tree",
+    options: {
+      disabled: false, //是否禁用
+      defaultValue: undefined, // 默认值
+      multiple: false,
+      clearable: false, // 是否显示清除按钮
+      showSearch: false, // 是否显示搜索框，搜索选择的项的值，而不是文字
+      treeCheckable: false,
+      placeholder: "请选择",
+      dynamicKey: "",
+      dynamic: false,
+      options: [
+        {
+          value: "1",
+          label: "选项1",
+          children: [
+            {
+              value: "11",
+              label: "选项11"
+            }
+          ]
+        },
+        {
+          value: "2",
+          label: "选项2",
+          children: [
+            {
+              value: "22",
+              label: "选项22"
+            }
+          ]
+        }
+      ]
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
+    type: "cascader", // 表单类型
+    label: "级联选择器", // 标题文字
+    icon: "icon-guanlian",
+    options: {
+      disabled: false, //是否禁用
+      defaultValue: undefined, // 默认值
+      showSearch: false, // 是否显示搜索框，搜索选择的项的值，而不是文字
+      placeholder: "请选择",
+      clearable: false, // 是否显示清除按钮
+      dynamicKey: "",
+      dynamic: false,
+      options: [
+        {
+          value: "1",
+          label: "选项1",
+          children: [
+            {
+              value: "11",
+              label: "选项11"
+            }
+          ]
+        },
+        {
+          value: "2",
+          label: "选项2",
+          children: [
+            {
+              value: "22",
+              label: "选项22"
+            }
+          ]
+        }
+      ]
     },
     model: "",
     key: "",
