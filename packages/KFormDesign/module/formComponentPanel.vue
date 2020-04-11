@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-28 12:14:04
+ * @LastEditTime: 2020-04-11 17:56:04
  -->
 <template>
   <div class="form-panel">
@@ -89,6 +89,8 @@ export default {
         "slider",
         "uploadFile",
         "uploadImg",
+        "cascader",
+        "treeSelect",
         "switch",
         "text",
         "html"

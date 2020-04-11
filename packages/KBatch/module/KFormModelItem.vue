@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-02 20:39:42
+ * @LastEditTime: 2020-04-11 18:21:32
  -->
 <template>
   <a-form-model-item
@@ -21,7 +21,9 @@
         'switch',
         'slider',
         'uploadImg',
-        'uploadFile'
+        'uploadFile',
+        'cascader',
+        'treeSelect'
       ].includes(record.type)
     "
     :prop="`domains.${index}.${record.model}`"
@@ -196,6 +198,44 @@
       :value="value"
       @change="handleChange"
     />
+    <!-- 树选择器 -->
+    <a-tree-select
+      v-else-if="record.type === 'treeSelect'"
+      :style="`width:${record.options.width}`"
+      :placeholder="record.options.placeholder"
+      :multiple="record.options.multiple"
+      :showSearch="record.options.showSearch"
+      :treeCheckable="record.options.treeCheckable"
+      :treeData="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
+      :disabled="record.options.disabled || parentDisabled"
+      :allowClear="record.options.clearable"
+      :value="value"
+      @change="handleChange"
+    />
+    <!-- 级联选择器 -->
+    <a-cascader
+      v-else-if="record.type === 'cascader'"
+      :style="`width:${record.options.width}`"
+      :placeholder="record.options.placeholder"
+      :showSearch="record.options.showSearch"
+      :options="
+        !record.options.dynamic
+          ? record.options.options
+          : dynamicData[record.options.dynamicKey]
+          ? dynamicData[record.options.dynamicKey]
+          : []
+      "
+      :disabled="record.options.disabled || parentDisabled"
+      :allowClear="record.options.clearable"
+      :value="value"
+      @change="handleChange"
+    />
   </a-form-model-item>
   <!-- 文本 -->
   <a-form-model-item v-else-if="record.type === 'text'">
@@ -256,6 +296,9 @@ export default {
     handleChange(e) {
       this.$emit("input", e);
     }
+  },
+  mounted() {
+    console.log(this.dynamicData, 11212);
   }
 };
 </script>
