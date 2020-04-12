@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-11 17:39:18
+ * @LastEditTime: 2020-04-12 19:55:31
  -->
 <template>
   <a-form-item
@@ -101,14 +101,15 @@
         }
       ]"
     />
-    <!-- 计数器 -->
+    <!-- 数字输入框 -->
     <a-input-number
       v-else-if="record.type === 'number'"
       :style="`width:${record.options.width}`"
-      :min="record.options.min"
-      :max="record.options.max"
+      :min="record.options.min || -Infinity"
+      :max="record.options.max || Infinity"
       :disabled="disabled || record.options.disabled"
       :step="record.options.step"
+      :precision="2"
       :placeholder="record.options.placeholder"
       @change="handleChange($event, record.model)"
       v-decorator="[

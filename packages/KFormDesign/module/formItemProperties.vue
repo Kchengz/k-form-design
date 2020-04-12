@@ -114,8 +114,8 @@
         >
           <a-input-number
             :step="options.step"
-            :max="options.max"
-            :min="options.min"
+            :min="options.min || -Infinity"
+            :max="options.max || Infinity"
             v-model="options.defaultValue"
           />
         </a-form-item>
