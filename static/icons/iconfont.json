@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "648145",
+      "name": "LC_icon_edit_line_1",
+      "font_class": "LC_icon_edit_line_1",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "7712657",
+      "name": "edit",
+      "font_class": "edit1",
+      "unicode": "e72a",
+      "unicode_decimal": 59178
+    },
+    {
+      "icon_id": "11249706",
+      "name": "edit-2",
+      "font_class": "edit-",
+      "unicode": "e83b",
+      "unicode_decimal": 59451
+    },
+    {
       "icon_id": "7544797",
       "name": "树型",
       "font_class": "juxingkaobei",

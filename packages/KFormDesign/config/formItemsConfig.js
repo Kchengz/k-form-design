@@ -419,7 +419,7 @@ export const basicsList = [
   {
     type: "editor",
     label: "富文本",
-    icon: "icon-biaoge",
+    icon: "icon-LC_icon_edit_line_1",
     list: [],
     options: {
       height: 300,
@@ -507,7 +507,6 @@ export const basicsList = [
 
 // import { Alert } from "ant-design-vue";
 
-// const UploadImg = () => import("../../UploadImg");
 // 自定义组件
 export const customComponents = {
   title: "自定义组件",
@@ -537,6 +536,7 @@ export const customComponents = {
     // }
   ]
 };
+// window.$customComponentList = customComponents.list;
 
 // 布局控件
 export const layoutList = [

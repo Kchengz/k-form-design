@@ -1,8 +1,8 @@
 {
   "name": "k-form-design",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "private": false,
-  "description": "这是一个基于vue、ant-design-vue的表单设计器",
+  "description": "基于vue、ant-design-vue的表单设计器,可视化开发表单",
   "license": "MIT",
   "author": "kchengz",
   "keywords": [
@@ -11,6 +11,7 @@
     "k-form-design",
     "表单设计器",
     "表单设计",
+    "可视化",
     "工作流"
   ],
   "bugs": {

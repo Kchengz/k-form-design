@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-25 14:06:28
+ * @LastEditTime: 2020-04-12 22:51:46
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -97,8 +97,8 @@ if (typeof window !== "undefined" && window.Vue) {
 function setFormDesignConfig(config) {
   try {
     customComponents.title = config.title || "自义定组件";
-    customComponents.list = config.list || [];
-    window.$customComponentList = config.list || [];
+    // customComponents.list = config.list || [];
+    // window.$customComponentList = config.list || [];
     basicsList[10].options.action =
       config.uploadFile || "http://cdn.kcz66.com/uploadFile.txt";
     basicsList[11].options.action =

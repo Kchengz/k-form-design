@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-12 21:35:17
+ * @LastEditTime: 2020-04-12 23:29:40
  -->
 <template>
   <a-form-item
@@ -105,12 +105,21 @@
     <a-input-number
       v-else-if="record.type === 'number'"
       :style="`width:${record.options.width}`"
-      :min="record.options.min || -Infinity"
-      :max="record.options.max || Infinity"
+      :min="
+        record.options.min || record.options.min === 0
+          ? record.options.min
+          : -Infinity
+      "
+      :max="
+        record.options.max || record.options.max === 0
+          ? record.options.max
+          : Infinity
+      "
       :disabled="disabled || record.options.disabled"
       :step="record.options.step"
       :precision="
-        record.options.precision > 50 || !record.options.precision
+        record.options.precision > 50 ||
+        (!record.options.precision && record.options.precision !== 0)
           ? null
           : record.options.precision
       "
