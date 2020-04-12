@@ -58,7 +58,7 @@ export const basicsList = [
     options: {
       width: "100%", // 宽度
       defaultValue: 0, // 默认值
-      min: 0, // 可输入最小值
+      min: null, // 可输入最小值
       max: null, // 可输入最大值
       precision: null,
       step: 1, // 步长，点击加减按钮时候，加减多少
