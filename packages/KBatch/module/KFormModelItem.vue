@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-12 20:00:17
+ * @LastEditTime: 2020-04-12 21:35:57
  -->
 <template>
   <a-form-model-item
@@ -80,7 +80,11 @@
       :style="`width:${record.options.width}`"
       :min="record.options.min || -Infinity"
       :max="record.options.max || Infinity"
-      :precision="record.options.precision"
+      :precision="
+        record.options.precision > 50 || !record.options.precision
+          ? null
+          : record.options.precision
+      "
       :disabled="record.options.disabled || parentDisabled"
       :step="record.options.step"
       :placeholder="record.options.placeholder"

@@ -74,7 +74,12 @@
           v-if="typeof options.precision !== 'undefined'"
           label="数值精度"
         >
-          <a-input-number v-model="options.precision" placeholder="请输入" />
+          <a-input-number
+            :min="0"
+            :max="50"
+            v-model="options.precision"
+            placeholder="请输入"
+          />
         </a-form-item>
         <a-form-item
           v-if="typeof options.dictCode !== 'undefined'"
