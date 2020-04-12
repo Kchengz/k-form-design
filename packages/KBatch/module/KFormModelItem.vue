@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-11 18:23:10
+ * @LastEditTime: 2020-04-12 20:00:17
  -->
 <template>
   <a-form-model-item
@@ -74,12 +74,13 @@
       :value="value"
       @change="handleChange"
     />
-    <!-- 计数器 -->
+    <!-- 数字输入框 -->
     <a-input-number
       v-else-if="record.type === 'number'"
       :style="`width:${record.options.width}`"
-      :min="record.options.min"
-      :max="record.options.max"
+      :min="record.options.min || -Infinity"
+      :max="record.options.max || Infinity"
+      :precision="record.options.precision"
       :disabled="record.options.disabled || parentDisabled"
       :step="record.options.step"
       :placeholder="record.options.placeholder"

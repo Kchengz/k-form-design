@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-12 19:55:31
+ * @LastEditTime: 2020-04-12 20:01:58
  -->
 <template>
   <a-form-item
@@ -109,7 +109,7 @@
       :max="record.options.max || Infinity"
       :disabled="disabled || record.options.disabled"
       :step="record.options.step"
-      :precision="2"
+      :precision="record.options.precision"
       :placeholder="record.options.placeholder"
       @change="handleChange($event, record.model)"
       v-decorator="[
