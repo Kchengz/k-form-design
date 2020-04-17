@@ -1,11 +1,6 @@
 <template>
   <div>
-    <k-form-build
-      :value="jsonData"
-      :dynamicData="dynamicData"
-      ref="KFB"
-      @submit="handleSubmit"
-    />
+    <k-form-build :value="jsonData" ref="KFB" @submit="handleSubmit" />
     <button @click="getData">提交</button>
   </div>
 </template>
@@ -14,55 +9,23 @@ export default {
   name: "Demo",
   data() {
     return {
-      dynamicData: {
-        cascaderData: [
-          {
-            value: "1",
-            label: "级联1",
-            children: [
-              { value: "11", label: "级联1-1" },
-              { value: "12", label: "级联1-2" }
-            ]
-          },
-          {
-            value: "2",
-            label: "级联2",
-            children: [
-              { value: "22", label: "级联2-2" },
-              { value: "222", label: "级联2-2" },
-              { value: "232", label: "级联2-3" }
-            ]
-          }
-        ]
-      },
       jsonData: {
         list: [
           {
-            type: "cascader",
-            label: "级联选择器",
-            icon: "icon-guanlian",
+            type: "number",
+            label: "数字输入框",
             options: {
+              width: "100%",
+              defaultValue: 0,
+              min: null,
+              max: null,
+              precision: 2,
+              step: 1,
               disabled: false,
-              showSearch: false,
-              placeholder: "请选择",
-              clearable: false,
-              dynamicKey: "cascaderData",
-              dynamic: true,
-              options: [
-                {
-                  value: "1",
-                  label: "选项1",
-                  children: [{ value: "11", label: "选项11" }]
-                },
-                {
-                  value: "2",
-                  label: "选项2",
-                  children: [{ value: "22", label: "选项22" }]
-                }
-              ]
+              placeholder: "请输入"
             },
-            model: "cascader_1586601654906",
-            key: "cascader_1586601654906",
+            model: "number_1586776385747",
+            key: "number_1586776385747",
             rules: [{ required: false, message: "必填项" }]
           }
         ],
@@ -99,6 +62,13 @@ export default {
           console.log(err, "校验失败");
         });
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.$refs.KFB.setData({
+        number_1586776385747: 12.898
+      });
+    }, 1000);
   }
 };
 </script>
