@@ -1,14 +1,20 @@
+<!--
+ * @Description: 对上传图片组件进行封装
+ * @Author: kcz
+ * @Date: 2020-03-17 12:53:50
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-29 22:03:12
+ -->
 <template>
   <div
     :style="{ width: record.options.width }"
-    :getFileList="getFileList"
     class="upload-img-box-9136076486841527"
   >
     <a-upload
       :name="record.model"
       :multiple="record.options.multiple"
       :listType="record.options.listType"
-      :disabled="record.options.disabled"
+      :disabled="record.options.disabled || parentDisabled"
       :data="optionsData"
       :fileList="fileList"
       :action="record.options.action"
@@ -23,7 +29,7 @@
           record.options.listType !== 'picture-card' &&
             fileList.length < record.options.limit
         "
-        :disabled="record.options.disabled"
+        :disabled="record.options.disabled || parentDisabled"
       >
         <a-icon type="upload" /> {{ record.options.placeholder }}
       </a-button>
@@ -32,7 +38,7 @@
           record.options.listType === 'picture-card' &&
             fileList.length < record.options.limit
         "
-        :disabled="record.options.disabled"
+        :disabled="record.options.disabled || parentDisabled"
       >
         <a-icon type="plus" />
         <div class="ant-upload-text">{{ record.options.placeholder }}</div>
@@ -50,8 +56,9 @@
  * description 上传图片组件
  */
 export default {
+  name: "KUploadImg",
   // eslint-disable-next-line vue/require-prop-types
-  props: ["record", "value"],
+  props: ["record", "value", "parentDisabled"],
   data() {
     return {
       fileList: [],
@@ -59,21 +66,19 @@ export default {
       previewImageUrl: ""
     };
   },
-  // watch: {
-  //   value(val) {
-  //     this.fileList = val;
-  //   }
-  // },
+  watch: {
+    value: {
+      // value 需要深度监听及默认先执行handler函数
+      handler(val) {
+        if (val) {
+          this.setFileList();
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
   computed: {
-    getFileList() {
-      // 计算value长度，value有值时，修改fileList
-      if (this.value) {
-        this.setFileList();
-        return this.value.length;
-      } else {
-        return 0;
-      }
-    },
     optionsData() {
       try {
         return JSON.parse(this.record.options.data);

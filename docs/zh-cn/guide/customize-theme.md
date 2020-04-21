@@ -1,10 +1,14 @@
+### 定制主题
 
-## 定制主题
 k-form-design 的样式使用了 Less 作为开发语言，并定义了主色、布局色变量，你可以根据需求进行相应调整
 #### k-form-design样式变量
 ```less
 @primary-color: "#13c2c2"; // 主色
 @layout-color: "#ee88aa"; // 布局色
+@title-text-color: "#ffffff"; // 标题文字颜色
+@header-height: 56px; // 头部高度
+@left-right-width: 270px; // 左右栏宽度
+@border-color: #ccc; // 边框颜色
 ```
 #### 首先需要引入less文件才能生效
 ```javascript

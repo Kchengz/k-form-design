@@ -2,11 +2,11 @@
  * @Description: 头部
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
- * @LastEditors  : kcz
- * @LastEditTime : 2020-01-04 17:26:53
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-26 20:18:56
  -->
 <template>
-  <header class="header-9136076486841527" v-text="title"></header>
+  <header class="header" v-text="title"></header>
 </template>
 <script>
 export default {

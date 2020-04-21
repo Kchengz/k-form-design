@@ -21,7 +21,7 @@
             ><a-input v-model="val.message" placeholder="提示信息"
           /></a-col>
           <a-col :span="18"
-            ><a-input v-model="val.pattern" placeholder="正则表达式,省略 “/”"
+            ><a-input v-model="val.pattern" placeholder="正则表达式pattern"
           /></a-col>
           <a-col :span="6"
             ><div @click="handleDelete(index)" class="option-delete-box">

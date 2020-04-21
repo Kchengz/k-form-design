@@ -12,8 +12,12 @@
       :span="colItem.span || 0"
     >
       <buildBlocks
+        ref="nestedComponents"
         @handleReset="$emit('handleReset')"
+        @change="handleChange"
         v-for="item in colItem.list"
+        :disabled="disabled"
+        :dynamicData="dynamicData"
         :key="item.key"
         :record="item"
         :config="config"
@@ -27,8 +31,12 @@
     :title="record.label"
   >
     <buildBlocks
+      ref="nestedComponents"
       @handleReset="$emit('handleReset')"
+      @change="handleChange"
       v-for="item in record.list"
+      :disabled="disabled"
+      :dynamicData="dynamicData"
       :key="item.key"
       :record="item"
       :config="config"
@@ -54,8 +62,12 @@
         :rowspan="tdItem.rowspan"
       >
         <buildBlocks
+          ref="nestedComponents"
           @handleReset="$emit('handleReset')"
+          @change="handleChange"
           v-for="item in tdItem.list"
+          :disabled="disabled"
+          :dynamicData="dynamicData"
           :key="item.key"
           :record="item"
           :config="config"
@@ -65,8 +77,12 @@
   </table>
 
   <KFormItem
+    ref="nestedComponents"
     @handleReset="$emit('handleReset')"
+    @change="handleChange"
     v-else
+    :disabled="disabled"
+    :dynamicData="dynamicData"
     :key="record.key"
     :record="record"
     :config="config"
@@ -88,10 +104,33 @@ export default {
     config: {
       type: Object,
       required: true
+    },
+    dynamicData: {
+      type: Object,
+      required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
     KFormItem
+  },
+  methods: {
+    validationSubform() {
+      // 验证动态表格
+      if (
+        typeof this.$refs.nestedComponents === "undefined" ||
+        typeof this.$refs.nestedComponents.validationSubform === "undefined"
+      )
+        return true;
+
+      return this.$refs.nestedComponents.validationSubform();
+    },
+    handleChange(value, key) {
+      this.$emit("change", value, key);
+    }
   }
 };
 </script>

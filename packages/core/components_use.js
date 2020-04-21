@@ -35,11 +35,17 @@ import {
   message,
   Upload,  
   Tooltip,
-  Collapse
+  FormModel,
+  Collapse,
+  Cascader,
+  TreeSelect
 } from 'ant-design-vue'
 
+Vue.use(TreeSelect)
 Vue.use(ConfigProvider)
+Vue.use(Cascader)
 Vue.use(Tooltip)
+Vue.use(FormModel)
 Vue.use(Collapse)
 Vue.use(Layout)
 Vue.use(Input)
@@ -76,6 +82,4 @@ Vue.prototype.$message = message
 // Vue.prototype.$error = Modal.error
 // Vue.prototype.$warning = Modal.warning
 
-// 剪切板组件
-import clipboard from "clipboard";
-Vue.prototype.clipboard = clipboard;
+

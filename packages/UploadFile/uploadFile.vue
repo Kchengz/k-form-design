@@ -1,7 +1,14 @@
+<!--
+ * @Description: 对上传文件组件进行封装
+ * @Author: kcz
+ * @Date: 2020-03-17 12:53:50
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-29 22:03:27
+ -->
 <template>
-  <div :style="{ width: record.options.width }" :getFileList="getFileList">
+  <div :style="{ width: record.options.width }">
     <a-upload
-      :disabled="record.options.disabled"
+      :disabled="record.options.disabled || parentDisabled"
       v-if="!record.options.drag"
       :name="record.model"
       :multiple="record.options.multiple"
@@ -15,14 +22,14 @@
     >
       <a-button
         v-if="fileList.length < record.options.limit"
-        :disabled="record.options.disabled"
+        :disabled="record.options.disabled || parentDisabled"
       >
         <a-icon type="upload" /> {{ record.options.placeholder }}
       </a-button>
     </a-upload>
     <a-upload-dragger
       v-else
-      :disabled="record.options.disabled"
+      :disabled="record.options.disabled || parentDisabled"
       :name="record.model"
       :multiple="record.options.multiple"
       :fileList="fileList"
@@ -47,28 +54,28 @@
  * description 上传文件组件
  */
 export default {
+  name: "KUploadFile",
   // eslint-disable-next-line vue/require-prop-types
-  props: ["record", "value"],
+  props: ["record", "value", "parentDisabled"],
   data() {
     return {
       fileList: []
     };
   },
-  // watch: {
-  //   value(val) {
-  //     this.fileList = val;
-  //   }
-  // },
+  watch: {
+    value: {
+      // value 需要深度监听及默认先执行handler函数
+      handler(val) {
+        if (val) {
+          this.setFileList();
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
+
   computed: {
-    getFileList() {
-      // 计算value长度，value有值时，修改fileList
-      if (this.value) {
-        this.setFileList();
-        return this.value.length;
-      } else {
-        return 0;
-      }
-    },
     optionsData() {
       try {
         return JSON.parse(this.record.options.data);
@@ -98,7 +105,7 @@ export default {
               type: "file",
               name: item.name,
               status: item.status,
-              uid: res.data.fileId || new Date().getTime(),
+              uid: res.data.fileId || Date.now(),
               url: res.data.url || ""
             };
           } else {
@@ -118,10 +125,51 @@ export default {
     },
     handlePreview(file) {
       // 下载文件
-      let a = document.createElement("a");
-      a.href = file.url || file.thumbUrl;
-      a.download = file.name;
-      a.click();
+      this.getBlob(file.url || file.thumbUrl).then(blob => {
+        this.saveAs(blob, file.name);
+      });
+    },
+    /**
+     * 获取 blob
+     * url 目标文件地址
+     */
+    getBlob(url) {
+      return new Promise(resolve => {
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("GET", url, true);
+        xhr.responseType = "blob";
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            resolve(xhr.response);
+          }
+        };
+
+        xhr.send();
+      });
+    },
+    /**
+     * 保存 blob
+     * filename 想要保存的文件名称
+     */
+    saveAs(blob, filename) {
+      if (window.navigator.msSaveOrOpenBlob) {
+        navigator.msSaveBlob(blob, filename);
+      } else {
+        const link = document.createElement("a");
+        const body = document.querySelector("body");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = filename;
+
+        // fix Firefox
+        link.style.display = "none";
+        body.appendChild(link);
+
+        link.click();
+        body.removeChild(link);
+
+        window.URL.revokeObjectURL(link.href);
+      }
     },
     remove() {
       this.handleSelectChange();

@@ -2,8 +2,8 @@
  * @Description: 日期选择器
  * @Author: kcz
  * @Date: 2020-01-11 15:38:28
- * @LastEditors  : kcz
- * @LastEditTime : 2020-01-18 00:46:52
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-28 17:37:49
  -->
 <template>
   <!-- 月份选择 -->
@@ -14,7 +14,7 @@
         record.options.format === 'YYYY-MM' &&
         record.options.range === false
     "
-    :disabled="record.options.disabled"
+    :disabled="record.options.disabled || parentDisabled"
     :allowClear="record.options.clearable"
     :placeholder="record.options.placeholder"
     :format="record.options.format"
@@ -25,7 +25,7 @@
   <a-date-picker
     :style="`width:${record.options.width}`"
     v-else-if="record.type === 'date' && record.options.range === false"
-    :disabled="record.options.disabled"
+    :disabled="record.options.disabled || parentDisabled"
     :show-time="record.options.showTime"
     :allowClear="record.options.clearable"
     :placeholder="record.options.placeholder"
@@ -39,7 +39,7 @@
     :style="`width:${record.options.width}`"
     v-else-if="record.type === 'date' && record.options.range === true"
     :show-time="record.options.showTime"
-    :disabled="record.options.disabled"
+    :disabled="record.options.disabled || parentDisabled"
     :allowClear="record.options.clearable"
     :placeholder="record.options.rangePlaceholder"
     :format="record.options.format"
@@ -51,7 +51,7 @@
 import moment from "moment";
 export default {
   // eslint-disable-next-line vue/require-prop-types
-  props: ["record", "value"],
+  props: ["record", "value", "parentDisabled"],
   data() {
     return {
       // date: undefined

@@ -1,10 +1,15 @@
 # k-form-build form属性
-### 介绍
+## 介绍
 k-form-bulild有个this.form属性,可以用来修改表单值,参照[Ant Design form](https://www.antdv.com/components/form-cn/#api)的API
 
   
 
-### 使用form属性修改表单value
+## 使用form属性修改表单value
+
+[filename](./form-build2.html ':include :type=iframe width=100% height=340px')
+
+> 代码示例
+
 ```javascript
 <template>
   <div>
@@ -101,12 +106,11 @@ export default {
     },
     handleReset () {
       // 重置表单
-      this.$refs.kfb.handleReset()
+      this.$refs.kfb.reset()
     }
   }
 }
 </script>
 ```
 
-[filename](./form-build2.html ':include :type=iframe width=100% height=340px')
 

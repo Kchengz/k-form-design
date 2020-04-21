@@ -12,11 +12,15 @@
       :style="value.config.customStyle"
     >
       <buildBlocks
-        @handleReset="handleReset"
+        ref="buildBlocks"
+        @handleReset="reset"
         v-for="(record, index) in value.list"
         :record="record"
+        :dynamicData="dynamicData"
+        :disabled="disabled"
         :config="value.config"
         :key="index"
+        @change="handleChange"
       />
     </a-form>
   </a-config-provider>
@@ -38,10 +42,33 @@ export default {
       form: this.$form.createForm(this)
     };
   },
-  // model:{
-  //   prop:['value']
-  // },
-  props: ["value"],
+  // props: ["value", "dynamicData"],
+  props: {
+    value: {
+      type: Object,
+      required: true
+    },
+    dynamicData: {
+      type: Object,
+      default: () => {
+        return {};
+      }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    outputString: {
+      type: Boolean,
+      default: false
+    },
+    defaultValue: {
+      type: Object,
+      default: () => {
+        return {};
+      }
+    }
+  },
   components: {
     buildBlocks
   },
@@ -52,7 +79,7 @@ export default {
       e.preventDefault();
       this.$emit("submit", this.getData);
     },
-    handleReset() {
+    reset() {
       // 重置表单
       this.form.resetFields();
     },
@@ -64,67 +91,71 @@ export default {
             if (err) {
               reject(err);
             }
-            // 处理时间 start
-            // let dateList = [];
-            // let getDateList = array => {
-            //   array.forEach(item => {
-            //     if (["time", "date"].includes(item.type)) {
-            //       dateList.push(item);
-            //     } else if (item.type === "grid") {
-            //       item.columns.forEach(val => {
-            //         getDateList(val.list);
-            //       });
-            //     } else if (item.type === "table") {
-            //       item.trs.forEach(val => {
-            //         val.tds.forEach(tdItem => {
-            //           getDateList(tdItem.list);
-            //         });
-            //       });
-            //     } else if (item.type === "card") {
-            //       getDateList(item.list);
-            //     }
-            //   });
-            // };
-            // getDateList(this.value.list);
-            // 时间为moment，在上传前需要处理
-            // const timeComponents = this.value.list.filter(
-            //   item => item.type === "time" || item.type === "date"
-            // );
-            // for (let i = 0; i < dateList.length; i++) {
-            //   if (!values[dateList[i].model]) {
-            //     // 没有值跳出循环
-            //     continue;
-            //   }
-            //   if (!Array.isArray(values[dateList[i].model])) {
-            //     // 处理单个时间
-            //     values[dateList[i].model] = values[dateList[i].model].format(
-            //       dateList[i].options.format
-            //     );
-            //   } else {
-            //     // 处理多个时间
-            //     values[dateList[i].model] = values[dateList[i].model].map(
-            //       item => item.format(dateList[i].options.format)
-            //     );
-            //   }
-            // }
-            // 处理时间 end
-            // console.log(values);
-            resolve(values);
+            this.$refs.buildBlocks.forEach(item => {
+              if (!item.validationSubform()) {
+                reject(err);
+              }
+            });
+            if (this.outputString) {
+              // 需要所有value转成字符串
+              for (let key in values) {
+                let type = typeof values[key];
+                if (type === "string" || type === "undefined") {
+                  continue;
+                } else if (type === "object") {
+                  values[key] = `k-form-design#${type}#${JSON.stringify(
+                    values[key]
+                  )}`;
+                } else {
+                  values[key] = `k-form-design#${type}#${String(values[key])}`;
+                }
+              }
+              resolve(values);
+            } else {
+              resolve(values);
+            }
           });
         } catch (err) {
           reject(err);
         }
       });
+    },
+    setData(json) {
+      return new Promise((resolve, reject) => {
+        try {
+          if (this.outputString) {
+            // 将非string数据还原
+            for (let key in json) {
+              if (!json[key].startsWith("k-form-design#")) {
+                continue;
+              }
+              let array = json[key].split("#");
+              if (array[1] === "object") {
+                json[key] = JSON.parse(array[2]);
+              } else if (array[1] === "number") {
+                json[key] = Number(array[2]);
+              } else if (array[1] === "boolean") {
+                json[key] = Boolean(array[2]);
+              }
+            }
+            this.form.setFieldsValue(json);
+          } else {
+            this.form.setFieldsValue(json);
+          }
+        } catch (err) {
+          reject(err);
+        }
+      });
+    },
+    handleChange(value, key) {
+      // 触发change事件
+      this.$emit("change", value, key);
     }
-    // selectUser (val, item) {
-    //   const formJson = {}
-    //   formJson[item.model] = val
-
-    //   this.form.setFieldsValue(formJson)
-    // },
-    // handleSelectChange (value) {
-    //   this.$emit('change', value)
-    // }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.setData(this.defaultValue);
+    });
   }
 };
 </script>

@@ -2,8 +2,8 @@
  * @Description: 
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
- * @LastEditors  : kcz
- * @LastEditTime : 2020-01-05 22:31:06
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-03-22 20:56:48
  -->
 <template>
   <a-modal
@@ -17,7 +17,7 @@
     :destroyOnClose="true"
   >
     <a-tabs tabPosition="left" style="height:100%">
-      <a-tab-pane style="height:100%" tab="VUE" key="1">
+      <a-tab-pane tab="VUE" key="1">
         <!-- vue code start -->
         <previewCode :editorJson="editorVueJson" fileFormat="vue" />
         <!-- vue code end -->

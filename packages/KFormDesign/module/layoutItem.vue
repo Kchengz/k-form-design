@@ -6,7 +6,62 @@
       )
     }"
   >
-    <template v-if="record.type === 'grid'">
+    <!-- 动态表格设计模块 start -->
+    <template v-if="record.type === 'batch'">
+      <div
+        class="batch-box"
+        :class="{ active: record.key === selectItem.key }"
+        @click.stop="handleSelectItem(record)"
+      >
+        <div class="batch-label">动态表格</div>
+        <draggable
+          tag="div"
+          class="draggable-box"
+          v-bind="{
+            group: insertAllowed ? 'form-draggable' : '',
+            ghostClass: 'moving',
+            animation: 180,
+            handle: '.drag-move'
+          }"
+          v-model="record.list"
+          @start="$emit('dragStart', $event, record.list)"
+          @add="$emit('handleColAdd', $event, record.list)"
+        >
+          <transition-group tag="div" name="list" class="list-main">
+            <formNode
+              v-for="item in record.list"
+              :key="item.key"
+              class="drag-move"
+              :selectItem.sync="selectItem"
+              :record="item"
+              :config="config"
+              @handleSelectItem="handleSelectItem"
+              @handleColAdd="handleColAdd"
+              @handleCopy="$emit('handleCopy')"
+              @handleShowRightMenu="handleShowRightMenu"
+              @handleDetele="$emit('handleDetele')"
+            />
+          </transition-group>
+        </draggable>
+        <div
+          class="copy"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleCopy')"
+        >
+          <a-icon type="copy" />
+        </div>
+        <div
+          class="delete"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleDetele')"
+        >
+          <a-icon type="delete" />
+        </div>
+      </div>
+    </template>
+    <!-- 动态表格设计模块 end -->
+    <!-- 栅格布局 start -->
+    <template v-else-if="record.type === 'grid'">
       <div
         class="grid-box"
         :class="{ active: record.key === selectItem.key }"
@@ -38,6 +93,8 @@
                   v-for="item in colItem.list"
                   :key="item.key"
                   :selectItem.sync="selectItem"
+                  :startType="startType"
+                  :insertAllowedType="insertAllowedType"
                   :record="item"
                   :config="config"
                   @handleSelectItem="handleSelectItem"
@@ -50,12 +107,7 @@
             </draggable>
           </a-col>
         </a-row>
-        <!-- <div
-          class="drag-move"
-          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
-        >
-          <a-icon type="swap" />
-        </div> -->
+
         <div
           class="copy"
           :class="record.key === selectItem.key ? 'active' : 'unactivated'"
@@ -72,7 +124,8 @@
         </div>
       </div>
     </template>
-    <!-- 卡片布局 -->
+    <!-- 栅格布局 end -->
+    <!-- 卡片布局 start -->
     <template v-else-if="record.type === 'card'">
       <div
         class="grid-box"
@@ -100,6 +153,8 @@
                   v-for="item in record.list"
                   :key="item.key"
                   :selectItem.sync="selectItem"
+                  :startType="startType"
+                  :insertAllowedType="insertAllowedType"
                   :record="item"
                   :config="config"
                   @handleSelectItem="handleSelectItem"
@@ -112,12 +167,7 @@
             </draggable>
           </div>
         </a-card>
-        <!-- <div
-          class="drag-move"
-          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
-        >
-          <a-icon type="swap" />
-        </div> -->
+
         <div
           class="copy"
           :class="record.key === selectItem.key ? 'active' : 'unactivated'"
@@ -134,7 +184,8 @@
         </div>
       </div>
     </template>
-    <!-- 表格布局 -->
+    <!-- 卡片布局 end -->
+    <!-- 表格布局 start -->
     <template v-else-if="record.type === 'table'">
       <div
         class="table-box"
@@ -180,6 +231,8 @@
                     v-for="item in tdItem.list"
                     :key="item.key"
                     :selectItem.sync="selectItem"
+                    :startType="startType"
+                    :insertAllowedType="insertAllowedType"
                     :record="item"
                     :config="config"
                     @handleSelectItem="handleSelectItem"
@@ -194,12 +247,6 @@
           </tr>
         </table>
 
-        <!-- <div
-          class="drag-move"
-          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
-        >
-          <a-icon type="swap" />
-        </div> -->
         <div
           class="copy"
           :class="record.key === selectItem.key ? 'active' : 'unactivated'"
@@ -216,6 +263,7 @@
         </div>
       </div>
     </template>
+    <!-- 表格布局 end -->
     <template v-else>
       <formNode
         :key="record.key"
@@ -252,6 +300,19 @@ export default {
     config: {
       type: Object,
       required: true
+    },
+    startType: {
+      type: String,
+      required: true
+    },
+    insertAllowedType: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    insertAllowed() {
+      return this.insertAllowedType.includes(this.startType);
     }
   },
   components: {

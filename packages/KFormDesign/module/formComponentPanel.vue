@@ -2,8 +2,8 @@
  * @Description: 表单设计器内容展示操作组件
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
- * @LastEditors  : kcz
- * @LastEditTime : 2020-01-14 00:10:23
+ * @LastEditors: kcz
+ * @LastEditTime: 2020-04-11 17:56:04
  -->
 <template>
   <div class="form-panel">
@@ -38,6 +38,8 @@
             :record="record"
             :config="data.config"
             :selectItem.sync="selectItem"
+            :startType="startType"
+            :insertAllowedType="insertAllowedType"
             @dragStart="dragStart"
             @handleSelectItem="handleSelectItem"
             @handleCopy="handleCopy"
@@ -74,6 +76,25 @@ export default {
   data() {
     return {
       form: this.$form.createForm(this),
+      insertAllowedType: [
+        "input",
+        "textarea",
+        "number",
+        "select",
+        "checkbox",
+        "radio",
+        "date",
+        "time",
+        "rate",
+        "slider",
+        "uploadFile",
+        "uploadImg",
+        "cascader",
+        "treeSelect",
+        "switch",
+        "text",
+        "html"
+      ],
       rightMenuSelectValue: {},
       showRightMenu: false,
       menuTop: 0,
@@ -85,6 +106,10 @@ export default {
   props: {
     noModel: {
       type: Array,
+      required: true
+    },
+    startType: {
+      type: String,
       required: true
     },
     data: {
@@ -196,9 +221,15 @@ export default {
             element.columns.forEach(item => {
               traverse(item.list);
             });
-          }
-          if (element.type === "card") {
+          } else if (element.type === "card") {
             // 卡片布局
+            traverse(element.list);
+          } else if (element.type === "batch") {
+            // 动态表格内复制
+            if (!isCopy && !this.insertAllowedType.includes(data.type)) {
+              // 插入不允许的字段时，直接return false
+              return false;
+            }
             traverse(element.list);
           }
           if (element.type === "table") {
@@ -223,7 +254,7 @@ export default {
               item.list = traverse(item.list);
             });
           }
-          if (element.type === "card") {
+          if (element.type === "card" || element.type === "batch") {
             // 卡片布局
             element.list = traverse(element.list);
           }
@@ -395,12 +426,12 @@ export default {
     }
   },
   mounted() {
-    // 监听取消右键菜单
+    // 添加监听取消右键菜单
     document.addEventListener("click", this.handleRemoveRightMenu, true);
     document.addEventListener("contextmenu", this.handleRemoveRightMenu, true);
   },
   destroyed() {
-    // 取消监听
+    // 移除监听
     document.removeEventListener("click", this.handleRemoveRightMenu, true);
     document.removeEventListener(
       "contextmenu",

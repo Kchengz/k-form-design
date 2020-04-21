@@ -71,17 +71,41 @@
           <a-input-number v-model="options.max" placeholder="请输入" />
         </a-form-item>
         <a-form-item
+          v-if="typeof options.precision !== 'undefined'"
+          label="数值精度"
+        >
+          <a-input-number
+            :min="0"
+            :max="50"
+            v-model="options.precision"
+            placeholder="请输入"
+          />
+        </a-form-item>
+        <a-form-item
           v-if="typeof options.dictCode !== 'undefined'"
           label="dictCode"
         >
           <a-input v-model="options.dictCode"></a-input>
         </a-form-item>
+        <!-- 选项配置及动态数据配置 start -->
         <a-form-item
           v-if="typeof options.options !== 'undefined'"
           label="选项配置"
         >
-          <KChangeOption v-model="options.options" />
+          <a-radio-group buttonStyle="solid" v-model="options.dynamic">
+            <a-radio-button :value="false">静态数据</a-radio-button>
+            <a-radio-button :value="true">动态数据</a-radio-button>
+          </a-radio-group>
+
+          <a-input
+            v-show="options.dynamic"
+            v-model="options.dynamicKey"
+            placeholder="动态数据变量名"
+          ></a-input>
+
+          <KChangeOption v-show="!options.dynamic" v-model="options.options" />
         </a-form-item>
+        <!-- 选项配置及动态数据配置 end -->
         <a-form-item v-if="selectItem.type === 'grid'" label="栅格间距">
           <a-input-number
             v-model="selectItem.options.gutter"
@@ -101,8 +125,8 @@
         >
           <a-input-number
             :step="options.step"
-            :max="options.max"
-            :min="options.min"
+            :min="options.min || -Infinity"
+            :max="options.max || Infinity"
             v-model="options.defaultValue"
           />
         </a-form-item>
@@ -214,9 +238,15 @@
         </a-form-item>
         <a-form-item v-if="selectItem.type === 'button'" label="按钮操作">
           <a-radio-group buttonStyle="solid" v-model="options.handle">
-            <a-radio-button value="submit">提交表单</a-radio-button>
-            <a-radio-button value="reset">重置表单</a-radio-button>
+            <a-radio-button value="submit">提交</a-radio-button>
+            <a-radio-button value="reset">重置</a-radio-button>
+            <a-radio-button value="dynamic">动态函数</a-radio-button>
           </a-radio-group>
+          <a-input
+            v-show="options.handle === 'dynamic'"
+            v-model="options.dynamicFun"
+            placeholder="动态函数名"
+          ></a-input>
         </a-form-item>
         <a-form-item v-if="selectItem.type === 'alert'" label="辅助描述">
           <a-input v-model="options.description"></a-input>
@@ -249,6 +279,15 @@
         >
           <a-input-number :min="1" v-model="options.limit" />
         </a-form-item>
+
+        <!-- scrollY -->
+        <a-form-item
+          v-if="typeof options.scrollY !== 'undefined'"
+          label="scrollY"
+        >
+          <a-input-number :min="0" v-model="options.scrollY" />
+        </a-form-item>
+
         <!-- 上传地址 -->
         <a-form-item
           v-if="typeof options.action !== 'undefined'"
@@ -329,9 +368,34 @@
             label="显示输入框"
           />
           <kCheckbox
+            v-if="typeof options.showLabel !== 'undefined'"
+            v-model="options.showLabel"
+            label="显示Label"
+          />
+          <kCheckbox
+            v-if="typeof options.chinesization !== 'undefined'"
+            v-model="options.chinesization"
+            label="汉化"
+          />
+          <kCheckbox
+            v-if="typeof options.hideSequence !== 'undefined'"
+            v-model="options.hideSequence"
+            label="隐藏序号"
+          />
+          <kCheckbox
             v-if="typeof options.drag !== 'undefined'"
             v-model="options.drag"
             label="允许拖拽"
+          />
+          <kCheckbox
+            v-if="typeof options.showSearch !== 'undefined'"
+            v-model="options.showSearch"
+            label="可搜索"
+          />
+          <kCheckbox
+            v-if="typeof options.treeCheckable !== 'undefined'"
+            v-model="options.treeCheckable"
+            label="可勾选"
           />
         </a-form-item>
 

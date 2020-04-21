@@ -58,8 +58,9 @@ export const basicsList = [
     options: {
       width: "100%", // 宽度
       defaultValue: 0, // 默认值
-      min: 0, // 可输入最小值
-      max: 100, // 可输入最大值
+      min: null, // 可输入最小值
+      max: null, // 可输入最大值
+      precision: null,
       step: 1, // 步长，点击加减按钮时候，加减多少
       disabled: false, //是否禁用
       placeholder: "请输入"
@@ -84,6 +85,8 @@ export const basicsList = [
       disabled: false, // 是否禁用
       clearable: false, // 是否显示清除按钮
       placeholder: "请选择", // 默认提示文字
+      dynamicKey: "",
+      dynamic: false,
       options: [
         // 下拉选择项配置
         {
@@ -95,7 +98,7 @@ export const basicsList = [
           label: "下拉框2"
         }
       ],
-      filterable: false // 是否显示搜索框，搜索选择的项的值，而不是文字
+      showSearch: false // 是否显示搜索框，搜索选择的项的值，而不是文字
     },
     model: "",
     key: "",
@@ -113,6 +116,8 @@ export const basicsList = [
     options: {
       disabled: false, //是否禁用
       defaultValue: [],
+      dynamicKey: "",
+      dynamic: false,
       options: [
         {
           value: "1",
@@ -144,8 +149,9 @@ export const basicsList = [
     options: {
       disabled: false, //是否禁用
       defaultValue: "", // 默认值
+      dynamicKey: "",
+      dynamic: false,
       options: [
-        // 按钮选项配置，value为选项值，label为选项文字
         {
           value: "1",
           label: "选项1"
@@ -160,7 +166,7 @@ export const basicsList = [
         }
       ]
     },
-    model: "", // 数据字段
+    model: "",
     key: "",
     rules: [
       {
@@ -177,7 +183,6 @@ export const basicsList = [
       width: "100%", // 宽度
       defaultValue: "", // 默认值，字符串 12:00:00
       rangeDefaultValue: [], // 默认值，字符串 12:00:00
-      // rangeDefaultValue: ["2015-10-15", "2015-10-15"], // 默认值，字符串 12:00:00
       range: false, // 范围日期选择，为true则会显示两个时间选择框（同时defaultValue和placeholder要改成数组），
       showTime: false, // 是否显示时间选择器
       disabled: false, // 是否禁用
@@ -307,6 +312,134 @@ export const basicsList = [
     ]
   },
   {
+    type: "treeSelect", // 表单类型
+    label: "树选择器", // 标题文字
+    icon: "icon-tree",
+    options: {
+      disabled: false, //是否禁用
+      defaultValue: undefined, // 默认值
+      multiple: false,
+      clearable: false, // 是否显示清除按钮
+      showSearch: false, // 是否显示搜索框，搜索选择的项的值，而不是文字
+      treeCheckable: false,
+      placeholder: "请选择",
+      dynamicKey: "",
+      dynamic: true,
+      options: [
+        {
+          value: "1",
+          label: "选项1",
+          children: [
+            {
+              value: "11",
+              label: "选项11"
+            }
+          ]
+        },
+        {
+          value: "2",
+          label: "选项2",
+          children: [
+            {
+              value: "22",
+              label: "选项22"
+            }
+          ]
+        }
+      ]
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
+    type: "cascader", // 表单类型
+    label: "级联选择器", // 标题文字
+    icon: "icon-guanlian",
+    options: {
+      disabled: false, //是否禁用
+      defaultValue: undefined, // 默认值
+      showSearch: false, // 是否显示搜索框，搜索选择的项的值，而不是文字
+      placeholder: "请选择",
+      clearable: false, // 是否显示清除按钮
+      dynamicKey: "",
+      dynamic: true,
+      options: [
+        {
+          value: "1",
+          label: "选项1",
+          children: [
+            {
+              value: "11",
+              label: "选项11"
+            }
+          ]
+        },
+        {
+          value: "2",
+          label: "选项2",
+          children: [
+            {
+              value: "22",
+              label: "选项22"
+            }
+          ]
+        }
+      ]
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
+    type: "batch",
+    label: "动态表格",
+    icon: "icon-biaoge",
+    list: [],
+    options: {
+      scrollY: 0,
+      disabled: false,
+      showLabel: false,
+      hideSequence: false,
+      width: "100%"
+    },
+    model: "",
+    key: ""
+  },
+  {
+    type: "editor",
+    label: "富文本",
+    icon: "icon-LC_icon_edit_line_1",
+    list: [],
+    options: {
+      height: 300,
+      placeholder: "请输入",
+      defaultValue: "",
+      chinesization: true,
+      disabled: false,
+      showLabel: false,
+      width: "100%"
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  },
+  {
     type: "switch", // 表单类型
     label: "开关", // 标题文字
     icon: "icon-kaiguan3",
@@ -330,6 +463,7 @@ export const basicsList = [
     options: {
       type: "primary",
       handle: "submit",
+      dynamicFun: "",
       disabled: false // 是否禁用，false不禁用，true禁用
     },
     key: ""
@@ -373,7 +507,6 @@ export const basicsList = [
 
 // import { Alert } from "ant-design-vue";
 
-// const UploadImg = () => import("../../UploadImg");
 // 自定义组件
 export const customComponents = {
   title: "自定义组件",
@@ -403,6 +536,7 @@ export const customComponents = {
     // }
   ]
 };
+// window.$customComponentList = customComponents.list;
 
 // 布局控件
 export const layoutList = [

@@ -24,6 +24,8 @@
   </div>
 </template>
 <script>
+// 剪切板组件
+import Clipboard from "clipboard";
 import { codemirror } from "vue-codemirror-lite";
 export default {
   name: "PreviewCode",
@@ -62,7 +64,7 @@ export default {
     },
     handleCopyJson() {
       // 复制数据
-      let clipboard = new this.clipboard(".copy-btn");
+      let clipboard = new Clipboard(".copy-btn");
       clipboard.on("success", () => {
         this.$message.success("复制成功");
       });
