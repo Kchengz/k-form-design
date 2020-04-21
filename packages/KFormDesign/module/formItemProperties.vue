@@ -316,7 +316,8 @@
 
         <a-form-item
           v-if="
-            typeof options.disabled !== 'undefined' ||
+            typeof options.hidden !== 'undefined' ||
+              typeof options.disabled !== 'undefined' ||
               typeof options.readonly !== 'undefined' ||
               typeof options.clearable !== 'undefined' ||
               typeof options.multiple !== 'undefined' ||
@@ -327,6 +328,11 @@
           "
           label="操作属性"
         >
+          <kCheckbox
+            v-if="typeof options.hidden !== 'undefined'"
+            v-model="options.hidden"
+            label="隐藏"
+          />
           <kCheckbox
             v-if="typeof options.disabled !== 'undefined'"
             v-model="options.disabled"

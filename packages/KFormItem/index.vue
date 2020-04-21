@@ -8,23 +8,24 @@
 <template>
   <a-form-item
     v-if="
-      [
-        'input',
-        'textarea',
-        'date',
-        'time',
-        'number',
-        'radio',
-        'checkbox',
-        'select',
-        'rate',
-        'switch',
-        'slider',
-        'uploadImg',
-        'uploadFile',
-        'cascader',
-        'treeSelect'
-      ].includes(record.type)
+      !(record.options.hidden === true) &&
+        [
+          'input',
+          'textarea',
+          'date',
+          'time',
+          'number',
+          'radio',
+          'checkbox',
+          'select',
+          'rate',
+          'switch',
+          'slider',
+          'uploadImg',
+          'uploadFile',
+          'cascader',
+          'treeSelect'
+        ].includes(record.type)
     "
     :label="record.label"
     :label-col="config.layout === 'horizontal' ? config.labelCol : {}"
