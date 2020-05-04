@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-30 12:44:03
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-30 14:02:54
+ * @LastEditTime: 2020-04-26 19:21:27
  -->
 <template>
   <quillEditor
@@ -46,7 +46,7 @@ export default {
   }
 };
 </script>
-<style type="text/less" lang="less" scoped>
+<style lang="less" scoped>
 .ql-editor-class {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
