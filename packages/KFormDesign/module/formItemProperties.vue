@@ -14,7 +14,7 @@
         </a-form-item>
 
         <a-form-item
-          v-if="typeof selectItem.model !== 'undefined'"
+          v-if="customModel && typeof selectItem.model !== 'undefined'"
           label="数据字段"
         >
           <a-input v-model="selectItem.model" placeholder="请输入" />
@@ -466,6 +466,10 @@ export default {
     selectItem: {
       type: Object,
       required: true
+    },
+    customModel: {
+      type: Boolean,
+      default: true
     }
   },
   components: {

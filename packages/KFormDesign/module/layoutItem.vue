@@ -270,6 +270,7 @@
         :selectItem.sync="selectItem"
         :record="record"
         :config="config"
+        :customModel="customModel"
         @handleSelectItem="handleSelectItem"
         @handleCopy="$emit('handleCopy')"
         @handleDetele="$emit('handleDetele')"
@@ -308,6 +309,10 @@ export default {
     insertAllowedType: {
       type: Array,
       required: true
+    },
+    customModel: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
