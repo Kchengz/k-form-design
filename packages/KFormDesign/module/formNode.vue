@@ -15,7 +15,7 @@
     <div class="form-item-box">
       <kFormItem :config="config" :record="record" />
     </div>
-    <div class="show-key-box" v-text="record.model" />
+    <div v-if="customModel" class="show-key-box" v-text="record.model" />
     <div
       class="copy"
       :class="record.key === selectItem.key ? 'active' : 'unactivated'"
@@ -52,6 +52,10 @@ export default {
     config: {
       type: Object,
       required: true
+    },
+    customModel: {
+      type: Boolean,
+      default: true
     }
   },
   components: {

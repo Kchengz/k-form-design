@@ -114,6 +114,7 @@
             :data="data"
             :selectItem="selectItem"
             :noModel="noModel"
+            :customModel="customModel"
             :startType="startType"
             ref="KFCP"
             @handleSetSelectItem="handleSetSelectItem"
@@ -136,6 +137,7 @@
             :class="{ 'show-properties': showPropertie }"
             class="form-item-properties"
             :selectItem="selectItem"
+            :customModel="customModel"
             @handleHide="showPropertie = false"
           />
         </aside>
@@ -231,6 +233,10 @@ export default {
         "grid",
         "table"
       ]
+    },
+    customModel: { // 自定义数据字段
+      type: Boolean,
+      default: true
     }
   },
   data() {
