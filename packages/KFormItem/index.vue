@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-12 23:29:40
+ * @LastEditTime: 2020-05-05 18:15:41
  -->
 <template>
   <a-form-item
@@ -497,7 +497,7 @@ export default {
     // 表单数组
     record: {
       type: Object,
-      default: () => {}
+      required: true
     },
     // form-item 宽度配置
     config: {
@@ -506,9 +506,7 @@ export default {
     },
     dynamicData: {
       type: Object,
-      default: () => {
-        return {};
-      }
+      required: true
     },
     disabled: {
       type: Boolean,

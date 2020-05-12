@@ -9,30 +9,55 @@ export default {
   name: "Demo",
   data() {
     return {
+      dynamicData: {
+        ff() {
+          alert(2342);
+        }
+      },
       jsonData: {
         list: [
           {
-            type: "number",
-            label: "数字输入框",
+            type: "input",
+            label: "输入框",
+            icon: "icon-write",
             options: {
+              type: "text",
               width: "100%",
-              defaultValue: 0,
-              min: null,
-              max: null,
-              precision: 2,
-              step: 1,
-              disabled: false,
-              placeholder: "请输入"
+              defaultValue: "",
+              placeholder: "请输入",
+              clearable: false,
+              maxLength: null,
+              disabled: false
             },
-            model: "number_1586776385747",
-            key: "number_1586776385747",
-            rules: [{ required: false, message: "必填项" }]
+            model: "input_1588670842881",
+            key: "input_1588670842881",
+            rules: [
+              {
+                required: false,
+                message: "必填项"
+              }
+            ]
+          },
+          {
+            type: "button",
+            label: "按钮",
+            options: {
+              type: "primary",
+              handle: "dynamic",
+              dynamicFun: "ff",
+              disabled: false
+            },
+            key: "button_1588670829919"
           }
         ],
         config: {
           layout: "horizontal",
-          labelCol: { span: 4 },
-          wrapperCol: { span: 18 },
+          labelCol: {
+            span: 4
+          },
+          wrapperCol: {
+            span: 18
+          },
           hideRequiredMark: false,
           customStyle: ""
         }
@@ -64,11 +89,11 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.$refs.KFB.setData({
-        number_1586776385747: 12.898
-      });
-    }, 1000);
+    // setTimeout(() => {
+    this.$refs.KFB.setData({
+      input_1588670842881: 12.898
+    });
+    // }, 1000);
   }
 };
 </script>

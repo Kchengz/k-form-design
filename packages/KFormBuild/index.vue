@@ -50,9 +50,7 @@ export default {
     },
     dynamicData: {
       type: Object,
-      default: () => {
-        return {};
-      }
+      default: () => ({})
     },
     disabled: {
       type: Boolean,
@@ -64,9 +62,7 @@ export default {
     },
     defaultValue: {
       type: Object,
-      default: () => {
-        return {};
-      }
+      default: () => ({})
     }
   },
   components: {
