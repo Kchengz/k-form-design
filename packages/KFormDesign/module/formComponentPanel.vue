@@ -40,6 +40,7 @@
             :selectItem.sync="selectItem"
             :startType="startType"
             :insertAllowedType="insertAllowedType"
+            :customModel="customModel"
             @dragStart="dragStart"
             @handleSelectItem="handleSelectItem"
             @handleCopy="handleCopy"
@@ -119,6 +120,10 @@ export default {
     selectItem: {
       type: Object,
       default: () => {}
+    },
+    customModel: {
+      type: Boolean,
+      default: true
     }
   },
   components: {

@@ -14,7 +14,7 @@
         </a-form-item>
 
         <a-form-item
-          v-if="typeof selectItem.model !== 'undefined'"
+          v-if="customModel && typeof selectItem.model !== 'undefined'"
           label="数据字段"
         >
           <a-input v-model="selectItem.model" placeholder="请输入" />
@@ -316,7 +316,8 @@
 
         <a-form-item
           v-if="
-            typeof options.disabled !== 'undefined' ||
+            typeof options.hidden !== 'undefined' ||
+              typeof options.disabled !== 'undefined' ||
               typeof options.readonly !== 'undefined' ||
               typeof options.clearable !== 'undefined' ||
               typeof options.multiple !== 'undefined' ||
@@ -327,6 +328,11 @@
           "
           label="操作属性"
         >
+          <kCheckbox
+            v-if="typeof options.hidden !== 'undefined'"
+            v-model="options.hidden"
+            label="隐藏"
+          />
           <kCheckbox
             v-if="typeof options.disabled !== 'undefined'"
             v-model="options.disabled"
@@ -460,6 +466,10 @@ export default {
     selectItem: {
       type: Object,
       required: true
+    },
+    customModel: {
+      type: Boolean,
+      default: true
     }
   },
   components: {
