@@ -3,6 +3,7 @@
   * [快速上手](zh-cn/guide/start?id=快速上手)
   * [使用组件](zh-cn/guide/start?id=引入-k-form-design)
   * [建议](zh-cn/guide/start?id=使用建议)
+  * [集成源码](zh-cn/guide/soundCode)
   * [定制主题](zh-cn/guide/customize-theme)
   * [兼容ie](zh-cn/vue-cli-ie)
 - 组件

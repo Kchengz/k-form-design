@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-02 20:39:54
+ * @LastEditTime: 2020-04-26 19:19:04
  -->
 <template>
   <a-form-model
@@ -159,7 +159,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .dynamic-delete-button {
   cursor: pointer;
   position: relative;
