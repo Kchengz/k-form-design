@@ -234,7 +234,8 @@ export default {
         "table"
       ]
     },
-    customModel: { // 自定义数据字段
+    customModel: {
+      // 自定义数据字段
       type: Boolean,
       default: true
     }

@@ -143,6 +143,32 @@ export default {
         }
       });
     },
+
+    // 批量设置某个option的值
+    setOptions(fields, optionName, value) {
+      fields = new Set(fields);
+      this.value.list.forEach(item => {
+        if (fields.has(item.model)) {
+          item.options[optionName] = value;
+        }
+      });
+    },
+    // 隐藏表单字段
+    hide(fields) {
+      this.setOptions(fields, "hidden", true);
+    },
+    // 显示表单字段
+    show(fields) {
+      this.setOptions(fields, "hidden", false);
+    },
+    // 禁用表单字段
+    disable(fields) {
+      this.setOptions(fields, "disabled", true);
+    },
+    // 启用表单字段
+    enable(fields) {
+      this.setOptions(fields, "disabled", false);
+    },
     handleChange(value, key) {
       // 触发change事件
       this.$emit("change", value, key);
