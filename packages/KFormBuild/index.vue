@@ -147,11 +147,36 @@ export default {
     // 批量设置某个option的值
     setOptions(fields, optionName, value) {
       fields = new Set(fields);
-      this.value.list.forEach(item => {
-        if (fields.has(item.model)) {
-          item.options[optionName] = value;
-        }
-      });
+
+      // 递归遍历控件树
+      const traverse = array => {
+        array.forEach(element => {
+          if (fields.has(element.model)) {
+            element.options[optionName] = value;
+          }
+          if (element.type === "grid") {
+            // 栅格布局
+            element.columns.forEach(item => {
+              traverse(item.list);
+            });
+          } else if (element.type === "card") {
+            // 卡片布局
+            traverse(element.list);
+          } else if (element.type === "batch") {
+            // 动态表格
+            traverse(element.list);
+          }
+          if (element.type === "table") {
+            // 表格布局
+            element.trs.forEach(item => {
+              item.tds.forEach(val => {
+                traverse(val.list);
+              });
+            });
+          }
+        });
+      };
+      traverse(this.value.list);
     },
     // 隐藏表单字段
     hide(fields) {
