@@ -280,8 +280,16 @@ export default {
       ]</td>
        <td>3.0.7</td>
       </tr>
+        <tr>
+        <td>hideModel</td>
+        <td>隐藏数据字段</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>3.5.1</td>
+      </tr>
     </tbody>
   </table>
+
 
 
 

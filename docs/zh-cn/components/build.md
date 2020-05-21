@@ -905,6 +905,7 @@ export default {
         <th>说明</th>
         <th>参数</th>
         <th>回调参数</th>
+           <th>版本</th>
       </tr>
     </thead>
     <tbody>
@@ -913,45 +914,53 @@ export default {
         <td>获取表单数据，返回Promise对象，判断验证是否通过</td>
         <td>-</td>
         <td>Promise</td>
+         <td></td>
       </tr>
       <tr>
         <td>setData</td>
         <td>插入表单数据</td>
         <td>json</td>
         <td>Promise</td>
+          <td></td>
       </tr>
       <tr>
         <td>reset</td>
         <td>重置表单</td>
         <td>-</td>
         <td>void</td>
+          <td></td>
       </tr>
       <tr>
         <td>hide</td>
         <td>隐藏字段</td>
-        <td>list</td>
+        <td>list[fields]</td>
         <td>void</td>
+          <td>3.5.1</td>
       </tr>
       <tr>
         <td>show</td>
         <td>显示字段</td>
-        <td>list</td>
+        <td>list[fields]</td>
         <td>void</td>
+          <td>3.5.1</td>
       </tr>
       <tr>
         <td>disable</td>
         <td>禁用字段</td>
-        <td>list</td>
+        <td>list[fields]</td>
         <td>void</td>
+          <td>3.5.1</td>
       </tr>
       <tr>
         <td>enable</td>
         <td>启用字段</td>
-        <td>list</td>
+        <td>list[fields]</td>
         <td>void</td>
+          <td>3.5.1</td>
       </tr>
     </tbody>
   </table>
+
 
 
 
