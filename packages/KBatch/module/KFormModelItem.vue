@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-12 23:30:54
+ * @LastEditTime: 2020-05-21 22:17:18
  -->
 <template>
   <a-form-model-item
@@ -208,6 +208,7 @@
       v-else-if="record.type === 'uploadFile'"
       :style="`width:${record.options.width}`"
       :parentDisabled="parentDisabled"
+      :dynamicData="dynamicData"
       :record="record"
       :value="value"
       @change="handleChange"
