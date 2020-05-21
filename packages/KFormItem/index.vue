@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-05 18:15:41
+ * @LastEditTime: 2020-05-21 20:14:39
  -->
 <template>
   <a-form-item
@@ -290,6 +290,7 @@
       v-else-if="record.type === 'uploadFile'"
       :style="`width:${record.options.width}`"
       :record="record"
+      :dynamicData="dynamicData"
       :parentDisabled="disabled"
       @change="handleChange($event, record.model)"
       v-decorator="[
@@ -507,7 +508,7 @@ export default {
     },
     dynamicData: {
       type: Object,
-      required: true
+      default: () => ({})
     },
     disabled: {
       type: Boolean,

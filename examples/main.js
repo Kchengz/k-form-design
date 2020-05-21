@@ -42,7 +42,9 @@ setFormDesignConfig({
     }
   ],
   uploadFile: "",
-  uploadImage: ""
+  uploadImage: "",
+  uploadFileData: { data: 1545 },
+  uploadImageData: { data: 1545 }
 });
 Vue.use(KFormDesign);
 Vue.use(KFormBuild);

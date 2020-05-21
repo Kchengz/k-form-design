@@ -283,6 +283,8 @@ export const basicsList = [
       disabled: false,
       hidden: false, // 是否隐藏，false显示，true隐藏
       drag: false,
+      downloadWay: "a",
+      dynamicFun: "",
       width: "100%",
       limit: 3,
       data: "{}",
