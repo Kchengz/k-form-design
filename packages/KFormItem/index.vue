@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-21 19:41:23
+ * @LastEditTime: 2020-05-21 19:43:35
  -->
 <template>
   <a-form-item
@@ -507,7 +507,7 @@ export default {
     },
     dynamicData: {
       type: Object,
-      required: true
+      default: () => ({})
     },
     disabled: {
       type: Boolean,
