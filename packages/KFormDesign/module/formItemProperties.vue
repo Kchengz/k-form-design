@@ -14,7 +14,7 @@
         </a-form-item>
 
         <a-form-item
-          v-if="customModel && typeof selectItem.model !== 'undefined'"
+          v-if="!hideModel && typeof selectItem.model !== 'undefined'"
           label="数据字段"
         >
           <a-input v-model="selectItem.model" placeholder="请输入" />
@@ -467,9 +467,9 @@ export default {
       type: Object,
       required: true
     },
-    customModel: {
+    hideModel: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   components: {

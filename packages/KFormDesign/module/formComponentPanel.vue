@@ -40,7 +40,7 @@
             :selectItem.sync="selectItem"
             :startType="startType"
             :insertAllowedType="insertAllowedType"
-            :customModel="customModel"
+            :hideModel="hideModel"
             @dragStart="dragStart"
             @handleSelectItem="handleSelectItem"
             @handleCopy="handleCopy"
@@ -121,9 +121,9 @@ export default {
       type: Object,
       default: () => {}
     },
-    customModel: {
+    hideModel: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   components: {

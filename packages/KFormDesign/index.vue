@@ -114,7 +114,7 @@
             :data="data"
             :selectItem="selectItem"
             :noModel="noModel"
-            :customModel="customModel"
+            :hideModel="hideModel"
             :startType="startType"
             ref="KFCP"
             @handleSetSelectItem="handleSetSelectItem"
@@ -137,7 +137,7 @@
             :class="{ 'show-properties': showPropertie }"
             class="form-item-properties"
             :selectItem="selectItem"
-            :customModel="customModel"
+            :hideModel="hideModel"
             @handleHide="showPropertie = false"
           />
         </aside>
@@ -234,9 +234,10 @@ export default {
         "table"
       ]
     },
-    customModel: { // 自定义数据字段
+    hideModel: {
+      // 隐藏数据字段
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {

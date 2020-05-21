@@ -270,7 +270,7 @@
         :selectItem.sync="selectItem"
         :record="record"
         :config="config"
-        :customModel="customModel"
+        :hideModel="hideModel"
         @handleSelectItem="handleSelectItem"
         @handleCopy="$emit('handleCopy')"
         @handleDetele="$emit('handleDetele')"
@@ -310,9 +310,9 @@ export default {
       type: Array,
       required: true
     },
-    customModel: {
+    hideModel: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   computed: {

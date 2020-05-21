@@ -1,7 +1,7 @@
 <!--
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
- * @LastEditTime: 2020-03-27 19:19:11
+ * @LastEditTime: 2020-05-21 19:37:08
  * @LastEditors: kcz
  * @Description: 将数据通过k-form-item组件解析，生成控件
  * @FilePath: \k-form-design\packages\KFormDesign\module\formNode.vue
@@ -15,7 +15,7 @@
     <div class="form-item-box">
       <kFormItem :config="config" :record="record" />
     </div>
-    <div v-if="customModel" class="show-key-box" v-text="record.model" />
+    <div v-if="!hideModel" class="show-key-box" v-text="record.model" />
     <div
       class="copy"
       :class="record.key === selectItem.key ? 'active' : 'unactivated'"
@@ -53,9 +53,9 @@ export default {
       type: Object,
       required: true
     },
-    customModel: {
+    hideModel: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   components: {
