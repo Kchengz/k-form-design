@@ -236,6 +236,23 @@
             <a-radio value="danger">Danger</a-radio>
           </a-radio-group>
         </a-form-item>
+        <!-- 下载方式 start -->
+        <a-form-item
+          v-if="typeof options.downloadWay !== 'undefined'"
+          label="下载方式"
+        >
+          <a-radio-group buttonStyle="solid" v-model="options.downloadWay">
+            <a-radio-button value="a">a标签</a-radio-button>
+            <a-radio-button value="ajax">ajax</a-radio-button>
+            <a-radio-button value="dynamic">动态函数</a-radio-button>
+          </a-radio-group>
+          <a-input
+            v-show="options.downloadWay === 'dynamic'"
+            v-model="options.dynamicFun"
+            placeholder="动态函数名"
+          ></a-input>
+        </a-form-item>
+        <!-- 下载方式 end -->
         <a-form-item v-if="selectItem.type === 'button'" label="按钮操作">
           <a-radio-group buttonStyle="solid" v-model="options.handle">
             <a-radio-button value="submit">提交</a-radio-button>

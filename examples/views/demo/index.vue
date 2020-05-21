@@ -1,6 +1,11 @@
 <template>
   <div>
-    <k-form-build :value="jsonData" ref="KFB" @submit="handleSubmit" />
+    <k-form-build
+      :value="jsonData"
+      :dynamicData="dynamicData"
+      ref="KFB"
+      @submit="handleSubmit"
+    />
     <button @click="getData">提交</button>
   </div>
 </template>
@@ -10,44 +15,37 @@ export default {
   data() {
     return {
       dynamicData: {
-        ff() {
-          alert(2342);
+        ff(file) {
+          console.log(file);
         }
       },
       jsonData: {
         list: [
           {
-            type: "input",
-            label: "输入框",
-            icon: "icon-write",
+            type: "uploadFile",
+            label: "上传文件",
             options: {
-              type: "text",
-              width: "100%",
               defaultValue: "",
-              placeholder: "请输入",
-              clearable: false,
-              maxLength: null,
-              disabled: false
+              multiple: false,
+              disabled: false,
+              hidden: false,
+              drag: false,
+              downloadWay: "dynamic",
+              dynamicFun: "ff",
+              width: "100%",
+              limit: 3,
+              data: "{}",
+              action: "http://cdn.kcz66.com/uploadFile.txt",
+              placeholder: "上传"
             },
-            model: "input_1588670842881",
-            key: "input_1588670842881",
+            model: "uploadFile_1590063525149",
+            key: "uploadFile_1590063525149",
             rules: [
               {
                 required: false,
                 message: "必填项"
               }
             ]
-          },
-          {
-            type: "button",
-            label: "按钮",
-            options: {
-              type: "primary",
-              handle: "dynamic",
-              dynamicFun: "ff",
-              disabled: false
-            },
-            key: "button_1588670829919"
           }
         ],
         config: {
@@ -90,9 +88,9 @@ export default {
   },
   mounted() {
     // setTimeout(() => {
-    this.$refs.KFB.setData({
-      input_1588670842881: 12.898
-    });
+    // this.$refs.KFB.setData({
+    //   input_1588670842881: 12.898
+    // });
     // }, 1000);
   }
 };
