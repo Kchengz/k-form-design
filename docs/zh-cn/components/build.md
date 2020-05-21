@@ -914,16 +914,40 @@ export default {
         <td>-</td>
         <td>Promise</td>
       </tr>
-        <tr>
+      <tr>
         <td>setData</td>
         <td>插入表单数据</td>
         <td>json</td>
         <td>Promise</td>
       </tr>
-         <tr>
+      <tr>
         <td>reset</td>
         <td>重置表单</td>
         <td>-</td>
+        <td>void</td>
+      </tr>
+      <tr>
+        <td>hide</td>
+        <td>隐藏字段</td>
+        <td>list</td>
+        <td>void</td>
+      </tr>
+      <tr>
+        <td>show</td>
+        <td>显示字段</td>
+        <td>list</td>
+        <td>void</td>
+      </tr>
+      <tr>
+        <td>disable</td>
+        <td>禁用字段</td>
+        <td>list</td>
+        <td>void</td>
+      </tr>
+      <tr>
+        <td>enable</td>
+        <td>启用字段</td>
+        <td>list</td>
         <td>void</td>
       </tr>
     </tbody>
