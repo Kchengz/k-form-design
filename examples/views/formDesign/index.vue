@@ -1,5 +1,5 @@
 <template>
   <div>
-    <k-form-design />
+    <k-form-design hideModel />
   </div>
 </template>

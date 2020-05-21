@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-21 21:21:41
+ * @LastEditTime: 2020-05-21 21:23:40
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -87,7 +87,7 @@ function setFormDesignConfig(config) {
   }
 }
 
-// 这里可以用es6的解构语法导入组件 大概就是这个意思 毕竟没有用插件
+// 这里可以用es6的解构语法导入组件
 export {
   KFormDesign,
   KFormBuild,
@@ -95,6 +95,8 @@ export {
   KFormPreview,
   setFormDesignConfig
 };
+
+// 这里默认导入全部组件
 export default {
   install,
   setConfig: setFormDesignConfig
