@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-17 22:20:24
+ * @LastEditTime: 2020-05-21 21:21:41
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -44,39 +44,6 @@ if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 
-// import { Alert } from "ant-design-vue";
-
-// // const UploadImg = () => import("../../UploadImg");
-// // 自定义组件
-// const customComponents = {
-//   title: "自定义组件",
-//   list: [
-//     {
-//       name: "测试",
-//       type: "jkjksdf",
-//       component: Alert,
-//       options: {
-//         multiple: false,
-//         disabled: false,
-//         width: "100%",
-//         data: "{}",
-//         limit: 3,
-//         placeholder: "上传",
-//         action: "",
-//         listType: "picture-card"
-//       },
-//       model: "",
-//       key: "",
-//       rules: [
-//         {
-//           required: false,
-//           message: "必填项"
-//         }
-//       ]
-//     }
-//   ]
-// };
-
 // /**
 //  * @Author: kcz
 //  * @description:
@@ -98,13 +65,24 @@ function setFormDesignConfig(config) {
   try {
     customComponents.title = config.title || "自义定组件";
     customComponents.list = config.list || [];
+    // 将自定义组件列表绑到window.$customComponentList上
     window.$customComponentList = config.list || [];
+
+    // 配置uploadFile默认上传地址
     basicsList[10].options.action =
       config.uploadFile || "http://cdn.kcz66.com/uploadFile.txt";
+
+    // 配置uploadFile默认额外参数
+    basicsList[10].options.data = JSON.stringify(config.uploadFileData || {});
+
+    // 配置uploadImage默认上传地址
     basicsList[11].options.action =
       config.uploadImage || "http://cdn.kcz66.com/upload-img.txt";
+    // 配置uploadImage默认额外参数
+    basicsList[11].options.data = JSON.stringify(config.uploadImageData || {});
     return true;
-  } catch {
+  } catch (err) {
+    console.error(err);
     return false;
   }
 }
