@@ -197,11 +197,11 @@ export default {
 </script>
 ```
 
-## 插入数据
+## 表单赋值数据
 
 ![1](assets/1-1585492231794.gif)
 
-> 使用setData函数获取数据
+> 使用setData函数设置一组输入控件的值
 
 ```html
 <template>
