@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-29 22:03:12
+ * @LastEditTime: 2020-05-31 13:21:17
  -->
 <template>
   <div
@@ -11,7 +11,8 @@
     class="upload-img-box-9136076486841527"
   >
     <a-upload
-      :name="record.model"
+      :name="record.options.fileName"
+      :headers="record.options.headers"
       :multiple="record.options.multiple"
       :listType="record.options.listType"
       :disabled="record.options.disabled || parentDisabled"

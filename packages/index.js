@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-21 21:23:40
+ * @LastEditTime: 2020-05-31 13:29:55
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -67,7 +67,7 @@ function setFormDesignConfig(config) {
     customComponents.list = config.list || [];
     // 将自定义组件列表绑到window.$customComponentList上
     window.$customComponentList = config.list || [];
-
+    // uploadFile 配置 start
     // 配置uploadFile默认上传地址
     basicsList[10].options.action =
       config.uploadFile || "http://cdn.kcz66.com/uploadFile.txt";
@@ -75,11 +75,24 @@ function setFormDesignConfig(config) {
     // 配置uploadFile默认额外参数
     basicsList[10].options.data = JSON.stringify(config.uploadFileData || {});
 
+    // 配置uploadFile默认name
+    basicsList[10].options.fileName = config.uploadFileName || "file";
+    // 配置uploadFile默认headers
+    basicsList[10].options.headers = config.uploadFileHeaders || {};
+    // uploadFile 配置 end
+
+    // uploadImage配置 start
     // 配置uploadImage默认上传地址
     basicsList[11].options.action =
       config.uploadImage || "http://cdn.kcz66.com/upload-img.txt";
     // 配置uploadImage默认额外参数
     basicsList[11].options.data = JSON.stringify(config.uploadImageData || {});
+    // 配置uploadFile默认name
+    basicsList[11].options.fileName = config.uploadImageName || "image";
+    // 配置uploadFile默认headers
+    basicsList[11].options.headers = config.uploadImageHeaders || {};
+    // uploadImage配置 end
+
     return true;
   } catch (err) {
     console.error(err);

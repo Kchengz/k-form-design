@@ -3,14 +3,15 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-21 20:16:56
+ * @LastEditTime: 2020-05-31 13:20:58
  -->
 <template>
   <div :style="{ width: record.options.width }">
     <a-upload
       :disabled="record.options.disabled || parentDisabled"
       v-if="!record.options.drag"
-      :name="record.model"
+      :name="record.options.fileName"
+      :headers="record.options.headers"
       :multiple="record.options.multiple"
       :data="optionsData"
       :fileList="fileList"
@@ -30,7 +31,8 @@
     <a-upload-dragger
       v-else
       :disabled="record.options.disabled || parentDisabled"
-      :name="record.model"
+      :name="record.options.fileName"
+      :headers="record.options.headers"
       :multiple="record.options.multiple"
       :fileList="fileList"
       :data="optionsData"

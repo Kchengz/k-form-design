@@ -312,6 +312,14 @@
         >
           <a-input v-model="options.action" placeholder="请输入"></a-input>
         </a-form-item>
+
+        <!-- 文件name -->
+        <a-form-item
+          v-if="typeof options.fileName !== 'undefined'"
+          label="文件name"
+        >
+          <a-input v-model="options.fileName" placeholder="请输入"></a-input>
+        </a-form-item>
         <!-- 上传额外参数 -->
         <a-form-item
           v-if="typeof options.data !== 'undefined'"
