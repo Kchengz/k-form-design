@@ -364,6 +364,7 @@ export default {
     handleOpenImportJsonModal() {
       // 打开json预览模态框
       this.$refs.importJsonModal.jsonData = this.data;
+      this.$refs.importJsonModal.handleSetSelectItem = this.handleSetSelectItem;
       this.$refs.importJsonModal.visible = true;
     },
     handlePreview() {
@@ -410,9 +411,12 @@ export default {
           return false;
         } else {
           this.data = data;
+          // 导入json数据后，需要清除已选择key
+          this.handleSetSelectItem({ key: "" });
         }
         return true;
-      } catch {
+      } catch (error) {
+        console.error(error);
         return false;
       }
     },

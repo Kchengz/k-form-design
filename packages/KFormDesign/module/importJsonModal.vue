@@ -42,7 +42,8 @@ export default {
     return {
       visible: false,
       jsonFormat,
-      jsonData: {}
+      jsonData: {},
+      handleSetSelectItem: null
     };
   },
   watch: {
@@ -84,8 +85,11 @@ export default {
         this.jsonData.config = editorJsonData.config;
         this.jsonData.config.layout = editorJsonData.config.layout;
         this.handleCancel();
+        // 导入之后，需要清除已选择key
+        this.handleSetSelectItem({ key: "" });
+
         this.$message.success("导入成功");
-      } catch {
+      } catch (error) {
         this.$message.error("导入失败，数据格式不对");
       }
     }
