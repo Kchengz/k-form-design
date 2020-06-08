@@ -2,7 +2,7 @@
   <div>
     <k-form-build
       :value="jsonData"
-      :dynamicData="dynamicData"
+      :config="config"
       ref="KFB"
       @submit="handleSubmit"
     />
@@ -14,251 +14,139 @@ export default {
   name: "Demo",
   data() {
     return {
-      dynamicData: {
-        ff(file) {
-          console.log(file);
-        }
+      config: {
+        uploadFile: "uploadFile",
+        uploadImage: "uploadImage",
+        uploadFileName: "uploadFileName",
+        uploadImageName: "uploadImageName",
+        uploadFileData: { uploadFileData: 1545 },
+        uploadImageData: { uploadImageData: 1545 },
+        uploadFileHeaders: { uploadFileHeaders: 1545 },
+        uploadImageHeaders: { uploadImageHeaders: 1545 }
       },
       jsonData: {
         list: [
           {
-            type: "card",
-            label: "卡片布局",
+            type: "batch",
+            label: "动态表格",
             list: [
               {
-                type: "input",
-                label: "输入框",
+                type: "uploadImg",
+                label: "上传图片",
+                icon: "icon-image",
                 options: {
-                  type: "text",
+                  defaultValue: "",
+                  multiple: false,
+                  hidden: false,
+                  disabled: false,
                   width: "100%",
-                  defaultValue: "",
-                  placeholder: "请输入",
-                  clearable: false,
-                  maxLength: null,
-                  hidden: false,
-                  disabled: false
+                  data: '{"data":1545}',
+                  limit: 3,
+                  placeholder: "上传",
+                  fileName: "image",
+                  headers: { data: 1545 },
+                  action: "http://cdn.kcz66.com/upload-img.txt",
+                  listType: "picture-card"
                 },
-                model: "input_1590069935921",
-                key: "input_1590069935921",
-                rules: [
-                  {
-                    required: false,
-                    message: "必填项"
-                  }
-                ]
+                model: "uploadImg_1591621665278",
+                key: "uploadImg_1591621665278",
+                rules: [{ required: false, message: "必填项" }]
               },
               {
-                type: "textarea",
-                label: "文本框",
-                icon: "icon-edit",
+                type: "uploadFile",
+                label: "上传文件",
+                icon: "icon-upload",
                 options: {
+                  defaultValue: "",
+                  multiple: false,
+                  disabled: false,
+                  hidden: false,
+                  drag: false,
+                  downloadWay: "a",
+                  dynamicFun: "",
                   width: "100%",
-                  minRows: 4,
-                  maxRows: 6,
-                  maxLength: null,
-                  defaultValue: "",
-                  clearable: false,
-                  hidden: false,
-                  disabled: false,
-                  placeholder: "请输入"
+                  limit: 3,
+                  data: '{"data":1545}',
+                  fileName: "file",
+                  headers: { data: 1545 },
+                  action: "http://cdn.kcz66.com/uploadFile.txt",
+                  placeholder: "上传"
                 },
-                model: "textarea_1590069938690",
-                key: "textarea_1590069938690",
-                rules: [
-                  {
-                    required: false,
-                    message: "必填项"
-                  }
-                ]
-              },
-              {
-                type: "radio",
-                label: "单选框",
-                icon: "icon-danxuan-cuxiantiao",
-                options: {
-                  disabled: false,
-                  hidden: false,
-                  defaultValue: "",
-                  dynamicKey: "",
-                  dynamic: false,
-                  options: [
-                    {
-                      value: "1",
-                      label: "选项1"
-                    },
-                    {
-                      value: "2",
-                      label: "选项2"
-                    },
-                    {
-                      value: "3",
-                      label: "选项3"
-                    }
-                  ]
-                },
-                model: "radio_1590069939106",
-                key: "radio_1590069939106",
-                rules: [
-                  {
-                    required: false,
-                    message: "必填项"
-                  }
-                ]
-              },
-              {
-                type: "checkbox",
-                label: "多选框",
-                icon: "icon-duoxuan1",
-                options: {
-                  disabled: false,
-                  hidden: false,
-                  defaultValue: [],
-                  dynamicKey: "",
-                  dynamic: false,
-                  options: [
-                    {
-                      value: "1",
-                      label: "选项1"
-                    },
-                    {
-                      value: "2",
-                      label: "选项2"
-                    },
-                    {
-                      value: "3",
-                      label: "选项3"
-                    }
-                  ]
-                },
-                model: "checkbox_1590069939586",
-                key: "checkbox_1590069939586",
-                rules: [
-                  {
-                    required: false,
-                    message: "必填项"
-                  }
-                ]
-              }
-            ],
-            key: "card_1590069934786"
-          },
-          {
-            type: "grid",
-            label: "栅格布局",
-            columns: [
-              {
-                span: 12,
-                list: [
-                  {
-                    type: "input",
-                    label: "输入框",
-                    icon: "icon-write",
-                    options: {
-                      type: "text",
-                      width: "100%",
-                      defaultValue: "",
-                      placeholder: "请输入",
-                      clearable: false,
-                      maxLength: null,
-                      hidden: false,
-                      disabled: false
-                    },
-                    model: "input_1590069950753",
-                    key: "input_1590069950753",
-                    rules: [
-                      {
-                        required: false,
-                        message: "必填项"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                span: 12,
-                list: []
+                model: "uploadFile_1591621663790",
+                key: "uploadFile_1591621663790",
+                rules: [{ required: false, message: "必填项" }]
               }
             ],
             options: {
-              gutter: 0
+              scrollY: 0,
+              disabled: false,
+              hidden: false,
+              showLabel: false,
+              hideSequence: false,
+              width: "100%"
             },
-            key: "grid_1590069947825"
+            model: "batch_1591621662327",
+            key: "batch_1591621662327"
           },
           {
-            type: "table",
-            label: "表格布局",
-            trs: [
+            type: "card",
+            label: "卡片布局",
+            icon: "icon-qiapian",
+            list: [
               {
-                tds: [
-                  {
-                    colspan: 1,
-                    rowspan: 1,
-                    list: [
-                      {
-                        type: "input",
-                        label: "输入框",
-                        icon: "icon-write",
-                        options: {
-                          type: "text",
-                          width: "100%",
-                          defaultValue: "",
-                          placeholder: "请输入",
-                          clearable: false,
-                          maxLength: null,
-                          hidden: false,
-                          disabled: false
-                        },
-                        model: "input_1590069942977",
-                        key: "input_1590069942977",
-                        rules: [
-                          {
-                            required: false,
-                            message: "必填项"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    colspan: 1,
-                    rowspan: 1,
-                    list: []
-                  }
-                ]
+                type: "uploadFile",
+                label: "上传文件",
+                icon: "icon-upload",
+                options: {
+                  defaultValue: "",
+                  multiple: false,
+                  disabled: false,
+                  hidden: false,
+                  drag: false,
+                  downloadWay: "a",
+                  dynamicFun: "",
+                  width: "100%",
+                  limit: 3,
+                  data: '{"data":1545}',
+                  fileName: "file",
+                  headers: { data: 1545 },
+                  action: "http://cdn.kcz66.com/uploadFile.txt",
+                  placeholder: "上传"
+                },
+                model: "uploadFile_1591621669174",
+                key: "uploadFile_1591621669174",
+                rules: [{ required: false, message: "必填项" }]
               },
               {
-                tds: [
-                  {
-                    colspan: 1,
-                    rowspan: 1,
-                    list: []
-                  },
-                  {
-                    colspan: 1,
-                    rowspan: 1,
-                    list: []
-                  }
-                ]
+                type: "uploadImg",
+                label: "上传图片",
+                icon: "icon-image",
+                options: {
+                  defaultValue: "",
+                  multiple: false,
+                  hidden: false,
+                  disabled: false,
+                  width: "100%",
+                  data: '{"data":1545}',
+                  limit: 3,
+                  placeholder: "上传",
+                  fileName: "image",
+                  headers: { data: 1545 },
+                  action: "http://cdn.kcz66.com/upload-img.txt",
+                  listType: "picture-card"
+                },
+                model: "uploadImg_1591621669574",
+                key: "uploadImg_1591621669574",
+                rules: [{ required: false, message: "必填项" }]
               }
             ],
-            options: {
-              width: "100%",
-              bordered: true,
-              bright: false,
-              small: true,
-              customStyle: ""
-            },
-            key: "table_1590069941265"
+            key: "card_1591621671063"
           }
         ],
         config: {
           layout: "horizontal",
-          labelCol: {
-            span: 4
-          },
-          wrapperCol: {
-            span: 18
-          },
+          labelCol: { span: 4 },
+          wrapperCol: { span: 18 },
           hideRequiredMark: false,
           customStyle: ""
         }
@@ -279,26 +167,15 @@ export default {
     },
     getData() {
       // 通过函数获取数据
-      this.$refs.KFB.hide([
-        "input_1590069942977",
-        "input_1590069935921",
-        "input_1590069950753"
-      ]);
-      // .then(res => {
-      //   // 获取数据成功
-      //   alert(JSON.stringify(res));
-      // })
-      // .catch(err => {
-      //   console.log(err, "校验失败");
-      // });
+      this.$refs.KFB.getData()
+        .then(res => {
+          // 获取数据成功
+          alert(JSON.stringify(res));
+        })
+        .catch(err => {
+          console.log(err, "校验失败");
+        });
     }
-  },
-  mounted() {
-    // setTimeout(() => {
-    // this.$refs.KFB.setData({
-    //   input_1588670842881: 12.898
-    // });
-    // }, 1000);
   }
 };
 </script>

@@ -3,19 +3,19 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-31 13:20:58
+ * @LastEditTime: 2020-06-08 21:05:10
  -->
 <template>
   <div :style="{ width: record.options.width }">
     <a-upload
-      :disabled="record.options.disabled || parentDisabled"
       v-if="!record.options.drag"
-      :name="record.options.fileName"
-      :headers="record.options.headers"
+      :disabled="record.options.disabled || parentDisabled"
+      :name="config.uploadFileName || record.options.fileName"
+      :headers="config.uploadFileHeaders || record.options.headers"
+      :data="config.uploadFileData || optionsData"
+      :action="config.uploadFile || record.options.action"
       :multiple="record.options.multiple"
-      :data="optionsData"
       :fileList="fileList"
-      :action="record.options.action"
       @preview="handlePreview"
       @change="handleChange"
       :remove="remove"
@@ -31,12 +31,12 @@
     <a-upload-dragger
       v-else
       :disabled="record.options.disabled || parentDisabled"
-      :name="record.options.fileName"
-      :headers="record.options.headers"
+      :name="config.uploadFileName || record.options.fileName"
+      :headers="config.uploadFileHeaders || record.options.headers"
+      :data="config.uploadFileData || optionsData"
+      :action="config.uploadFile || record.options.action"
       :multiple="record.options.multiple"
       :fileList="fileList"
-      :data="optionsData"
-      :action="record.options.action"
       @preview="handlePreview"
       @change="handleChange"
       :remove="remove"
@@ -58,7 +58,7 @@
 export default {
   name: "KUploadFile",
   // eslint-disable-next-line vue/require-prop-types
-  props: ["record", "value", "parentDisabled", "dynamicData"],
+  props: ["record", "value", "config", "parentDisabled", "dynamicData"],
   data() {
     return {
       fileList: []

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-06-08 20:25:37
+ * @LastEditTime: 2020-06-08 20:56:55
  -->
 <template>
   <a-form-item
@@ -278,6 +278,7 @@
       :style="`width:${record.options.width}`"
       :parentDisabled="disabled"
       :record="record"
+      :config="config"
       @change="handleChange($event, record.model)"
       v-decorator="[
         record.model,
@@ -292,6 +293,7 @@
       v-else-if="record.type === 'uploadFile'"
       :style="`width:${record.options.width}`"
       :record="record"
+      :config="config"
       :dynamicData="dynamicData"
       :parentDisabled="disabled"
       @change="handleChange($event, record.model)"
@@ -375,6 +377,7 @@
       ref="KBatch"
       :style="`width:${record.options.width}`"
       :record="record"
+      :config="config"
       :parentDisabled="disabled"
       :dynamicData="dynamicData"
       @change="handleChange($event, record.model)"
@@ -508,6 +511,10 @@ export default {
       type: Object,
       required: true
     },
+    config: {
+      type: Object,
+      default: () => ({})
+    },
     dynamicData: {
       type: Object,
       default: () => ({})
@@ -545,6 +552,9 @@ export default {
       // change事件
       this.$emit("change", value, key);
     }
+  },
+  mounted() {
+    console.log(this.config);
   }
 };
 </script>

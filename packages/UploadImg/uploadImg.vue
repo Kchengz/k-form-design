@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-31 13:21:17
+ * @LastEditTime: 2020-06-08 21:05:39
  -->
 <template>
   <div
@@ -11,14 +11,14 @@
     class="upload-img-box-9136076486841527"
   >
     <a-upload
-      :name="record.options.fileName"
-      :headers="record.options.headers"
+      :name="config.uploadImageName || record.options.fileName"
+      :headers="config.uploadImageHeaders || record.options.headers"
+      :data="config.uploadImageData || optionsData"
+      :action="config.uploadImage || record.options.action"
       :multiple="record.options.multiple"
       :listType="record.options.listType"
       :disabled="record.options.disabled || parentDisabled"
-      :data="optionsData"
       :fileList="fileList"
-      :action="record.options.action"
       accept="image/gif, image/jpeg, image/png"
       @change="handleChange"
       @preview="handlePreview"
@@ -59,7 +59,7 @@
 export default {
   name: "KUploadImg",
   // eslint-disable-next-line vue/require-prop-types
-  props: ["record", "value", "parentDisabled"],
+  props: ["record", "value", "config", "parentDisabled"],
   data() {
     return {
       fileList: [],

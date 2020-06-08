@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-26 19:19:04
+ * @LastEditTime: 2020-06-08 20:45:45
  -->
 <template>
   <a-form-model
@@ -34,6 +34,7 @@
         <KFormModelItem
           :key="item.key + '1'"
           :record="item"
+          :config="config"
           :parentDisabled="disabled"
           :index="index"
           :domains="dynamicValidateForm.domains"
@@ -61,7 +62,7 @@
 import KFormModelItem from "./module/KFormModelItem";
 export default {
   name: "KBatch",
-  props: ["record", "value", "dynamicData", "parentDisabled"],
+  props: ["record", "value", "dynamicData", "config", "parentDisabled"],
 
   components: {
     KFormModelItem

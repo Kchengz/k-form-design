@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-21 22:17:18
+ * @LastEditTime: 2020-06-08 20:46:36
  -->
 <template>
   <a-form-model-item
@@ -200,6 +200,7 @@
       :style="`width:${record.options.width}`"
       :parentDisabled="parentDisabled"
       :record="record"
+      :config="config"
       :value="value"
       @change="handleChange"
     />
@@ -209,6 +210,7 @@
       :style="`width:${record.options.width}`"
       :parentDisabled="parentDisabled"
       :dynamicData="dynamicData"
+      :config="config"
       :record="record"
       :value="value"
       @change="handleChange"
@@ -290,7 +292,8 @@ export default {
     "index",
     "value",
     "parentDisabled",
-    "dynamicData"
+    "dynamicData",
+    "config"
   ],
   components: {
     UploadImg,
