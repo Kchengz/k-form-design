@@ -1,7 +1,7 @@
 <!--
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
- * @LastEditTime: 2020-05-21 19:37:08
+ * @LastEditTime: 2020-06-08 20:27:55
  * @LastEditors: kcz
  * @Description: 将数据通过k-form-item组件解析，生成控件
  * @FilePath: \k-form-design\packages\KFormDesign\module\formNode.vue
@@ -13,7 +13,7 @@
     :class="{ active: record.key === selectItem.key }"
   >
     <div class="form-item-box">
-      <kFormItem :config="config" :record="record" />
+      <kFormItem :formConfig="config" :record="record" />
     </div>
     <div v-if="!hideModel" class="show-key-box" v-text="record.model" />
     <div

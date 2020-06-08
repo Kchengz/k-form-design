@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-21 20:14:39
+ * @LastEditTime: 2020-06-08 20:25:37
  -->
 <template>
   <a-form-item
@@ -28,8 +28,10 @@
         ].includes(record.type)
     "
     :label="record.label"
-    :label-col="config.layout === 'horizontal' ? config.labelCol : {}"
-    :wrapper-col="config.layout === 'horizontal' ? config.wrapperCol : {}"
+    :label-col="formConfig.layout === 'horizontal' ? formConfig.labelCol : {}"
+    :wrapper-col="
+      formConfig.layout === 'horizontal' ? formConfig.wrapperCol : {}
+    "
   >
     <!-- 单行文本 -->
     <a-input
@@ -357,13 +359,13 @@
     v-else-if="record.type === 'batch' || record.type === 'editor'"
     :label="!record.options.showLabel ? '' : record.label"
     :label-col="
-      config.layout === 'horizontal' && record.options.showLabel
-        ? config.labelCol
+      formConfig.layout === 'horizontal' && record.options.showLabel
+        ? formConfig.labelCol
         : {}
     "
     :wrapper-col="
-      config.layout === 'horizontal' && record.options.showLabel
-        ? config.wrapperCol
+      formConfig.layout === 'horizontal' && record.options.showLabel
+        ? formConfig.wrapperCol
         : {}
     "
   >
@@ -406,8 +408,8 @@
   <a-form-item
     v-else-if="record.type === 'button'"
     :wrapper-col="
-      config.layout === 'horizontal'
-        ? { ...config.wrapperCol, offset: config.labelCol.span }
+      formConfig.layout === 'horizontal'
+        ? { ...formConfig.wrapperCol, offset: formConfig.labelCol.span }
         : {}
     "
   >
@@ -459,7 +461,7 @@
     :disabled="disabled"
     :dynamicData="dynamicData"
     @change="handleChange($event, record.model)"
-    :config="config"
+    :formConfig="formConfig"
   />
 
   <div v-else>
@@ -502,7 +504,7 @@ export default {
       required: true
     },
     // form-item 宽度配置
-    config: {
+    formConfig: {
       type: Object,
       required: true
     },

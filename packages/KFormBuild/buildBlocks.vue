@@ -20,7 +20,7 @@
         :dynamicData="dynamicData"
         :key="item.key"
         :record="item"
-        :config="config"
+        :formConfig="formConfig"
       />
     </a-col>
   </a-row>
@@ -39,7 +39,7 @@
       :dynamicData="dynamicData"
       :key="item.key"
       :record="item"
-      :config="config"
+      :formConfig="formConfig"
     />
   </a-card>
   <!-- 表格布局 -->
@@ -70,7 +70,7 @@
           :dynamicData="dynamicData"
           :key="item.key"
           :record="item"
-          :config="config"
+          :formConfig="formConfig"
         />
       </td>
     </tr>
@@ -85,7 +85,7 @@
     :dynamicData="dynamicData"
     :key="record.key"
     :record="record"
-    :config="config"
+    :formConfig="formConfig"
   />
 </template>
 <script>
@@ -101,7 +101,7 @@ export default {
       type: Object,
       required: true
     },
-    config: {
+    formConfig: {
       type: Object,
       required: true
     },

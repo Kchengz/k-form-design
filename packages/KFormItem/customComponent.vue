@@ -1,8 +1,10 @@
 <template>
   <a-form-item
     :label="record.label"
-    :label-col="config.layout === 'horizontal' ? config.labelCol : {}"
-    :wrapper-col="config.layout === 'horizontal' ? config.wrapperCol : {}"
+    :label-col="formConfig.layout === 'horizontal' ? formConfig.labelCol : {}"
+    :wrapper-col="
+      formConfig.layout === 'horizontal' ? formConfig.wrapperCol : {}
+    "
   >
     <component
       :record="record"
@@ -29,7 +31,7 @@
 <script>
 export default {
   name: "customComponent",
-  props: ["record", "config", "disabled", "dynamicData"],
+  props: ["record", "formConfig", "disabled", "dynamicData"],
   computed: {
     customComponent() {
       // 计算需要显示的组件
