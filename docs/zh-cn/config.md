@@ -4,14 +4,14 @@
 import KFormDesign from 'k-form-design'
 
 KFormDesign.setConfig({
-  uploadFile: "", // 上传文件地址
-  uploadImage: "", // 上传图片地址
-  uploadFileName: "", // 上传文件name
-  uploadImageName: "", // 上传图片name
-  uploadFileData: { data: 223 }, // 上传文件额外参数
-  uploadImageData: { data: 223 } // 上传图片额外参数
-  uploadFileHeaders: { data: 1545 }, // 上传文件请求头部
-  uploadImageHeaders: { data: 1545 } // 上传图片请求头部
+ uploadFile: "", // 上传文件地址
+ uploadImage: "", // 上传图片地址
+ uploadFileName: "", // 上传文件name
+ uploadImageName: "", // 上传图片name
+ uploadFileData: { data: 223 }, // 上传文件额外参数
+ uploadImageData: { data: 223 }, // 上传图片额外参数
+ uploadFileHeaders: { data: 1545 }, // 上传文件请求头部
+ uploadImageHeaders: { data: 1545 } // 上传图片请求头部
 })
 ```
 
@@ -21,14 +21,14 @@ KFormDesign.setConfig({
 import { setFormDesignConfig } from 'k-form-design'
 
 setFormDesignConfig({
-  uploadFile: "", // 上传文件地址
-  uploadImage: "", // 上传图片地址
-  uploadFileName: "", // 上传文件name
-  uploadImageName: "", // 上传图片name
-  uploadFileData: { data: 223 }, // 上传文件额外参数
-  uploadImageData: { data: 223 } // 上传图片额外参数
-  uploadFileHeaders: { data: 1545 }, // 上传文件请求头部
-  uploadImageHeaders: { data: 1545 } // 上传图片请求头部
+ uploadFile: "", // 上传文件地址
+ uploadImage: "", // 上传图片地址
+ uploadFileName: "", // 上传文件name
+ uploadImageName: "", // 上传图片name
+ uploadFileData: { data: 223 }, // 上传文件额外参数
+ uploadImageData: { data: 223 }, // 上传图片额外参数
+ uploadFileHeaders: { data: 1545 }, // 上传文件请求头部
+ uploadImageHeaders: { data: 1545 } // 上传图片请求头部
 })
 ```
 ## 文件上传响应数据

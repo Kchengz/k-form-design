@@ -2,8 +2,8 @@
   <div>
     <k-form-build
       :value="jsonData"
-      :config="config"
       ref="KFB"
+      :config="config"
       @submit="handleSubmit"
     />
     <button @click="getData">提交</button>
@@ -15,132 +15,61 @@ export default {
   data() {
     return {
       config: {
-        uploadFile: "uploadFile",
-        uploadImage: "uploadImage",
-        uploadFileName: "uploadFileName",
-        uploadImageName: "uploadImageName",
-        uploadFileData: { uploadFileData: 1545 },
-        uploadImageData: { uploadImageData: 1545 },
-        uploadFileHeaders: { uploadFileHeaders: 1545 },
-        uploadImageHeaders: { uploadImageHeaders: 1545 }
+        uploadFile: "", // 上传文件地址
+        uploadImage: "", // 上传图片地址
+        uploadFileName: "", // 上传文件name
+        uploadImageName: "", // 上传图片name
+        uploadFileData: { data: 223 }, // 上传文件额外参数
+        uploadImageData: { data: 223 }, // 上传图片额外参数
+        uploadFileHeaders: { data: 1545 }, // 上传文件请求头部
+        uploadImageHeaders: { data: 1545 } // 上传图片请求头部
       },
       jsonData: {
         list: [
           {
-            type: "batch",
-            label: "动态表格",
-            list: [
-              {
-                type: "uploadImg",
-                label: "上传图片",
-                icon: "icon-image",
-                options: {
-                  defaultValue: "",
-                  multiple: false,
-                  hidden: false,
-                  disabled: false,
-                  width: "100%",
-                  data: '{"data":1545}',
-                  limit: 3,
-                  placeholder: "上传",
-                  fileName: "image",
-                  headers: { data: 1545 },
-                  action: "http://cdn.kcz66.com/upload-img.txt",
-                  listType: "picture-card"
-                },
-                model: "uploadImg_1591621665278",
-                key: "uploadImg_1591621665278",
-                rules: [{ required: false, message: "必填项" }]
-              },
-              {
-                type: "uploadFile",
-                label: "上传文件",
-                icon: "icon-upload",
-                options: {
-                  defaultValue: "",
-                  multiple: false,
-                  disabled: false,
-                  hidden: false,
-                  drag: false,
-                  downloadWay: "a",
-                  dynamicFun: "",
-                  width: "100%",
-                  limit: 3,
-                  data: '{"data":1545}',
-                  fileName: "file",
-                  headers: { data: 1545 },
-                  action: "http://cdn.kcz66.com/uploadFile.txt",
-                  placeholder: "上传"
-                },
-                model: "uploadFile_1591621663790",
-                key: "uploadFile_1591621663790",
-                rules: [{ required: false, message: "必填项" }]
-              }
-            ],
+            type: "uploadFile",
+            label: "上传文件",
             options: {
-              scrollY: 0,
+              defaultValue: "",
+              multiple: false,
               disabled: false,
               hidden: false,
-              showLabel: false,
-              hideSequence: false,
-              width: "100%"
+              drag: false,
+              downloadWay: "a",
+              dynamicFun: "",
+              width: "100%",
+              limit: 3,
+              data: "{}",
+              fileName: "file",
+              headers: {},
+              action: "http://cdn.kcz66.com/uploadFile.txt",
+              placeholder: "上传"
             },
-            model: "batch_1591621662327",
-            key: "batch_1591621662327"
+            model: "uploadFile_1591622045312",
+            key: "uploadFile_1591622045312",
+            rules: [{ required: false, message: "必填项" }]
           },
           {
-            type: "card",
-            label: "卡片布局",
-            icon: "icon-qiapian",
-            list: [
-              {
-                type: "uploadFile",
-                label: "上传文件",
-                icon: "icon-upload",
-                options: {
-                  defaultValue: "",
-                  multiple: false,
-                  disabled: false,
-                  hidden: false,
-                  drag: false,
-                  downloadWay: "a",
-                  dynamicFun: "",
-                  width: "100%",
-                  limit: 3,
-                  data: '{"data":1545}',
-                  fileName: "file",
-                  headers: { data: 1545 },
-                  action: "http://cdn.kcz66.com/uploadFile.txt",
-                  placeholder: "上传"
-                },
-                model: "uploadFile_1591621669174",
-                key: "uploadFile_1591621669174",
-                rules: [{ required: false, message: "必填项" }]
-              },
-              {
-                type: "uploadImg",
-                label: "上传图片",
-                icon: "icon-image",
-                options: {
-                  defaultValue: "",
-                  multiple: false,
-                  hidden: false,
-                  disabled: false,
-                  width: "100%",
-                  data: '{"data":1545}',
-                  limit: 3,
-                  placeholder: "上传",
-                  fileName: "image",
-                  headers: { data: 1545 },
-                  action: "http://cdn.kcz66.com/upload-img.txt",
-                  listType: "picture-card"
-                },
-                model: "uploadImg_1591621669574",
-                key: "uploadImg_1591621669574",
-                rules: [{ required: false, message: "必填项" }]
-              }
-            ],
-            key: "card_1591621671063"
+            type: "uploadImg",
+            label: "上传图片",
+            icon: "icon-image",
+            options: {
+              defaultValue: "",
+              multiple: false,
+              hidden: false,
+              disabled: false,
+              width: "100%",
+              data: "{}",
+              limit: 3,
+              placeholder: "上传",
+              fileName: "image",
+              headers: {},
+              action: "http://cdn.kcz66.com/upload-img.txt",
+              listType: "picture-card"
+            },
+            model: "uploadImg_1591622045790",
+            key: "uploadImg_1591622045790",
+            rules: [{ required: false, message: "必填项" }]
           }
         ],
         config: {
