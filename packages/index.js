@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-05-31 13:29:55
+ * @LastEditTime: 2020-06-08 20:33:07
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -11,6 +11,8 @@ import "@babel/polyfill";
 import "./core/components_use";
 // import "ant-design-vue/dist/antd.less";
 
+// 解决Chrome控制台non-passive event listener输出问题
+import "default-passive-events";
 // 导入样式
 import "../styles/form-design.less";
 
