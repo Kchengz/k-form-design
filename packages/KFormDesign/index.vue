@@ -375,14 +375,18 @@ export default {
     },
     handleReset() {
       // 清空
-      try {
-        this.data.list = [];
-        this.handleSetSelectItem({ key: "" });
-        this.$message.success("已清空");
-        return true;
-      } catch {
-        return false;
-      }
+      this.$confirm({
+        title: "警告",
+        content: "是否确认清空内容?",
+        okText: "是",
+        okType: "danger",
+        cancelText: "否",
+        onOk: () => {
+          this.data.list = [];
+          this.handleSetSelectItem({ key: "" });
+          this.$message.success("已清空");
+        }
+      });
     },
     handleSetSelectItem(record) {
       // 操作间隔不能低于100毫秒

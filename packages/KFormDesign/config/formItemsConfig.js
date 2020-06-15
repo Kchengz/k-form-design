@@ -278,7 +278,7 @@ export const basicsList = [
     label: "上传文件", // 标题文字
     icon: "icon-upload",
     options: {
-      defaultValue: [],
+      defaultValue: "[]",
       multiple: false,
       disabled: false,
       hidden: false, // 是否隐藏，false显示，true隐藏
@@ -307,7 +307,7 @@ export const basicsList = [
     label: "上传图片",
     icon: "icon-image",
     options: {
-      defaultValue: [],
+      defaultValue: "[]",
       multiple: false,
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false,
