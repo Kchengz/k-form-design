@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2020-06-08 21:05:10
+ * @LastEditTime: 2020-06-15 21:46:02
  -->
 <template>
   <div :style="{ width: record.options.width }">
