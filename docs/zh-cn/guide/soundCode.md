@@ -23,15 +23,12 @@
 
 ```
 
-
-
 ### 3. 设置项目中k-from-design需要的依赖
 
 > 这是k-from-design需要的依赖，将下面的依赖与自己的项目对比，如果全部都有就不需要此步骤。
 
 ```json
   "dependencies": {
-    "babel-plugin-import": "^1.13.0",
     "babel-polyfill": "^6.26.0",
     "clipboard": "^2.0.6",
     "core-js": "^2.6.5",
@@ -80,27 +77,7 @@ module.exports={
 }
 ```
 
-
-
-### 5. 配置项目中k-from-design的less全局变量
-
-> 修改`babel.config.js`文件，配置 babel-plugin-import
-
-```js
- module.exports = {
-  presets: ["@vue/app"],
-+  plugins: [
-+    [
-+      "import",
-+      { libraryName: "ant-design-vue", libraryDirectory: "es", style: true }
-+    ]
-+  ]
-};
-```
-
-
-
-### 6. 注册全局组件
+### 5. 注册全局组件
 
 > 在main.js中注册组件，代码如下：
 
