@@ -9,7 +9,7 @@
 import "@babel/polyfill";
 
 // 解决Chrome控制台non-passive event listener输出问题
-import "default-passive-events";
+// import "default-passive-events";
 // 导入样式
 import "../styles/form-design.less";
 
