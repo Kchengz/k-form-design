@@ -553,9 +553,7 @@ export default {
       this.$emit("change", value, key);
     }
   },
-  mounted() {
-    console.log(this.config);
-  }
+  // mounted() {}
 };
 </script>
 <style lang="less" scoped>
