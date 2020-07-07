@@ -50,7 +50,7 @@
             initialValue: record.options.defaultValue, // 默认值
             rules: record.rules // 验证规则
           },
-          record.transform
+          record.options.upperCase
             ? { getValueFromEvent: e => e.target.value.toUpperCase() }
             : {}
         )
