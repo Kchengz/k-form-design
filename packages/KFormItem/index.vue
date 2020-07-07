@@ -45,10 +45,15 @@
       @change="handleChange($event.target.value, record.model)"
       v-decorator="[
         record.model, // input 的 name
-        {
-          initialValue: record.options.defaultValue, // 默认值
-          rules: record.rules // 验证规则
-        }
+        Object.assign(
+          {
+            initialValue: record.options.defaultValue, // 默认值
+            rules: record.rules // 验证规则
+          },
+          record.transform
+            ? { getValueFromEvent: e => e.target.value.toUpperCase() }
+            : {}
+        )
       ]"
     />
     <!-- 多行文本 -->
@@ -552,7 +557,7 @@ export default {
       // change事件
       this.$emit("change", value, key);
     }
-  },
+  }
   // mounted() {}
 };
 </script>
