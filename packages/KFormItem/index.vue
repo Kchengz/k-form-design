@@ -209,7 +209,9 @@
         !record.options.dynamic
           ? record.options.options
           : dynamicData[record.options.dynamicKey]
-          ? dynamicData[record.options.dynamicKey]
+          ? record.options.dynamicFilter
+            ? buildFilterSelectOptions()
+            : dynamicData[record.options.dynamicKey]
           : []
       "
       :disabled="disabled || record.options.disabled"
@@ -548,6 +550,20 @@ export default {
     }
   },
   methods: {
+    buildFilterSelectOptions() {
+      const data = this.dynamicData[this.record.options.dynamicKey]
+      if(this.record.options.dynamicFilterValue) {
+        return data[this.record.options.dynamicFilterValue]
+      } else {
+        const form = this.findForm(this)
+        const value = form.getFieldValue(this.record.options.dynamicFilterKey);
+        if(value){
+          return data[value]
+        } else {
+          return []
+        }
+      }
+    },
     validationSubform() {
       // 验证动态表格
       if (!this.$refs.KBatch) return true;
@@ -556,6 +572,14 @@ export default {
     handleChange(value, key) {
       // change事件
       this.$emit("change", value, key);
+    },
+    findForm(node) {
+      if (node.getFieldValue) {
+        return node;
+      }
+      if (node.$parent) {
+        return this.findForm(node.$parent);
+      }
     }
   }
   // mounted() {}

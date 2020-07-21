@@ -84,6 +84,10 @@ export default {
       // 重置表单
       this.form.resetFields();
     },
+    getFieldValue(fieldName) {
+      const value = this.form.getFieldValue(fieldName);
+      return value;
+    },
     getData() {
       // 提交函数，提供父级组件调用
       return new Promise((resolve, reject) => {
