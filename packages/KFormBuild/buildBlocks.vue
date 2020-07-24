@@ -15,6 +15,7 @@
         ref="nestedComponents"
         @handleReset="$emit('handleReset')"
         @change="handleChange"
+        v-bind="$attrs"
         v-for="item in colItem.list"
         :disabled="disabled"
         :dynamicData="dynamicData"
@@ -35,6 +36,7 @@
       ref="nestedComponents"
       @handleReset="$emit('handleReset')"
       @change="handleChange"
+      v-bind="$attrs"
       v-for="item in record.list"
       :disabled="disabled"
       :dynamicData="dynamicData"
@@ -67,6 +69,7 @@
           ref="nestedComponents"
           @handleReset="$emit('handleReset')"
           @change="handleChange"
+          v-bind="$attrs"
           v-for="item in tdItem.list"
           :disabled="disabled"
           :dynamicData="dynamicData"
@@ -80,16 +83,17 @@
   </table>
 
   <KFormItem
-    ref="nestedComponents"
-    @handleReset="$emit('handleReset')"
-    @change="handleChange"
     v-else
+    ref="nestedComponents"
+    v-bind="$attrs"
     :disabled="disabled"
     :dynamicData="dynamicData"
     :key="record.key"
     :record="record"
     :formConfig="formConfig"
     :config="config"
+    @handleReset="$emit('handleReset')"
+    @change="handleChange"
   />
 </template>
 <script>
@@ -100,6 +104,7 @@
 import KFormItem from "../KFormItem/index";
 export default {
   name: "buildBlocks",
+  inheritAttrs: false,
   props: {
     record: {
       type: Object,
@@ -125,6 +130,7 @@ export default {
   components: {
     KFormItem
   },
+  mounted() {},
   methods: {
     validationSubform() {
       // 验证动态表格

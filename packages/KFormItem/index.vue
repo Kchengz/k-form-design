@@ -467,6 +467,7 @@
   <!-- 自定义组件 -->
   <customComponent
     v-else-if="customList.includes(record.type)"
+    v-bind="$attrs"
     :record="record"
     :disabled="disabled"
     :dynamicData="dynamicData"
@@ -507,6 +508,7 @@ import KDatePicker from "../KDatePicker";
 import KTimePicker from "../KTimePicker";
 export default {
   name: "KFormItem",
+  inheritAttrs: false,
   props: {
     // 表单数组
     record: {
@@ -549,18 +551,19 @@ export default {
       }
     }
   },
+  mounted() {},
   methods: {
     buildFilterSelectOptions() {
-      const data = this.dynamicData[this.record.options.dynamicKey]
-      if(this.record.options.dynamicFilterValue) {
-        return data[this.record.options.dynamicFilterValue]
+      const data = this.dynamicData[this.record.options.dynamicKey];
+      if (this.record.options.dynamicFilterValue) {
+        return data[this.record.options.dynamicFilterValue];
       } else {
-        const form = this.findForm(this)
+        const form = this.findForm(this);
         const value = form.getFieldValue(this.record.options.dynamicFilterKey);
-        if(value){
-          return data[value]
+        if (value) {
+          return data[value];
         } else {
-          return []
+          return [];
         }
       }
     },

@@ -9,6 +9,7 @@
     <component
       :record="record"
       :style="`width:${record.options.width}`"
+      v-bind="$attrs"
       @change="handleChange"
       :disabled="disabled"
       :dynamicData="dynamicData"
@@ -31,6 +32,7 @@
 <script>
 export default {
   name: "customComponent",
+  inheritAttrs: false,
   props: ["record", "formConfig", "disabled", "dynamicData"],
   computed: {
     customComponent() {
@@ -45,6 +47,7 @@ export default {
       return customComponentList[this.record.type];
     }
   },
+  mounted() {},
   methods: {
     handleChange(value, key) {
       this.$emit("change", value, key);

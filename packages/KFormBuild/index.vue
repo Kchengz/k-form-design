@@ -21,6 +21,7 @@
         :disabled="disabled"
         :formConfig="value.config"
         :key="index"
+        :resetStatus="resetStatus"
         @change="handleChange"
       />
     </a-form>
@@ -40,10 +41,10 @@ export default {
   data() {
     return {
       locale: zhCN,
-      form: this.$form.createForm(this)
+      form: this.$form.createForm(this),
+      resetStatus: false
     };
   },
-  // props: ["value", "dynamicData"],
   props: {
     value: {
       type: Object,
@@ -83,6 +84,13 @@ export default {
     reset() {
       // 重置表单
       this.form.resetFields();
+      this.resetStatus = true;
+      this.$nextTick(() => {
+        const timer = setTimeout(() => {
+          this.resetStatus = false;
+          clearTimeout(timer);
+        }, 1000);
+      });
     },
     getFieldValue(fieldName) {
       const value = this.form.getFieldValue(fieldName);
