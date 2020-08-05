@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-13 10:50:49
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-11 15:58:34
+ * @LastEditTime: 2020-07-09 22:19:53
  -->
 <template>
   <div>
@@ -31,15 +31,9 @@ export default {
   // },
   methods: {
     handleChange(e) {
-      console.log(e.target.value);
       // 使用 onChange 事件修改值
       this.$emit("change", e.target.value);
     }
-  },
-  mounted() {
-    // 打印接收的options
-    console.log(this.record);
-    console.log(this.dynamicData);
   }
 };
 </script>

@@ -1,11 +1,6 @@
 <template>
   <div>
-    <k-form-build
-      :value="jsonData"
-      ref="KFB"
-      :config="config"
-      @submit="handleSubmit"
-    />
+    <k-form-build :value="jsonData" ref="KFB" @submit="handleSubmit" />
     <button @click="getData">提交</button>
   </div>
 </template>
@@ -14,61 +9,65 @@ export default {
   name: "Demo",
   data() {
     return {
-      config: {
-        uploadFile: "", // 上传文件地址
-        uploadImage: "", // 上传图片地址
-        uploadFileName: "", // 上传文件name
-        uploadImageName: "", // 上传图片name
-        uploadFileData: { data: 223 }, // 上传文件额外参数
-        uploadImageData: { data: 223 }, // 上传图片额外参数
-        uploadFileHeaders: { data: 1545 }, // 上传文件请求头部
-        uploadImageHeaders: { data: 1545 } // 上传图片请求头部
-      },
       jsonData: {
         list: [
           {
-            type: "uploadFile",
-            label: "上传文件",
+            type: "input",
+            label: "输入框",
             options: {
-              defaultValue: "",
-              multiple: false,
-              disabled: false,
-              hidden: false,
-              drag: false,
-              downloadWay: "a",
-              dynamicFun: "",
+              type: "text",
               width: "100%",
-              limit: 3,
-              data: "{}",
-              fileName: "file",
-              headers: {},
-              action: "http://cdn.kcz66.com/uploadFile.txt",
-              placeholder: "上传"
+              defaultValue: "",
+              placeholder: "请输入",
+              clearable: false,
+              maxLength: null,
+              hidden: false,
+              disabled: false
             },
-            model: "uploadFile_1591622045312",
-            key: "uploadFile_1591622045312",
+            model: "input_1594301138054",
+            key: "input_1594301138054",
             rules: [{ required: false, message: "必填项" }]
           },
           {
-            type: "uploadImg",
-            label: "上传图片",
-            icon: "icon-image",
+            type: "textarea",
+            label: "文本框",
+            icon: "icon-edit",
             options: {
+              width: "100%",
+              minRows: 4,
+              maxRows: 6,
+              maxLength: null,
               defaultValue: "",
-              multiple: false,
+              clearable: false,
               hidden: false,
               disabled: false,
-              width: "100%",
-              data: "{}",
-              limit: 3,
-              placeholder: "上传",
-              fileName: "image",
-              headers: {},
-              action: "http://cdn.kcz66.com/upload-img.txt",
-              listType: "picture-card"
+              placeholder: "请输入"
             },
-            model: "uploadImg_1591622045790",
-            key: "uploadImg_1591622045790",
+            model: "textarea_1594301138391",
+            key: "textarea_1594301138391",
+            rules: [{ required: false, message: "必填项" }]
+          },
+          {
+            type: "select",
+            label: "下拉选择器",
+            icon: "icon-xiala",
+            options: {
+              width: "100%",
+              multiple: false,
+              disabled: false,
+              clearable: false,
+              hidden: false,
+              placeholder: "请选择",
+              dynamicKey: "",
+              dynamic: false,
+              options: [
+                { value: "1", label: "下拉框1" },
+                { value: "2", label: "下拉框2" }
+              ],
+              showSearch: false
+            },
+            model: "select_1594301138695",
+            key: "select_1594301138695",
             rules: [{ required: false, message: "必填项" }]
           }
         ],
@@ -105,6 +104,14 @@ export default {
           console.log(err, "校验失败");
         });
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.$refs.KFB.disable(["textarea_1594301138391"]);
+      setTimeout(() => {
+        this.$refs.KFB.enable(["textarea_1594301138391"]);
+      }, 1000);
+    }, 1000);
   }
 };
 </script>

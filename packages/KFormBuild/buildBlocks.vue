@@ -134,13 +134,22 @@ export default {
   methods: {
     validationSubform() {
       // 验证动态表格
+      let nestedComponents = this.$refs.nestedComponents;
       if (
-        typeof this.$refs.nestedComponents === "undefined" ||
-        typeof this.$refs.nestedComponents.validationSubform === "undefined"
-      )
+        typeof nestedComponents === "object" &&
+        nestedComponents instanceof Array
+      ) {
+        for (let i = 0; nestedComponents.length > i; i++) {
+          if (!nestedComponents[i].validationSubform()) {
+            return false;
+          }
+        }
         return true;
-
-      return this.$refs.nestedComponents.validationSubform();
+      } else if (typeof nestedComponents !== "undefined") {
+        return nestedComponents.validationSubform();
+      } else {
+        return true;
+      }
     },
     handleChange(value, key) {
       this.$emit("change", value, key);
