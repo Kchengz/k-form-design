@@ -19,6 +19,14 @@ export const basicsList = [
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false // 是否禁用，false不禁用，true禁用
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "", // 数据字段
     key: "",
     rules: [
@@ -44,6 +52,14 @@ export const basicsList = [
       disabled: false,
       placeholder: "请输入"
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "", // 数据字段
     key: "",
     rules: [
@@ -68,6 +84,14 @@ export const basicsList = [
       disabled: false, //是否禁用
       placeholder: "请输入"
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "", // 数据字段
     key: "",
     rules: [
@@ -91,6 +115,8 @@ export const basicsList = [
       placeholder: "请选择", // 默认提示文字
       dynamicKey: "",
       dynamic: false,
+      dynamicFilter: false,
+      dynamicFilterKey: "",
       options: [
         // 下拉选择项配置
         {
@@ -103,6 +129,22 @@ export const basicsList = [
         }
       ],
       showSearch: false // 是否显示搜索框，搜索选择的项的值，而不是文字
+    },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false, // 可排序
+      url: "",
+      tail: "",
+      value: "",
+      label: "",
+      formatter: "",
+      cascade: false,
+      cascadeModel: "",
+      cascadeKey: ""
     },
     model: "",
     key: "",
@@ -123,6 +165,8 @@ export const basicsList = [
       defaultValue: [],
       dynamicKey: "",
       dynamic: false,
+      dynamicFilter: false,
+      dynamicFilterKey: "",
       options: [
         {
           value: "1",
@@ -137,6 +181,22 @@ export const basicsList = [
           label: "选项3"
         }
       ]
+    },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false, // 可排序
+      url: "",
+      tail: "",
+      value: "",
+      label: "",
+      formatter: "",
+      cascade: false,
+      cascadeModel: "",
+      cascadeKey: ""
     },
     model: "",
     key: "",
@@ -157,6 +217,8 @@ export const basicsList = [
       defaultValue: "", // 默认值
       dynamicKey: "",
       dynamic: false,
+      dynamicFilter: false,
+      dynamicFilterKey: "",
       options: [
         {
           value: "1",
@@ -171,6 +233,22 @@ export const basicsList = [
           label: "选项3"
         }
       ]
+    },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false, // 可排序
+      url: "",
+      tail: "",
+      value: "",
+      label: "",
+      formatter: "",
+      cascade: false,
+      cascadeModel: "",
+      cascadeKey: ""
     },
     model: "",
     key: "",
@@ -198,6 +276,14 @@ export const basicsList = [
       rangePlaceholder: ["开始时间", "结束时间"],
       format: "YYYY-MM-DD" // 展示格式  （请按照这个规则写 YYYY-MM-DD HH:mm:ss，区分大小写）
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "",
     key: "",
     rules: [
@@ -220,6 +306,14 @@ export const basicsList = [
       placeholder: "请选择",
       format: "HH:mm:ss" // 展示格式
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "",
     key: "",
     rules: [
@@ -239,6 +333,14 @@ export const basicsList = [
       disabled: false, // 是否禁用
       hidden: false, // 是否隐藏，false显示，true隐藏
       allowHalf: false // 是否允许半选
+    },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
     },
     model: "",
     key: "",
@@ -263,6 +365,14 @@ export const basicsList = [
       step: 1, // 步长，取值必须大于 0，并且可被 (max - min) 整除
       showInput: false // 是否显示输入框，range为true时，请勿开启
       // range: false // 双滑块模式
+    },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
     },
     model: "",
     key: "",
@@ -293,6 +403,14 @@ export const basicsList = [
       action: "http://cdn.kcz66.com/uploadFile.txt",
       placeholder: "上传"
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "",
     key: "",
     rules: [
@@ -320,6 +438,14 @@ export const basicsList = [
       action: "http://cdn.kcz66.com/upload-img.txt",
       listType: "picture-card"
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "",
     key: "",
     rules: [
@@ -344,6 +470,8 @@ export const basicsList = [
       placeholder: "请选择",
       dynamicKey: "",
       dynamic: true,
+      dynamicFilter: false,
+      dynamicFilterKey: "",
       options: [
         {
           value: "1",
@@ -366,6 +494,22 @@ export const basicsList = [
           ]
         }
       ]
+    },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false, // 可排序
+      url: "",
+      tail: "",
+      value: "",
+      label: "",
+      formatter: "",
+      cascade: false,
+      cascadeModel: "",
+      cascadeKey: ""
     },
     model: "",
     key: "",
@@ -389,6 +533,8 @@ export const basicsList = [
       clearable: false, // 是否显示清除按钮
       dynamicKey: "",
       dynamic: true,
+      dynamicFilter: false,
+      dynamicFilterKey: "",
       options: [
         {
           value: "1",
@@ -412,6 +558,22 @@ export const basicsList = [
         }
       ]
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false, // 可排序
+      url: "",
+      tail: "",
+      value: "",
+      label: "",
+      formatter: "",
+      cascade: false,
+      cascadeModel: "",
+      cascadeKey: ""
+    },
     model: "",
     key: "",
     rules: [
@@ -434,6 +596,14 @@ export const basicsList = [
       hideSequence: false,
       width: "100%"
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "",
     key: ""
   },
@@ -452,6 +622,14 @@ export const basicsList = [
       showLabel: false,
       width: "100%"
     },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
+    },
     model: "",
     key: "",
     rules: [
@@ -469,6 +647,14 @@ export const basicsList = [
       defaultValue: false, // 默认值 Boolean 类型
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false // 是否禁用
+    },
+    customize: {
+      create: true, // 创建时显示
+      edit: true, // 编辑时显示
+      table: true, // 表格中显示
+      detail: true, // 详情中显示
+      search: false, // 搜索栏中显示
+      sort: false // 可排序
     },
     model: "",
     key: "",

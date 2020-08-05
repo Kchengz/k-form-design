@@ -101,7 +101,59 @@
             v-show="options.dynamic"
             v-model="options.dynamicKey"
             placeholder="动态数据变量名"
-          ></a-input>
+          />
+          <a-input
+            v-show="options.dynamic"
+            v-model="customize.url"
+            placeholder="动态数据请求地址"
+          />
+          <a-input
+            v-show="options.dynamic"
+            v-model="customize.tail"
+            placeholder="动态数据返回值路径"
+          />
+          <a-input
+            v-show="options.dynamic"
+            v-model="customize.value"
+            placeholder="动态数据返回值value key"
+          />
+          <a-input
+            v-show="options.dynamic"
+            v-model="customize.label"
+            placeholder="动态数据返回值label key"
+          />
+          <a-input
+            v-show="options.dynamic"
+            v-model="customize.formatter"
+            placeholder="动态数据格式化方法"
+          />
+          <div v-show="options.dynamic">
+            <span style="margin-right: 5px">使用关联</span>
+            <a-switch v-model="options.dynamicFilter" />
+          </div>
+          <a-input
+            v-show="options.dynamic && options.dynamicFilter"
+            v-model="options.dynamicFilterKey"
+            placeholder="关联的数据字段 model，必须填写"
+          />
+          <div v-show="options.dynamic && options.dynamicFilter">
+            <span style="margin-right: 5px">使用动态关联</span>
+            <a-switch v-model="customize.cascade" />
+          </div>
+          <a-input
+            v-show="
+              options.dynamic && options.dynamicFilter && customize.cascade
+            "
+            v-model="customize.cascadeModel"
+            placeholder="动态关联的数据字段 model，必须填写"
+          />
+          <a-input
+            v-show="
+              options.dynamic && options.dynamicFilter && customize.cascade
+            "
+            v-model="customize.cascadeKey"
+            placeholder="动态关联的数据字段 key，必须填写"
+          />
 
           <KChangeOption v-show="!options.dynamic" v-model="options.options" />
         </a-form-item>
@@ -445,6 +497,52 @@
           <KChangeOption v-model="selectItem.rules" type="rules" />
         </a-form-item>
 
+        <div v-if="showTableConfig" class="table-config">
+          <div class="table-config-title">表格显示配置</div>
+          <a-form-item
+            label="创建时显示"
+            :label-col="{ span: 12 }"
+            :wrapper-col="{ span: 12 }"
+          >
+            <a-switch v-model="customize.create" />
+          </a-form-item>
+          <a-form-item
+            label="编辑时显示"
+            :label-col="{ span: 12 }"
+            :wrapper-col="{ span: 12 }"
+          >
+            <a-switch v-model="customize.edit" />
+          </a-form-item>
+          <a-form-item
+            label="表格中显示"
+            :label-col="{ span: 12 }"
+            :wrapper-col="{ span: 12 }"
+          >
+            <a-switch v-model="customize.table" />
+          </a-form-item>
+          <a-form-item
+            label="详情中显示"
+            :label-col="{ span: 12 }"
+            :wrapper-col="{ span: 12 }"
+          >
+            <a-switch v-model="customize.detail" />
+          </a-form-item>
+          <a-form-item
+            label="搜索栏中显示"
+            :label-col="{ span: 12 }"
+            :wrapper-col="{ span: 12 }"
+          >
+            <a-switch v-model="customize.search" />
+          </a-form-item>
+          <a-form-item
+            label="可排序"
+            :label-col="{ span: 12 }"
+            :wrapper-col="{ span: 12 }"
+          >
+            <a-switch v-model="customize.sort" />
+          </a-form-item>
+        </div>
+
         <!-- 表格选项 -->
         <a-form-item v-if="selectItem.type === 'table'" label="表格样式CSS">
           <a-input v-model="selectItem.options.customStyle" />
@@ -479,12 +577,14 @@ export default {
   name: "formItemProperties",
   data() {
     return {
-      options: {}
+      options: {},
+      customize: {}
     };
   },
   watch: {
     selectItem(val) {
       this.options = val.options || {};
+      this.customize = val.customize || {};
     }
   },
   props: {
@@ -495,6 +595,10 @@ export default {
     hideModel: {
       type: Boolean,
       default: false
+    },
+    showTableConfig: {
+      type: Boolean,
+      default: true
     }
   },
   components: {

@@ -12,11 +12,7 @@
   >
     <p class="hint-box">导入格式如下:</p>
     <div class="json-box-9136076486841527">
-      <codemirror
-        style="height:100%;"
-        ref="myEditor"
-        v-model="jsonFormat"
-      ></codemirror>
+      <codemirror style="height:100%;" ref="myEditor" v-model="jsonFormat" />
     </div>
     <a-upload
       action="/abc"

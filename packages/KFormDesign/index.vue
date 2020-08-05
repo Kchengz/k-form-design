@@ -138,6 +138,7 @@
             class="form-item-properties"
             :selectItem="selectItem"
             :hideModel="hideModel"
+            :showTableConfig="showTableConfig"
             @handleHide="showPropertie = false"
           />
         </aside>
@@ -178,9 +179,13 @@ export default {
   props: {
     title: {
       type: String,
-      default: "表单设计器 --by kcz"
+      default: "表单设计器"
     },
     showHead: {
+      type: Boolean,
+      default: true
+    },
+    showTableConfig: {
       type: Boolean,
       default: true
     },
@@ -262,7 +267,7 @@ export default {
         list: [],
         config: {
           layout: "horizontal",
-          labelCol: { span: 4 },
+          labelCol: { span: 6 },
           wrapperCol: { span: 18 },
           hideRequiredMark: false,
           customStyle: ""
