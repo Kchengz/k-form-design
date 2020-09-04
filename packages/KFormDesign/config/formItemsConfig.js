@@ -723,31 +723,7 @@ export const basicsList = [
 // 自定义组件
 export const customComponents = {
   title: "自定义组件",
-  list: [
-    // {
-    //   label: "测试",
-    //   type: "jkjksdf",
-    //   component: Alert,
-    //   options: {
-    //     multiple: false,
-    //     disabled: false,
-    //     width: "100%",
-    //     data: "{}",
-    //     limit: 3,
-    //     placeholder: "上传",
-    //     action: "",
-    //     listType: "picture-card"
-    //   },
-    //   model: "",
-    //   key: "",
-    //   rules: [
-    //     {
-    //       required: false,
-    //       message: "必填项"
-    //     }
-    //   ]
-    // }
-  ]
+  list: []
 };
 // window.$customComponentList = customComponents.list;
 
