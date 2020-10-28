@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-07-09 22:24:34
+ * @LastEditTime: 2020-10-28 10:49:14
  -->
 <template>
   <a-form-item
@@ -358,7 +358,10 @@
   </a-form-item>
   <!-- 可隐藏label -->
   <a-form-item
-    v-else-if="record.type === 'batch' || record.type === 'editor'"
+    v-else-if="
+      !(record.options.hidden === true) &&
+        (record.type === 'batch' || record.type === 'editor')
+    "
     :label="!record.options.showLabel ? '' : record.label"
     :label-col="
       formConfig.layout === 'horizontal' && record.options.showLabel
@@ -409,7 +412,7 @@
   </a-form-item>
   <!-- button按钮 -->
   <a-form-item
-    v-else-if="record.type === 'button'"
+    v-else-if="!(record.options.hidden === true) && record.type === 'button'"
     :wrapper-col="
       formConfig.layout === 'horizontal'
         ? { ...formConfig.wrapperCol, offset: formConfig.labelCol.span }
@@ -433,7 +436,9 @@
     ></a-button>
   </a-form-item>
   <!-- alert提示 -->
-  <a-form-item v-else-if="record.type === 'alert'">
+  <a-form-item
+    v-else-if="!(record.options.hidden === true) && record.type === 'alert'"
+  >
     <a-alert
       :message="record.label"
       :description="record.options.description"
@@ -444,7 +449,9 @@
     />
   </a-form-item>
   <!-- 文本 -->
-  <a-form-item v-else-if="record.type === 'text'">
+  <a-form-item
+    v-else-if="!(record.options.hidden === true) && record.type === 'text'"
+  >
     <div :style="{ textAlign: record.options.textAlign }">
       <label
         :class="{ 'ant-form-item-required': record.options.showRequiredMark }"
@@ -454,7 +461,7 @@
   </a-form-item>
   <!-- html -->
   <div
-    v-else-if="record.type === 'html'"
+    v-else-if="!(record.options.hidden === true) && record.type === 'html'"
     v-html="record.options.defaultValue"
   ></div>
   <!-- 自定义组件 -->
