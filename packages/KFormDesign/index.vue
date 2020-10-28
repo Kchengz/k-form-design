@@ -262,8 +262,8 @@ export default {
         list: [],
         config: {
           layout: "horizontal",
-          labelCol: { span: 4 },
-          wrapperCol: { span: 18 },
+          labelCol: { xs: 4, sm: 4, md: 4, lg: 4, xl: 4, xxl: 4 },
+          wrapperCol: { xs: 4, sm: 4, md: 4, lg: 4, xl: 4, xxl: 4 },
           hideRequiredMark: false,
           customStyle: ""
         }

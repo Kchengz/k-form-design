@@ -21,16 +21,60 @@
               id="test"
               :max="24"
               :min="0"
-              v-model="config.labelCol.span"
-              @change="config.wrapperCol.span = 24 - config.labelCol.span"
+              v-model="config.labelCol.xs"
+              @change="handleChangeCol"
             />
+            <div>
+              <label>xs:</label>
+              <a-input-number v-model="config.labelCol.xs" />
+            </div>
+            <div>
+              <label>sm:</label>
+              <a-input-number v-model="config.labelCol.sm" />
+            </div>
+            <div>
+              <label>md:</label>
+              <a-input-number v-model="config.labelCol.md" />
+            </div>
+            <div>
+              <label>lg:</label>
+              <a-input-number v-model="config.labelCol.lg" />
+            </div>
+            <div>
+              <label>xl:</label>
+              <a-input-number v-model="config.labelCol.xl" />
+            </div>
+            <div>
+              <label>xxl:</label>
+              <a-input-number v-model="config.labelCol.xxl" />
+            </div>
           </div>
         </a-form-item>
         <a-form-item label="wrapperCol（水平布局生效）">
           <div class="change-col-box">
             <div>
-              <label>span:</label>
-              <a-input-number v-model="config.wrapperCol.span" />
+              <label>xs:</label>
+              <a-input-number v-model="config.wrapperCol.xs" />
+            </div>
+            <div>
+              <label>sm:</label>
+              <a-input-number v-model="config.wrapperCol.sm" />
+            </div>
+            <div>
+              <label>md:</label>
+              <a-input-number v-model="config.wrapperCol.md" />
+            </div>
+            <div>
+              <label>lg:</label>
+              <a-input-number v-model="config.wrapperCol.lg" />
+            </div>
+            <div>
+              <label>xl:</label>
+              <a-input-number v-model="config.wrapperCol.xl" />
+            </div>
+            <div>
+              <label>xxl:</label>
+              <a-input-number v-model="config.wrapperCol.xxl" />
             </div>
           </div>
         </a-form-item>
@@ -74,6 +118,14 @@ export default {
     previewOptions: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    handleChangeCol(e) {
+      this.config.labelCol.xs = this.config.labelCol.sm = this.config.labelCol.md = this.config.labelCol.lg = this.config.labelCol.xl = this.config.labelCol.xxl = e;
+
+      this.config.wrapperCol.xs = this.config.wrapperCol.sm = this.config.wrapperCol.md = this.config.wrapperCol.lg = this.config.wrapperCol.xl = this.config.wrapperCol.xxl =
+        24 - e;
     }
   }
 };
