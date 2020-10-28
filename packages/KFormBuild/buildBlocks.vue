@@ -4,6 +4,11 @@
     v-if="record.type === 'tabs'"
     class="grid-row"
     :default-active-key="0"
+    :tabBarGutter="record.options.tabBarGutter"
+    :type="record.options.type"
+    :size="record.options.size"
+    :tabPosition="record.options.tabPosition"
+    :animated="record.options.animated"
   >
     <a-tab-pane
       v-for="(tabItem, index) in record.columns"

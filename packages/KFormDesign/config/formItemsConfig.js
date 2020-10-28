@@ -508,7 +508,7 @@ export const basicsList = [
   },
   {
     type: "text",
-    label: "文字2",
+    label: "文字",
     icon: "icon-zihao",
     options: {
       textAlign: "left",
@@ -587,8 +587,15 @@ export const layoutList = [
   },
   {
     type: "tabs",
-    label: "Tabs标签页",
-    icon: "icon-qiapian",
+    label: "标签页布局",
+    icon: "icon-tabs",
+    options: {
+      tabBarGutter: null,
+      type: "line",
+      tabPosition: "top",
+      size: "default",
+      animated: true
+    },
     columns: [
       {
         value: "1",

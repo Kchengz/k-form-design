@@ -68,7 +68,15 @@
         :class="{ active: record.key === selectItem.key }"
         @click.stop="handleSelectItem(record)"
       >
-        <a-tabs class="grid-row" :default-active-key="0">
+        <a-tabs
+          class="grid-row"
+          :default-active-key="0"
+          :tabBarGutter="record.options.tabBarGutter || null"
+          :type="record.options.type"
+          :size="record.options.size"
+          :tabPosition="record.options.tabPosition"
+          :animated="record.options.animated"
+        >
           <a-tab-pane
             v-for="(tabItem, index) in record.columns"
             :key="index"

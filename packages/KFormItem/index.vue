@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-10-28 10:49:14
+ * @LastEditTime: 2020-10-28 22:44:09
  -->
 <template>
   <a-form-item
@@ -413,11 +413,6 @@
   <!-- button按钮 -->
   <a-form-item
     v-else-if="!(record.options.hidden === true) && record.type === 'button'"
-    :wrapper-col="
-      formConfig.layout === 'horizontal'
-        ? { ...formConfig.wrapperCol, offset: formConfig.labelCol.span }
-        : {}
-    "
   >
     <a-button
       :disabled="disabled || record.options.disabled"

@@ -71,6 +71,12 @@
           <a-input-number v-model="options.max" placeholder="请输入" />
         </a-form-item>
         <a-form-item
+          v-if="typeof options.tabBarGutter !== 'undefined'"
+          label="标签间距"
+        >
+          <a-input-number v-model="options.tabBarGutter" placeholder="请输入" />
+        </a-form-item>
+        <a-form-item
           v-if="typeof options.precision !== 'undefined'"
           label="数值精度"
         >
@@ -233,6 +239,37 @@
             <a-radio-button value="right">右</a-radio-button>
           </a-radio-group>
         </a-form-item>
+        <!-- 页签位置 start -->
+        <a-form-item v-if="selectItem.type === 'tabs'" label="页签位置">
+          <a-radio-group buttonStyle="solid" v-model="options.tabPosition">
+            <a-radio value="top">top</a-radio>
+            <a-radio value="right">right</a-radio>
+            <a-radio value="bottom">bottom</a-radio>
+            <a-radio value="left">left</a-radio>
+          </a-radio-group>
+        </a-form-item>
+        <!-- 页签位置 end -->
+        <!-- 页签类型 start -->
+        <a-form-item
+          v-if="typeof options.type !== 'undefined'"
+          label="页签类型"
+        >
+          <a-radio-group buttonStyle="solid" v-model="options.type">
+            <a-radio-button value="line">line</a-radio-button>
+            <a-radio-button value="card">card</a-radio-button>
+            <a-radio-button value="editable-card">editable-card</a-radio-button>
+          </a-radio-group>
+        </a-form-item>
+        <!-- 页签类型 end -->
+        <!-- 页签大小 start -->
+        <a-form-item v-if="typeof options.size !== 'undefined'" label="大小">
+          <a-radio-group buttonStyle="solid" v-model="options.size">
+            <a-radio-button value="large">large</a-radio-button>
+            <a-radio-button value="default">default</a-radio-button>
+            <a-radio-button value="small">small</a-radio-button>
+          </a-radio-group>
+        </a-form-item>
+        <!-- 页签大小 end -->
         <a-form-item v-if="selectItem.type === 'button'" label="类型">
           <a-radio-group buttonStyle="solid" v-model="options.type">
             <a-radio value="primary">Primary</a-radio>
@@ -354,7 +391,8 @@
               typeof options.range !== 'undefined' ||
               typeof options.showTime !== 'undefined' ||
               typeof options.allowHalf !== 'undefined' ||
-              typeof options.showInput !== 'undefined'
+              typeof options.showInput !== 'undefined' ||
+              typeof options.animated !== 'undefined'
           "
           label="操作属性"
         >
@@ -432,6 +470,11 @@
             v-if="typeof options.treeCheckable !== 'undefined'"
             v-model="options.treeCheckable"
             label="可勾选"
+          />
+          <kCheckbox
+            v-if="typeof options.animated !== 'undefined'"
+            v-model="options.animated"
+            label="动画切换"
           />
         </a-form-item>
 

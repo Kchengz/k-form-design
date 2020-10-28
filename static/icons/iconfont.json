@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "15617359",
+      "name": "tabs",
+      "font_class": "tabs",
+      "unicode": "e8cd",
+      "unicode_decimal": 59597
+    },
+    {
       "icon_id": "648145",
       "name": "LC_icon_edit_line_1",
       "font_class": "LC_icon_edit_line_1",
