@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-11 17:56:04
+ * @LastEditTime: 2020-10-28 16:17:29
  -->
 <template>
   <div class="form-panel">
@@ -44,7 +44,7 @@
             @dragStart="dragStart"
             @handleSelectItem="handleSelectItem"
             @handleCopy="handleCopy"
-            @handleDetele="handleDetele"
+            @handleDelete="handleDelete"
             @handleColAdd="handleColAdd"
             @handleShowRightMenu="handleShowRightMenu"
           />
@@ -221,7 +221,7 @@ export default {
             this.handleColAdd(evt, array, true);
             return;
           }
-          if (element.type === "grid") {
+          if (element.type === "grid" || element.type === "tabs") {
             // 栅格布局
             element.columns.forEach(item => {
               traverse(item.list);
@@ -249,11 +249,12 @@ export default {
       };
       traverse(this.data.list);
     },
-    handleDetele() {
+    handleDelete() {
       // 删除已选择
+      console.log(234);
       const traverse = array => {
         array = array.filter((element, index) => {
-          if (element.type === "grid") {
+          if (element.type === "grid" || element.type === "tabs") {
             // 栅格布局
             element.columns.forEach(item => {
               item.list = traverse(item.list);

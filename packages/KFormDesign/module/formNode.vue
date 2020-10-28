@@ -26,7 +26,7 @@
     <div
       class="delete"
       :class="record.key === selectItem.key ? 'active' : 'unactivated'"
-      @click.stop="$emit('handleDetele')"
+      @click.stop="$emit('handleDelete')"
     >
       <a-icon type="delete" />
     </div>

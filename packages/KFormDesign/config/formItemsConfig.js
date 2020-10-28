@@ -508,7 +508,7 @@ export const basicsList = [
   },
   {
     type: "text",
-    label: "文字",
+    label: "文字2",
     icon: "icon-zihao",
     options: {
       textAlign: "left",
@@ -582,6 +582,25 @@ export const layoutList = [
     label: "卡片布局",
     icon: "icon-qiapian",
     list: [],
+    key: "",
+    model: ""
+  },
+  {
+    type: "tabs",
+    label: "Tabs标签页",
+    icon: "icon-qiapian",
+    columns: [
+      {
+        value: "1",
+        label: "选项1",
+        list: []
+      },
+      {
+        value: "2",
+        label: "选项2",
+        list: []
+      }
+    ],
     key: "",
     model: ""
   },

@@ -1,7 +1,32 @@
 <template>
+  <!-- 标签页布局 -->
+  <a-tabs
+    v-if="record.type === 'tabs'"
+    class="grid-row"
+    :default-active-key="0"
+  >
+    <a-tab-pane
+      v-for="(tabItem, index) in record.columns"
+      :key="index"
+      :tab="tabItem.label"
+    >
+      <buildBlocks
+        ref="nestedComponents"
+        @handleReset="$emit('handleReset')"
+        @change="handleChange"
+        v-for="item in tabItem.list"
+        :disabled="disabled"
+        :dynamicData="dynamicData"
+        :key="item.key"
+        :record="item"
+        :formConfig="formConfig"
+        :config="config"
+      />
+    </a-tab-pane>
+  </a-tabs>
   <!-- 栅格布局 -->
   <a-row
-    v-if="record.type === 'grid'"
+    v-else-if="record.type === 'grid'"
     class="grid-row"
     :gutter="record.options.gutter"
   >

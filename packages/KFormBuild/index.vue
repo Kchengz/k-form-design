@@ -159,19 +159,15 @@ export default {
           if (fields.has(element.model)) {
             element.options[optionName] = value;
           }
-          if (element.type === "grid") {
-            // 栅格布局
+          if (element.type === "grid" || element.type === "tabs") {
+            // 栅格布局 and 标签页
             element.columns.forEach(item => {
               traverse(item.list);
             });
-          } else if (element.type === "card") {
-            // 卡片布局
+          } else if (element.type === "card" || element.type === "batch") {
+            // 卡片布局 and  动态表格
             traverse(element.list);
-          } else if (element.type === "batch") {
-            // 动态表格
-            traverse(element.list);
-          }
-          if (element.type === "table") {
+          } else if (element.type === "table") {
             // 表格布局
             element.trs.forEach(item => {
               item.tds.forEach(val => {

@@ -4,33 +4,24 @@
  * description 默认导入json数据格式
  */
 export default `{
-	"list": [
-		{
-			"type": "input",
-			"label": "单行文本",
-			"options": {
-				"width": "100%",
-				"defaultValue": "",
-				"placeholder": "请输入",
-				"disabled": false
-			},
-			"model": "input_1577777106711",
-			"key": "input_1577777106711",
-			"rules": [
-				{
-					"required": true,
-					"message": "必填项"
-				}
-			]
-		}
-	],
+	"list": [],
 	"config": {
 		"layout": "horizontal",
 		"labelCol": {
-			"span": 4
+			"xs": 4,
+			"sm": 4,
+			"md": 4,
+			"lg": 4,
+			"xl": 4,
+			"xxl": 4
 		},
 		"wrapperCol": {
-			"span": 18
+			"xs": 4,
+			"sm": 4,
+			"md": 4,
+			"lg": 4,
+			"xl": 4,
+			"xxl": 4
 		},
 		"hideRequiredMark": false,
 		"customStyle": ""

@@ -40,7 +40,7 @@
               @handleColAdd="handleColAdd"
               @handleCopy="$emit('handleCopy')"
               @handleShowRightMenu="handleShowRightMenu"
-              @handleDetele="$emit('handleDetele')"
+              @handleDelete="$emit('handleDelete')"
             />
           </transition-group>
         </draggable>
@@ -54,13 +54,80 @@
         <div
           class="delete"
           :class="record.key === selectItem.key ? 'active' : 'unactivated'"
-          @click.stop="$emit('handleDetele')"
+          @click.stop="$emit('handleDelete')"
         >
           <a-icon type="delete" />
         </div>
       </div>
     </template>
     <!-- 动态表格设计模块 end -->
+    <!-- 标签Tabs布局 start -->
+    <template v-else-if="record.type === 'tabs'">
+      <div
+        class="grid-box"
+        :class="{ active: record.key === selectItem.key }"
+        @click.stop="handleSelectItem(record)"
+      >
+        <a-tabs class="grid-row" :default-active-key="0">
+          <a-tab-pane
+            v-for="(tabItem, index) in record.columns"
+            :key="index"
+            :tab="tabItem.label"
+          >
+            <div class="grid-col">
+              <draggable
+                tag="div"
+                class="draggable-box"
+                v-bind="{
+                  group: 'form-draggable',
+                  ghostClass: 'moving',
+                  animation: 180,
+                  handle: '.drag-move'
+                }"
+                v-model="tabItem.list"
+                @start="$emit('dragStart', $event, tabItem.list)"
+                @add="$emit('handleColAdd', $event, tabItem.list)"
+              >
+                <transition-group tag="div" name="list" class="list-main">
+                  <layoutItem
+                    class="drag-move"
+                    v-for="item in tabItem.list"
+                    :key="item.key"
+                    :selectItem.sync="selectItem"
+                    :startType="startType"
+                    :insertAllowedType="insertAllowedType"
+                    :record="item"
+                    :hideModel="hideModel"
+                    :config="config"
+                    @handleSelectItem="handleSelectItem"
+                    @handleColAdd="handleColAdd"
+                    @handleCopy="$emit('handleCopy')"
+                    @handleShowRightMenu="handleShowRightMenu"
+                    @handleDelete="$emit('handleDelete')"
+                  />
+                </transition-group>
+              </draggable>
+            </div>
+          </a-tab-pane>
+        </a-tabs>
+
+        <div
+          class="copy"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleCopy')"
+        >
+          <a-icon type="copy" />
+        </div>
+        <div
+          class="delete"
+          :class="record.key === selectItem.key ? 'active' : 'unactivated'"
+          @click.stop="$emit('handleDelete')"
+        >
+          <a-icon type="delete" />
+        </div>
+      </div>
+    </template>
+    <!-- 标签Tabs布局 end -->
     <!-- 栅格布局 start -->
     <template v-else-if="record.type === 'grid'">
       <div
@@ -103,7 +170,7 @@
                   @handleColAdd="handleColAdd"
                   @handleCopy="$emit('handleCopy')"
                   @handleShowRightMenu="handleShowRightMenu"
-                  @handleDetele="$emit('handleDetele')"
+                  @handleDelete="$emit('handleDelete')"
                 />
               </transition-group>
             </draggable>
@@ -120,7 +187,7 @@
         <div
           class="delete"
           :class="record.key === selectItem.key ? 'active' : 'unactivated'"
-          @click.stop="$emit('handleDetele')"
+          @click.stop="$emit('handleDelete')"
         >
           <a-icon type="delete" />
         </div>
@@ -164,7 +231,7 @@
                   @handleColAdd="handleColAdd"
                   @handleCopy="$emit('handleCopy')"
                   @handleShowRightMenu="handleShowRightMenu"
-                  @handleDetele="$emit('handleDetele')"
+                  @handleDelete="$emit('handleDelete')"
                 />
               </transition-group>
             </draggable>
@@ -181,7 +248,7 @@
         <div
           class="delete"
           :class="record.key === selectItem.key ? 'active' : 'unactivated'"
-          @click.stop="$emit('handleDetele')"
+          @click.stop="$emit('handleDelete')"
         >
           <a-icon type="delete" />
         </div>
@@ -243,7 +310,7 @@
                     @handleColAdd="handleColAdd"
                     @handleCopy="$emit('handleCopy')"
                     @handleShowRightMenu="handleShowRightMenu"
-                    @handleDetele="$emit('handleDetele')"
+                    @handleDelete="$emit('handleDelete')"
                   />
                 </transition-group>
               </draggable>
@@ -261,7 +328,7 @@
         <div
           class="delete"
           :class="record.key === selectItem.key ? 'active' : 'unactivated'"
-          @click.stop="$emit('handleDetele')"
+          @click.stop="$emit('handleDelete')"
         >
           <a-icon type="delete" />
         </div>
@@ -277,7 +344,7 @@
         :hideModel="hideModel"
         @handleSelectItem="handleSelectItem"
         @handleCopy="$emit('handleCopy')"
-        @handleDetele="$emit('handleDetele')"
+        @handleDelete="$emit('handleDelete')"
         @handleShowRightMenu="$emit('handleShowRightMenu')"
       />
     </template>

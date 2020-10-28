@@ -230,6 +230,7 @@ export default {
         "html",
         "divider",
         "card",
+        "tabs",
         "grid",
         "table"
       ]
@@ -263,7 +264,7 @@ export default {
         config: {
           layout: "horizontal",
           labelCol: { xs: 4, sm: 4, md: 4, lg: 4, xl: 4, xxl: 4 },
-          wrapperCol: { xs: 4, sm: 4, md: 4, lg: 4, xl: 4, xxl: 4 },
+          wrapperCol: { xs: 18, sm: 18, md: 18, lg: 18, xl: 18, xxl: 18 },
           hideRequiredMark: false,
           customStyle: ""
         }
