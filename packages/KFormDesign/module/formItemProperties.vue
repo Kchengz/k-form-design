@@ -114,7 +114,7 @@
         <!-- 选项配置及动态数据配置 end -->
         <!-- tabs配置 start -->
         <a-form-item v-if="selectItem.type === 'tabs'" label="页签配置">
-          <KChangeOption v-model="selectItem.columns" />
+          <KChangeOption v-model="selectItem.columns" type="tab" />
         </a-form-item>
         <!-- tabs配置 end -->
         <a-form-item v-if="selectItem.type === 'grid'" label="栅格间距">

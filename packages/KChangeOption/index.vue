@@ -1,6 +1,6 @@
 <template>
   <div class="option-change-container">
-    <a-row v-if="type === 'option'" :gutter="8">
+    <a-row v-if="type === 'option' || type === 'tab'" :gutter="8">
       <div class="option-change-box" v-for="(val, index) in value" :key="index">
         <a-col :span="9"
           ><a-input v-model="val.label" placeholder="名称"
@@ -73,8 +73,9 @@ export default {
       let addData = [
         ...this.value,
         {
-          value: "",
-          label: ""
+          value: `${this.value.length + 1}`,
+          label: "选项" + (this.value.length + 1),
+          list: this.type === "tab" ? [] : undefined
         }
       ];
       this.$emit("input", addData);
