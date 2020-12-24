@@ -13,6 +13,7 @@
     <a-tab-pane
       v-for="(tabItem, index) in record.columns"
       :key="index"
+      :forceRender="true"
       :tab="tabItem.label"
     >
       <buildBlocks
