@@ -508,6 +508,13 @@
             请点击右键增加行列，或者合并单元格
           </p>
         </a-form-item>
+        
+        <a-form-item
+          v-if="typeof selectItem.help !== 'undefined'"
+          label="帮助信息"
+        >
+          <a-input v-model="selectItem.help" placeholder="请输入" />
+        </a-form-item>
       </a-form>
     </div>
     <div class="close-box" @click="$emit('handleHide')">
