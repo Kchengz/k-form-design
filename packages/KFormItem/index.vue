@@ -449,8 +449,8 @@
   >
     <div :style="{ textAlign: record.options.textAlign }">
       <label
-        :class="{ 'ant-form-item-required': record.options.showRequiredMark }"
-        v-text="record.label"
+        :class="{ 'ant-form-item-required': record.options.showRequiredMark, 'ant-form-item-question': record.help }"
+        v-text="record.label" @title="record.help || ''"
       ></label>
     </div>
   </a-form-item>
