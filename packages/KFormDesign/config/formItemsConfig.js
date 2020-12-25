@@ -21,6 +21,7 @@ export const basicsList = [
     },
     model: "", // 数据字段
     key: "",
+    help: "",
     rules: [
       //验证规则
       {
@@ -46,6 +47,7 @@ export const basicsList = [
     },
     model: "", // 数据字段
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -70,6 +72,7 @@ export const basicsList = [
     },
     model: "", // 数据字段
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -106,6 +109,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -140,6 +144,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -174,6 +179,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -200,6 +206,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -222,6 +229,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -242,6 +250,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -266,6 +275,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -295,6 +305,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -322,6 +333,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -369,6 +381,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -414,6 +427,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -435,7 +449,8 @@ export const basicsList = [
       width: "100%"
     },
     model: "",
-    key: ""
+    key: "",
+    help: "",
   },
   {
     type: "editor",
@@ -454,6 +469,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
@@ -472,6 +488,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
+    help: "",
     rules: [
       {
         required: false,
