@@ -26,13 +26,19 @@
           'cascader',
           'treeSelect'
         ].includes(record.type)
-    "
-    :label="record.label"
+    "    
     :label-col="formConfig.layout === 'horizontal' ? formConfig.labelCol : {}"
     :wrapper-col="
       formConfig.layout === 'horizontal' ? formConfig.wrapperCol : {}
     "
   >
+    <span slot="label">
+        <a-tooltip>         
+          <span v-text="record.label"></span>
+          <span v-if="record.help" slot="title" v-html="record.help"></span>  
+          <a-icon v-if="record.help" class="question-circle" type="question-circle-o" />
+        </a-tooltip>
+    </span>
     <!-- 单行文本 -->
     <a-input
       :style="`width:${record.options.width}`"
@@ -449,8 +455,8 @@
   >
     <div :style="{ textAlign: record.options.textAlign }">
       <label
-        :class="{ 'ant-form-item-required': record.options.showRequiredMark, 'ant-form-item-question': record.help }"
-        v-text="record.label" @title="record.help || ''"
+        :class="{ 'ant-form-item-required': record.options.showRequiredMark}"
+        v-text="record.label"
       ></label>
     </div>
   </a-form-item>
@@ -567,5 +573,8 @@ export default {
   > .number {
     width: 70px;
   }
+}
+.anticon.anticon-question-circle-o{
+    margin-left:5px;
 }
 </style>
