@@ -20,6 +20,7 @@
         :config="config"
         :disabled="disabled"
         :formConfig="value.config"
+        :validatorError="validatorError"
         :key="index"
         @change="handleChange"
       />
@@ -40,7 +41,8 @@ export default {
   data() {
     return {
       locale: zhCN,
-      form: this.$form.createForm(this)
+      form: this.$form.createForm(this),
+      validatorError: {}
     };
   },
   // props: ["value", "dynamicData"],
@@ -91,7 +93,14 @@ export default {
           this.form.validateFields((err, values) => {
             if (err) {
               reject(err);
+              /**
+               * @author: lizhichao
+               * @Description: 多容器校验时，提供error返回给多容器进行判断。
+               */
+              this.validatorError = err;
+              return;
             }
+            this.validatorError = {};
             this.$refs.buildBlocks.forEach(item => {
               if (!item.validationSubform()) {
                 reject(err);

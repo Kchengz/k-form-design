@@ -266,7 +266,20 @@
           v-decorator="[
             record.model,
             {
-              initialValue: record.options.defaultValue
+              initialValue: record.options.defaultValue,
+              rules: [
+                {
+                  validator: (rule, value, callback) => {
+                    if (
+                      record.options.step &&
+                      value % record.options.step !== 0
+                    ) {
+                      callback('输入值必须是步长的倍数');
+                    }
+                    callback();
+                  }
+                }
+              ]
             }
           ]"
         />
