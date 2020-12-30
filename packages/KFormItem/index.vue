@@ -207,6 +207,17 @@
           ? dynamicData[record.options.dynamicKey]
           : []
       "
+      :filterOption="
+        record.options.showSearch
+          ? (inputValue, option) => {
+              return (
+                option.componentOptions.children[0].text
+                  .toLowerCase()
+                  .indexOf(inputValue.toLowerCase()) >= 0
+              );
+            }
+          : false
+      "
       :disabled="disabled || record.options.disabled"
       :allowClear="record.options.clearable"
       :mode="record.options.multiple ? 'multiple' : ''"
