@@ -367,7 +367,7 @@
           v-if="typeof options.data !== 'undefined'"
           label="额外参数（JSON格式）"
         >
-          <a-input v-model="options.data" placeholder="严格JSON格式"></a-input>
+          <a-textarea v-model="options.data" placeholder="严格JSON格式"></a-textarea>
         </a-form-item>
         <!-- 文字对齐方式 -->
         <a-form-item v-if="selectItem.type === 'text'" label="文字对齐方式">
@@ -514,6 +514,36 @@
           label="帮助信息"
         >
           <a-input v-model="selectItem.help" placeholder="请输入" />
+        </a-form-item>
+
+        <!-- 前缀 -->
+        <a-form-item
+          v-if="
+            [
+              'input'
+            ].includes(selectItem.type)
+          "
+          label="前缀"
+        >
+          <a-input
+            v-model="options.prefix"
+            placeholder="请输入"
+          />
+        </a-form-item>
+
+        <!-- 后缀 -->
+        <a-form-item
+          v-if="
+            [
+              'input'
+            ].includes(selectItem.type)
+          "
+          label="后缀"
+        >
+          <a-input
+            v-model="options.suffix"
+            placeholder="请输入"
+          />
         </a-form-item>
       </a-form>
     </div>

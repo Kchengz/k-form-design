@@ -22,6 +22,8 @@ export const basicsList = [
     model: "", // 数据字段
     key: "",
     help: "",
+    prefix: "",
+    suffix: "",
     rules: [
       //验证规则
       {
@@ -73,6 +75,8 @@ export const basicsList = [
     model: "", // 数据字段
     key: "",
     help: "",
+    prefix: "",
+    suffix: "",
     rules: [
       {
         required: false,
@@ -110,6 +114,8 @@ export const basicsList = [
     model: "",
     key: "",
     help: "",
+    prefix: "",
+    suffix: "",
     rules: [
       {
         required: false,
@@ -382,6 +388,8 @@ export const basicsList = [
     model: "",
     key: "",
     help: "",
+    prefix: "",
+    suffix: "",
     rules: [
       {
         required: false,

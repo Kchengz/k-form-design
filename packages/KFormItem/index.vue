@@ -48,6 +48,8 @@
       :type="record.options.type"
       :allowClear="record.options.clearable"
       :maxLength="record.options.maxLength"
+      :addonBefore="record.options.prefix"
+      :addonAfter="record.options.suffix"
       @change="handleChange($event.target.value, record.model)"
       v-decorator="[
         record.model, // input 的 name
@@ -449,6 +451,25 @@
       :banner="record.options.banner"
     />
   </a-form-item>
+  <!-- 隐藏的组件 -->
+  
+  <a-form-item
+      style="display:none"
+      v-else-if="(record.options.hidden === true) 
+                && record.type === 'input' 
+                && record.options.type === 'hidden'"
+  >
+    <a-input
+      v-decorator="[
+        record.model, // input 的 name
+        {
+          initialValue: record.options.defaultValue // 默认值
+        }
+      ]"
+      :type="record.options.type"
+    />
+  
+  </a-form-item>
   <!-- 文本 -->
   <a-form-item
     v-else-if="!(record.options.hidden === true) && record.type === 'text'"
@@ -465,6 +486,7 @@
     v-else-if="!(record.options.hidden === true) && record.type === 'html'"
     v-html="record.options.defaultValue"
   ></div>
+
   <!-- 自定义组件 -->
   <customComponent
     v-else-if="customList.includes(record.type)"

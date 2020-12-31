@@ -15,7 +15,7 @@
     <div class="form-item-box">
       <kFormItem :formConfig="config" :record="record" />
     </div>
-    <div v-if="!hideModel" class="show-key-box" v-text="record.model" />
+    <div v-if="!hideModel" class="show-key-box" v-text="record.label + (record.model?('/' + record.model):'')" />
     <div
       class="copy"
       :class="record.key === selectItem.key ? 'active' : 'unactivated'"
