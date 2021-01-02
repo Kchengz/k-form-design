@@ -23,6 +23,7 @@ import {
   customComponents,
   basicsList
 } from "./KFormDesign/config/formItemsConfig";
+
 const components = [KFormDesign, KFormBuild, KFormItem, KFormPreview];
 
 const install = function(Vue) {
@@ -84,17 +85,34 @@ function setFormDesignConfig(config) {
   }
 }
 
+/**
+ * @author lizhichao<meteoroc@outlook.com>
+ * @description 配置k-form-build(预览时)，暂只支持dynamicData的设置
+ * @param { object }config
+ */
+function setFormBuildConfig(config) {
+  if (!config) {
+    console.error("传入setFormBuildConfig的参数必须为对象");
+    return;
+  }
+  if (config.dynamicData) {
+    window.$kfb_dynamicData = config.dynamicData;
+  }
+}
+
 // 这里可以用es6的解构语法导入组件
 export {
   KFormDesign,
   KFormBuild,
   KFormItem,
   KFormPreview,
-  setFormDesignConfig
+  setFormDesignConfig,
+  setFormBuildConfig
 };
 
 // 这里默认导入全部组件
 export default {
   install,
-  setConfig: setFormDesignConfig
+  setConfig: setFormDesignConfig,
+  setFormBuildConfig: setFormBuildConfig
 };
