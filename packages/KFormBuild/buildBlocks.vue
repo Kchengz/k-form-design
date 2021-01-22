@@ -9,12 +9,14 @@
     :size="record.options.size"
     :tabPosition="record.options.tabPosition"
     :animated="record.options.animated"
+    v-model="activeKey"
   >
     <a-tab-pane
       v-for="(tabItem, index) in record.columns"
       :key="index"
       :forceRender="true"
       :tab="tabItem.label"
+      :forceRender="true"
     >
       <buildBlocks
         ref="nestedComponents"
@@ -151,10 +153,19 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    validatorError: {
+      type: [Object, null],
+      default: () => ({})
     }
   },
   components: {
     KFormItem
+  },
+  data() {
+    return {
+      activeKey: 0
+    };
   },
   methods: {
     validationSubform() {
@@ -178,6 +189,29 @@ export default {
     },
     handleChange(value, key) {
       this.$emit("change", value, key);
+    }
+  },
+  watch: {
+    /**
+     * @author: lizhichao<meteoroc@outlook.com>
+     * @description: 监视validatorError对象，当检测到Tabs中有表单校验无法通过时，切换到最近校验失败的tab页。
+     */
+    validatorError: {
+      deep: true,
+      handler: function(n) {
+        let errorItems = Object.keys(n);
+        if (errorItems.length) {
+          for (let i = 0; i < this.record.columns.length; i++) {
+            let err = this.record.columns[i].list.filter(item =>
+              errorItems.includes(item.model)
+            );
+            if (err.length) {
+              this.activeKey = i;
+              break;
+            }
+          }
+        }
+      }
     }
   }
 };

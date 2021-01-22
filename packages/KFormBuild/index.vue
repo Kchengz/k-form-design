@@ -16,10 +16,11 @@
         @handleReset="reset"
         v-for="(record, index) in value.list"
         :record="record"
-        :dynamicData="dynamicData"
+        :dynamicData="getDynamicData"
         :config="config"
         :disabled="disabled"
         :formConfig="value.config"
+        :validatorError="validatorError"
         :key="index"
         @change="handleChange"
       />
@@ -40,7 +41,9 @@ export default {
   data() {
     return {
       locale: zhCN,
-      form: this.$form.createForm(this)
+      form: this.$form.createForm(this),
+      validatorError: {},
+      defaultDynamicData: {}
     };
   },
   // props: ["value", "dynamicData"],
@@ -51,7 +54,9 @@ export default {
     },
     dynamicData: {
       type: Object,
-      default: () => ({})
+      default: () => {
+        return {};
+      }
     },
     config: {
       type: Object,
@@ -73,6 +78,14 @@ export default {
   components: {
     buildBlocks
   },
+  computed: {
+    getDynamicData() {
+      return typeof this.dynamicData === "object" &&
+        Object.keys(this.dynamicData).length
+        ? this.dynamicData
+        : window.$kfb_dynamicData || {};
+    }
+  },
   methods: {
     // moment,
     handleSubmit(e) {
@@ -91,7 +104,14 @@ export default {
           this.form.validateFields((err, values) => {
             if (err) {
               reject(err);
+              /**
+               * @author: lizhichao<meteoroc@outlook.com>
+               * @Description: 多容器校验时，提供error返回给多容器进行判断。
+               */
+              this.validatorError = err;
+              return;
             }
+            this.validatorError = {};
             this.$refs.buildBlocks.forEach(item => {
               if (!item.validationSubform()) {
                 reject(err);

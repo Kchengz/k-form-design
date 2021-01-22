@@ -207,6 +207,17 @@
           ? dynamicData[record.options.dynamicKey]
           : []
       "
+      :filterOption="
+        record.options.showSearch
+          ? (inputValue, option) => {
+              return (
+                option.componentOptions.children[0].text
+                  .toLowerCase()
+                  .indexOf(inputValue.toLowerCase()) >= 0
+              );
+            }
+          : false
+      "
       :disabled="disabled || record.options.disabled"
       :allowClear="record.options.clearable"
       :mode="record.options.multiple ? 'multiple' : ''"
@@ -266,7 +277,20 @@
           v-decorator="[
             record.model,
             {
-              initialValue: record.options.defaultValue
+              initialValue: record.options.defaultValue,
+              rules: [
+                {
+                  validator: (rule, value, callback) => {
+                    if (
+                      record.options.step &&
+                      value % record.options.step !== 0
+                    ) {
+                      callback('输入值必须是步长的倍数');
+                    }
+                    callback();
+                  }
+                }
+              ]
             }
           ]"
         />
