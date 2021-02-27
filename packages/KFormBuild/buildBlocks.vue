@@ -14,6 +14,7 @@
       v-for="(tabItem, index) in record.columns"
       :key="index"
       :tab="tabItem.label"
+      :forceRender="true"
     >
       <buildBlocks
         ref="nestedComponents"
