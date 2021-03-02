@@ -50,6 +50,14 @@ import KFormDesign from "../packages/index";
 //   uploadImageHeaders: { data: 1545 }
 // });
 Vue.use(KFormDesign);
+// KFormDesign.setFormBuildConfig({
+//   dynamicData: {
+//     test: [
+//       { label: "test", value: "1" },
+//       { label: "test1", value: "2" }
+//     ]
+//   }
+// });
 Vue.config.productionTip = false;
 
 new Vue({
