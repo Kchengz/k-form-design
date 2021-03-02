@@ -3,11 +3,11 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-07-07 22:22:54
+ * @LastEditTime: 2021-03-02 19:14:18
  */
 
 // 解决Chrome控制台non-passive event listener输出问题
-import "default-passive-events";
+// import "default-passive-events";
 // 导入样式
 import "../styles/form-design.less";
 
@@ -47,6 +47,10 @@ if (typeof window !== "undefined" && window.Vue) {
  * @return: Boolean
  */
 function setFormDesignConfig(config) {
+  if (!config) {
+    console.error("传入config的参数必须为对象");
+    return;
+  }
   try {
     customComponents.title = config.title || "自义定组件";
     customComponents.list = config.list || [];
