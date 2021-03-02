@@ -184,6 +184,10 @@ export default {
       type: Boolean,
       default: true
     },
+    hideResetHint: {
+      type: Boolean,
+      default: false
+    },
     toolbarsTop: {
       type: Boolean,
       default: false
@@ -376,6 +380,12 @@ export default {
     },
     handleReset() {
       // 清空
+      if (this.hideResetHint) {
+        // 不显示提示直接清空
+        this.resetData();
+        return;
+      }
+
       this.$confirm({
         title: "警告",
         content: "是否确认清空内容?",
@@ -383,11 +393,23 @@ export default {
         okType: "danger",
         cancelText: "否",
         onOk: () => {
-          this.data.list = [];
-          this.handleSetSelectItem({ key: "" });
-          this.$message.success("已清空");
+          this.resetData();
         }
       });
+    },
+    resetData() {
+      this.data = {
+        list: [],
+        config: {
+          layout: "horizontal",
+          labelCol: { xs: 4, sm: 4, md: 4, lg: 4, xl: 4, xxl: 4 },
+          wrapperCol: { xs: 18, sm: 18, md: 18, lg: 18, xl: 18, xxl: 18 },
+          hideRequiredMark: false,
+          customStyle: ""
+        }
+      };
+      this.handleSetSelectItem({ key: "" });
+      this.$message.success("已清空");
     },
     handleSetSelectItem(record) {
       // 操作间隔不能低于100毫秒
@@ -435,6 +457,10 @@ export default {
     handleSave() {
       // 保存函数
       this.$emit("save", JSON.stringify(this.data));
+    },
+    getValue() {
+      // 获取数据
+      return this.data;
     },
     handleClose() {
       this.$emit("close");
