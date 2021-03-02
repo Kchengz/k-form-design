@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2020-07-09 20:53:57
+ * @LastEditTime: 2021-03-02 21:31:09
  -->
 <template>
   <a-form-model
@@ -41,13 +41,15 @@
         />
       </template>
       <template slot="dynamic-opr-button" slot-scope="text, record">
-        <a-icon title="删除改行"
+        <a-icon
+          title="删除改行"
           v-if="!disabled"
           class="dynamic-opr-button"
           type="minus-circle-o"
           @click="removeDomain(record)"
         />
-        <a-icon title="复制添加"
+        <a-icon
+          title="复制添加"
           v-if="!disabled"
           type="copy-o"
           class="dynamic-opr-button"
@@ -180,8 +182,8 @@ export default {
 };
 </script>
 <style scoped>
-.dynamic-opr-button:last{
-  margin-left:0px;
+.dynamic-opr-button:last {
+  margin-left: 0px;
 }
 .dynamic-opr-button {
   cursor: pointer;
@@ -190,7 +192,7 @@ export default {
   font-size: 16px;
   color: #999;
   transition: all 0.3s;
-  margin-left:6px;
+  margin-left: 6px;
 }
 .dynamic-opr-button:hover {
   color: #e89;

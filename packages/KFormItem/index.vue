@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-10-28 22:44:09
+ * @LastEditTime: 2021-03-02 21:31:28
  -->
 <template>
   <a-form-item
@@ -26,18 +26,22 @@
           'cascader',
           'treeSelect'
         ].includes(record.type)
-    "    
+    "
     :label-col="formConfig.layout === 'horizontal' ? formConfig.labelCol : {}"
     :wrapper-col="
       formConfig.layout === 'horizontal' ? formConfig.wrapperCol : {}
     "
   >
     <span slot="label">
-        <a-tooltip>         
-          <span v-text="record.label"></span>
-          <span v-if="record.help" slot="title" v-html="record.help"></span>  
-          <a-icon v-if="record.help" class="question-circle" type="question-circle-o" />
-        </a-tooltip>
+      <a-tooltip>
+        <span v-text="record.label"></span>
+        <span v-if="record.help" slot="title" v-html="record.help"></span>
+        <a-icon
+          v-if="record.help"
+          class="question-circle"
+          type="question-circle-o"
+        />
+      </a-tooltip>
     </span>
     <!-- 单行文本 -->
     <a-input
@@ -476,12 +480,14 @@
     />
   </a-form-item>
   <!-- 隐藏的组件 -->
-  
+
   <a-form-item
-      style="display:none"
-      v-else-if="(record.options.hidden === true) 
-                && record.type === 'input' 
-                && record.options.type === 'hidden'"
+    style="display:none"
+    v-else-if="
+      record.options.hidden === true &&
+        record.type === 'input' &&
+        record.options.type === 'hidden'
+    "
   >
     <a-input
       v-decorator="[
@@ -492,7 +498,6 @@
       ]"
       :type="record.options.type"
     />
-  
   </a-form-item>
   <!-- 文本 -->
   <a-form-item
@@ -500,7 +505,7 @@
   >
     <div :style="{ textAlign: record.options.textAlign }">
       <label
-        :class="{ 'ant-form-item-required': record.options.showRequiredMark}"
+        :class="{ 'ant-form-item-required': record.options.showRequiredMark }"
         v-text="record.label"
       ></label>
     </div>
@@ -620,7 +625,7 @@ export default {
     width: 70px;
   }
 }
-.anticon.anticon-question-circle-o{
-    margin-left:5px;
+.anticon.anticon-question-circle-o {
+  margin-left: 5px;
 }
 </style>
