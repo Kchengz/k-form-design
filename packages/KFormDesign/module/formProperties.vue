@@ -82,7 +82,7 @@
           <a-input-number style="width:100%;" v-model="previewOptions.width" />
         </a-form-item>
         <a-form-item label="表单CSS">
-          <a-input v-model="config.customStyle" />
+          <a-textarea v-model="config.customStyle" />
         </a-form-item>
         <a-form-item label="表单属性">
           <kCheckbox

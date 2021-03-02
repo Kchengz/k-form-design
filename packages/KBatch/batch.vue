@@ -40,12 +40,18 @@
           @input="handleInput"
         />
       </template>
-      <template slot="dynamic-delete-button" slot-scope="text, record">
-        <a-icon
+      <template slot="dynamic-opr-button" slot-scope="text, record">
+        <a-icon title="删除改行"
           v-if="!disabled"
-          class="dynamic-delete-button"
+          class="dynamic-opr-button"
           type="minus-circle-o"
           @click="removeDomain(record)"
+        />
+        <a-icon title="复制添加"
+          v-if="!disabled"
+          type="copy-o"
+          class="dynamic-opr-button"
+          @click="copyDomain(record)"
         />
       </template>
     </a-table>
@@ -114,11 +120,11 @@ export default {
 
       columns.push({
         title: "操作",
-        dataIndex: "dynamic-delete-button",
+        dataIndex: "dynamic-opr-button",
         fixed: "right",
         width: "80px",
         align: "center",
-        scopedSlots: { customRender: "dynamic-delete-button" }
+        scopedSlots: { customRender: "dynamic-opr-button" }
       });
 
       return columns;
@@ -144,6 +150,17 @@ export default {
         this.dynamicValidateForm.domains.splice(index, 1);
       }
     },
+    copyDomain(record) {
+      let data = {};
+      this.record.list.forEach(item => {
+        data[item.model] = record[item.model];
+      });
+      this.dynamicValidateForm.domains.push({
+        ...data,
+        key: Date.now()
+      });
+      this.handleInput();
+    },
     addDomain() {
       let data = {};
       this.record.list.forEach(item => {
@@ -163,18 +180,22 @@ export default {
 };
 </script>
 <style scoped>
-.dynamic-delete-button {
+.dynamic-opr-button:last{
+  margin-left:0px;
+}
+.dynamic-opr-button {
   cursor: pointer;
   position: relative;
   top: 4px;
-  font-size: 24px;
+  font-size: 16px;
   color: #999;
   transition: all 0.3s;
+  margin-left:6px;
 }
-.dynamic-delete-button:hover {
+.dynamic-opr-button:hover {
   color: #e89;
 }
-.dynamic-delete-button[disabled] {
+.dynamic-opr-button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }
