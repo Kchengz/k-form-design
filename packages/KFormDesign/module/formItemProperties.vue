@@ -71,6 +71,12 @@
           <a-input-number v-model="options.max" placeholder="请输入" />
         </a-form-item>
         <a-form-item
+          v-if="typeof options.maxLength !== 'undefined'"
+          label="最大长度"
+        >
+          <a-input-number v-model="options.maxLength" placeholder="请输入" />
+        </a-form-item>
+        <a-form-item
           v-if="typeof options.tabBarGutter !== 'undefined'"
           label="标签间距"
         >
@@ -367,7 +373,10 @@
           v-if="typeof options.data !== 'undefined'"
           label="额外参数（JSON格式）"
         >
-          <a-textarea v-model="options.data" placeholder="严格JSON格式"></a-textarea>
+          <a-textarea
+            v-model="options.data"
+            placeholder="严格JSON格式"
+          ></a-textarea>
         </a-form-item>
         <!-- 文字对齐方式 -->
         <a-form-item v-if="selectItem.type === 'text'" label="文字对齐方式">
@@ -508,7 +517,7 @@
             请点击右键增加行列，或者合并单元格
           </p>
         </a-form-item>
-        
+
         <a-form-item
           v-if="typeof selectItem.help !== 'undefined'"
           label="帮助信息"
@@ -517,33 +526,13 @@
         </a-form-item>
 
         <!-- 前缀 -->
-        <a-form-item
-          v-if="
-            [
-              'input'
-            ].includes(selectItem.type)
-          "
-          label="前缀"
-        >
-          <a-input
-            v-model="options.prefix"
-            placeholder="请输入"
-          />
+        <a-form-item v-if="['input'].includes(selectItem.type)" label="前缀">
+          <a-input v-model="options.prefix" placeholder="请输入" />
         </a-form-item>
 
         <!-- 后缀 -->
-        <a-form-item
-          v-if="
-            [
-              'input'
-            ].includes(selectItem.type)
-          "
-          label="后缀"
-        >
-          <a-input
-            v-model="options.suffix"
-            placeholder="请输入"
-          />
+        <a-form-item v-if="['input'].includes(selectItem.type)" label="后缀">
+          <a-input v-model="options.suffix" placeholder="请输入" />
         </a-form-item>
       </a-form>
     </div>

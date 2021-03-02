@@ -458,7 +458,7 @@ export const basicsList = [
     },
     model: "",
     key: "",
-    help: "",
+    help: ""
   },
   {
     type: "editor",
