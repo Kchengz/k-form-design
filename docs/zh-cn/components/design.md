@@ -287,8 +287,16 @@ export default {
         <td>false</td>
         <td>3.5.1</td>
       </tr>
+        <tr>
+        <td>hideResetHint</td>
+        <td>隐藏清空按钮的确认提示</td>
+        <td>boolean</td>
+        <td>false</td>
+        <td>3.7.3</td>
+      </tr>
     </tbody>
   </table>
+
 
 
 
@@ -325,6 +333,7 @@ export default {
         <th>说明</th>
         <th>参数</th>
         <th>回调参数</th>
+        <th>版本</th>
       </tr>
     </thead>
     <tbody>
@@ -333,27 +342,39 @@ export default {
         <td>导入json数据，继续编辑</td>
         <td>json</td>
         <td>boolean</td>
+        <td></td>
       </tr>
       <tr>
         <td>handleSave</td>
         <td>保存，触发save事件</td>
         <td>-</td>
         <td>void</td>
+        <td></td>
       </tr>
       <tr>
         <td>handleClose</td>
         <td>关闭，触发close事件</td>
         <td>-</td>
         <td>void</td>
+        <td></td>
       </tr>
       <tr>
         <td>handleReset</td>
         <td>清除表单</td>
         <td>-</td>
         <td>boolean</td>
+        <td></td>
+      </tr>
+        <tr>
+        <td>getValue</td>
+        <td>获取json数据</td>
+        <td>-</td>
+        <td>Object</td>
+        <td>3.7.3</td>
       </tr>
     </tbody>
   </table>
+
 
   ## 事件
   <table>
