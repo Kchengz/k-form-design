@@ -1,6 +1,6 @@
 // 表单设计器样式
 @primary-color: "#13c2c2";
-@layout-color: "#9867f7";
+@layout-color : "#9867f7";
 
 @primary-background-color: fade(@primary-color, 6%);
 @primary-hover-bg-color  : fade(@primary-color, 20%);
@@ -95,9 +95,9 @@
 
     // 左右栏
     aside {
-      box-shadow: 0px 0px 1px 1px @border-color;
-      width     : @left-right-width;
-      height    : 100%;
+      box-shadow      : 0px 0px 1px 1px @border-color;
+      width           : @left-right-width;
+      height          : 100%;
       // >.left-title {
       //   padding    : 12px 10px 8px;
       //   user-select: none;
@@ -105,9 +105,9 @@
 
       &.left {
         // border-right: 1px solid @aside-border-color;
-        height         : 100%;
-        overflow       : auto;
-        user-select    : none;
+        height     : 100%;
+        overflow   : auto;
+        user-select: none;
 
         .ant-collapse-content-box {
           padding: 0;
@@ -115,9 +115,11 @@
 
         .ant-collapse {
           border: 0;
+
           >.ant-collapse-item {
-              border-color: @border-color;
-              >.ant-collapse-header {
+            border-color: @border-color;
+
+            >.ant-collapse-header {
               padding: 7px 0 7px 40px;
             }
 
@@ -640,7 +642,7 @@
 
   ::-webkit-scrollbar {
     /*滚动条整体样式*/
-    width: 6px;
+    width                : 6px;
     /*高宽分别对应横竖滚动条的尺寸*/
     height               : 6px;
     scrollbar-arrow-color: red;
@@ -774,6 +776,13 @@
 
     .ant-table-placeholder {
       padding: 0;
+    }
+  }
+
+  // 拖拽上传控件隐藏
+  .hide-upload-drag {
+    .ant-upload.ant-upload-drag {
+      display: none;
     }
   }
 

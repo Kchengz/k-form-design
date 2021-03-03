@@ -256,14 +256,10 @@
         </a-form-item>
         <!-- 页签位置 end -->
         <!-- 页签类型 start -->
-        <a-form-item
-          v-if="typeof options.type !== 'undefined'"
-          label="页签类型"
-        >
+        <a-form-item v-if="selectItem.type === 'tabs'" label="页签类型">
           <a-radio-group buttonStyle="solid" v-model="options.type">
             <a-radio-button value="line">line</a-radio-button>
             <a-radio-button value="card">card</a-radio-button>
-            <a-radio-button value="editable-card">editable-card</a-radio-button>
           </a-radio-group>
         </a-form-item>
         <!-- 页签类型 end -->
