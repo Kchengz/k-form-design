@@ -27,9 +27,8 @@
           'treeSelect'
         ].includes(record.type)
     "
-    :label-col="formConfig.layout === 'horizontal' ? formConfig.labelCol : {}"
-    :wrapper-col="
-      formConfig.layout === 'horizontal' ? formConfig.wrapperCol : {}
+    :label-col="formConfig.layout === 'horizontal' ?(record.options.labelCol?record.options.labelCol: formConfig.labelCol) : {}"
+    :wrapper-col="formConfig.layout === 'horizontal' ?(record.options.wrapperCol?record.options.wrapperCol: formConfig.wrapperCol) : {}
     "
   >
     <span slot="label">
