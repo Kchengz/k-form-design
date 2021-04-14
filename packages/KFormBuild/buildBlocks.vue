@@ -200,6 +200,7 @@ export default {
       handler: function(n) {
         let errorItems = Object.keys(n);
         if (errorItems.length) {
+          if (!this.record.columns) return false;
           for (let i = 0; i < this.record.columns.length; i++) {
             let err = this.record.columns[i].list.filter(item =>
               errorItems.includes(item.model)

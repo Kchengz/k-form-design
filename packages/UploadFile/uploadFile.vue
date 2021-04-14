@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2021-03-03 11:48:54
+ * @LastEditTime: 2021-03-03 14:31:01
  -->
 <template>
   <div :style="{ width: record.options.width }">
@@ -195,7 +195,6 @@ export default {
       if (files.length + this.fileList.length > this.record.options.limit) {
         this.$message.warning(`最大上传数量为${this.record.options.limit}`);
         files.splice(this.record.options.limit - this.fileList.length);
-        console.log(files);
       }
     },
     handleChange(info) {
@@ -215,11 +214,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-.hide-upload-drag {
-  .ant-upload.ant-upload-drag {
-    display: none;
-  }
-}
-</style>

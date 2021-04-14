@@ -1,55 +1,79 @@
 <template>
   <div>
-    <k-form-build :value="jsonData" ref="KFB" @submit="handleSubmit" />
-    <button @click="getData">提交</button>
+    <k-form-build ref="kfb" :value="jsonData" />
+    <button @click="handleGetData">获取数据</button>
   </div>
 </template>
 <script>
 export default {
-  name: "Demo",
   data() {
     return {
       jsonData: {
         list: [
           {
-            type: "batch",
-            label: "动态表格",
-            list: [
-              {
-                type: "input",
-                label: "输入框",
-                icon: "icon-write",
-                options: {
-                  type: "text",
-                  width: "100%",
-                  defaultValue: "",
-                  placeholder: "请输入",
-                  clearable: false,
-                  maxLength: null,
-                  hidden: false,
-                  disabled: false
-                },
-                model: "kkl",
-                key: "input_1603875821327",
-                rules: [{ required: false, message: "必填项" }]
-              }
-            ],
+            type: "input",
+            label: "单行文本",
             options: {
-              scrollY: 0,
-              disabled: false,
-              hidden: false,
-              showLabel: false,
-              hideSequence: false,
-              width: "100%"
+              width: "100%",
+              defaultValue: "",
+              placeholder: "请输入",
+              disabled: false
             },
-            model: "batch_1603875820022",
-            key: "batch_1603875820022"
+            model: "input_1577875678405",
+            key: "input_1577875678405",
+            rules: [{ required: true, message: "必填项" }]
+          },
+          {
+            type: "date",
+            label: "日期选择器",
+            options: {
+              width: "100%",
+              defaultValue: "",
+              range: false,
+              showTime: false,
+              disabled: false,
+              clearable: false,
+              placeholder: "请选择",
+              rangePlaceholder: ["开始时间", "结束时间"],
+              format: "YYYY-MM-DD"
+            },
+            model: "date_1577877450971",
+            key: "date_1577877450971",
+            rules: [{ required: true, message: "必填项" }]
+          },
+          {
+            type: "textarea",
+            label: "多行文本",
+            options: {
+              width: "100%",
+              minRows: 4,
+              maxRows: 6,
+              defaultValue: "",
+              disabled: false,
+              placeholder: "请输入"
+            },
+            model: "textarea_1577877446659",
+            key: "textarea_1577877446659",
+            rules: [{ required: true, message: "必填项" }]
+          },
+          {
+            type: "rate",
+            label: "评分",
+            options: {
+              defaultValue: 0,
+              max: 5,
+              disabled: false,
+              allowHalf: false
+            },
+            model: "rate_1577877468717",
+            key: "rate_1577877468717",
+            rules: [{ required: true, message: "必填项" }]
           }
         ],
         config: {
           layout: "horizontal",
-          labelCol: { xs: 4, sm: 4, md: 4, lg: 4, xl: 4, xxl: 4 },
-          wrapperCol: { xs: 18, sm: 18, md: 18, lg: 18, xl: 18, xxl: 18 },
+          labelCol: { span: 4 },
+          wrapperCol: { span: 18 },
           hideRequiredMark: false,
           customStyle: ""
         }
@@ -57,28 +81,16 @@ export default {
     };
   },
   methods: {
-    handleSubmit(p) {
-      // 通过表单提交按钮触发，获取promise对象
-      p()
-        .then(res => {
-          // 获取数据成功
-          alert(JSON.stringify(res));
+    handleGetData() {
+      // 使用getData函数获取数据
+      this.$refs.kfb
+        .getData()
+        .then(values => {
+          console.log("验证通过", values);
         })
-        .catch(err => {
-          console.log(err, "校验失败");
+        .catch(() => {
+          console.log("验证未通过，获取失败");
         });
-    },
-    getData() {
-      this.$refs.KFB.hide(["kkl"]);
-      setTimeout(() => {
-        this.$refs.KFB.show(["kkl"]);
-      }, 2000);
-      setTimeout(() => {
-        this.$refs.KFB.disable(["kkl"]);
-      }, 4000);
-      setTimeout(() => {
-        this.$refs.KFB.enable(["kkl"]);
-      }, 6000);
     }
   }
 };
