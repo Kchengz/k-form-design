@@ -22,7 +22,7 @@ packages、static、styles
 │  └─k-form-design	// 新建k-form-design目录
 │  │	├─packages	// 复制packages文件夹
 │  │	├─static	// 复制static文件夹
-│  │  	├─styles	// 复制styles文件夹
+│  │	└─styles	// 复制styles文件夹
 
 ```
 
