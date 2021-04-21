@@ -16,7 +16,7 @@
 
 ## 简介
 
-参考项目[vue-form-making](https://github.com/GavinZhuLei/vue-form-making)，基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
+界面布局设计参考[vue-form-making](https://github.com/GavinZhuLei/vue-form-making)项目，基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
 
 注：该项目不兼容vue3.0项目，暂无后续兼容vue3.0的计划
 
