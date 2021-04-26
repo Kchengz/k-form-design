@@ -258,6 +258,7 @@ export default {
         "divider",
         "card",
         "grid",
+        "tabs",
         "table",
         "alert",
         "text",
