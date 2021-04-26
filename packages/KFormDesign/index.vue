@@ -432,6 +432,44 @@ export default {
         this.showPropertie = false;
       }
     },
+    /**
+     * @Author: kcz
+     * @description: 遍历json结构，获取所有字段
+     * @param {*}
+     * @return {*} Array
+     */
+    getFieldSchema() {
+      let fields = [];
+      const traverse = array => {
+        array.forEach(element => {
+          if (element.type === "grid" || element.type === "tabs") {
+            // 栅格布局
+            element.columns.forEach(item => {
+              traverse(item.list);
+            });
+          } else if (element.type === "card") {
+            // 卡片布局
+            traverse(element.list);
+          } else if (element.type === "batch") {
+            // 动态表格内复制
+            traverse(element.list);
+          } else if (element.type === "table") {
+            // 表格布局
+            element.trs.forEach(item => {
+              item.tds.forEach(val => {
+                traverse(val.list);
+              });
+            });
+          } else {
+            if (element.model) {
+              fields.push(element);
+            }
+          }
+        });
+      };
+      traverse(this.data.list);
+      return fields;
+    },
     handleSetData(data) {
       // 用于父组件赋值
       try {
