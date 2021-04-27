@@ -1,6 +1,6 @@
 
 ## 快速上手
-k-form-design 让表单开发更简单高效
+k-form-design 可以通过拖拽配置操作快速构建表单![](https://img.shields.io/github/stars/Kchengz/k-form-design?style=social)
 > 在开始之前，推荐先学习 Vue 和 ES2015，并正确安装和配置了 Node.js v8.9 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 Vue 的正确开发方式
 
 ## 引入 k-form-design

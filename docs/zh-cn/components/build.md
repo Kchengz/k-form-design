@@ -975,14 +975,14 @@ export default {
       <tr>
         <td>value</td>
         <td>表单设计器生成的json数据</td>
-        <td>json</td>
+        <td>Object</td>
         <td>-</td>
         <td></td>
       </tr>
         <tr>
         <td>dynamic-data</td>
         <td>选项控件的动态配置数据</td>
-        <td>json</td>
+        <td>Object</td>
         <td>{}</td>
         <td>3.3.0</td>
       </tr>
@@ -990,28 +990,28 @@ export default {
         <tr>
         <td>disabled</td>
         <td>禁用所有输入控件</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td>false</td>
         <td>3.3.0</td>
       </tr>
  		<tr>
         <td>output-string</td>
         <td>将获取的值都转成字符串，插入数据时请使用setData函数</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td>false</td>
         <td>3.3.1</td>
       </tr>
 		<tr>
         <td>default-value</td>
         <td>表单默认数据</td>
-        <td>json</td>
+        <td>Object</td>
         <td>{}</td>
         <td>3.3.5</td>
       </tr>
 		<tr>
         <td>config</td>
         <td>配置项</td>
-        <td>json</td>
+        <td>Object</td>
         <td>{}</td>
         <td>3.5.3</td>
       </tr>
@@ -1044,7 +1044,7 @@ export default {
       <tr>
         <td>setData</td>
         <td>插入表单数据</td>
-        <td>json</td>
+        <td>Object</td>
         <td>Promise</td>
           <td></td>
       </tr>
@@ -1052,35 +1052,35 @@ export default {
         <td>reset</td>
         <td>重置表单</td>
         <td>-</td>
-        <td>void</td>
+        <td>Void</td>
           <td></td>
       </tr>
       <tr>
         <td>hide</td>
         <td>隐藏字段</td>
-        <td>list[fields]</td>
-        <td>void</td>
+        <td>Array[fields]</td>
+        <td>Void</td>
           <td>3.5.1</td>
       </tr>
       <tr>
         <td>show</td>
         <td>显示字段</td>
-        <td>list[fields]</td>
-        <td>void</td>
+        <td>Array[fields]</td>
+        <td>Void</td>
           <td>3.5.1</td>
       </tr>
       <tr>
         <td>disable</td>
         <td>禁用字段</td>
-        <td>list[fields]</td>
-        <td>void</td>
+        <td>Array[fields]</td>
+        <td>Void</td>
           <td>3.5.1</td>
       </tr>
       <tr>
         <td>enable</td>
         <td>启用字段</td>
-        <td>list[fields]</td>
-        <td>void</td>
+        <td>Array[fields]</td>
+        <td>Void</td>
           <td>3.5.1</td>
       </tr>
     </tbody>

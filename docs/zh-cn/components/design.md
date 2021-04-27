@@ -211,21 +211,21 @@ export default {
       <tr>
         <td>title</td>
         <td>表单设计器标题</td>
-        <td>string</td>
+        <td>String</td>
         <td>"表单设计器 --by kcz"</td>
         <td></td>
       </tr>
       <tr>
         <td>showHead</td>
         <td>是否显示head部分</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td>true</td>
         <td></td>
       </tr>
       <tr>
         <td>toolbars</td>
         <td>显示对应的操作按钮</td>
-        <td>array</td>
+        <td>Array</td>
         <td>[
         'save',
         'preview',
@@ -240,21 +240,21 @@ export default {
       <tr>
         <td>toolbarsTop</td>
         <td>切换操作按钮位置</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td>false</td>
         <td>3.1.6</td>
       </tr>
        <tr>
         <td>showToolbarsText</td>
         <td>是否显示操作按钮文本</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td>false</td>
         <td>3.1.1</td>
       </tr>
        <tr>
         <td>fields</td>
         <td>自定义左侧控件列表</td>
-        <td>array</td>
+        <td>Array</td>
         <td style="max-width:280px;">[
          "input",
         "textarea",
@@ -283,14 +283,14 @@ export default {
         <tr>
         <td>hideModel</td>
         <td>隐藏数据字段</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td>false</td>
         <td>3.5.1</td>
       </tr>
         <tr>
         <td>hideResetHint</td>
         <td>隐藏清空按钮的确认提示</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td>false</td>
         <td>3.7.3</td>
       </tr>
@@ -341,28 +341,35 @@ export default {
         <td>handleSetData</td>
         <td>导入json数据，继续编辑</td>
         <td>json</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td></td>
       </tr>
       <tr>
+        <td>getFieldSchema</td>
+        <td>获取所有输入控件的结构数据，包括model，key，type等</td>
+        <td>-</td>
+        <td>Array</td>
+        <td>3.7.5</td>
+      </tr>
+            <tr>
         <td>handleSave</td>
         <td>保存，触发save事件</td>
         <td>-</td>
-        <td>void</td>
+        <td>Void</td>
         <td></td>
       </tr>
       <tr>
         <td>handleClose</td>
         <td>关闭，触发close事件</td>
         <td>-</td>
-        <td>void</td>
+        <td>Void</td>
         <td></td>
       </tr>
       <tr>
         <td>handleReset</td>
         <td>清除表单</td>
         <td>-</td>
-        <td>boolean</td>
+        <td>Boolean</td>
         <td></td>
       </tr>
         <tr>
@@ -394,7 +401,7 @@ export default {
       <tr>
         <td>close</td>
         <td colspan="2">点击关闭按钮时回调</td>
-        <td>void</td>
+        <td>Void</td>
       </tr>
     </tbody>
   </table>

@@ -3,7 +3,7 @@
 
 环境：vue cli3以上版本搭建的项目
 
-ie兼容 >= 9
+> 注：就算使用babel/polyfill也只能兼容 IE11
 
 ### Installation
 

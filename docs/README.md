@@ -1,7 +1,7 @@
 
 
 
-# 表单设计器 k-form-design
+# 表单设计器 k-form-design![](https://img.shields.io/github/stars/Kchengz/k-form-design?style=social)
 
 <p align="center">
   <a href="https://github.com/vuejs/vue">
@@ -18,7 +18,7 @@
 ### 简介
 基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
 - [预览地址](http://cdn.kcz66.com/k-form-design.html)
-<!-- - [开源地址](https://github.com/Kchengz/k-form-design) -->
+- [开源地址](https://github.com/Kchengz/k-form-design)
 
 ### 特性
 - 可视化配置页面
@@ -68,7 +68,10 @@ Vue.use(KFormDesign)
 
 ### 交流
 点击链接加入qq群聊，可以直接提问及反馈bug
-[【k-form-desgin交流群：1020643215】](https://jq.qq.com/?_wv=1027&k=5BeoFAr)
+
+- [【k-form-desgin交流群：1020643215】](https://jq.qq.com/?_wv=1027&k=5BeoFAr) （满人）
+
+- [【k-form-desgin交流二群：727396923】](https://jq.qq.com/?_wv=1027&k=uYyqQPlQ)
 
 ### 捐赠
 如果你觉得k-form-design对你有帮助，欢迎给我捐赠

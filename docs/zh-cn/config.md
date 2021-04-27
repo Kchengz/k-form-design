@@ -1,5 +1,8 @@
 # 配置默认上传接口
 ## 使用KFormDesign的setConfig函数
+
+> setConfig函数仅配置KFormDesign组件，如果需要在表单使用时动态配置，则需要配置KFormBuild组件，可以查看文档[动态修改上传组件配置](/zh-cn/components/build?id=动态修改上传组件配置)
+
 ```javascript
 import KFormDesign from 'k-form-design'
 
