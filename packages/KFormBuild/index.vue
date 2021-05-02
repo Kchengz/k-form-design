@@ -177,7 +177,7 @@ export default {
       const traverse = array => {
         array.forEach(element => {
           if (fields.has(element.model)) {
-            element.options[optionName] = value;
+            this.$set(element.options, optionName, value);
           }
           if (element.type === "grid" || element.type === "tabs") {
             // 栅格布局 and 标签页

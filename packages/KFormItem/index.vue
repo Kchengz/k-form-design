@@ -3,29 +3,28 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-03-02 21:31:28
+ * @LastEditTime: 2021-05-02 17:47:09
  -->
 <template>
   <a-form-item
     v-if="
-      !(record.options.hidden === true) &&
-        [
-          'input',
-          'textarea',
-          'date',
-          'time',
-          'number',
-          'radio',
-          'checkbox',
-          'select',
-          'rate',
-          'switch',
-          'slider',
-          'uploadImg',
-          'uploadFile',
-          'cascader',
-          'treeSelect'
-        ].includes(record.type)
+      [
+        'input',
+        'textarea',
+        'date',
+        'time',
+        'number',
+        'radio',
+        'checkbox',
+        'select',
+        'rate',
+        'switch',
+        'slider',
+        'uploadImg',
+        'uploadFile',
+        'cascader',
+        'treeSelect'
+      ].includes(record.type)
     "
     :label-col="formConfig.layout === 'horizontal' ? formConfig.labelCol : {}"
     :wrapper-col="
@@ -394,10 +393,7 @@
   </a-form-item>
   <!-- 可隐藏label -->
   <a-form-item
-    v-else-if="
-      !(record.options.hidden === true) &&
-        (record.type === 'batch' || record.type === 'editor')
-    "
+    v-else-if="record.type === 'batch' || record.type === 'editor'"
     :label="!record.options.showLabel ? '' : record.label"
     :label-col="
       formConfig.layout === 'horizontal' && record.options.showLabel
@@ -447,9 +443,7 @@
     />
   </a-form-item>
   <!-- button按钮 -->
-  <a-form-item
-    v-else-if="!(record.options.hidden === true) && record.type === 'button'"
-  >
+  <a-form-item v-else-if="record.type === 'button'">
     <a-button
       :disabled="disabled || record.options.disabled"
       @click="
@@ -467,9 +461,7 @@
     ></a-button>
   </a-form-item>
   <!-- alert提示 -->
-  <a-form-item
-    v-else-if="!(record.options.hidden === true) && record.type === 'alert'"
-  >
+  <a-form-item v-else-if="record.type === 'alert'">
     <a-alert
       :message="record.label"
       :description="record.options.description"
@@ -483,11 +475,7 @@
 
   <a-form-item
     style="display:none"
-    v-else-if="
-      record.options.hidden === true &&
-        record.type === 'input' &&
-        record.options.type === 'hidden'
-    "
+    v-else-if="record.type === 'input' && record.options.type === 'hidden'"
   >
     <a-input
       v-decorator="[
@@ -500,9 +488,7 @@
     />
   </a-form-item>
   <!-- 文本 -->
-  <a-form-item
-    v-else-if="!(record.options.hidden === true) && record.type === 'text'"
-  >
+  <a-form-item v-else-if="record.type === 'text'">
     <div :style="{ textAlign: record.options.textAlign }">
       <label
         :class="{ 'ant-form-item-required': record.options.showRequiredMark }"
@@ -512,7 +498,7 @@
   </a-form-item>
   <!-- html -->
   <div
-    v-else-if="!(record.options.hidden === true) && record.type === 'html'"
+    v-else-if="record.type === 'html'"
     v-html="record.options.defaultValue"
   ></div>
 

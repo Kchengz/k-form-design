@@ -1,73 +1,74 @@
 <template>
   <div>
-    <k-form-build ref="kfb" :value="jsonData" />
-    <button @click="handleGetData">获取数据</button>
+    <k-form-build :value="jsonData" @change="handleChange" ref="KFB" />
+    <button @click="hide">隐藏</button>
+    <button @click="show">显示</button>
+    <button @click="disable">禁用</button>
+    <button @click="enable">启用</button>
   </div>
 </template>
 <script>
 export default {
+  name: "Demo",
   data() {
     return {
       jsonData: {
         list: [
           {
             type: "input",
-            label: "单行文本",
+            label: "输入框",
             options: {
+              type: "text",
               width: "100%",
               defaultValue: "",
               placeholder: "请输入",
+              clearable: false,
+              maxLength: null,
               disabled: false
             },
-            model: "input_1577875678405",
-            key: "input_1577875678405",
-            rules: [{ required: true, message: "必填项" }]
-          },
-          {
-            type: "date",
-            label: "日期选择器",
-            options: {
-              width: "100%",
-              defaultValue: "",
-              range: false,
-              showTime: false,
-              disabled: false,
-              clearable: false,
-              placeholder: "请选择",
-              rangePlaceholder: ["开始时间", "结束时间"],
-              format: "YYYY-MM-DD"
-            },
-            model: "date_1577877450971",
-            key: "date_1577877450971",
-            rules: [{ required: true, message: "必填项" }]
+            model: "input_1585832448970",
+            key: "input_1585832448970",
+            rules: [{ required: false, message: "必填项" }]
           },
           {
             type: "textarea",
-            label: "多行文本",
+            label: "文本框",
+            icon: "icon-edit",
             options: {
               width: "100%",
               minRows: 4,
               maxRows: 6,
+              maxLength: null,
               defaultValue: "",
+              clearable: false,
               disabled: false,
               placeholder: "请输入"
             },
-            model: "textarea_1577877446659",
-            key: "textarea_1577877446659",
-            rules: [{ required: true, message: "必填项" }]
+            model: "textarea_1585832449337",
+            key: "textarea_1585832449337",
+            rules: [{ required: false, message: "必填项" }]
           },
           {
-            type: "rate",
-            label: "评分",
+            type: "select",
+            label: "下拉选择器",
+            icon: "icon-xiala",
             options: {
-              defaultValue: 0,
-              max: 5,
+              width: "100%",
+              multiple: false,
               disabled: false,
-              allowHalf: false
+              clearable: false,
+              placeholder: "请选择",
+              dynamicKey: "",
+              dynamic: false,
+              options: [
+                { value: "1", label: "下拉框1" },
+                { value: "2", label: "下拉框2" }
+              ],
+              filterable: false
             },
-            model: "rate_1577877468717",
-            key: "rate_1577877468717",
-            rules: [{ required: true, message: "必填项" }]
+            model: "select_1585832450864",
+            key: "select_1585832450864",
+            rules: [{ required: false, message: "必填项" }]
           }
         ],
         config: {
@@ -81,16 +82,21 @@ export default {
     };
   },
   methods: {
-    handleGetData() {
-      // 使用getData函数获取数据
-      this.$refs.kfb
-        .getData()
-        .then(values => {
-          console.log("验证通过", values);
-        })
-        .catch(() => {
-          console.log("验证未通过，获取失败");
-        });
+    handleChange(value, key) {
+      // 数据变化时触发
+      console.log(value, key);
+    },
+    show() {
+      this.$refs.KFB.show(["textarea_1585832449337"]);
+    },
+    hide() {
+      this.$refs.KFB.hide(["textarea_1585832449337"]);
+    },
+    disable() {
+      this.$refs.KFB.disable(["textarea_1585832449337"]);
+    },
+    enable() {
+      this.$refs.KFB.enable(["textarea_1585832449337"]);
     }
   }
 };

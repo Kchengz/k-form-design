@@ -112,7 +112,7 @@
   </table>
 
   <KFormItem
-    v-else
+    v-else-if="!record.options.hidden"
     ref="nestedComponents"
     @handleReset="$emit('handleReset')"
     @change="handleChange"
