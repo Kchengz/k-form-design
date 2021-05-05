@@ -39,7 +39,7 @@ export default {
         this.$refs.jsonModel.jsonData = res;
         this.$refs.jsonModel.visible = true;
       }).catch(err => {
-        console.log(err, "获取数据失败");
+        console.error(err, "获取数据失败");
       });
     },
     handleGetData() {

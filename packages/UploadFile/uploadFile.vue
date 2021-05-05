@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2021-03-03 14:31:01
+ * @LastEditTime: 2021-05-05 12:12:30
  -->
 <template>
   <div :style="{ width: record.options.width }">
@@ -82,7 +82,8 @@ export default {
     optionsData() {
       try {
         return JSON.parse(this.record.options.data);
-      } catch {
+      } catch (err) {
+        console.error(err);
         return {};
       }
     }
