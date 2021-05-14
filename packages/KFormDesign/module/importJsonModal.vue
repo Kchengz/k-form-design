@@ -90,6 +90,7 @@ export default {
 
         this.$message.success("导入成功");
       } catch (error) {
+        console.error(error);
         this.$message.error("导入失败，数据格式不对");
       }
     }

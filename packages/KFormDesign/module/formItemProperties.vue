@@ -522,13 +522,19 @@
         </a-form-item>
 
         <!-- 前缀 -->
-        <a-form-item v-if="['input'].includes(selectItem.type)" label="前缀">
-          <a-input v-model="options.prefix" placeholder="请输入" />
+        <a-form-item
+          label="前缀"
+          v-if="typeof options.addonBefore !== 'undefined'"
+        >
+          <a-input v-model="options.addonBefore" placeholder="请输入" />
         </a-form-item>
 
         <!-- 后缀 -->
-        <a-form-item v-if="['input'].includes(selectItem.type)" label="后缀">
-          <a-input v-model="options.suffix" placeholder="请输入" />
+        <a-form-item
+          label="后缀"
+          v-if="typeof options.addonAfter !== 'undefined'"
+        >
+          <a-input v-model="options.addonAfter" placeholder="请输入" />
         </a-form-item>
       </a-form>
     </div>

@@ -16,14 +16,14 @@ export const basicsList = [
       placeholder: "请输入", // 没有输入时，提示文字
       clearable: false,
       maxLength: null,
+      addonBefore: "",
+      addonAfter: "",
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false // 是否禁用，false不禁用，true禁用
     },
     model: "", // 数据字段
     key: "",
     help: "",
-    prefix: "",
-    suffix: "",
     rules: [
       //验证规则
       {
@@ -75,8 +75,6 @@ export const basicsList = [
     model: "", // 数据字段
     key: "",
     help: "",
-    prefix: "",
-    suffix: "",
     rules: [
       {
         required: false,
@@ -114,8 +112,6 @@ export const basicsList = [
     model: "",
     key: "",
     help: "",
-    prefix: "",
-    suffix: "",
     rules: [
       {
         required: false,
@@ -388,8 +384,6 @@ export const basicsList = [
     model: "",
     key: "",
     help: "",
-    prefix: "",
-    suffix: "",
     rules: [
       {
         required: false,

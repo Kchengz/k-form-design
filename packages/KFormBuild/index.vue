@@ -137,6 +137,7 @@ export default {
             }
           });
         } catch (err) {
+          console.error(err);
           reject(err);
         }
       });
@@ -163,7 +164,9 @@ export default {
           } else {
             this.form.setFieldsValue(json);
           }
+          resolve(true);
         } catch (err) {
+          console.error(err);
           reject(err);
         }
       });

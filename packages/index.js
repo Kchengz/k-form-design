@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-07-07 23:12:33
+ * @LastEditTime: 2021-05-14 14:20:45
  */
 
 // 导入ant组件
@@ -12,6 +12,7 @@ import * as all from "./mini";
 
 export default all.default;
 export const setFormDesignConfig = all.setFormDesignConfig;
+export const setFormBuildConfig = all.setFormBuildConfig;
 export const KFormDesign = all.KFormDesign;
 export const KFormPreview = all.KFormPreview;
 export const KFormBuild = all.KFormBuild;
