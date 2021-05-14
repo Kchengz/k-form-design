@@ -5,17 +5,26 @@
     </div>
     <div class="properties-body">
       <a-form>
-        <a-form-item
-          v-if="typeof config.layout !== 'undefined'"
-          label="表单布局"
-        >
+        <a-form-item label="表单布局">
           <a-radio-group buttonStyle="solid" v-model="config.layout">
             <a-radio-button value="horizontal">水平</a-radio-button>
             <a-radio-button value="vertical">垂直</a-radio-button>
             <a-radio-button value="inline">行内</a-radio-button>
           </a-radio-group>
         </a-form-item>
-        <a-form-item label="labelCol（水平布局生效）">
+        <a-form-item label="标签布局（水平布局生效）">
+          <a-radio-group buttonStyle="solid" v-model="config.labelLayout">
+            <a-radio-button value="flex">固定</a-radio-button>
+            <a-radio-button value="Grid">栅格</a-radio-button>
+          </a-radio-group>
+        </a-form-item>
+        <a-form-item
+          v-show="config.labelLayout === 'flex'"
+          label="标签宽度（px）"
+        >
+          <a-input-number v-model="config.labelWidth" />
+        </a-form-item>
+        <a-form-item label="labelCol" v-show="config.labelLayout !== 'flex'">
           <div class="change-col-box">
             <a-slider
               id="test"
@@ -50,7 +59,7 @@
             </div>
           </div>
         </a-form-item>
-        <a-form-item label="wrapperCol（水平布局生效）">
+        <a-form-item label="wrapperCol" v-show="config.labelLayout !== 'flex'">
           <div class="change-col-box">
             <div>
               <label>xs:</label>
@@ -85,11 +94,7 @@
           <a-textarea v-model="config.customStyle" />
         </a-form-item>
         <a-form-item label="表单属性">
-          <kCheckbox
-            v-if="typeof config.hideRequiredMark !== 'undefined'"
-            v-model="config.hideRequiredMark"
-            label="隐藏必选标记"
-          />
+          <kCheckbox v-model="config.hideRequiredMark" label="隐藏必选标记" />
         </a-form-item>
         <a-form-item label="提示">
           实际预览效果请点击预览查看

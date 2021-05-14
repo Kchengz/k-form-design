@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-14 17:12:09
+ * @LastEditTime: 2021-05-14 18:33:50
  -->
 <template>
   <a-form-item
@@ -26,10 +26,21 @@
         'treeSelect'
       ].includes(record.type)
     "
-    :label-col="formConfig.layout === 'horizontal' ? formConfig.labelCol : {}"
-    :wrapper-col="
-      formConfig.layout === 'horizontal' ? formConfig.wrapperCol : {}
+    :label-col="
+      formConfig.layout === 'horizontal'
+        ? formConfig.labelLayout === 'flex'
+          ? { style: `width:${formConfig.labelWidth}px` }
+          : formConfig.labelCol
+        : {}
     "
+    :wrapper-col="
+      formConfig.layout === 'horizontal'
+        ? formConfig.labelLayout === 'flex'
+          ? { style: 'width:auto;flex:1' }
+          : formConfig.wrapperCol
+        : {}
+    "
+    :style="{ display: formConfig.layout === 'horizontal' ? 'flex' : 'block' }"
   >
     <span slot="label">
       <a-tooltip>
@@ -241,14 +252,19 @@
     :label="!record.options.showLabel ? '' : record.label"
     :label-col="
       formConfig.layout === 'horizontal' && record.options.showLabel
-        ? formConfig.labelCol
+        ? formConfig.labelLayout === 'flex'
+          ? { style: `width:${formConfig.labelWidth}px` }
+          : formConfig.labelCol
         : {}
     "
     :wrapper-col="
       formConfig.layout === 'horizontal' && record.options.showLabel
-        ? formConfig.wrapperCol
+        ? formConfig.labelLayout === 'flex'
+          ? { style: 'width:auto;flex:1' }
+          : formConfig.wrapperCol
         : {}
     "
+    :style="{ display: formConfig.layout === 'horizontal' ? 'flex' : 'block' }"
   >
     <component
       :ref="record.type === 'batch' && 'KBatch'"
