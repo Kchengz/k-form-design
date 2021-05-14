@@ -169,7 +169,7 @@ export default {
   methods: {
     validationSubform() {
       // 验证动态表格
-      let nestedComponents = this.$refs.nestedComponents;
+      const nestedComponents = this.$refs.nestedComponents;
       if (
         typeof nestedComponents === "object" &&
         nestedComponents instanceof Array
@@ -198,11 +198,11 @@ export default {
     validatorError: {
       deep: true,
       handler: function(n) {
-        let errorItems = Object.keys(n);
+        const errorItems = Object.keys(n);
         if (errorItems.length) {
           if (!this.record.columns) return false;
           for (let i = 0; i < this.record.columns.length; i++) {
-            let err = this.record.columns[i].list.filter(item =>
+            const err = this.record.columns[i].list.filter(item =>
               errorItems.includes(item.model)
             );
             if (err.length) {

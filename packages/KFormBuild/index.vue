@@ -119,8 +119,8 @@ export default {
             });
             if (this.outputString) {
               // 需要所有value转成字符串
-              for (let key in values) {
-                let type = typeof values[key];
+              for (const key in values) {
+                const type = typeof values[key];
                 if (type === "string" || type === "undefined") {
                   continue;
                 } else if (type === "object") {
@@ -146,11 +146,11 @@ export default {
         try {
           if (this.outputString) {
             // 将非string数据还原
-            for (let key in json) {
+            for (const key in json) {
               if (!json[key].startsWith("k-form-design#")) {
                 continue;
               }
-              let array = json[key].split("#");
+              const array = json[key].split("#");
               if (array[1] === "object") {
                 json[key] = JSON.parse(array[2]);
               } else if (array[1] === "number") {

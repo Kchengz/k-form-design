@@ -11,8 +11,8 @@ import "./core/components_use";
 import * as all from "./mini";
 
 export default all.default;
-export let setFormDesignConfig = all.setFormDesignConfig;
-export let KFormDesign = all.KFormDesign;
-export let KFormPreview = all.KFormPreview;
-export let KFormBuild = all.KFormBuild;
-export let KFormItem = all.KFormItem;
+export const setFormDesignConfig = all.setFormDesignConfig;
+export const KFormDesign = all.KFormDesign;
+export const KFormPreview = all.KFormPreview;
+export const KFormBuild = all.KFormBuild;
+export const KFormItem = all.KFormItem;

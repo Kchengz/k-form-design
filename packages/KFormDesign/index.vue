@@ -307,7 +307,7 @@ export default {
     },
     collapseDefaultActiveKey() {
       // 计算当前展开的控件列表
-      let defaultActiveKey = window.localStorage.getItem(
+      const defaultActiveKey = window.localStorage.getItem(
         "collapseDefaultActiveKey"
       );
       if (defaultActiveKey) {
@@ -414,7 +414,7 @@ export default {
     },
     handleSetSelectItem(record) {
       // 操作间隔不能低于100毫秒
-      let newTime = new Date().getTime();
+      const newTime = new Date().getTime();
       if (newTime - this.updateTime < 100) {
         return false;
       }
@@ -439,7 +439,7 @@ export default {
      * @return {*} Array
      */
     getFieldSchema() {
-      let fields = [];
+      const fields = [];
       const traverse = array => {
         array.forEach(element => {
           if (element.type === "grid" || element.type === "tabs") {

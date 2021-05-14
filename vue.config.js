@@ -1,3 +1,4 @@
+const debug = process.env.NODE_ENV !== 'production'
 module.exports = {
   pages: {
     index: {
@@ -21,6 +22,12 @@ module.exports = {
         },
         javascriptEnabled: true
       }
+    }
+  },
+  configureWebpack: config => {
+     // 开发环境配置
+    if (debug) {
+      config.devtool = 'source-map'
     }
   }
 };

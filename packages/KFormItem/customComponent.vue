@@ -35,13 +35,14 @@ export default {
   computed: {
     customComponent() {
       // 计算需要显示的组件
-      let customComponentList = {};
+      const customComponentList = {};
       if (window.$customComponentList) {
         // 将数组映射成json
         window.$customComponentList.forEach(item => {
           customComponentList[item.type] = item.component;
         });
       }
+      console.log(customComponentList[this.record.type]);
       return customComponentList[this.record.type];
     }
   },

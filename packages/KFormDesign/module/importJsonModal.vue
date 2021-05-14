@@ -68,8 +68,8 @@ export default {
     },
     beforeUpload(e) {
       // 通过json文件导入
-      let _this = this;
-      let reader = new FileReader();
+      const _this = this;
+      const reader = new FileReader();
       reader.readAsText(e);
       reader.onload = function() {
         _this.jsonFormat = this.result;

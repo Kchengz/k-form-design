@@ -129,11 +129,11 @@ export default {
     },
     handlePreview(file) {
       // 下载文件
-      let downloadWay = this.record.options.downloadWay;
-      let dynamicFun = this.record.options.dynamicFun;
+      const downloadWay = this.record.options.downloadWay;
+      const dynamicFun = this.record.options.dynamicFun;
       if (downloadWay === "a") {
         // 使用a标签下载
-        let a = document.createElement("a");
+        const a = document.createElement("a");
         a.href = file.url || file.thumbUrl;
         a.download = file.name;
         a.click();
