@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-14 18:33:50
+ * @LastEditTime: 2021-05-14 20:48:51
  -->
 <template>
   <a-form-item
@@ -40,7 +40,11 @@
           : formConfig.wrapperCol
         : {}
     "
-    :style="{ display: formConfig.layout === 'horizontal' ? 'flex' : 'block' }"
+    :style="
+      formConfig.layout === 'horizontal' && formConfig.labelLayout === 'flex'
+        ? { display: 'flex' }
+        : {}
+    "
   >
     <span slot="label">
       <a-tooltip>
@@ -264,7 +268,13 @@
           : formConfig.wrapperCol
         : {}
     "
-    :style="{ display: formConfig.layout === 'horizontal' ? 'flex' : 'block' }"
+    :style="
+      formConfig.layout === 'horizontal' &&
+      formConfig.labelLayout === 'flex' &&
+      record.options.showLabel
+        ? { display: 'flex' }
+        : {}
+    "
   >
     <component
       :ref="record.type === 'batch' && 'KBatch'"

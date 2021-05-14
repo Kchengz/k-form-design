@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-14 14:31:42
+ * @LastEditTime: 2021-05-14 19:09:25
  */
 
 // 解决Chrome控制台non-passive event listener输出问题
@@ -47,11 +47,10 @@ if (typeof window !== "undefined" && window.Vue) {
  * @return: Boolean
  */
 function setFormDesignConfig(config) {
-  if (!config) {
+  if (!config || typeof config !== "object") {
     console.error("传入config的参数必须为对象");
-    return;
+    return false;
   }
-  console.log(config);
   try {
     customComponents.title = config.title || "自义定组件";
     customComponents.list = config.list || [];
@@ -75,7 +74,6 @@ function setFormDesignConfig(config) {
     // uploadImage配置 start
     // 配置uploadImage默认上传地址
     const uploadImg = basicsList.filter(item => item.type === "uploadImg")[0];
-    console.log(uploadImg);
     uploadImg.options.action =
       config.uploadImage || "http://cdn.kcz66.com/upload-img.txt";
     // 配置uploadImage默认额外参数
@@ -99,9 +97,9 @@ function setFormDesignConfig(config) {
  * @param { object }config
  */
 function setFormBuildConfig(config) {
-  if (!config) {
+  if (!config || typeof config !== "object") {
     console.error("传入setFormBuildConfig的参数必须为对象");
-    return;
+    return false;
   }
   if (config.dynamicData) {
     window.$kfb_dynamicData = config.dynamicData;
