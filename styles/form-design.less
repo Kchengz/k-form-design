@@ -493,7 +493,7 @@
               }
 
               // 隐藏选择输入列的所有组件的label
-              .draggable-box{
+              .draggable-box {
                 .ant-form-item-label {
                   display: none !important;
                 }
@@ -759,10 +759,30 @@
 .k-form-build-9136076486841527 {
 
   .select-input-list-box {
-    .ant-form-item {
-      margin-bottom: 2px;
-      margin-right : 8px
+    color    : rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+
+    .ant-form {
+      .ant-form-item {
+        margin-bottom: 2px;
+        margin-right : 8px
+      }
+
     }
+
+    &.ant-form-inline {
+      .ant-col.ant-form-item-control-wrapper {
+        height     : 30px;
+        display    : flex;
+        align-items: center;
+      }
+
+      .text-box {
+        height     : 30px;
+        line-height: 30px;
+      }
+    }
+
   }
 
   .ant-form-item {

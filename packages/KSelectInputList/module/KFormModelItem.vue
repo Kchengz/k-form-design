@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-15 00:39:29
+ * @LastEditTime: 2021-05-15 15:28:57
  -->
 <template>
   <a-form-model-item
@@ -169,7 +169,7 @@
   </a-form-model-item>
   <!-- 文本 -->
   <a-form-model-item v-else-if="record.type === 'text'">
-    <div :style="{ textAlign: record.options.textAlign }">
+    <div class="text-box" :style="{ textAlign: record.options.textAlign }">
       <label
         :class="{ 'ant-form-item-required': record.options.showRequiredMark }"
         v-text="record.label"
