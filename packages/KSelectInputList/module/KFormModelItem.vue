@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-15 15:28:57
+ * @LastEditTime: 2021-05-15 16:32:09
  -->
 <template>
   <a-form-model-item
@@ -110,7 +110,11 @@
 
     <component
       v-else
-      :style="`width:${record.options.width}`"
+      :style="
+        `width:${
+          record.options.width !== '100%' ? record.options.width : '120px'
+        }`
+      "
       v-bind="componentOption"
       :min="
         record.options.min || record.options.min === 0
