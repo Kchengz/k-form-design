@@ -455,6 +455,33 @@ export const basicsList = [
     help: ""
   },
   {
+    type: "selectInputList",
+    label: "选择输入列",
+    icon: "icon-biaoge",
+    columns: [
+      {
+        value: "1",
+        label: "选项1",
+        list: []
+      },
+      {
+        value: "2",
+        label: "选项2",
+        list: []
+      }
+    ],
+    options: {
+      disabled: false,
+      multiple: true, // 是否允许多选
+      hidden: false, // 是否隐藏，false显示，true隐藏
+      showLabel: false,
+      width: "100%"
+    },
+    model: "",
+    key: "",
+    help: ""
+  },
+  {
     type: "editor",
     label: "富文本",
     icon: "icon-LC_icon_edit_line_1",

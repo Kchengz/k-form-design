@@ -41,6 +41,7 @@ import {
 } from "ant-design-vue";
 
 import KBatch from "../KBatch";
+import KSelectInputList from "../KSelectInputList";
 import KEditor from "../KEditor";
 import UploadFile from "../UploadFile";
 import UploadImg from "../UploadImg";
@@ -63,6 +64,7 @@ export default {
   treeSelect: TreeSelect,
   cascader: Cascader,
   batch: KBatch,
+  selectInputList: KSelectInputList,
   editor: KEditor
 };
 

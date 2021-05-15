@@ -226,6 +226,7 @@ export default {
         "cascader",
         "treeSelect",
         "batch",
+        "selectInputList",
         "editor",
         "switch",
         "button",

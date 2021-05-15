@@ -1,8 +1,6 @@
 <template>
   <div class="properties-centent kk-checkbox">
-    <div class="head-title">
-      控件属性设置
-    </div>
+    <div class="head-title">控件属性设置</div>
     <div class="properties-body">
       <p class="hint-box" v-show="selectItem.key === ''">未选择控件</p>
       <a-form v-show="selectItem.key !== ''">
@@ -45,12 +43,12 @@
           label="自适应内容高度"
         >
           <a-input-number
-            style="width:100%"
+            style="width: 100%"
             v-model="options.minRows"
             placeholder="最小高度"
           />
           <a-input-number
-            style="width:100%"
+            style="width: 100%"
             v-model="options.maxRows"
             placeholder="最大高度"
           />
@@ -119,7 +117,10 @@
         </a-form-item>
         <!-- 选项配置及动态数据配置 end -->
         <!-- tabs配置 start -->
-        <a-form-item v-if="selectItem.type === 'tabs'" label="页签配置">
+        <a-form-item
+          v-if="['tabs', 'selectInputList'].includes(selectItem.type)"
+          :label="selectItem.type === 'tabs' ? '页签配置' : '列选项配置'"
+        >
           <KChangeOption v-model="selectItem.columns" type="tab" />
         </a-form-item>
         <!-- tabs配置 end -->
@@ -509,9 +510,7 @@
         </a-form-item>
 
         <a-form-item v-if="selectItem.type === 'table'" label="提示">
-          <p style="line-height: 26px;">
-            请点击右键增加行列，或者合并单元格
-          </p>
+          <p style="line-height: 26px">请点击右键增加行列，或者合并单元格</p>
         </a-form-item>
 
         <a-form-item

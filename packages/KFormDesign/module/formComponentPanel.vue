@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-10-28 16:17:29
+ * @LastEditTime: 2021-05-15 09:54:53
  -->
 <template>
   <div class="form-panel">
@@ -221,7 +221,7 @@ export default {
             this.handleColAdd(evt, array, true);
             return;
           }
-          if (element.type === "grid" || element.type === "tabs") {
+          if (["grid", "tabs", "selectInputList"].includes(element.type)) {
             // 栅格布局
             element.columns.forEach(item => {
               traverse(item.list);
@@ -251,10 +251,9 @@ export default {
     },
     handleDelete() {
       // 删除已选择
-      console.log(234);
       const traverse = array => {
         array = array.filter((element, index) => {
-          if (element.type === "grid" || element.type === "tabs") {
+          if (["grid", "tabs", "selectInputList"].includes(element.type)) {
             // 栅格布局
             element.columns.forEach(item => {
               item.list = traverse(item.list);

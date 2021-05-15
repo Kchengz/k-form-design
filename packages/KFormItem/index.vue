@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-14 20:48:51
+ * @LastEditTime: 2021-05-14 23:12:59
  -->
 <template>
   <a-form-item
@@ -252,7 +252,7 @@
   </a-form-item>
   <!-- 可隐藏label -->
   <a-form-item
-    v-else-if="record.type === 'batch' || record.type === 'editor'"
+    v-else-if="['batch', 'editor', 'selectInputList'].includes(record.type)"
     :label="!record.options.showLabel ? '' : record.label"
     :label-col="
       formConfig.layout === 'horizontal' && record.options.showLabel
@@ -277,7 +277,7 @@
     "
   >
     <component
-      :ref="record.type === 'batch' && 'KBatch'"
+      :ref="['batch', 'selectInputList'].includes(record.type) && 'KBatch'"
       :style="`width:${record.options.width}`"
       v-bind="componentOption"
       :record="record"

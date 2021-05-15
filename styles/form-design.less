@@ -426,14 +426,15 @@
             }
 
             // 动态表格设计面板样式
-            .batch-box {
+            .batch-box,
+            .select-input-list-box {
               >.batch-label {
                 font-size  : 16px;
                 font-weight: 500;
                 padding    : 10px 10px;
-              
+
               }
-            
+
 
               .draggable-box {
                 min-height: 60px;
@@ -477,7 +478,30 @@
 
             }
 
+            .select-input-list-box {
+              .column-box {
+                display: flex;
+                width  : 100%;
+
+                .check-box {
+                  width: 80px;
+                }
+
+                .draggable-box {
+                  flex: 1;
+                }
+              }
+
+              // 隐藏选择输入列的所有组件的label
+              .draggable-box{
+                .ant-form-item-label {
+                  display: none !important;
+                }
+              }
+            }
+
             .batch-box,
+            .select-input-list-box,
             .grid-box,
             .table-box {
               position  : relative;
@@ -733,8 +757,16 @@
 
 // k-form-build
 .k-form-build-9136076486841527 {
+
+  .select-input-list-box {
+    .ant-form-item {
+      margin-bottom: 2px;
+      margin-right : 8px
+    }
+  }
+
   .ant-form-item {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   // 防止报错信息占位
