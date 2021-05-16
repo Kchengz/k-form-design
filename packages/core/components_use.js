@@ -18,6 +18,7 @@ import {
   Checkbox,
   Select,
   Card,
+  Empty,
   Form,
   Row,
   Col,
@@ -70,6 +71,7 @@ export default {
 
 Vue.use(ConfigProvider);
 Vue.use(Tooltip);
+Vue.use(Empty);
 Vue.use(FormModel);
 Vue.use(Collapse);
 Vue.use(Layout);

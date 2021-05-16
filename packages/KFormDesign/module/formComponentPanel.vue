@@ -3,13 +3,14 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-15 09:54:53
+ * @LastEditTime: 2021-05-16 21:49:31
  -->
 <template>
   <div class="form-panel">
     <p class="hint-text" v-show="data.list.length === 0">
-      从左侧选择控件添加
+      <a-empty description="从左侧选择控件添加" />
     </p>
+
     <a-form
       class="a-form-box k-form-build"
       :form="form"

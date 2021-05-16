@@ -1,8 +1,12 @@
 <template>
   <div class="properties-centent kk-checkbox">
-    <div class="head-title">控件属性设置</div>
     <div class="properties-body">
-      <p class="hint-box" v-show="selectItem.key === ''">未选择控件</p>
+      <a-empty
+        class="hint-box"
+        v-show="selectItem.key === ''"
+        description="未选择控件"
+      />
+
       <a-form v-show="selectItem.key !== ''">
         <a-form-item
           v-if="typeof selectItem.label !== 'undefined'"
@@ -536,9 +540,6 @@
           <a-input v-model="options.addonAfter" placeholder="请输入" />
         </a-form-item>
       </a-form>
-    </div>
-    <div class="close-box" @click="$emit('handleHide')">
-      <a-icon type="double-right" />
     </div>
   </div>
 </template>

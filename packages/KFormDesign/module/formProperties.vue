@@ -1,8 +1,5 @@
 <template>
   <div class="properties-centent kk-checkbox">
-    <div class="head-title">
-      表单属性设置
-    </div>
     <div class="properties-body">
       <a-form>
         <a-form-item label="表单布局">

@@ -129,17 +129,25 @@
 
         <!-- 右侧控件属性区域 start -->
         <aside class="right">
-          <formProperties
-            :config="data.config"
-            :previewOptions="previewOptions"
-          />
-          <formItemProperties
-            :class="{ 'show-properties': showPropertie }"
-            class="form-item-properties"
-            :selectItem="selectItem"
-            :hideModel="hideModel"
-            @handleHide="showPropertie = false"
-          />
+          <a-tabs
+            :activeKey="activeKey"
+            @change="changeTab"
+            :tabBarStyle="{ margin: 0 }"
+          >
+            <a-tab-pane :key="1" tab="表单属性设置">
+              <formProperties
+                :config="data.config"
+                :previewOptions="previewOptions"
+              />
+            </a-tab-pane>
+            <a-tab-pane :key="2" tab="控件属性设置">
+              <formItemProperties
+                class="form-item-properties"
+                :selectItem="selectItem"
+                :hideModel="hideModel"
+              />
+            </a-tab-pane>
+          </a-tabs>
         </aside>
         <!-- 右侧控件属性区域 end -->
       </div>
@@ -163,11 +171,9 @@ import kCodeModal from "./module/codeModal";
 import collapseItem from "./module/collapseItem";
 import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
-// import draggable from "vuedraggable";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 import {
   basicsList,
-  // highList,
   layoutList,
   customComponents
 } from "./config/formItemsConfig";
@@ -250,9 +256,9 @@ export default {
     return {
       locale: zhCN,
       customComponents,
+      activeKey: 1,
       updateTime: 0,
       updateRecordTime: 0,
-      showPropertie: false,
       startType: "",
       noModel: [
         "button",
@@ -297,7 +303,6 @@ export default {
     kFormComponentPanel,
     formItemProperties,
     formProperties
-    // draggable
   },
   computed: {
     basicsArray() {
@@ -430,10 +435,19 @@ export default {
       // 判断是否选中控件，如果选中则弹出属性面板，否则关闭属性面板
       if (record.key) {
         this.startType = record.type;
-        this.showPropertie = true;
+        this.changeTab(2);
       } else {
-        this.showPropertie = false;
+        this.changeTab(1);
       }
+    },
+    /**
+     * @description: 切换属性设置面板
+     * @param {*}
+     * @return {*}
+     */
+
+    changeTab(e) {
+      this.activeKey = e;
     },
     /**
      * @Author: kcz
