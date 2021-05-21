@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-16 21:49:31
+ * @LastEditTime: 2021-05-21 12:49:45
  -->
 <template>
   <div class="form-panel">
@@ -318,25 +318,30 @@ export default {
           }
         }
       );
+      const rowspan = this.rightMenuSelectValue.trs[this.trIndex].tds[
+        this.tdIndex
+      ].rowspan;
+
       if (
         this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
           .colspan !==
-        this.rightMenuSelectValue.trs[this.trIndex + 1].tds[this.tdIndex - rows]
-          .colspan
+        this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds[
+          this.tdIndex - rows
+        ].colspan
       ) {
         this.$message.error("当前表格无法向下合并");
         return false;
       }
 
-      this.rightMenuSelectValue.trs[this.trIndex].tds[
-        this.tdIndex
-      ].rowspan += 1;
       this.rightMenuSelectValue.trs[
-        this.trIndex + 1
-      ].tds = this.rightMenuSelectValue.trs[this.trIndex + 1].tds.filter(
+        this.trIndex + rowspan
+      ].tds = this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds.filter(
         (item, index) => index !== this.tdIndex - rows
       );
 
+      this.rightMenuSelectValue.trs[this.trIndex].tds[
+        this.tdIndex
+      ].rowspan += 1;
       // }
     },
     handleRightMerge() {
@@ -398,6 +403,7 @@ export default {
         .reduce(function(partial, value) {
           return partial + value;
         });
+      console.log(sumCols);
       const rowJson = { tds: [] };
       for (let i = 0; i < sumCols; i++) {
         rowJson.tds.push({
@@ -406,7 +412,9 @@ export default {
           list: []
         });
       }
-      this.rightMenuSelectValue.trs.splice(this.trIndex + 1, 0, rowJson);
+      console.log(rowJson);
+      console.log(this.rightMenuSelectValue);
+      this.rightMenuSelectValue.trs.push(rowJson);
     },
     handleShowRightMenu(e, val, trIndex, tdIndex) {
       // 显示右键菜单

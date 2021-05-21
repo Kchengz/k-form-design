@@ -577,14 +577,15 @@
 
   // 表格右键菜单样式
   .right-menu {
-    width     : 190px;
+    width     : 160px;
     background: #fff;
     border    : 1px solid #ccc;
     position  : fixed;
     transition: all 0s;
-    box-shadow: 3px 3px 5px #999;
+    box-shadow: 3px 3px 8px #999;
+    border-radius: 3px;
     padding   : 8px 0;
-    z-index   : 999;
+    z-index   : 2199;
 
     ul {
       padding   : 0;
@@ -598,7 +599,9 @@
         height     : 30px;
         line-height: 30px;
         font-size  : 14px;
-
+        i{
+          margin-right: 4px;
+        }
         &:hover {
           background: #eee;
         }
