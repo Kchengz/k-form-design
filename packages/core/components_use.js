@@ -40,6 +40,7 @@ import {
   Cascader,
   TreeSelect
 } from "ant-design-vue";
+import vcolorpicker from "vcolorpicker";
 
 import KBatch from "../KBatch";
 import KSelectInputList from "../KSelectInputList";
@@ -99,12 +100,7 @@ Vue.use(Divider);
 Vue.use(DatePicker);
 Vue.use(TimePicker);
 Vue.use(Upload);
-// Vue.use(notification)
+Vue.use(vcolorpicker);
 
 Vue.prototype.$confirm = Modal.confirm;
 Vue.prototype.$message = message;
-// Vue.prototype.$notification = notification
-// Vue.prototype.$info = Modal.info
-// Vue.prototype.$success = Modal.success
-// Vue.prototype.$error = Modal.error
-// Vue.prototype.$warning = Modal.warning

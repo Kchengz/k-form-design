@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2021-05-02 16:04:02
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-14 14:31:13
+ * @LastEditTime: 2021-05-21 13:55:46
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -14,7 +14,6 @@ import router from "./router/";
 
 import KFormDesign from "../packages/index";
 import Cmp from "./components/CustomComponent/index.vue";
-import vcolorpicker from "vcolorpicker";
 // const Cmp = {
 //   name: "cmp",
 //   render: function(h) {
@@ -66,7 +65,6 @@ Vue.use(KFormDesign);
 //     ]
 //   }
 // });
-Vue.use(vcolorpicker);
 Vue.config.productionTip = false;
 
 new Vue({

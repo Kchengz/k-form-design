@@ -8468,7 +8468,7 @@ vary@~1.1.2:
 
 vcolorpicker@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vcolorpicker/-/vcolorpicker-1.1.0.tgz#527e2463ab330faab8b9637a30f915aebbef75f6"
+  resolved "https://registry.npmjs.org/vcolorpicker/-/vcolorpicker-1.1.0.tgz#527e2463ab330faab8b9637a30f915aebbef75f6"
   integrity sha512-FbI7rq0EliwaPU8Qh/QVv9MFdZnG3dHjZEvODIcpPS774TTvilg6tq6cWDRbtCITBNDdpgVWnNlJ0aKnecgrJg==
   dependencies:
     highlight.js "^9.12.0"
