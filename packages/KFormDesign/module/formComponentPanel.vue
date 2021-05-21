@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-21 12:49:45
+ * @LastEditTime: 2021-05-21 13:30:57
  -->
 <template>
   <div class="form-panel">
@@ -403,7 +403,6 @@ export default {
         .reduce(function(partial, value) {
           return partial + value;
         });
-      console.log(sumCols);
       const rowJson = { tds: [] };
       for (let i = 0; i < sumCols; i++) {
         rowJson.tds.push({
@@ -412,9 +411,15 @@ export default {
           list: []
         });
       }
-      console.log(rowJson);
-      console.log(this.rightMenuSelectValue);
-      this.rightMenuSelectValue.trs.push(rowJson);
+
+      const differRow = this.rightMenuSelectValue.trs[this.trIndex].tds[
+        this.tdIndex
+      ].rowspan;
+      this.rightMenuSelectValue.trs.splice(
+        this.trIndex + differRow,
+        0,
+        rowJson
+      );
     },
     handleShowRightMenu(e, val, trIndex, tdIndex) {
       // 显示右键菜单
