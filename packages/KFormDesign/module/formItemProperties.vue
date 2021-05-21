@@ -576,6 +576,14 @@ export default {
   components: {
     KChangeOption,
     kCheckbox
+  },
+  created() {
+    this.loadOptions();
+  },
+  methods: {
+    loadOptions() {
+      this.options = this.selectItem.options;
+    }
   }
 };
 </script>
