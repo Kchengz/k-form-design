@@ -559,7 +559,80 @@ export const basicsList = [
     options: {
       textAlign: "left",
       hidden: false, // 是否隐藏，false显示，true隐藏
-      showRequiredMark: false
+      showRequiredMark: false,
+      color: "rgb(0, 0, 0)",
+      fontFamily: "SimHei",
+      fontSize: "16pt",
+      familyOptions: [
+        // 字体选择设置
+        {
+          value: "SimSun",
+          label: "宋体"
+        },
+        {
+          value: "FangSong",
+          label: "仿宋"
+        },
+        {
+          value: "SimHei",
+          label: "黑体"
+        },
+        {
+          value: "PingFangSC-Regular",
+          label: "苹方"
+        },
+        {
+          value: "KaiTi",
+          label: "楷体"
+        },
+        {
+          value: "LiSu",
+          label: "隶书"
+        }
+      ],
+      sizeOptions: [
+        //字号选择设置
+        {
+          value: "26pt",
+          label: "一号"
+        },
+        {
+          value: "24pt",
+          label: "小一"
+        },
+        {
+          value: "22pt",
+          label: "二号"
+        },
+        {
+          value: "18pt",
+          label: "小二"
+        },
+        {
+          value: "16pt",
+          label: "三号"
+        },
+        {
+          value: "15pt",
+          label: "小三"
+        },
+        {
+          value: "14pt",
+          label: "四号"
+        },
+        {
+          value: "12pt",
+          label: "小四"
+        },
+        {
+          value: "10.5pt",
+          label: "五号"
+        },
+        {
+          value: "9pt",
+          label: "小五"
+        }
+      ]
     },
     key: ""
   },
