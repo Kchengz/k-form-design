@@ -173,9 +173,14 @@
   </a-form-model-item>
   <!-- 文本 -->
   <a-form-model-item v-else-if="record.type === 'text'">
-    <div class="text-box" :style="{ textAlign: record.options.textAlign }">
+    <div :style="{ textAlign: record.options.textAlign }">
       <label
         :class="{ 'ant-form-item-required': record.options.showRequiredMark }"
+        :style="{
+          fontFamily: record.options.fontFamily,
+          fontSize: record.options.fontSize,
+          color: record.options.color
+        }"
         v-text="record.label"
       ></label>
     </div>

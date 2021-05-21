@@ -387,6 +387,20 @@
             <a-radio-button value="right">右</a-radio-button>
           </a-radio-group>
         </a-form-item>
+        <!-- 文字字体 -->
+        <a-form-item v-if="selectItem.type === 'text'" label="字体属性设置">
+          <colorPicker v-model="options.color" />
+          <a-select
+            :options="options.familyOptions"
+            v-model="options.fontFamily"
+            style="width:36%;margin-left:2%;vertical-align:bottom;"
+          />
+          <a-select
+            :options="options.sizeOptions"
+            v-model="options.fontSize"
+            style="width:35%;margin-left:2%;vertical-align:bottom;"
+          />
+        </a-form-item>
         <a-form-item v-if="selectItem.type === 'text'" label="操作属性">
           <kCheckbox v-model="options.showRequiredMark" label="显示必选标记" />
         </a-form-item>
