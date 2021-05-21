@@ -553,14 +553,9 @@ import KChangeOption from "../../KChangeOption/index.vue";
 import kCheckbox from "../../KCheckbox/index.vue";
 export default {
   name: "formItemProperties",
-  data() {
-    return {
-      options: {}
-    };
-  },
-  watch: {
-    selectItem(val) {
-      this.options = val.options || {};
+  computed: {
+    options() {
+      return this.selectItem.options || {};
     }
   },
   props: {
