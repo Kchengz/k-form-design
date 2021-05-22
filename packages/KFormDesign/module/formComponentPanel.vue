@@ -291,12 +291,12 @@ export default {
       this.data.list = traverse(this.data.list);
     },
     handleDownMerge() {
-      // 向下合并
+     // 向下合并
       if (
-        this.rightMenuSelectValue.trs.length -
+          this.rightMenuSelectValue.trs.length -
           this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
-            .rowspan <=
-        this.trIndex
+              .rowspan <=
+          this.trIndex
       ) {
         this.$message.error("当前是最后一行，无法向下合并");
         return false;
@@ -305,44 +305,53 @@ export default {
       // 计算rowspan超过自身的td
       let rows = 0;
       this.rightMenuSelectValue.trs[this.trIndex].tds.forEach(
-        (element, index) => {
-          if (index >= this.tdIndex) {
-            return false;
+          (element, index) => {
+            if (index >= this.tdIndex) {
+              return false;
+            }
+            if (
+                (element.rowspan + index) >
+                this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
+                    .rowspan
+            ) {
+              rows += 1;
+            }
           }
-          if (
-            element.rowspan >
-            this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
-              .rowspan
-          ) {
-            rows += 1;
-          }
-        }
       );
       const rowspan = this.rightMenuSelectValue.trs[this.trIndex].tds[
-        this.tdIndex
-      ].rowspan;
+          this.tdIndex
+          ].rowspan;
 
       if (
-        this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
-          .colspan !==
-        this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds[
+          this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
+              .colspan !==
+          this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds[
           this.tdIndex - rows
-        ].colspan
+              ].colspan
       ) {
         this.$message.error("当前表格无法向下合并");
         return false;
       }
 
-      this.rightMenuSelectValue.trs[
+      const nextRowSpan = this.rightMenuSelectValue.trs[this.trIndex + 1].tds[this.tdIndex].rowspan;
+      if (nextRowSpan == 1) {
+        this.rightMenuSelectValue.trs[
         this.trIndex + rowspan
-      ].tds = this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds.filter(
-        (item, index) => index !== this.tdIndex - rows
-      );
+            ].tds = this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds.filter(
+            (item, index) => index !== this.tdIndex - rows
+        );
+      } else {
+        this.rightMenuSelectValue.trs[
+        this.trIndex + 1
+            ].tds = this.rightMenuSelectValue.trs[this.trIndex + 1].tds.filter(
+            (item, index) => index !== this.tdIndex - rows
+        );
+      }
+
 
       this.rightMenuSelectValue.trs[this.trIndex].tds[
-        this.tdIndex
-      ].rowspan += 1;
-      // }
+          this.tdIndex
+          ].rowspan = rowspan + nextRowSpan;
     },
     handleRightMerge() {
       // 向右合并
