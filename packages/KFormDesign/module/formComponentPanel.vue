@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-21 13:30:57
+ * @LastEditTime: 2021-05-25 19:46:39
  -->
 <template>
   <div class="form-panel">
@@ -291,12 +291,12 @@ export default {
       this.data.list = traverse(this.data.list);
     },
     handleDownMerge() {
-     // 向下合并
+      // 向下合并
       if (
-          this.rightMenuSelectValue.trs.length -
+        this.rightMenuSelectValue.trs.length -
           this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
-              .rowspan <=
-          this.trIndex
+            .rowspan <=
+        this.trIndex
       ) {
         this.$message.error("当前是最后一行，无法向下合并");
         return false;
@@ -305,53 +305,53 @@ export default {
       // 计算rowspan超过自身的td
       let rows = 0;
       this.rightMenuSelectValue.trs[this.trIndex].tds.forEach(
-          (element, index) => {
-            if (index >= this.tdIndex) {
-              return false;
-            }
-            if (
-                (element.rowspan + index) >
-                this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
-                    .rowspan
-            ) {
-              rows += 1;
-            }
+        (element, index) => {
+          if (index >= this.tdIndex) {
+            return false;
           }
+          if (
+            element.rowspan + index >
+            this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
+              .rowspan
+          ) {
+            rows += 1;
+          }
+        }
       );
       const rowspan = this.rightMenuSelectValue.trs[this.trIndex].tds[
-          this.tdIndex
-          ].rowspan;
+        this.tdIndex
+      ].rowspan;
 
       if (
-          this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
-              .colspan !==
-          this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds[
+        this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex]
+          .colspan !==
+        this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds[
           this.tdIndex - rows
-              ].colspan
+        ].colspan
       ) {
         this.$message.error("当前表格无法向下合并");
         return false;
       }
 
-      const nextRowSpan = this.rightMenuSelectValue.trs[this.trIndex + 1].tds[this.tdIndex].rowspan;
+      const nextRowSpan = this.rightMenuSelectValue.trs[this.trIndex + 1].tds[
+        this.tdIndex
+      ].rowspan;
       if (nextRowSpan == 1) {
         this.rightMenuSelectValue.trs[
-        this.trIndex + rowspan
-            ].tds = this.rightMenuSelectValue.trs[this.trIndex + rowspan].tds.filter(
-            (item, index) => index !== this.tdIndex - rows
-        );
+          this.trIndex + rowspan
+        ].tds = this.rightMenuSelectValue.trs[
+          this.trIndex + rowspan
+        ].tds.filter((item, index) => index !== this.tdIndex - rows);
       } else {
         this.rightMenuSelectValue.trs[
-        this.trIndex + 1
-            ].tds = this.rightMenuSelectValue.trs[this.trIndex + 1].tds.filter(
-            (item, index) => index !== this.tdIndex - rows
+          this.trIndex + 1
+        ].tds = this.rightMenuSelectValue.trs[this.trIndex + 1].tds.filter(
+          (item, index) => index !== this.tdIndex - rows
         );
       }
 
-
-      this.rightMenuSelectValue.trs[this.trIndex].tds[
-          this.tdIndex
-          ].rowspan = rowspan + nextRowSpan;
+      this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex].rowspan =
+        rowspan + nextRowSpan;
     },
     handleRightMerge() {
       // 向右合并
@@ -396,6 +396,7 @@ export default {
     },
     handleAddCol() {
       // 增加列
+
       this.rightMenuSelectValue.trs.forEach(item => {
         item.tds.splice(this.tdIndex + 1, 0, {
           colspan: 1,
@@ -421,11 +422,17 @@ export default {
         });
       }
 
-      const differRow = this.rightMenuSelectValue.trs[this.trIndex].tds[
-        this.tdIndex
-      ].rowspan;
+      // 取当前rowspan最大值
+      let maxRowSpan = 1;
+      this.rightMenuSelectValue.trs[this.trIndex].tds.forEach(item => {
+        if (maxRowSpan < item.rowspan) {
+          maxRowSpan = item.rowspan;
+        }
+      });
+
+      // 在rowspan最大值处插入数据
       this.rightMenuSelectValue.trs.splice(
-        this.trIndex + differRow,
+        this.trIndex + maxRowSpan,
         0,
         rowJson
       );
