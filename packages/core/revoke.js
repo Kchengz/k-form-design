@@ -11,6 +11,7 @@ export class Revoke {
   // 当前记录用currentRecord变量暂时存储，当用户修改时，再存放到recordList
   currentRecord = null;
 
+  // 上次插入数据时间
   time = 0;
 
   /**

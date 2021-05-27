@@ -90,7 +90,9 @@
     <tr v-for="(trItem, trIndex) in record.trs" :key="trIndex">
       <td
         class="table-td"
-        v-for="(tdItem, tdIndex) in trItem.tds"
+        v-for="(tdItem, tdIndex) in trItem.tds.filter(
+          item => item.colspan && item.rowspan
+        )"
         :key="tdIndex"
         :colspan="tdItem.colspan"
         :rowspan="tdItem.rowspan"

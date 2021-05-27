@@ -400,6 +400,7 @@
             <td
               class="table-td"
               v-for="(tdItem, tdIndex) in trItem.tds"
+              v-show="tdItem.colspan && tdItem.rowspan"
               :key="tdIndex"
               :colspan="tdItem.colspan"
               :rowspan="tdItem.rowspan"
