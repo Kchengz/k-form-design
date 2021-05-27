@@ -391,26 +391,18 @@ export default {
       const { colspan, rowspan } = this.rightMenuSelectValue.trs[
         this.trIndex
       ].tds[this.tdIndex];
-      if (colspan > 1) {
+      for (
+        let rowIndex = this.trIndex, rowLen = this.trIndex + rowspan;
+        rowIndex < rowLen;
+        rowIndex++
+      ) {
         for (
-          let index = this.tdIndex + 1;
-          index < this.tdIndex + colspan;
-          index++
+          let colIndex = this.tdIndex, colLen = this.tdIndex + colspan;
+          colIndex < colLen;
+          colIndex++
         ) {
-          this.rightMenuSelectValue.trs[this.trIndex].tds.splice(index, 0, {
-            colspan: 1,
-            rowspan: 1,
-            list: []
-          });
-        }
-      }
-      if (rowspan > 1) {
-        for (
-          let index = this.trIndex + 1;
-          index < this.trIndex + rowspan;
-          index++
-        ) {
-          this.rightMenuSelectValue.trs[index].tds.splice(this.tdIndex, 0, {
+          if (rowIndex === this.trIndex && colIndex === this.tdIndex) continue;
+          this.rightMenuSelectValue.trs[rowIndex].tds.splice(colIndex, 0, {
             colspan: 1,
             rowspan: 1,
             list: []
