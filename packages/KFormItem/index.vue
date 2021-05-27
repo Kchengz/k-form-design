@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-14 23:12:59
+ * @LastEditTime: 2021-05-28 00:59:02
  -->
 <template>
   <a-form-item
@@ -441,7 +441,7 @@ export default {
     },
     handleChange(e, key) {
       let value = e;
-      if (e.target) {
+      if (e && e.target) {
         value = e.target.value;
       }
       // 传递change事件
