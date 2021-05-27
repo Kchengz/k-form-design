@@ -61,6 +61,7 @@
       <ul>
         <li @click="handleDownMerge"><a-icon type="caret-down" />向下合并</li>
         <li @click="handleRightMerge"><a-icon type="caret-right" />向右合并</li>
+        <li @click="handleRightSplit"><a-icon type="caret-right" />拆分</li>
         <li @click="handleAddCol">
           <a-icon type="border-horizontal" />增加一列
         </li>
@@ -384,6 +385,32 @@ export default {
         }
       );
       // }
+    },
+    // 拆分单元格
+    handleRightSplit() {
+      const { colspan, rowspan } = this.rightMenuSelectValue.trs[
+        this.trIndex
+      ].tds[this.tdIndex];
+      for (
+        let rowIndex = this.trIndex, rowLen = this.trIndex + rowspan;
+        rowIndex < rowLen;
+        rowIndex++
+      ) {
+        for (
+          let colIndex = this.tdIndex, colLen = this.tdIndex + colspan;
+          colIndex < colLen;
+          colIndex++
+        ) {
+          if (rowIndex === this.trIndex && colIndex === this.tdIndex) continue;
+          this.rightMenuSelectValue.trs[rowIndex].tds.splice(colIndex, 0, {
+            colspan: 1,
+            rowspan: 1,
+            list: []
+          });
+        }
+      }
+      this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex].colspan = 1;
+      this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex].rowspan = 1;
     },
     handleAddCol() {
       // 增加列
