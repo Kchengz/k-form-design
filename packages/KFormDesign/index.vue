@@ -215,11 +215,11 @@ export default {
         "preview",
         "importJson",
         "exportJson",
-        "undo",
-        "redo",
         "exportCode",
         "reset",
-        "close"
+        "close",
+        "undo",
+        "redo"
       ]
     },
     showToolbarsText: {
