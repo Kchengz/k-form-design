@@ -233,9 +233,11 @@ export default {
         'exportJson',
         'exportCode',
         'reset',
-        'close'
+        'close',
+        "undo",
+        "redo"
       ]</td>
-        <td>3.0.7</td>
+        <td>3.7.8</td>
       </tr>
       <tr>
         <td>toolbarsTop</td>
@@ -296,6 +298,7 @@ export default {
       </tr>
     </tbody>
   </table>
+
 
 
 
