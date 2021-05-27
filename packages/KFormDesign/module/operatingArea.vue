@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-27 16:50:22
+ * @LastEditTime: 2021-05-27 23:01:59
  -->
 <template>
   <div class="operating-area">
@@ -34,27 +34,6 @@
         </a>
       </a-tooltip>
 
-      <a-tooltip title="撤销">
-        <a
-          v-if="toolbars.includes('undo')"
-          :class="{ disabled: !(recordList.length > 0) }"
-          @click="$emit('handleUndo')"
-        >
-          <a-icon type="undo" />
-          <span v-if="showToolbarsText">撤销</span>
-        </a>
-      </a-tooltip>
-      <a-tooltip title="重做">
-        <a
-          v-if="toolbars.includes('redo')"
-          :class="{ disabled: !(redoList.length > 0) }"
-          @click="$emit('handleRedo')"
-        >
-          <a-icon type="redo" />
-          <span v-if="showToolbarsText">重做</span>
-        </a>
-      </a-tooltip>
-
       <a-tooltip title="生成JSON">
         <a
           v-if="toolbars.includes('exportJson')"
@@ -79,6 +58,27 @@
         <a v-if="toolbars.includes('reset')" @click="$emit('handleReset')">
           <a-icon type="delete" />
           <span v-if="showToolbarsText">清空</span>
+        </a>
+      </a-tooltip>
+      <a-divider type="vertical" />
+      <a-tooltip title="撤销">
+        <a
+          v-if="toolbars.includes('undo')"
+          :class="{ disabled: !(recordList.length > 0) }"
+          @click="$emit('handleUndo')"
+        >
+          <a-icon type="undo" />
+          <span v-if="showToolbarsText">撤销</span>
+        </a>
+      </a-tooltip>
+      <a-tooltip title="重做">
+        <a
+          v-if="toolbars.includes('redo')"
+          :class="{ disabled: !(redoList.length > 0) }"
+          @click="$emit('handleRedo')"
+        >
+          <a-icon type="redo" />
+          <span v-if="showToolbarsText">重做</span>
         </a>
       </a-tooltip>
       <!-- 按钮左侧插槽 start -->
