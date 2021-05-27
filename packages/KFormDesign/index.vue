@@ -550,6 +550,8 @@ export default {
         return false;
       }
       this.data = record;
+
+      this.handleSetSelectItem({ key: "" });
     },
 
     /**
