@@ -51,7 +51,9 @@
     a {
       color      : #666;
       margin-left: 10px;
-
+      &.disabled, &.disabled:hover {
+      color      : #ccc;
+      }
       &:hover {
         color: @primary-color;
       }

@@ -1,9 +1,9 @@
 <!--
+ * @Description: 将数据通过k-form-item组件解析，生成控件
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
- * @LastEditTime: 2021-03-02 21:30:36
+ * @LastEditTime: 2021-05-27 15:19:02
  * @LastEditors: kcz
- * @Description: 将数据通过k-form-item组件解析，生成控件
  * @FilePath: \k-form-design\packages\KFormDesign\module\formNode.vue
  -->
 <template>

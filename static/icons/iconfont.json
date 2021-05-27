@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "657585",
+      "name": "拆分",
+      "font_class": "chaifen",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "16194540",
+      "name": "撤销",
+      "font_class": "chexiao",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "16194544",
+      "name": "全屏",
+      "font_class": "quanping",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "16194545",
+      "name": "重做",
+      "font_class": "zhongzuo",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "16194678",
+      "name": "组件",
+      "font_class": "zujian",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "16198616",
+      "name": "编辑2",
+      "font_class": "bianji2",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
       "icon_id": "15617359",
       "name": "tabs",
       "font_class": "tabs",
