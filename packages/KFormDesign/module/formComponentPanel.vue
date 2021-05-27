@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-28 00:06:34
+ * @LastEditTime: 2021-05-28 00:27:22
  -->
 <template>
   <div class="form-panel">
@@ -329,14 +329,19 @@ export default {
         this.trIndex + currentRowspan
       ].tds[this.tdIndex].rowspan;
 
+      // 当前单元格rowspan等于当前单元格rowspan加上下一列单元格rowspan
+      this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex].rowspan =
+        currentRowspan + nextRowSpan;
+
       // 将被合并的单元rowspan修改为0
       this.rightMenuSelectValue.trs[this.trIndex + currentRowspan].tds[
         this.tdIndex
       ].rowspan = 0;
 
-      // 当前单元格rowspan等于当前单元格rowspan加上下一列单元格rowspan
-      this.rightMenuSelectValue.trs[this.trIndex].tds[this.tdIndex].rowspan =
-        currentRowspan + nextRowSpan;
+      // 清空被合并单元格list
+      this.rightMenuSelectValue.trs[this.trIndex + currentRowspan].tds[
+        this.tdIndex
+      ].list = [];
     },
     handleRightMerge() {
       // 向右合并
@@ -386,6 +391,11 @@ export default {
       this.rightMenuSelectValue.trs[this.trIndex].tds[
         this.tdIndex + currentColspan
       ].colspan = 0;
+
+      // 情况被合并单元格的list
+      this.rightMenuSelectValue.trs[this.trIndex].tds[
+        this.tdIndex + currentColspan
+      ].list = [];
     },
     // 拆分单元格
     handleRightSplit() {
