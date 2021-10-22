@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       editor_1585549756333:
-        '<blockquote>2342342</blockquote><pre class="ql-syntax" spellcheck="false">阿斯顿发斯蒂芬\na阿斯蒂芬sd撒的发生\n</pre><p><br></p><p><strong class="ql-size-large"><em>萨达放阿斯蒂芬</em><span class="ql-cursor">﻿</span></strong></p>'
+        '<blockquote>2342342</blockquote><pre class="ql-syntax" spellcheck="false">成功的秘诀，在永不改变既定的目的</pre><p><br></p><p><strong class="ql-size-large"><em>不断的奋斗就是走上成功之路</em><span class="ql-cursor">﻿</span></strong></p>'
     };
   }
 };

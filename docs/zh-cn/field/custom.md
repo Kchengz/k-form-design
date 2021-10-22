@@ -47,7 +47,7 @@ KFormDesign.setConfig({
 ## 或引入 setFormDesignConfig 函数
 ```javascript
 
-import { setFormDesignConfig } form 'k-form-design'
+import { setFormDesignConfig } from 'k-form-design'
 
 // 自定义组件
 let Cmp = {
