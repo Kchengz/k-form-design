@@ -42,7 +42,7 @@
       </template>
       <template slot="dynamic-opr-button" slot-scope="text, record">
         <a-icon
-          title="删除改行"
+          title="删除该行"
           v-if="!disabled"
           class="dynamic-opr-button"
           type="minus-circle-o"
