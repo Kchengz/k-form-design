@@ -16,11 +16,17 @@
 @import "./k-table.less";
 @import "./k-editor.less";
 
+
+
 // 表单设计器样式
 .form-designer-container-9136076486841527 {
   height  : 100vh;
   width   : 100%;
   overflow: hidden;
+
+
+
+
 
   // header样式
   .header {
@@ -49,11 +55,14 @@
     align-content  : center;
 
     a {
-      color      : #666;
+      color : #666;
       margin: 0 5px;
-      &.disabled, &.disabled:hover {
-      color      : #ccc;
+
+      &.disabled,
+      &.disabled:hover {
+        color: #ccc;
       }
+
       &:hover {
         color: @primary-color;
       }
@@ -248,14 +257,14 @@
         }
 
         >.hint-text {
-          position  : absolute;
-          left      : 0;
-          top       : 50%;
-          width     : 100%;
+          position : absolute;
+          left     : 0;
+          top      : 50%;
+          width    : 100%;
           transform: translateY(-50%);
-          font-size : 20px;
-          color     : #aaa;
-          z-index   : 16;
+          font-size: 20px;
+          color    : #aaa;
+          z-index  : 16;
         }
 
         .a-form-box {
@@ -579,15 +588,15 @@
 
   // 表格右键菜单样式
   .right-menu {
-    width     : 160px;
-    background: #fff;
-    border    : 1px solid #ccc;
-    position  : fixed;
-    transition: all 0s;
-    box-shadow: 3px 3px 8px #999;
+    width        : 160px;
+    background   : #fff;
+    border       : 1px solid #ccc;
+    position     : fixed;
+    transition   : all 0s;
+    box-shadow   : 3px 3px 8px #999;
     border-radius: 3px;
-    padding   : 8px 0;
-    z-index   : 2199;
+    padding      : 8px 0;
+    z-index      : 2199;
 
     ul {
       padding   : 0;
@@ -601,9 +610,11 @@
         height     : 30px;
         line-height: 30px;
         font-size  : 14px;
-        i{
+
+        i {
           margin-right: 4px;
         }
+
         &:hover {
           background: #eee;
         }
@@ -712,12 +723,23 @@
   }
 }
 
-// code-modal盒子样式
-.code-modal-9136076486841527 {
+
+
+
+// modal样式
+.k-form-modal {
+  .ant-modal-content {
+    height: 100%;
+  }
+}
+
+ // code-modal盒子样式
+ &.code-modal-9136076486841527 {
   .ant-modal-body {
     padding: 12px;
   }
 }
+
 
 // modal复制按钮样式
 .copy-btn-box-9136076486841527 {
@@ -816,21 +838,20 @@
 
 //颜色选择器覆盖
 .m-colorPicker {
-  width:25%;
-  vertical-align:bottom;
-  padding: 5px;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
-  font-size: 0;
+  width         : 25%;
+  vertical-align: bottom;
+  padding       : 5px;
+  border        : 1px solid #e6e6e6;
+  border-radius : 4px;
+  font-size     : 0;
+
   .colorBtn {
     height: 22px !important;
-    width: 100% !important;
+    width : 100% !important;
   }
 }
 
-// .k-form-build-9136076486841527 {
 
-// }
 
 
 // footer样式
