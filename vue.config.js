@@ -1,4 +1,11 @@
-const debug = process.env.NODE_ENV !== 'production'
+const path = require("path"); //引入path模块
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
+
+const isDev = process.env.NODE_ENV !== "production";
+
 module.exports = {
   pages: {
     index: {
@@ -24,10 +31,13 @@ module.exports = {
       }
     }
   },
-  configureWebpack: config => {
-     // 开发环境配置
-    if (debug) {
-      config.devtool = 'source-map'
-    }
+
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "@": resolve("./packages")
+      }
+    },
+    devtool: isDev ? "source-map" : false
   }
 };
