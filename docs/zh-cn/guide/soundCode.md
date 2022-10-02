@@ -28,9 +28,9 @@ packages、static、styles
 
 
 
-### 3. 设置项目中k-from-design需要的依赖
+### 3. 设置项目中k-form-design需要的依赖
 
-> 这是k-from-design需要的依赖，将下面的依赖与自己的项目对比，将没有安装的依赖都安装一下
+> 这是k-form-design需要的依赖，将下面的依赖与自己的项目对比，将没有安装的依赖都安装一下
 
 ```json
   "dependencies": {
@@ -71,7 +71,7 @@ module.exports = {
 
 > 如果项目中的less及less-loader与上面依赖版本不一致，可能存在版本差异，可以自行去网上查找一下如何启用对应的less版本的内联javascript
 
-### 5. k-from-design使用了[antd ui的高级配置](https://www.antdv.com/docs/vue/use-with-vue-cli-cn/#%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE)
+### 5. k-form-design使用了[antd ui的高级配置](https://www.antdv.com/docs/vue/use-with-vue-cli-cn/#%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE)
 
 > 这里展示vue-cli 3如何使用antd ui高级配置，vue-cli 2的小伙伴可以自行去antd ui官网查看如何配置
 >

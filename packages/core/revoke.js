@@ -39,7 +39,7 @@ export class Revoke {
     // 将json转成字符串存储
     this.currentRecord = JSON.stringify(record);
 
-    // 最多存储20条记录，超过20天记录则删除之前的记录
+    // 最多存储20条记录，超过20条记录则删除之前的记录
     if (this.recordList.length > 20) {
       this.recordList.unshift();
     }
