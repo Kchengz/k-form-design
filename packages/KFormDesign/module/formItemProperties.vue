@@ -160,7 +160,12 @@
           />
         </a-form-item>
         <a-form-item v-if="selectItem.type === 'select'" label="默认值">
-          <a-select :options="options.options" v-model="options.defaultValue" />
+          <a-select
+            :options="options.options"
+            v-model="options.defaultValue"
+            :allowClear="options.clearable"
+            :mode="options.multiple ? 'multiple' : ''"
+          />
         </a-form-item>
         <a-form-item v-if="selectItem.type === 'radio'" label="默认值">
           <a-radio-group
