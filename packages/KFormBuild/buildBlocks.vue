@@ -85,7 +85,7 @@
       small: record.options.small,
       bordered: record.options.bordered
     }"
-    :style="record.options.customStyle"
+    :style="'width:' + record.options.width + ';' + record.options.customStyle"
   >
     <tr v-for="(trItem, trIndex) in record.trs" :key="trIndex">
       <td
