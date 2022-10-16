@@ -22,7 +22,7 @@ export class Revoke {
   push(record) {
     const nowTime = Date.now();
     // 防止添加重复的时间，当添加间隔小于100ms时，则替换当前记录并取消执行添加
-    if (this.time + 100 > nowTime) {
+    if (this.time + 200 > nowTime) {
       this.currentRecord = JSON.stringify(record);
       return false;
     }
@@ -91,3 +91,5 @@ export class Revoke {
     return JSON.parse(record);
   }
 }
+
+export const revoke = new Revoke();
