@@ -3,14 +3,14 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-05 12:12:39
+ * @LastEditTime: 2022-10-16 22:48:09
  -->
 <template>
   <div
     :style="{ width: record.options.width }"
     class="upload-img-box-9136076486841527"
   >
-    <a-upload
+    <Upload
       :name="config.uploadImageName || record.options.fileName"
       :headers="config.uploadImageHeaders || record.options.headers"
       :data="config.uploadImageData || optionsData"
@@ -44,7 +44,7 @@
         <a-icon type="plus" />
         <div class="ant-upload-text">{{ record.options.placeholder }}</div>
       </div>
-    </a-upload>
+    </Upload>
     <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
       <img alt="example" style="width: 100%" :src="previewImageUrl" />
     </a-modal>
@@ -56,10 +56,16 @@
  * date 2019-12-31
  * description 上传图片组件
  */
+import { pluginManager } from "../utils/getPluginManager";
+
+const Upload = pluginManager.getComponent("upload");
 export default {
   name: "KUploadImg",
   // eslint-disable-next-line vue/require-prop-types
   props: ["record", "value", "config", "parentDisabled"],
+  components: {
+    Upload: Upload.component
+  },
   data() {
     return {
       fileList: [],

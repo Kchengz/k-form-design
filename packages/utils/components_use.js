@@ -5,7 +5,8 @@
  * 当需要更多组件依赖时，在该文件加入即可
  */
 import Vue from "vue";
-import { pluginManager } from "./PluginManager";
+import { pluginManager } from "./getPluginManager";
+
 import {
   ConfigProvider,
   Layout,
@@ -31,15 +32,15 @@ import {
   Alert,
   Tag,
   Divider,
-  DatePicker,
-  TimePicker,
   message,
-  Upload,
   Tooltip,
   FormModel,
   Collapse
 } from "ant-design-vue";
+
 import vcolorpicker from "vcolorpicker";
+
+import "ant-design-vue/dist/antd.css";
 
 pluginManager.addComponent("input", () => import("ant-design-vue/lib/input"));
 pluginManager.addComponent("number", () =>
@@ -104,10 +105,27 @@ Vue.use(Steps);
 Vue.use(Alert);
 Vue.use(Tag);
 Vue.use(Divider);
-Vue.use(DatePicker);
-Vue.use(TimePicker);
-Vue.use(Upload);
 Vue.use(vcolorpicker);
 
 Vue.prototype.$confirm = Modal.confirm;
 Vue.prototype.$message = message;
+
+pluginManager.addComponent("timePicker", () =>
+  import("ant-design-vue/lib/time-picker")
+);
+pluginManager.addComponent("datePicker", () =>
+  import("ant-design-vue/lib/date-picker")
+);
+
+pluginManager.addComponent("rangePicker", () =>
+  import("ant-design-vue/lib/date-picker/RangePicker")
+);
+pluginManager.addComponent("monthPicker", async () => {
+  const datePicker = await import("ant-design-vue/lib/date-picker");
+  return datePicker.default["MonthPicker"];
+});
+
+pluginManager.addComponent("upload", () => import("ant-design-vue/lib/upload"));
+pluginManager.addComponent("uploadDragger", () =>
+  import("ant-design-vue/lib/upload/Dragger")
+);

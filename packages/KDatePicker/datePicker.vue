@@ -3,17 +3,13 @@
  * @Author: kcz
  * @Date: 2020-01-11 15:38:28
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-28 17:37:49
+ * @LastEditTime: 2022-10-16 16:29:14
  -->
 <template>
   <!-- 月份选择 -->
-  <a-month-picker
+  <MonthPicker
     :style="`width:${record.options.width}`"
-    v-if="
-      record.type === 'date' &&
-        record.options.format === 'YYYY-MM' &&
-        record.options.range === false
-    "
+    v-if="record.options.format === 'YYYY-MM' && record.options.range === false"
     :disabled="record.options.disabled || parentDisabled"
     :allowClear="record.options.clearable"
     :placeholder="record.options.placeholder"
@@ -22,9 +18,9 @@
     :value="date"
   />
   <!-- 日期选择 -->
-  <a-date-picker
+  <DatePicker
     :style="`width:${record.options.width}`"
-    v-else-if="record.type === 'date' && record.options.range === false"
+    v-else-if="record.options.range === false"
     :disabled="record.options.disabled || parentDisabled"
     :show-time="record.options.showTime"
     :allowClear="record.options.clearable"
@@ -35,9 +31,9 @@
   />
 
   <!-- 范围日期选择 -->
-  <a-range-picker
+  <RangePicker
     :style="`width:${record.options.width}`"
-    v-else-if="record.type === 'date' && record.options.range === true"
+    v-else-if="record.options.range === true"
     :show-time="record.options.showTime"
     :disabled="record.options.disabled || parentDisabled"
     :allowClear="record.options.clearable"
@@ -49,9 +45,21 @@
 </template>
 <script>
 import moment from "moment";
+// import { DatePicker } from "ant-design-vue";
+import { pluginManager } from "../utils/getPluginManager";
+
+const DatePicker = pluginManager.getComponent("datePicker");
+const RangePicker = pluginManager.getComponent("rangePicker");
+const MonthPicker = pluginManager.getComponent("monthPicker");
+
 export default {
   // eslint-disable-next-line vue/require-prop-types
   props: ["record", "value", "parentDisabled"],
+  components: {
+    DatePicker: DatePicker.component,
+    RangePicker: RangePicker.component,
+    MonthPicker: MonthPicker.component
+  },
   data() {
     return {
       // date: undefined

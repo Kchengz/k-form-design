@@ -21,11 +21,12 @@
     "type": "git",
     "url": "https://github.com/Kchengz/k-form-design"
   },
-  "main": "lib/k-form-design.umd.min.js",
+  "main": "lib/k-form-design-mini.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name k-form-design --dest lib packages/index.js",
+    "lib": "vue-cli-service build --target lib --name k-form-design --dest lib packages/index.js && npm run lib:mini",
+    "lib:mini": "vue-cli-service build --target lib --name k-form-design-mini --dest lib packages/mini.js --no-clean",
     "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue packages/",
     "lint": "vue-cli-service lint"
   },

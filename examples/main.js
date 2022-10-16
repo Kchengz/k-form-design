@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2021-05-02 16:04:02
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-21 13:55:46
+ * @LastEditTime: 2022-10-16 16:08:33
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -11,15 +11,11 @@ import "@babel/polyfill";
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/";
+import Cmp from "./components/CustomComponent/index.vue";
 
 import KFormDesign from "../packages/index";
-import Cmp from "./components/CustomComponent/index.vue";
-// const Cmp = {
-//   name: "cmp",
-//   render: function(h) {
-//     return h("div", "我是自定义组件");
-//   }
-// };
+import "../packages/utils/components_use";
+
 KFormDesign.setFormDesignConfig({
   title: "测试自定义字段",
   list: [

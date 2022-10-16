@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-16 11:12:26
+ * @LastEditTime: 2022-10-17 01:01:43
  -->
 <template>
   <a-form-model-item
@@ -202,7 +202,7 @@ import UploadFile from "../../UploadFile";
 import UploadImg from "../../UploadImg";
 import KDatePicker from "../../KDatePicker";
 import KTimePicker from "../../KTimePicker";
-import { pluginManager } from "../../utils/PluginManager";
+import { pluginManager } from "../../utils/getPluginManager";
 const ComponentArray = pluginManager.getComponents();
 
 const _ = require("lodash/object");

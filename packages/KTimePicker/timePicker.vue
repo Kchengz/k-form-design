@@ -3,10 +3,10 @@
  * @Author: kcz
  * @Date: 2020-01-11 17:30:48
  * @LastEditors: kcz
- * @LastEditTime: 2020-03-28 17:35:43
+ * @LastEditTime: 2022-10-16 16:16:58
  -->
 <template>
-  <a-time-picker
+  <TimePicker
     :style="`width:${record.options.width}`"
     :disabled="record.options.disabled || parentDisabled"
     :allowClear="record.options.clearable"
@@ -18,9 +18,13 @@
 </template>
 <script>
 import moment from "moment";
+import { pluginManager } from "../utils/getPluginManager";
+
+const TimePicker = pluginManager.getComponent("timePicker");
 export default {
   // eslint-disable-next-line vue/require-prop-types
   props: ["record", "value", "parentDisabled"],
+  components: { TimePicker: TimePicker.component },
   computed: {
     time() {
       if (!this.value) {

@@ -3,11 +3,11 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-05 12:12:30
+ * @LastEditTime: 2022-10-16 22:41:41
  -->
 <template>
   <div :style="{ width: record.options.width }">
-    <a-upload
+    <Upload
       v-if="!record.options.drag"
       :disabled="record.options.disabled || parentDisabled"
       :name="config.uploadFileName || record.options.fileName"
@@ -27,8 +27,8 @@
       >
         <a-icon type="upload" /> {{ record.options.placeholder }}
       </a-button>
-    </a-upload>
-    <a-upload-dragger
+    </Upload>
+    <UploadDragger
       v-else
       :class="{ 'hide-upload-drag': !(fileList.length < record.options.limit) }"
       :disabled="record.options.disabled || parentDisabled"
@@ -47,7 +47,7 @@
         <a-icon type="cloud-upload" />
       </p>
       <p class="ant-upload-text">单击或拖动文件到此区域</p>
-    </a-upload-dragger>
+    </UploadDragger>
   </div>
 </template>
 <script>
@@ -56,10 +56,19 @@
  * date 2019-12-31
  * description 上传文件组件
  */
+import { pluginManager } from "../utils/getPluginManager";
+
+const Upload = pluginManager.getComponent("upload");
+const UploadDragger = pluginManager.getComponent("uploadDragger");
+
 export default {
   name: "KUploadFile",
   // eslint-disable-next-line vue/require-prop-types
   props: ["record", "value", "config", "parentDisabled", "dynamicData"],
+  components: {
+    Upload: Upload.component,
+    UploadDragger: UploadDragger.component
+  },
   data() {
     return {
       fileList: []
