@@ -18,7 +18,7 @@
 
 设计器布局参考form-generator项目，基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
 
-注：该项目不兼容vue3.0项目，暂无后续兼容vue3.0的计划
+目前vue3版本已经在开发中了，预计11月中旬上线测试版本
 
 - [github](https://github.com/Kchengz/k-form-design)
 - [码云](https://gitee.com/kcz66/k-form-design)
