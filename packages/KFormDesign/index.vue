@@ -16,8 +16,6 @@
         @handleClose="handleClose"
         @handleUndo="handleUndo"
         @handleRedo="handleRedo"
-        :recordList="recordList"
-        :redoList="redoList"
       >
         <template slot="left-action">
           <slot name="left-action"></slot>
@@ -105,8 +103,6 @@
             @handleClose="handleClose"
             @handleUndo="handleUndo"
             @handleRedo="handleRedo"
-            :recordList="recordList"
-            :redoList="redoList"
           >
             <template slot="left-action">
               <slot name="left-action"></slot>
@@ -181,7 +177,7 @@ import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 
-import { Revoke } from "../core/revoke";
+import { revoke } from "../core/revoke";
 import {
   basicsList,
   layoutList,
@@ -272,9 +268,6 @@ export default {
       updateTime: 0,
       updateRecordTime: 0,
       startType: "",
-      revoke: null,
-      recordList: [],
-      redoList: [],
       noModel: [
         "button",
         "divider",
@@ -323,7 +316,7 @@ export default {
     data: {
       handler(e) {
         this.$nextTick(() => {
-          this.revoke.push(e);
+          revoke.push(e);
         });
       },
       deep: true,
@@ -545,7 +538,7 @@ export default {
      * @return {*}
      */
     handleUndo() {
-      const record = this.revoke.undo();
+      const record = revoke.undo();
       if (!record) {
         return false;
       }
@@ -560,7 +553,7 @@ export default {
      * @return {*}
      */
     handleRedo() {
-      const record = this.revoke.redo();
+      const record = revoke.redo();
       if (!record) {
         return false;
       }
@@ -578,11 +571,6 @@ export default {
     handleClose() {
       this.$emit("close");
     }
-  },
-  created() {
-    this.revoke = new Revoke();
-    this.recordList = this.revoke.recordList;
-    this.redoList = this.revoke.redoList;
   }
 };
 </script>

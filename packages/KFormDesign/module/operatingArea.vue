@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-27 23:01:59
+ * @LastEditTime: 2022-10-16 09:28:06
  -->
 <template>
   <div class="operating-area">
@@ -106,6 +106,8 @@
   <!-- 操作区域 start -->
 </template>
 <script>
+import { revoke } from "../../core/revoke";
+
 export default {
   props: {
     toolbars: {
@@ -120,18 +122,21 @@ export default {
         "close"
       ]
     },
-    recordList: {
-      type: Array,
-      require: true
-    },
-    redoList: {
-      type: Array,
-      require: true
-    },
+
     showToolbarsText: {
       type: Boolean,
       default: false
     }
+  },
+  data() {
+    return {
+      recordList: [],
+      redoList: []
+    };
+  },
+  created() {
+    this.recordList = revoke.recordList;
+    this.redoList = revoke.redoList;
   }
 };
 </script>
