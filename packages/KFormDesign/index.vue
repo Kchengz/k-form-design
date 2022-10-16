@@ -177,7 +177,7 @@ import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 
-import { revoke } from "../core/revoke";
+import { revoke } from "../utils/revoke";
 import {
   basicsList,
   layoutList,

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-15 16:32:09
+ * @LastEditTime: 2022-10-16 10:57:34
  -->
 <template>
   <a-form-model-item
@@ -206,8 +206,10 @@ import UploadFile from "../../UploadFile";
 import UploadImg from "../../UploadImg";
 import KDatePicker from "../../KDatePicker";
 import KTimePicker from "../../KTimePicker";
-import ComponentArray from "../../core/components_use";
+import { pluginManager } from "../../utils/PluginManager";
 const _ = require("lodash/object");
+
+const ComponentArray = pluginManager.getComponents();
 
 export default {
   name: "KFormItem",
@@ -228,7 +230,7 @@ export default {
   },
   computed: {
     componentItem() {
-      return ComponentArray[this.record.type];
+      return ComponentArray[this.record.type].component;
     },
     componentOption() {
       return _.omit(this.record.options, ["defaultValue", "disabled"]);
@@ -248,10 +250,12 @@ export default {
 <style lang="less" scoped>
 .slider-box {
   display: flex;
+
   > .slider {
     flex: 1;
     margin-right: 16px;
   }
+
   > .number {
     width: 70px;
   }

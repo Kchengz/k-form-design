@@ -25,9 +25,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name k-form-design --dest lib packages/index.js && npm run mini",
+    "lib": "vue-cli-service build --target lib --name k-form-design --dest lib packages/index.js",
     "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue packages/",
-    "mini": "vue-cli-service build --target lib --name k-form-design-mini --dest lib packages/mini.js --no-clean",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

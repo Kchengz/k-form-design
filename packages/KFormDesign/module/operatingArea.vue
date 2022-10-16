@@ -106,7 +106,7 @@
   <!-- 操作区域 start -->
 </template>
 <script>
-import { revoke } from "../../core/revoke";
+import { revoke } from "../../utils/revoke";
 
 export default {
   props: {

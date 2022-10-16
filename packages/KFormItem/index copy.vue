@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-16 11:11:11
+ * @LastEditTime: 2022-10-16 10:27:43
  -->
 <template>
   <a-form-item
@@ -380,10 +380,8 @@
  */
 // import moment from "moment";
 import customComponent from "./customComponent";
-
-import { pluginManager } from "../utils/PluginManager";
+import ComponentArray from "../utils/components_use";
 const _ = require("lodash/object");
-const ComponentArray = pluginManager.getComponents();
 
 export default {
   name: "KFormItem",
@@ -429,7 +427,7 @@ export default {
      */
 
     componentItem() {
-      return ComponentArray[this.record.type].component;
+      return ComponentArray[this.record.type];
     },
     componentOption() {
       // 移除相应字段
