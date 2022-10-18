@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-16 09:28:06
+ * @LastEditTime: 2022-10-19 00:11:18
  -->
 <template>
   <div class="operating-area">
@@ -60,7 +60,7 @@
           <span v-if="showToolbarsText">清空</span>
         </a>
       </a-tooltip>
-      <a-divider type="vertical" />
+      <Divider type="vertical" />
       <a-tooltip title="撤销">
         <a
           v-if="toolbars.includes('undo')"
@@ -107,8 +107,13 @@
 </template>
 <script>
 import { revoke } from "../../utils/revoke";
+import { pluginManager } from "../../utils/PluginManager";
+const Divider = pluginManager.getComponent("divider").component;
 
 export default {
+  components: {
+    Divider
+  },
   props: {
     toolbars: {
       type: Array,

@@ -12,11 +12,11 @@
   >
     <p class="hint-box">导入格式如下:</p>
     <div class="json-box-9136076486841527">
-      <codemirror
+      <Codemirror
         style="height:100%;"
         ref="myEditor"
         v-model="jsonFormat"
-      ></codemirror>
+      ></Codemirror>
     </div>
     <a-upload
       action="/abc"
@@ -24,7 +24,7 @@
       :showUploadList="false"
       accept="application/json"
     >
-      <a-button type="primary"> 导入json文件 </a-button>
+      <Button type="primary"> 导入json文件 </Button>
     </a-upload>
   </a-modal>
 </template>
@@ -34,8 +34,10 @@
  * date 2019-11-20
  * description 导入json Modal
  */
-import { codemirror } from "vue-codemirror-lite";
 import jsonFormat from "../config/jsonFormat";
+import { pluginManager } from "../../utils/PluginManager";
+const Button = pluginManager.getComponent("button").component;
+const Codemirror = pluginManager.getComponent("codemirror").component;
 export default {
   name: "importJsonModal",
   data() {
@@ -54,7 +56,8 @@ export default {
     }
   },
   components: {
-    codemirror
+    Codemirror,
+    Button
   },
   computed: {
     editor() {

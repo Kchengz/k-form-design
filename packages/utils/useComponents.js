@@ -26,10 +26,7 @@ import {
 } from "ant-design-vue";
 
 pluginManager.addComponent("input", () => import("ant-design-vue/lib/input"));
-pluginManager.addComponent(
-  "colorPicker",
-  async () => (await import("vcolorpicker"))["default"]["colorPicker"]
-);
+
 pluginManager.addComponent("textarea", () =>
   import("ant-design-vue/lib/input/TextArea")
 );
@@ -103,6 +100,15 @@ pluginManager.addComponent("monthPicker", async () => {
 pluginManager.addComponent("upload", () => import("ant-design-vue/lib/upload"));
 pluginManager.addComponent("uploadDragger", () =>
   import("ant-design-vue/lib/upload/Dragger")
+);
+
+pluginManager.addComponent(
+  "colorPicker",
+  async () => (await import("vcolorpicker"))["default"]["colorPicker"]
+);
+pluginManager.addComponent(
+  "codemirror",
+  async () => (await import("vue-codemirror-lite"))["codemirror"]
 );
 
 Vue.use(ConfigProvider);

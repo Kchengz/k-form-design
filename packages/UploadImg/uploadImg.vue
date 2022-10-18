@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-16 22:48:09
+ * @LastEditTime: 2022-10-19 00:15:20
  -->
 <template>
   <div
@@ -25,7 +25,7 @@
       :remove="remove"
       :beforeUpload="beforeUpload"
     >
-      <a-button
+      <Button
         v-if="
           record.options.listType !== 'picture-card' &&
             fileList.length < record.options.limit
@@ -33,7 +33,7 @@
         :disabled="record.options.disabled || parentDisabled"
       >
         <a-icon type="upload" /> {{ record.options.placeholder }}
-      </a-button>
+      </Button>
       <div
         v-if="
           record.options.listType === 'picture-card' &&
@@ -59,12 +59,14 @@
 import { pluginManager } from "../utils/getPluginManager";
 
 const Upload = pluginManager.getComponent("upload");
+const Button = pluginManager.getComponent("button").component;
 export default {
   name: "KUploadImg",
   // eslint-disable-next-line vue/require-prop-types
   props: ["record", "value", "config", "parentDisabled"],
   components: {
-    Upload: Upload.component
+    Upload: Upload.component,
+    Button
   },
   data() {
     return {

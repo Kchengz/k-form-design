@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-16 22:41:41
+ * @LastEditTime: 2022-10-19 00:15:01
  -->
 <template>
   <div :style="{ width: record.options.width }">
@@ -21,12 +21,12 @@
       :remove="remove"
       :beforeUpload="beforeUpload"
     >
-      <a-button
+      <Button
         v-if="fileList.length < record.options.limit"
         :disabled="record.options.disabled || parentDisabled"
       >
         <a-icon type="upload" /> {{ record.options.placeholder }}
-      </a-button>
+      </Button>
     </Upload>
     <UploadDragger
       v-else
@@ -60,6 +60,7 @@ import { pluginManager } from "../utils/getPluginManager";
 
 const Upload = pluginManager.getComponent("upload");
 const UploadDragger = pluginManager.getComponent("uploadDragger");
+const Button = pluginManager.getComponent("button").component;
 
 export default {
   name: "KUploadFile",
@@ -67,7 +68,8 @@ export default {
   props: ["record", "value", "config", "parentDisabled", "dynamicData"],
   components: {
     Upload: Upload.component,
-    UploadDragger: UploadDragger.component
+    UploadDragger: UploadDragger.component,
+    Button
   },
   data() {
     return {

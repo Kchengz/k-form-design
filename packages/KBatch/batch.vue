@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-14 14:04:14
+ * @LastEditTime: 2022-10-19 00:13:39
  -->
 <template>
   <a-form-model
@@ -57,20 +57,25 @@
         />
       </template>
     </a-table>
-    <a-button type="dashed" :disabled="disabled" @click="addDomain">
+    <Button type="dashed" :disabled="disabled" @click="addDomain">
       <a-icon type="plus" />增加
-    </a-button>
+    </Button>
   </a-form-model>
 </template>
 
 <script>
 import KFormModelItem from "./module/KFormModelItem";
+import { pluginManager } from "../utils/PluginManager";
+const Button = pluginManager.getComponent("button").component;
+
 export default {
   name: "KBatch",
+
   props: ["record", "value", "dynamicData", "config", "parentDisabled"],
 
   components: {
-    KFormModelItem
+    KFormModelItem,
+    Button
   },
   watch: {
     value: {

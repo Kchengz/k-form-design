@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="json-box-9136076486841527">
-      <codemirror
+      <Codemirror
         style="height:100%;"
         ref="myEditor"
         :value="editorJson"
-      ></codemirror>
+      ></Codemirror>
     </div>
     <div class="copy-btn-box-9136076486841527">
-      <a-button
+      <Button
         @click="handleCopyJson"
         type="primary"
         class="copy-btn"
@@ -16,19 +16,26 @@
         :data-clipboard-text="editorJson"
       >
         复制数据
-      </a-button>
-      <a-button @click="handleExportJson" type="primary">
+      </Button>
+      <Button @click="handleExportJson" type="primary">
         导出代码
-      </a-button>
+      </Button>
     </div>
   </div>
 </template>
 <script>
 // 剪切板组件
 import Clipboard from "clipboard";
-import { codemirror } from "vue-codemirror-lite";
+import { pluginManager } from "../utils/PluginManager";
+const Button = pluginManager.getComponent("button").component;
+const Codemirror = pluginManager.getComponent("codemirror").component;
+
 export default {
   name: "PreviewCode",
+  components: {
+    Codemirror,
+    Button
+  },
   props: {
     fileFormat: {
       type: String,
@@ -43,10 +50,6 @@ export default {
     return {
       visible: false
     };
-  },
-
-  components: {
-    codemirror
   },
   methods: {
     exportData(data, fileName = `demo.${this.fileFormat}`) {

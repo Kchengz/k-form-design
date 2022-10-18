@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-16 09:35:57
+ * @LastEditTime: 2022-10-19 00:31:31
  -->
 <template>
   <div class="form-panel">
@@ -75,7 +75,6 @@
 <script>
 import draggable from "vuedraggable";
 import layoutItem from "./layoutItem";
-import "codemirror/mode/javascript/javascript";
 export default {
   name: "KCenter",
   data() {
