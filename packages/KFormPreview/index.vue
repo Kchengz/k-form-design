@@ -49,7 +49,7 @@ export default {
         console.error(err, "获取数据失败");
       });
     },
-    handleGetData() {
+    async handleGetData() {
       this.$refs.KFormBuild.getData()
         .then(res => {
           console.log(res, "获取数据成功");

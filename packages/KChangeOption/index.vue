@@ -2,10 +2,8 @@
   <div class="option-change-container">
     <a-row v-if="type === 'option' || type === 'tab'" :gutter="8">
       <div class="option-change-box" v-for="(val, index) in value" :key="index">
-        <a-col :span="9"
-          ><a-input v-model="val.label" placeholder="名称"
-        /></a-col>
-        <a-col :span="9"><a-input v-model="val.value" placeholder="值"/></a-col>
+        <a-col :span="9"><Input v-model="val.label" placeholder="名称"/></a-col>
+        <a-col :span="9"><Input v-model="val.value" placeholder="值"/></a-col>
         <a-col :span="6"
           ><div @click="handleDelete(index)" class="option-delete-box">
             <a-icon type="delete" /></div
@@ -18,10 +16,10 @@
       <span v-for="(val, index) in value" :key="index">
         <div class="option-change-box" v-if="index !== 0">
           <a-col :span="18"
-            ><a-input v-model="val.message" placeholder="提示信息"
+            ><Input v-model="val.message" placeholder="提示信息"
           /></a-col>
           <a-col :span="18"
-            ><a-input v-model="val.pattern" placeholder="正则表达式pattern"
+            ><Input v-model="val.pattern" placeholder="正则表达式pattern"
           /></a-col>
           <a-col :span="6"
             ><div @click="handleDelete(index)" class="option-delete-box">
@@ -34,7 +32,7 @@
     <a-row v-else-if="type === 'colspan'" :gutter="8">
       <div class="option-change-box" v-for="(val, index) in value" :key="index">
         <a-col :span="18"
-          ><a-input-number
+          ><InputNumber
             style="width:100%"
             :max="24"
             v-model="val.span"
@@ -55,8 +53,15 @@
  * date 2019-11-20
  * description 修改多选、下拉、单选等控件options的组件，添加移除校验规制的组件
  */
+import { pluginManager } from "../utils/getPluginManager";
+const Input = pluginManager.getComponent("input").component;
+const InputNumber = pluginManager.getComponent("number").component;
 export default {
   name: "KChangeOption",
+  components: {
+    Input,
+    InputNumber
+  },
   props: {
     value: {
       type: Array,

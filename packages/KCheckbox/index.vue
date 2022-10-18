@@ -1,7 +1,7 @@
 <template>
-  <a-checkbox :val="_val" @change="handleChange" :checked="chackboxVal">
+  <CheckboxItem :val="_val" @change="handleChange" :checked="chackboxVal">
     {{ label }}
-  </a-checkbox>
+  </CheckboxItem>
 </template>
 <script>
 /*
@@ -9,8 +9,14 @@
  * date 2019-11-20
  * description 多选框组件,改成v-model Boolean值
  */
+import { pluginManager } from "../utils/getPluginManager";
+const CheckboxItem = pluginManager.getComponent("checkboxItem").component;
+
 export default {
   name: "kCheckbox",
+  components: {
+    CheckboxItem
+  },
   data() {
     return {
       chackboxVal: false

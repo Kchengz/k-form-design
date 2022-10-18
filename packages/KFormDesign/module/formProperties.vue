@@ -3,27 +3,27 @@
     <div class="properties-body">
       <a-form>
         <a-form-item label="表单布局">
-          <a-radio-group buttonStyle="solid" v-model="config.layout">
-            <a-radio-button value="horizontal">水平</a-radio-button>
-            <a-radio-button value="vertical">垂直</a-radio-button>
-            <a-radio-button value="inline">行内</a-radio-button>
-          </a-radio-group>
+          <Radio buttonStyle="solid" v-model="config.layout">
+            <RadioButton value="horizontal">水平</RadioButton>
+            <RadioButton value="vertical">垂直</RadioButton>
+            <RadioButton value="inline">行内</RadioButton>
+          </Radio>
         </a-form-item>
         <a-form-item label="标签布局（水平布局生效）">
-          <a-radio-group buttonStyle="solid" v-model="config.labelLayout">
-            <a-radio-button value="flex">固定</a-radio-button>
-            <a-radio-button value="Grid">栅格</a-radio-button>
-          </a-radio-group>
+          <Radio buttonStyle="solid" v-model="config.labelLayout">
+            <RadioButton value="flex">固定</RadioButton>
+            <RadioButton value="Grid">栅格</RadioButton>
+          </Radio>
         </a-form-item>
         <a-form-item
           v-show="config.labelLayout === 'flex'"
           label="标签宽度（px）"
         >
-          <a-input-number v-model="config.labelWidth" />
+          <InputNumber v-model="config.labelWidth" />
         </a-form-item>
         <a-form-item label="labelCol" v-show="config.labelLayout !== 'flex'">
           <div class="change-col-box">
-            <a-slider
+            <Slider
               id="test"
               :max="24"
               :min="0"
@@ -32,27 +32,27 @@
             />
             <div>
               <label>xs:</label>
-              <a-input-number v-model="config.labelCol.xs" />
+              <InputNumber v-model="config.labelCol.xs" />
             </div>
             <div>
               <label>sm:</label>
-              <a-input-number v-model="config.labelCol.sm" />
+              <InputNumber v-model="config.labelCol.sm" />
             </div>
             <div>
               <label>md:</label>
-              <a-input-number v-model="config.labelCol.md" />
+              <InputNumber v-model="config.labelCol.md" />
             </div>
             <div>
               <label>lg:</label>
-              <a-input-number v-model="config.labelCol.lg" />
+              <InputNumber v-model="config.labelCol.lg" />
             </div>
             <div>
               <label>xl:</label>
-              <a-input-number v-model="config.labelCol.xl" />
+              <InputNumber v-model="config.labelCol.xl" />
             </div>
             <div>
               <label>xxl:</label>
-              <a-input-number v-model="config.labelCol.xxl" />
+              <InputNumber v-model="config.labelCol.xxl" />
             </div>
           </div>
         </a-form-item>
@@ -60,35 +60,35 @@
           <div class="change-col-box">
             <div>
               <label>xs:</label>
-              <a-input-number v-model="config.wrapperCol.xs" />
+              <InputNumber v-model="config.wrapperCol.xs" />
             </div>
             <div>
               <label>sm:</label>
-              <a-input-number v-model="config.wrapperCol.sm" />
+              <InputNumber v-model="config.wrapperCol.sm" />
             </div>
             <div>
               <label>md:</label>
-              <a-input-number v-model="config.wrapperCol.md" />
+              <InputNumber v-model="config.wrapperCol.md" />
             </div>
             <div>
               <label>lg:</label>
-              <a-input-number v-model="config.wrapperCol.lg" />
+              <InputNumber v-model="config.wrapperCol.lg" />
             </div>
             <div>
               <label>xl:</label>
-              <a-input-number v-model="config.wrapperCol.xl" />
+              <InputNumber v-model="config.wrapperCol.xl" />
             </div>
             <div>
               <label>xxl:</label>
-              <a-input-number v-model="config.wrapperCol.xxl" />
+              <InputNumber v-model="config.wrapperCol.xxl" />
             </div>
           </div>
         </a-form-item>
         <a-form-item label="预览模态框宽度">
-          <a-input-number style="width:100%;" v-model="previewOptions.width" />
+          <InputNumber style="width:100%;" v-model="previewOptions.width" />
         </a-form-item>
         <a-form-item label="表单CSS">
-          <a-textarea v-model="config.customStyle" />
+          <Textarea v-model="config.customStyle" />
         </a-form-item>
         <a-form-item label="表单属性">
           <kCheckbox v-model="config.hideRequiredMark" label="隐藏必选标记" />
@@ -107,10 +107,22 @@
  * description 表单属性设置面板组件
  */
 import kCheckbox from "../../KCheckbox/index.vue";
+import { pluginManager } from "../../utils/getPluginManager";
+const InputNumber = pluginManager.getComponent("number").component;
+const Radio = pluginManager.getComponent("radio").component;
+const RadioButton = pluginManager.getComponent("radioButton").component;
+const Textarea = pluginManager.getComponent("textarea").component;
+const Slider = pluginManager.getComponent("slider").component;
+
 export default {
   name: "formProperties",
   components: {
-    kCheckbox
+    kCheckbox,
+    InputNumber,
+    Radio,
+    RadioButton,
+    Textarea,
+    Slider
   },
   props: {
     config: {
@@ -137,6 +149,7 @@ export default {
   > div {
     padding: 5px;
     display: flex;
+
     > label {
       text-align: right;
       padding-right: 8px;

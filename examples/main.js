@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2021-05-02 16:04:02
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-16 16:08:33
+ * @LastEditTime: 2022-10-18 23:37:58
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -14,7 +14,6 @@ import router from "./router/";
 import Cmp from "./components/CustomComponent/index.vue";
 
 import KFormDesign from "../packages/index";
-import "../packages/utils/useComponents";
 
 KFormDesign.setFormDesignConfig({
   title: "测试自定义字段",

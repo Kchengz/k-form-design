@@ -18,6 +18,7 @@ export const basicsList = [
       maxLength: null,
       addonBefore: "",
       addonAfter: "",
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false // 是否禁用，false不禁用，true禁用
     },
@@ -43,6 +44,7 @@ export const basicsList = [
       maxLength: null,
       defaultValue: "",
       clearable: false,
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false,
       placeholder: "请输入"
@@ -68,6 +70,7 @@ export const basicsList = [
       max: null, // 可输入最大值
       precision: null,
       step: 1, // 步长，点击加减按钮时候，加减多少
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false, //是否禁用
       placeholder: "请输入"
@@ -92,6 +95,7 @@ export const basicsList = [
       multiple: false, // 是否允许多选
       disabled: false, // 是否禁用
       clearable: false, // 是否显示清除按钮
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       placeholder: "请选择", // 默认提示文字
       dynamicKey: "",
@@ -125,6 +129,7 @@ export const basicsList = [
     icon: "icon-duoxuan1",
     options: {
       disabled: false, //是否禁用
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       defaultValue: [],
       dynamicKey: "",
@@ -160,6 +165,7 @@ export const basicsList = [
     icon: "icon-danxuan-cuxiantiao",
     options: {
       disabled: false, //是否禁用
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       defaultValue: "", // 默认值
       dynamicKey: "",
@@ -200,6 +206,7 @@ export const basicsList = [
       range: false, // 范围日期选择，为true则会显示两个时间选择框（同时defaultValue和placeholder要改成数组），
       showTime: false, // 是否显示时间选择器
       disabled: false, // 是否禁用
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       clearable: false, // 是否显示清除按钮
       placeholder: "请选择",
@@ -224,6 +231,7 @@ export const basicsList = [
       width: "100%", // 宽度
       defaultValue: "", // 默认值，字符串 12:00:00
       disabled: false, // 是否禁用
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       clearable: false, // 是否显示清除按钮
       placeholder: "请选择",
@@ -247,6 +255,7 @@ export const basicsList = [
       defaultValue: 0,
       max: 5, // 最大值
       disabled: false, // 是否禁用
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       allowHalf: false // 是否允许半选
     },
@@ -268,6 +277,7 @@ export const basicsList = [
       width: "100%", // 宽度
       defaultValue: 0, // 默认值， 如果range为true的时候，则需要改成数组,如：[12,15]
       disabled: false, // 是否禁用
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       min: 0, // 最小值
       max: 100, // 最大值
@@ -293,6 +303,7 @@ export const basicsList = [
       defaultValue: "[]",
       multiple: false,
       disabled: false,
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       drag: false,
       downloadWay: "a",
@@ -322,6 +333,7 @@ export const basicsList = [
     options: {
       defaultValue: "[]",
       multiple: false,
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false,
       width: "100%",
@@ -351,6 +363,7 @@ export const basicsList = [
       disabled: false, //是否禁用
       defaultValue: undefined, // 默认值
       multiple: false,
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       clearable: false, // 是否显示清除按钮
       showSearch: false, // 是否显示搜索框，搜索选择的项的值，而不是文字
@@ -397,6 +410,7 @@ export const basicsList = [
     icon: "icon-guanlian",
     options: {
       disabled: false, //是否禁用
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       defaultValue: undefined, // 默认值
       showSearch: false, // 是否显示搜索框，搜索选择的项的值，而不是文字
@@ -512,6 +526,7 @@ export const basicsList = [
     icon: "icon-kaiguan3",
     options: {
       defaultValue: false, // 默认值 Boolean 类型
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false // 是否禁用
     },
@@ -533,6 +548,7 @@ export const basicsList = [
       type: "primary",
       handle: "submit",
       dynamicFun: "",
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       disabled: false // 是否禁用，false不禁用，true禁用
     },
@@ -547,6 +563,7 @@ export const basicsList = [
       description: "",
       showIcon: false,
       banner: false,
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       closable: false
     },
@@ -558,6 +575,7 @@ export const basicsList = [
     icon: "icon-zihao",
     options: {
       textAlign: "left",
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       showRequiredMark: false,
       color: "rgb(0, 0, 0)",
@@ -571,6 +589,7 @@ export const basicsList = [
     label: "HTML",
     icon: "icon-ai-code",
     options: {
+      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       defaultValue: "<strong>HTML</strong>"
     },
@@ -621,7 +640,8 @@ export const layoutList = [
     label: "分割线",
     icon: "icon-fengexian",
     options: {
-      orientation: "left"
+      orientation: "left",
+      noFormItem: true
     },
     key: "",
     model: ""
@@ -631,6 +651,9 @@ export const layoutList = [
     label: "卡片布局",
     icon: "icon-qiapian",
     list: [],
+    options: {
+      noFormItem: true
+    },
     key: "",
     model: ""
   },
@@ -643,6 +666,7 @@ export const layoutList = [
       type: "line",
       tabPosition: "top",
       size: "default",
+      noFormItem: true,
       animated: true
     },
     columns: [
@@ -675,6 +699,7 @@ export const layoutList = [
       }
     ],
     options: {
+      noFormItem: true,
       gutter: 0
     },
     key: "",
@@ -719,6 +744,7 @@ export const layoutList = [
       bordered: true,
       bright: false,
       small: true,
+      noFormItem: true,
       customStyle: ""
     },
     key: "",
