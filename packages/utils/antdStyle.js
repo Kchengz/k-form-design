@@ -1,4 +1,5 @@
 import "ant-design-vue/lib/input/style";
+import "ant-design-vue/lib/input-number/style";
 import "ant-design-vue/lib/select/style";
 import "ant-design-vue/lib/radio/style";
 import "ant-design-vue/lib/switch/style";

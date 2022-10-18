@@ -9,7 +9,7 @@
 // 导入样式
 import "../styles/form-design.less";
 // 导入antD样式
-import "./utils/antdStyle"
+import "./utils/antdStyle";
 
 // 导出本地iconfont
 import "../static/icons/iconfont";
