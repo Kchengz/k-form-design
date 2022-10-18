@@ -1,5 +1,5 @@
 // 导入ant组件
-import "./utils/components_use";
+import "./utils/useComponents";
 import * as all from "./mini";
 
 export { pluginManager } from "./utils/PluginManager";

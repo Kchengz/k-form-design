@@ -40,8 +40,6 @@ import {
 
 import vcolorpicker from "vcolorpicker";
 
-import "ant-design-vue/dist/antd.css";
-
 pluginManager.addComponent("input", () => import("ant-design-vue/lib/input"));
 pluginManager.addComponent("number", () =>
   import("ant-design-vue/lib/input-number")
@@ -78,6 +76,27 @@ pluginManager.addComponent("selectInputList", () =>
 );
 pluginManager.addComponent("editor", () => import("../KEditor/index"));
 
+pluginManager.addComponent("timePicker", () =>
+  import("ant-design-vue/lib/time-picker")
+);
+pluginManager.addComponent("datePicker", () =>
+  import("ant-design-vue/lib/date-picker")
+);
+
+pluginManager.addComponent("rangePicker", () =>
+  import("ant-design-vue/lib/date-picker/RangePicker")
+);
+pluginManager.addComponent("monthPicker", async () => {
+  const datePicker = await import("ant-design-vue/lib/date-picker");
+  return datePicker.default["MonthPicker"];
+});
+
+pluginManager.addComponent("upload", () => import("ant-design-vue/lib/upload"));
+pluginManager.addComponent("uploadDragger", () =>
+  import("ant-design-vue/lib/upload/Dragger")
+);
+
+
 Vue.use(ConfigProvider);
 Vue.use(Tooltip);
 Vue.use(Empty);
@@ -110,22 +129,3 @@ Vue.use(vcolorpicker);
 Vue.prototype.$confirm = Modal.confirm;
 Vue.prototype.$message = message;
 
-pluginManager.addComponent("timePicker", () =>
-  import("ant-design-vue/lib/time-picker")
-);
-pluginManager.addComponent("datePicker", () =>
-  import("ant-design-vue/lib/date-picker")
-);
-
-pluginManager.addComponent("rangePicker", () =>
-  import("ant-design-vue/lib/date-picker/RangePicker")
-);
-pluginManager.addComponent("monthPicker", async () => {
-  const datePicker = await import("ant-design-vue/lib/date-picker");
-  return datePicker.default["MonthPicker"];
-});
-
-pluginManager.addComponent("upload", () => import("ant-design-vue/lib/upload"));
-pluginManager.addComponent("uploadDragger", () =>
-  import("ant-design-vue/lib/upload/Dragger")
-);

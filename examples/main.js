@@ -14,7 +14,7 @@ import router from "./router/";
 import Cmp from "./components/CustomComponent/index.vue";
 
 import KFormDesign from "../packages/index";
-import "../packages/utils/components_use";
+import "../packages/utils/useComponents";
 
 KFormDesign.setFormDesignConfig({
   title: "测试自定义字段",
