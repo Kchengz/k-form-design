@@ -13,8 +13,6 @@
 @left-right-width      : 270px;
 @header-height         : 56px;
 @operating-area-height : 45px;
-@import "./k-table.less";
-@import "./k-editor.less";
 
 
 
@@ -23,10 +21,14 @@
   height  : 100vh;
   width   : 100%;
   overflow: hidden;
+}
 
+.form-designer-container-9136076486841527,
+.k-form-build-9136076486841527 {
 
-
-
+  @import "./k-editor.less";
+  @import "./k-table.less";
+  @import "./k-slider.less";
 
   // header样式
   .header {
@@ -775,38 +777,9 @@
       }
     }
   }
-}
 
+  // k-form-build
 
-
-
-// modal样式
-.k-form-modal {
-  .ant-modal-content {
-    height: 100%;
-  }
-}
-
-// code-modal盒子样式
-&.code-modal-9136076486841527 {
-  .ant-modal-body {
-    padding: 12px;
-  }
-}
-
-
-// modal复制按钮样式
-.copy-btn-box-9136076486841527 {
-  padding-top: 8px;
-  text-align : center;
-
-  .copy-btn {
-    margin-right: 8px;
-  }
-}
-
-// k-form-build
-.k-form-build-9136076486841527 {
 
   .select-input-list-box {
     color    : rgba(0, 0, 0, 0.65);
@@ -953,6 +926,32 @@
     color     : #666;
   }
 }
+
+// modal样式
+.k-form-modal {
+  .ant-modal-content {
+    height: 100%;
+  }
+}
+
+// code-modal盒子样式
+&.code-modal-9136076486841527 {
+  .ant-modal-body {
+    padding: 12px;
+  }
+}
+
+
+// modal复制按钮样式
+.copy-btn-box-9136076486841527 {
+  padding-top: 8px;
+  text-align : center;
+
+  .copy-btn {
+    margin-right: 8px;
+  }
+}
+
 
 // footer样式
 // .footer-9136076486841527 {

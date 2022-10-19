@@ -112,7 +112,7 @@ const InputNumber = pluginManager.getComponent("number").component;
 const Radio = pluginManager.getComponent("radio").component;
 const RadioButton = pluginManager.getComponent("radioButton").component;
 const Textarea = pluginManager.getComponent("textarea").component;
-const Slider = pluginManager.getComponent("slider").component;
+const Slider = pluginManager.getComponent("aSlider").component;
 
 export default {
   name: "formProperties",

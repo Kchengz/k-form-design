@@ -6,7 +6,6 @@
  */
 import Vue from "vue";
 import { pluginManager } from "./getPluginManager";
-
 import {
   ConfigProvider,
   Layout,
@@ -57,7 +56,9 @@ pluginManager.addComponent(
 );
 
 pluginManager.addComponent("rate", () => import("ant-design-vue/lib/rate"));
-pluginManager.addComponent("slider", () => import("ant-design-vue/lib/slider"));
+pluginManager.addComponent("aSlider", () =>
+  import("ant-design-vue/lib/slider")
+);
 pluginManager.addComponent("treeSelect", () =>
   import("ant-design-vue/lib/tree-select")
 );
@@ -73,6 +74,7 @@ pluginManager.addComponent("aButton", () =>
 pluginManager.addComponent("button", () => import("../KButton/index"));
 pluginManager.addComponent("divider", () => import("../KDivider/index"));
 pluginManager.addComponent("html", () => import("../KHtml/index"));
+pluginManager.addComponent("slider", () => import("../KSlider/index"));
 pluginManager.addComponent("text", () => import("../KText/index"));
 
 pluginManager.addComponent("date", () => import("../KDatePicker/index"));
