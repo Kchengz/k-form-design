@@ -102,7 +102,7 @@ yarn add babel-plugin-import --dev
 > 在main.js中注册组件，代码如下：
 
 ```javascript
-import KFormDesign from './components/k-form-design/packages'
+import KFormDesign from './components/k-form-design/packages/index.js'
 import './components/k-form-design/styles/form-design.less'
 Vue.use(KFormDesign)
 ```

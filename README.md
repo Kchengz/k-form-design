@@ -43,19 +43,33 @@
 
 
 ## 安装
-```cmd
-# 使用yarn 
-yarn add k-form-design
 
-# 使用npm 
+> 安装表单设计器
+
+```cmd
 npm i k-form-design --save
+ 
+# OR
+yarn add k-form-design
 ```
 
+> 安装 ant-design-vue UI ，推荐 vue2 版本最新的 1.7.8版本
+
+```cmd
+npm i ant-design-vue@1.7.8 --save
+
+# OR
+yarn add ant-design-vue@1.7.8
+```
+
+### 
+
 ## 引入组件
+
 ``` javascript
 // 在main.js引入
-
 import KFormDesign from 'k-form-design'
+import 'k-form-design/packages/utils/useComponents'
 import 'k-form-design/lib/k-form-design.css'
 Vue.use(KFormDesign)
 ```
@@ -70,9 +84,9 @@ Vue.use(KFormDesign)
 ```
 
 ## 交流
-点击链接加入qq群聊，可以直接提问及反馈bug
+点击链接加入qq群聊
 
-- [【k-form-desgin交流群：1020643215】](https://jq.qq.com/?_wv=1027&k=5BeoFAr) （满人）
+- [【k-form-desgin交流群：1020643215】](https://jq.qq.com/?_wv=1027&k=5BeoFAr) 
 - [【k-form-desgin交流二群：727396923】](https://jq.qq.com/?_wv=1027&k=uYyqQPlQ)
 
 License

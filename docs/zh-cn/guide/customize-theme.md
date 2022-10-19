@@ -72,4 +72,5 @@ yarn add ant-design-vue
 // 需要在k-form-design样式后引入，覆盖默认的样式
 import 'ant-design-vue/dist/antd.less'
 ```
-?> 参考[ant-design-vue 定制主题](https://www.antdv.com/docs/vue/customize-theme-cn/#Ant-Design-Vue-%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%8F%98%E9%87%8F)
+> 参考[ant-design-vue 定制主题](https://www.antdv.com/docs/vue/customize-theme-cn/#Ant-Design-Vue-%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%8F%98%E9%87%8F)
+
