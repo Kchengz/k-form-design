@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 20:10:31
+ * @LastEditTime: 2022-10-20 00:42:36
  -->
 <template>
   <component
@@ -14,16 +14,18 @@
   <!-- 可隐藏label -->
   <a-form-item
     v-else
-    :label="!record.options.showLabel ? '' : record.label"
+    :label="!isShowLabel(record.options.showLabel) ? '' : record.label"
     :label-col="
-      formConfig.layout === 'horizontal' && record.options.showLabel
+      formConfig.layout === 'horizontal' &&
+      isShowLabel(record.options.showLabel)
         ? formConfig.labelLayout === 'flex'
           ? { style: `width:${formConfig.labelWidth}px` }
           : formConfig.labelCol
         : {}
     "
     :wrapper-col="
-      formConfig.layout === 'horizontal' && record.options.showLabel
+      formConfig.layout === 'horizontal' &&
+      isShowLabel(record.options.showLabel)
         ? formConfig.labelLayout === 'flex'
           ? { style: 'width:auto;flex:1' }
           : formConfig.wrapperCol
@@ -32,7 +34,7 @@
     :style="
       formConfig.layout === 'horizontal' &&
       formConfig.labelLayout === 'flex' &&
-      record.options.showLabel
+      isShowLabel(record.options.showLabel)
         ? { display: 'flex' }
         : {}
     "
@@ -198,6 +200,10 @@ export default {
     }
   },
   methods: {
+    // 判断isShowLabel === false兼容低版本处理
+    isShowLabel(v) {
+      return String(v) !== "false";
+    },
     validationSubform() {
       // 验证动态表格
       if (this.record.type === "batch") {
