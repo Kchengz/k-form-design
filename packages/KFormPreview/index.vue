@@ -40,15 +40,24 @@ export default {
     jsonModel
   },
   methods: {
+    /**
+     * 按钮触发提交
+     * @param {*} p
+     */
     handleSubmit(p) {
-      p.then(res => {
-        console.log(res, "获取数据成功");
-        this.$refs.jsonModel.jsonData = res;
-        this.$refs.jsonModel.visible = true;
-      }).catch(err => {
-        console.error(err, "获取数据失败");
-      });
+      p()
+        .then(res => {
+          console.log(res, "获取数据成功");
+          this.$refs.jsonModel.jsonData = res;
+          this.$refs.jsonModel.visible = true;
+        })
+        .catch(err => {
+          console.error(err, "获取数据失败");
+        });
     },
+    /**
+     * 手动验证获取表单数据
+     */
     async handleGetData() {
       this.$refs.KFormBuild.getData()
         .then(res => {

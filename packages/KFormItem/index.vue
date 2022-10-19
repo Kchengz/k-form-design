@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 13:56:38
+ * @LastEditTime: 2022-10-19 19:37:56
  -->
 <template>
   <component
@@ -168,6 +168,10 @@ export default {
           : false;
       }
 
+      if (this.record.type === "button") {
+        componentProps.onHandleReset = () => this.$emit("handleReset");
+      }
+
       console.log(componentProps);
 
       return componentProps;
@@ -202,8 +206,6 @@ export default {
       if (e && e.target) {
         value = e.target.value;
       }
-
-      console.log(value);
       // 传递change事件
       this.$emit("change", value, key);
     }

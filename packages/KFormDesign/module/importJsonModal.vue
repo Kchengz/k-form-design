@@ -18,14 +18,14 @@
         v-model="jsonFormat"
       ></Codemirror>
     </div>
-    <a-upload
+    <Upload
       action="/abc"
       :beforeUpload="beforeUpload"
       :showUploadList="false"
       accept="application/json"
     >
       <Button type="primary"> 导入json文件 </Button>
-    </a-upload>
+    </Upload>
   </a-modal>
 </template>
 <script>
@@ -38,9 +38,15 @@ import jsonFormat from "../config/jsonFormat";
 import { pluginManager } from "../../utils/PluginManager";
 import { message } from "ant-design-vue";
 const Button = pluginManager.getComponent("aButton").component;
+const Upload = pluginManager.getComponent("upload").component;
 const Codemirror = pluginManager.getComponent("codemirror").component;
 export default {
   name: "importJsonModal",
+  components: {
+    Codemirror,
+    Button,
+    Upload
+  },
   data() {
     return {
       visible: false,
@@ -55,10 +61,6 @@ export default {
         this.jsonFormat = jsonFormat;
       }
     }
-  },
-  components: {
-    Codemirror,
-    Button
   },
   computed: {
     editor() {

@@ -28,7 +28,7 @@
 import Clipboard from "clipboard";
 import { pluginManager } from "../utils/PluginManager";
 import { message } from "ant-design-vue";
-const Button = pluginManager.getComponent("button").component;
+const Button = pluginManager.getComponent("aButton").component;
 const Codemirror = pluginManager.getComponent("codemirror").component;
 
 export default {
