@@ -48,9 +48,13 @@ main.js引入
 
 完整引入
 ```javascript
-import KFormDesign from 'k-form-design'
+// 在main.js引入
+
+// 注：useComponents 需放最上面，优先注册懒加载组件
 import 'k-form-design/packages/utils/useComponents'
+import KFormDesign from 'k-form-design/packages/use.js'
 import 'k-form-design/lib/k-form-design.css'
+
 Vue.use(KFormDesign)
 ```
 以上代码便完整引入 k-form-design，组件为懒加载方式，并不会一次性加载所有组件
@@ -62,7 +66,7 @@ Vue.use(KFormDesign)
 #### 按需加载
 
 ```javascript
-import { KFormDesign, KFormBuild } from "k-form-design";
+import { KFormDesign, KFormBuild } from "k-form-design/packages/use.js";
 import "k-form-design/lib/k-form-design.css";
 ```
 
