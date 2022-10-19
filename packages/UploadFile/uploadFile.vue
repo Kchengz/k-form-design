@@ -60,7 +60,7 @@ import { pluginManager } from "../utils/getPluginManager";
 
 const Upload = pluginManager.getComponent("upload");
 const UploadDragger = pluginManager.getComponent("uploadDragger");
-const Button = pluginManager.getComponent("button").component;
+const Button = pluginManager.getComponent("aButton").component;
 
 export default {
   name: "KUploadFile",

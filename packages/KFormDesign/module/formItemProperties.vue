@@ -121,7 +121,7 @@
         </a-form-item>
 
         <a-form-item v-if="selectItem.type === 'switch'" label="默认值">
-          <a-switch v-model="options.defaultValue" />
+          <ASwitch v-model="options.defaultValue" />
         </a-form-item>
         <a-form-item
           v-if="['number', 'slider'].indexOf(selectItem.type) >= 0"
@@ -516,6 +516,7 @@ const RadioItem = pluginManager.getComponent("radioItem").component;
 const Textarea = pluginManager.getComponent("textarea").component;
 const Select = pluginManager.getComponent("select").component;
 const ColorPicker = pluginManager.getComponent("colorPicker").component;
+const ASwitch = pluginManager.getComponent("switch").component;
 
 export default {
   name: "formItemProperties",
@@ -526,6 +527,7 @@ export default {
     Input,
     InputNumber,
     Rate,
+    ASwitch,
     Checkbox,
     Radio,
     RadioItem,
@@ -537,6 +539,10 @@ export default {
     return {
       familyOptions: [
         // 字体选择设置
+        {
+          value: "",
+          label: "默认"
+        },
         {
           value: "SimSun",
           label: "宋体"

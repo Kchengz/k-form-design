@@ -59,7 +59,7 @@
 import { pluginManager } from "../utils/getPluginManager";
 
 const Upload = pluginManager.getComponent("upload");
-const Button = pluginManager.getComponent("button").component;
+const Button = pluginManager.getComponent("aButton").component;
 export default {
   name: "KUploadImg",
   // eslint-disable-next-line vue/require-prop-types

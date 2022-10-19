@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-16 11:11:11
+ * @LastEditTime: 2022-10-19 00:10:19
  -->
 <template>
   <a-form-item
@@ -358,19 +358,19 @@
 
   <div v-else>
     <!-- 分割线 -->
-    <a-divider
+    <Divider
       v-if="
         record.type === 'divider' &&
           record.label !== '' &&
           record.options.orientation
       "
       :orientation="record.options.orientation"
-      >{{ record.label }}</a-divider
+      >{{ record.label }}</Divider
     >
-    <a-divider v-else-if="record.type === 'divider' && record.label !== ''">{{
+    <Divider v-else-if="record.type === 'divider' && record.label !== ''">{{
       record.label
-    }}</a-divider>
-    <a-divider v-else-if="record.type === 'divider' && record.label === ''" />
+    }}</Divider>
+    <Divider v-else-if="record.type === 'divider' && record.label === ''" />
   </div>
 </template>
 <script>
@@ -384,9 +384,14 @@ import customComponent from "./customComponent";
 import { pluginManager } from "../utils/PluginManager";
 const _ = require("lodash/object");
 const ComponentArray = pluginManager.getComponents();
+const Divider = pluginManager.getComponent("divider").component;
 
 export default {
   name: "KFormItem",
+  components: {
+    customComponent,
+    Divider
+  },
   props: {
     // 表单数组
     record: {
@@ -411,9 +416,7 @@ export default {
       default: false
     }
   },
-  components: {
-    customComponent
-  },
+
   computed: {
     customList() {
       if (window.$customComponentList) {

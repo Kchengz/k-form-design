@@ -66,7 +66,7 @@
 <script>
 import KFormModelItem from "./module/KFormModelItem";
 import { pluginManager } from "../utils/PluginManager";
-const Button = pluginManager.getComponent("button").component;
+const Button = pluginManager.getComponent("aButton").component;
 
 export default {
   name: "KBatch",

@@ -67,10 +67,14 @@ pluginManager.addComponent("cascader", () =>
 );
 
 pluginManager.addComponent("alert", () => import("ant-design-vue/lib/alert"));
-pluginManager.addComponent("button", () => import("ant-design-vue/lib/button"));
-pluginManager.addComponent("divider", () =>
-  import("ant-design-vue/lib/divider")
+pluginManager.addComponent("aButton", () =>
+  import("ant-design-vue/lib/button")
 );
+
+pluginManager.addComponent("button", () => import("../KButton/index"));
+pluginManager.addComponent("divider", () => import("../KDivider/index"));
+pluginManager.addComponent("html", () => import("../KHtml/index"));
+pluginManager.addComponent("text", () => import("../KText/index"));
 
 pluginManager.addComponent("date", () => import("../KDatePicker/index"));
 pluginManager.addComponent("time", () => import("../KTimePicker/index"));

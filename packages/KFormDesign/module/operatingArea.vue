@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 00:11:18
+ * @LastEditTime: 2022-10-19 11:46:41
  -->
 <template>
   <div class="operating-area">
@@ -107,8 +107,7 @@
 </template>
 <script>
 import { revoke } from "../../utils/revoke";
-import { pluginManager } from "../../utils/PluginManager";
-const Divider = pluginManager.getComponent("divider").component;
+import { Divider } from "ant-design-vue";
 
 export default {
   components: {

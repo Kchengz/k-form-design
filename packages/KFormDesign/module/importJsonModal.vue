@@ -36,7 +36,7 @@
  */
 import jsonFormat from "../config/jsonFormat";
 import { pluginManager } from "../../utils/PluginManager";
-const Button = pluginManager.getComponent("button").component;
+const Button = pluginManager.getComponent("aButton").component;
 const Codemirror = pluginManager.getComponent("codemirror").component;
 export default {
   name: "importJsonModal",

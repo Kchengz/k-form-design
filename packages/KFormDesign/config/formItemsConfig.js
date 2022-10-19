@@ -578,9 +578,10 @@ export const basicsList = [
       showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       showRequiredMark: false,
-      color: "rgb(0, 0, 0)",
-      fontFamily: "SimHei",
-      fontSize: "16pt"
+      noFormItem: true,
+      color: "rgba(0, 0, 0, 0.9)",
+      fontFamily: "",
+      fontSize: "10.5pt"
     },
     key: ""
   },
@@ -590,6 +591,7 @@ export const basicsList = [
     icon: "icon-ai-code",
     options: {
       showLabel: true,
+      noFormItem: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       defaultValue: "<strong>HTML</strong>"
     },
