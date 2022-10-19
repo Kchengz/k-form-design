@@ -1,3 +1,5 @@
+import { preLoadComponents } from "./preLoadComponents";
+
 class PluginManager {
   components = {};
 
@@ -29,7 +31,16 @@ class PluginManager {
    * @returns components
    */
   getComponent(name) {
-    return this.components[name];
+    console.log(name);
+    let componentInfo = this.components[name];
+    const component = preLoadComponents[name];
+    // 添加 component 默认值
+    if (!componentInfo) {
+      componentInfo = { component };
+    }
+    console.log(componentInfo);
+
+    return componentInfo;
   }
 }
 

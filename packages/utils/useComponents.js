@@ -23,54 +23,32 @@ import {
   Collapse
 } from "ant-design-vue";
 
-pluginManager.addComponent("input", () => import("ant-design-vue/lib/input"));
+import { preLoadComponents } from "./preLoadComponents";
 
-pluginManager.addComponent("textarea", () =>
-  import("ant-design-vue/lib/input/TextArea")
-);
-pluginManager.addComponent("number", () =>
-  import("ant-design-vue/lib/input-number")
-);
-pluginManager.addComponent("select", () => import("ant-design-vue/lib/select"));
-pluginManager.addComponent("checkbox", () =>
-  import("ant-design-vue/lib/checkbox/Group")
-);
-pluginManager.addComponent("checkboxItem", () =>
-  import("ant-design-vue/lib/checkbox/Checkbox")
-);
-pluginManager.addComponent("radio", () =>
-  import("ant-design-vue/lib/radio/Group")
-);
+pluginManager.addComponent("input", preLoadComponents.input);
+pluginManager.addComponent("textarea", preLoadComponents.textarea);
+pluginManager.addComponent("number", preLoadComponents.number);
+pluginManager.addComponent("select", preLoadComponents.select);
+pluginManager.addComponent("checkbox", preLoadComponents.checkbox);
+pluginManager.addComponent("checkboxItem", preLoadComponents.checkboxItem);
+pluginManager.addComponent("radio", preLoadComponents.radio);
+pluginManager.addComponent("radioItem", preLoadComponents.radioItem);
+pluginManager.addComponent("radioButton", preLoadComponents.radioButton);
+pluginManager.addComponent("switch", preLoadComponents.aSwitch, "checked");
+pluginManager.addComponent("rate", preLoadComponents.rate);
+pluginManager.addComponent("aSlider", preLoadComponents.aSlider);
+pluginManager.addComponent("aButton", preLoadComponents.aButton);
+pluginManager.addComponent("colorPicker", preLoadComponents.colorPicker);
+pluginManager.addComponent("codemirror", preLoadComponents.codemirror);
+pluginManager.addComponent("upload", preLoadComponents.upload);
 
-pluginManager.addComponent("radioItem", () =>
-  import("ant-design-vue/lib/radio/Radio")
-);
-
-pluginManager.addComponent("radioButton", () =>
-  import("ant-design-vue/lib/radio/RadioButton")
-);
-pluginManager.addComponent(
-  "switch",
-  () => import("ant-design-vue/lib/switch"),
-  "checked"
-);
-
-pluginManager.addComponent("rate", () => import("ant-design-vue/lib/rate"));
-pluginManager.addComponent("aSlider", () =>
-  import("ant-design-vue/lib/slider")
-);
 pluginManager.addComponent("treeSelect", () =>
   import("ant-design-vue/lib/tree-select")
 );
 pluginManager.addComponent("cascader", () =>
   import("ant-design-vue/lib/cascader")
 );
-
 pluginManager.addComponent("alert", () => import("ant-design-vue/lib/alert"));
-pluginManager.addComponent("aButton", () =>
-  import("ant-design-vue/lib/button")
-);
-
 pluginManager.addComponent("button", () => import("../KButton/index"));
 pluginManager.addComponent("divider", () => import("../KDivider/index"));
 pluginManager.addComponent("html", () => import("../KHtml/index"));
@@ -102,18 +80,8 @@ pluginManager.addComponent("monthPicker", async () => {
   return datePicker.default["MonthPicker"];
 });
 
-pluginManager.addComponent("upload", () => import("ant-design-vue/lib/upload"));
 pluginManager.addComponent("uploadDragger", () =>
   import("ant-design-vue/lib/upload/Dragger")
-);
-
-pluginManager.addComponent(
-  "colorPicker",
-  async () => (await import("vcolorpicker"))["default"]["colorPicker"]
-);
-pluginManager.addComponent(
-  "codemirror",
-  async () => (await import("vue-codemirror-lite"))["codemirror"]
 );
 
 Vue.use(ConfigProvider);
