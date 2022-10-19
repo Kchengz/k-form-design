@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 13:39:50
+ * @LastEditTime: 2022-10-19 13:50:56
  -->
 <template>
   <a-form-model
@@ -186,24 +186,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-.dynamic-opr-button:last {
-  margin-left: 0px;
-}
-.dynamic-opr-button {
-  cursor: pointer;
-  position: relative;
-  top: 4px;
-  font-size: 16px;
-  color: #999;
-  transition: all 0.3s;
-  margin-left: 6px;
-}
-.dynamic-opr-button:hover {
-  color: #e89;
-}
-.dynamic-opr-button[disabled] {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-</style>

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-30 12:44:03
  * @LastEditors: kcz
- * @LastEditTime: 2020-04-26 19:21:27
+ * @LastEditTime: 2022-10-19 13:53:56
  -->
 <template>
   <quillEditor
@@ -46,17 +46,3 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
-.ql-editor-class {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  line-height: 1.42;
-  height: 100%;
-  outline: none;
-  padding: 0 0 66px;
-  tab-size: 4;
-  -moz-tab-size: 4;
-  text-align: left;
-  word-wrap: break-word;
-}
-</style>

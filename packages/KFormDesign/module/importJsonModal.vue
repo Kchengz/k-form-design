@@ -101,11 +101,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less" scoped>
-.hint-box {
-  background: #e9e9e9;
-  margin: 0;
-  border-bottom: 2px solid #fff;
-}
-</style>

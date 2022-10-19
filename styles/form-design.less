@@ -693,6 +693,60 @@
       width: 175px !important;
     }
   }
+
+  //  ----------KChangeOption----------
+
+  .option-change-container {
+    width: calc(100% - 8px);
+  }
+
+  .option-change-box {
+    height        : 38px;
+    padding-bottom: 6px;
+
+    .option-delete-box {
+      margin-top   : 3px;
+      background   : #ffe9e9;
+      color        : #f22;
+      width        : 32px;
+      height       : 32px;
+      line-height  : 32px;
+      text-align   : center;
+      border-radius: 50%;
+      overflow     : hidden;
+      transition   : all 0.3s;
+
+      &:hover {
+        background: #f22;
+        color     : #fff;
+      }
+    }
+  }
+
+  //  ----------formProperties---------
+  .change-col-box {
+    >div {
+      padding: 5px;
+      display: flex;
+
+      >label {
+        text-align   : right;
+        padding-right: 8px;
+        display      : block;
+        font-size    : 16px;
+        width        : 45px;
+      }
+    }
+  }
+
+  // ----------importJSONModal---------
+  .hint-box {
+    background   : #e9e9e9;
+    margin       : 0;
+    border-bottom: 2px solid #fff;
+  }
+
+  // end 
 }
 
 
@@ -733,8 +787,8 @@
   }
 }
 
- // code-modal盒子样式
- &.code-modal-9136076486841527 {
+// code-modal盒子样式
+&.code-modal-9136076486841527 {
   .ant-modal-body {
     padding: 12px;
   }
@@ -801,6 +855,31 @@
 
   // 动态表格样式
   .batch-table {
+
+    .dynamic-opr-button:last {
+      margin-left: 0px;
+    }
+
+    .dynamic-opr-button {
+      cursor     : pointer;
+      position   : relative;
+      top        : 4px;
+      font-size  : 16px;
+      color      : #999;
+      transition : all 0.3s;
+      margin-left: 6px;
+    }
+
+    .dynamic-opr-button:hover {
+      color: #e89;
+    }
+
+    .dynamic-opr-button[disabled] {
+      cursor : not-allowed;
+      opacity: 0.5;
+    }
+
+
     .ant-form-item {
       margin: 0;
     }
@@ -826,6 +905,14 @@
       padding: 0;
     }
   }
+
+  // -------- selectInputList ---------
+  .list-col {
+    display    : flex;
+    align-items: center;
+    flex-wrap  : wrap;
+  }
+
 
   // 拖拽上传控件隐藏
   .hide-upload-drag {
@@ -853,6 +940,19 @@
 
 
 
+.upload-img-box-9136076486841527 {
+
+  /* you can make up upload button and sample style by using stylesheets */
+  .ant-upload-select-picture-card i {
+    font-size: 32px;
+    color    : #999;
+  }
+
+  .ant-upload-select-picture-card .ant-upload-text {
+    margin-top: 8px;
+    color     : #666;
+  }
+}
 
 // footer样式
 // .footer-9136076486841527 {

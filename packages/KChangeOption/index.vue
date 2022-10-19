@@ -116,28 +116,3 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
-.option-change-container {
-  width: calc(100% - 8px);
-}
-.option-change-box {
-  height: 38px;
-  padding-bottom: 6px;
-  .option-delete-box {
-    margin-top: 3px;
-    background: #ffe9e9;
-    color: #f22;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    border-radius: 50%;
-    overflow: hidden;
-    transition: all 0.3s;
-    &:hover {
-      background: #f22;
-      color: #fff;
-    }
-  }
-}
-</style>

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-17 12:53:50
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 00:15:20
+ * @LastEditTime: 2022-10-19 13:58:19
  -->
 <template>
   <div
@@ -173,17 +173,3 @@ export default {
   }
 };
 </script>
-<style lang="less">
-.upload-img-box-9136076486841527 {
-  /* you can make up upload button and sample style by using stylesheets */
-  .ant-upload-select-picture-card i {
-    font-size: 32px;
-    color: #999;
-  }
-
-  .ant-upload-select-picture-card .ant-upload-text {
-    margin-top: 8px;
-    color: #666;
-  }
-}
-</style>

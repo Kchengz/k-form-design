@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 13:40:04
+ * @LastEditTime: 2022-10-19 13:57:50
  -->
 <template>
   <a-form-model
@@ -118,10 +118,3 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
-.list-col {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-</style>

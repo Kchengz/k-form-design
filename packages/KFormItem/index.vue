@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 12:39:23
+ * @LastEditTime: 2022-10-19 13:56:38
  -->
 <template>
   <component
@@ -210,21 +210,3 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
-.slider-box {
-  display: flex;
-
-  > .slider {
-    flex: 1;
-    margin-right: 16px;
-  }
-
-  > .number {
-    width: 70px;
-  }
-}
-
-.anticon.anticon-question-circle-o {
-  margin-left: 5px;
-}
-</style>
