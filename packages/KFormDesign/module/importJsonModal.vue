@@ -36,6 +36,7 @@
  */
 import jsonFormat from "../config/jsonFormat";
 import { pluginManager } from "../../utils/PluginManager";
+import { message } from "ant-design-vue";
 const Button = pluginManager.getComponent("aButton").component;
 const Codemirror = pluginManager.getComponent("codemirror").component;
 export default {
@@ -91,10 +92,10 @@ export default {
         // 导入之后，需要清除已选择key
         this.handleSetSelectItem({ key: "" });
 
-        this.$message.success("导入成功");
+        message.success("导入成功");
       } catch (error) {
         console.error(error);
-        this.$message.error("导入失败，数据格式不对");
+        message.error("导入失败，数据格式不对");
       }
     }
   }

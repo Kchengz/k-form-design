@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 12:39:23
+ * @LastEditTime: 2022-10-19 13:40:21
  -->
 <template>
   <component
@@ -11,101 +11,47 @@
     v-bind="getComponentProps"
     :is="componentItem"
   ></component>
-  <!-- 可隐藏label -->
-  <a-form-item
+  <a-form-model-item
     v-else
-    :label="!record.options.showLabel ? '' : record.label"
-    :label-col="
-      formConfig.layout === 'horizontal' && record.options.showLabel
-        ? formConfig.labelLayout === 'flex'
-          ? { style: `width:${formConfig.labelWidth}px` }
-          : formConfig.labelCol
-        : {}
-    "
-    :wrapper-col="
-      formConfig.layout === 'horizontal' && record.options.showLabel
-        ? formConfig.labelLayout === 'flex'
-          ? { style: 'width:auto;flex:1' }
-          : formConfig.wrapperCol
-        : {}
-    "
-    :style="
-      formConfig.layout === 'horizontal' &&
-      formConfig.labelLayout === 'flex' &&
-      record.options.showLabel
-        ? { display: 'flex' }
-        : {}
-    "
+    :prop="`domains.${record.model}`"
+    :rules="record.rules"
   >
-    <span slot="label">
-      <a-tooltip>
-        <span v-text="record.label"></span>
-        <span v-if="record.help" slot="title" v-html="record.help"></span>
-        <a-icon
-          v-if="record.help"
-          class="question-circle"
-          type="question-circle-o"
-        />
-      </a-tooltip>
-    </span>
     <component
       :is="componentItem"
       v-bind="getComponentProps"
       ref="inputItem"
       @change="handleChange"
-      v-decorator="[
-        record.model, // input 的 name
-        {
-          initialValue: record.options.defaultValue, // 默认值
-          valuePropName: record.type === 'switch' ? 'checked' : 'value',
-          rules: record.rules // 验证规则
-        }
-      ]"
     ></component>
-  </a-form-item>
+  </a-form-model-item>
 </template>
 <script>
 /*
  * author kcz
  * date 2019-11-20
  */
-import { pluginManager } from "../utils/PluginManager";
+
+import { pluginManager } from "../utils/getPluginManager";
 const _ = require("lodash/object");
+
 const ComponentArray = pluginManager.getComponents();
 
 export default {
-  name: "KFormItem",
-  props: {
-    // 表单数组
-    record: {
-      type: Object,
-      required: true
-    },
-    // form-item 宽度配置
-    formConfig: {
-      type: Object,
-      required: true
-    },
-    config: {
-      type: Object,
-      default: () => ({})
-    },
-    dynamicData: {
-      type: Object,
-      default: () => ({})
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
-  },
+  name: "KFormModelItem",
+  props: [
+    "record",
+    "domains",
+    "index",
+    "value",
+    "parentDisabled",
+    "dynamicData",
+    "config"
+  ],
   computed: {
     /**
      * 计算组件props
      */
     getComponentProps() {
       const record = this.record;
-
       const componentProps = {
         record,
         ...this.componentOption,
@@ -114,7 +60,7 @@ export default {
         parentDisabled: this.disabled || record.options.disabled,
         allowClear: record.options.clearable,
         mode: record.options.multiple ? "multiple" : "",
-        style: `width:${record.options.width}`,
+        style: record.options.width && `width:${record.options.width}`,
         height:
           typeof record.options.height !== "undefined"
             ? record.options.height
@@ -168,63 +114,23 @@ export default {
           : false;
       }
 
-      console.log(componentProps);
-
       return componentProps;
     },
-    /**
-     * @description: 输出对应组件
-     * @param {*}
-     * @return {*} component
-     */
-
     componentItem() {
       return ComponentArray[this.record.type].component;
     },
     componentOption() {
-      // 移除相应字段
-      const options = _.omit(this.record.options, ["defaultValue", "disabled"]);
-      return options;
+      return _.omit(this.record.options, ["defaultValue", "disabled"]);
     }
   },
   methods: {
-    validationSubform() {
-      // 验证动态表格
-      if (this.record.type === "batch") {
-        if (!this.$refs.inputItem) return true;
-        return this.$refs.inputItem.validationSubform();
-      }
-
-      return true;
-    },
-    handleChange(e, key) {
+    handleChange(e) {
       let value = e;
-      if (e && e.target) {
+      if (e.target) {
         value = e.target.value;
       }
-
-      console.log(value);
-      // 传递change事件
-      this.$emit("change", value, key);
+      this.$emit("input", value);
     }
   }
 };
 </script>
-<style lang="less" scoped>
-.slider-box {
-  display: flex;
-
-  > .slider {
-    flex: 1;
-    margin-right: 16px;
-  }
-
-  > .number {
-    width: 70px;
-  }
-}
-
-.anticon.anticon-question-circle-o {
-  margin-left: 5px;
-}
-</style>

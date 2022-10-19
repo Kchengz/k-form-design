@@ -176,8 +176,9 @@ import collapseItem from "./module/collapseItem";
 import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
-
+import { Modal, message } from "ant-design-vue";
 import { revoke } from "../utils/revoke";
+
 import {
   basicsList,
   layoutList,
@@ -414,7 +415,7 @@ export default {
         return;
       }
 
-      this.$confirm({
+      Modal.confirm({
         title: "警告",
         content: "是否确认清空内容?",
         okText: "是",
@@ -439,7 +440,7 @@ export default {
         }
       };
       this.handleSetSelectItem({ key: "" });
-      this.$message.success("已清空");
+      message.success("已清空");
     },
     handleSetSelectItem(record) {
       // 操作间隔不能低于100毫秒

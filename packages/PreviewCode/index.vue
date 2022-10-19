@@ -27,6 +27,7 @@
 // 剪切板组件
 import Clipboard from "clipboard";
 import { pluginManager } from "../utils/PluginManager";
+import { message } from "ant-design-vue";
 const Button = pluginManager.getComponent("button").component;
 const Codemirror = pluginManager.getComponent("codemirror").component;
 
@@ -69,10 +70,10 @@ export default {
       // 复制数据
       const clipboard = new Clipboard(".copy-btn");
       clipboard.on("success", () => {
-        this.$message.success("复制成功");
+        message.success("复制成功");
       });
       clipboard.on("error", () => {
-        this.$message.error("复制失败");
+        message.error("复制失败");
       });
       setTimeout(() => {
         // 销毁实例

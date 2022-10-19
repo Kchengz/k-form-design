@@ -563,7 +563,7 @@ export const basicsList = [
       description: "",
       showIcon: false,
       banner: false,
-      showLabel: true,
+      showLabel: false,
       hidden: false, // 是否隐藏，false显示，true隐藏
       closable: false
     },

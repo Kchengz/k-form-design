@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 00:31:31
+ * @LastEditTime: 2022-10-19 13:45:41
  -->
 <template>
   <div class="form-panel">
@@ -75,6 +75,8 @@
 <script>
 import draggable from "vuedraggable";
 import layoutItem from "./layoutItem";
+import { message } from "ant-design-vue";
+
 export default {
   name: "KCenter",
   data() {
@@ -302,7 +304,7 @@ export default {
             .rowspan <=
         this.trIndex
       ) {
-        this.$message.error("当前是最后一行，无法向下合并");
+        message.error("当前是最后一行，无法向下合并");
         return false;
       }
 
@@ -319,7 +321,7 @@ export default {
           this.tdIndex
         ].colspan
       ) {
-        this.$message.error("当前表格无法向下合并");
+        message.error("当前表格无法向下合并");
         return false;
       }
 
@@ -358,7 +360,7 @@ export default {
             .colspan <=
         this.tdIndex
       ) {
-        this.$message.error("当前是最后一列，无法向右合并");
+        message.error("当前是最后一列，无法向右合并");
         return false;
       }
 
@@ -375,7 +377,7 @@ export default {
           this.tdIndex + currentColspan
         ].rowspan
       ) {
-        this.$message.error("当前表格无法向右合并");
+        message.error("当前表格无法向右合并");
         return false;
       }
 

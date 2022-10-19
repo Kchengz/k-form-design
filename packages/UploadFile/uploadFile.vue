@@ -56,6 +56,7 @@
  * date 2019-12-31
  * description 上传文件组件
  */
+import { message } from "ant-design-vue";
 import { pluginManager } from "../utils/getPluginManager";
 
 const Upload = pluginManager.getComponent("upload");
@@ -205,7 +206,7 @@ export default {
     },
     beforeUpload(e, files) {
       if (files.length + this.fileList.length > this.record.options.limit) {
-        this.$message.warning(`最大上传数量为${this.record.options.limit}`);
+        message.warning(`最大上传数量为${this.record.options.limit}`);
         files.splice(this.record.options.limit - this.fileList.length);
       }
     },
@@ -217,10 +218,10 @@ export default {
           this.handleSelectChange();
         } else {
           this.fileList.pop();
-          this.$message.error(`文件上传失败`);
+          message.error(`文件上传失败`);
         }
       } else if (info.file.status === "error") {
-        this.$message.error(`文件上传失败`);
+        message.error(`文件上传失败`);
       }
     }
   }

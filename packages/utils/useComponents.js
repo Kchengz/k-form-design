@@ -19,7 +19,6 @@ import {
   Table,
   Tabs,
   Icon,
-  message,
   Tooltip,
   FormModel,
   Collapse
@@ -129,6 +128,3 @@ Vue.use(Modal);
 Vue.use(Table);
 Vue.use(Tabs);
 Vue.use(Icon);
-
-Vue.prototype.$confirm = Modal.confirm;
-Vue.prototype.$message = message;

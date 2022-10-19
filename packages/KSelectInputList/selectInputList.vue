@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2021-05-16 11:03:45
+ * @LastEditTime: 2022-10-19 13:40:04
  -->
 <template>
   <a-form-model
@@ -12,15 +12,15 @@
     layout="inline"
     :model="dynamicValidateForm"
   >
-    <div v-for="(column, i) in record.columns" :key="i">
+    <div v-for="(column, i) in record.columns" :key="i" class="list-col">
       <a-form-model-item>
-        <a-checkbox
+        <CheckboxItem
           v-if="record.options.multiple"
           @change="onCheckboxChange($event, i)"
           :checked="dynamicValidateForm.domains[i].checked"
         >
           {{ column.label }}
-        </a-checkbox>
+        </CheckboxItem>
         <a-radio
           v-else
           @change="onRadioChange($event, i)"
@@ -28,30 +28,32 @@
           >{{ column.label }}</a-radio
         >
       </a-form-model-item>
-      <span v-for="(item, index) in column.list" :key="index">
-        <KFormModelItem
-          :key="item.key + '1'"
-          :record="item"
-          :config="config"
-          :parentDisabled="disabled"
-          :domains="dynamicValidateForm.domains[i]"
-          :dynamicData="dynamicData"
-          v-model="dynamicValidateForm.domains[i][item.model]"
-          @input="handleInput"
-        />
-      </span>
+      <KFormModelItem
+        v-for="item in column.list"
+        :key="item.key + '1'"
+        :record="item"
+        :config="config"
+        :parentDisabled="disabled"
+        :domains="dynamicValidateForm.domains[i]"
+        :dynamicData="dynamicData"
+        v-model="dynamicValidateForm.domains[i][item.model]"
+        @input="handleInput"
+      />
     </div>
   </a-form-model>
 </template>
 
 <script>
-import KFormModelItem from "./module/KFormModelItem";
+import KFormModelItem from "../KFormModelItem/KFormModelItem";
+import { pluginManager } from "../utils/getPluginManager";
+const CheckboxItem = pluginManager.getComponent("checkboxItem").component;
 export default {
   name: "KBatch",
   props: ["record", "value", "dynamicData", "config", "parentDisabled"],
 
   components: {
-    KFormModelItem
+    KFormModelItem,
+    CheckboxItem
   },
   watch: {
     value: {
@@ -116,3 +118,10 @@ export default {
   }
 };
 </script>
+<style lang="less" scoped>
+.list-col {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+</style>

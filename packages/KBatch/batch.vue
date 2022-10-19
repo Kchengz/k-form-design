@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 00:13:39
+ * @LastEditTime: 2022-10-19 13:39:50
  -->
 <template>
   <a-form-model
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import KFormModelItem from "./module/KFormModelItem";
+import KFormModelItem from "../KFormModelItem/KFormModelItem";
 import { pluginManager } from "../utils/PluginManager";
 const Button = pluginManager.getComponent("aButton").component;
 

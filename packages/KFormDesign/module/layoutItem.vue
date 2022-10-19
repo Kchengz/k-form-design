@@ -122,9 +122,9 @@
             :key="index"
           >
             <div class="check-box">
-              <a-checkbox v-if="record.options.multiple" disabled>
+              <CheckboxItem v-if="record.options.multiple" disabled>
                 {{ column.label }}
-              </a-checkbox>
+              </CheckboxItem>
               <a-radio-group v-else disabled name="radio">
                 <a-radio :value="column.value">{{ column.label }}</a-radio>
               </a-radio-group>
@@ -491,6 +491,8 @@
  */
 import draggable from "vuedraggable";
 import formNode from "./formNode";
+import { pluginManager } from "../../utils/getPluginManager";
+const CheckboxItem = pluginManager.getComponent("checkboxItem").component;
 export default {
   name: "layoutItem",
   props: {
@@ -526,7 +528,8 @@ export default {
   },
   components: {
     formNode,
-    draggable
+    draggable,
+    CheckboxItem
   },
   methods: {
     handleShowRightMenu(e, record, trIndex, tdIndex) {

@@ -57,6 +57,7 @@
  * description 上传图片组件
  */
 import { pluginManager } from "../utils/getPluginManager";
+import { message } from "ant-design-vue";
 
 const Upload = pluginManager.getComponent("upload");
 const Button = pluginManager.getComponent("aButton").component;
@@ -150,7 +151,7 @@ export default {
     },
     beforeUpload(e, files) {
       if (files.length + this.fileList.length > this.record.options.limit) {
-        this.$message.warning(`最大上传数量为${this.record.options.limit}`);
+        message.warning(`最大上传数量为${this.record.options.limit}`);
         files.splice(this.record.options.limit - this.fileList.length);
       }
     },
@@ -163,10 +164,10 @@ export default {
           this.handleSelectChange();
         } else {
           this.fileList.pop();
-          this.$message.error(`图片上传失败`);
+          message.error(`图片上传失败`);
         }
       } else if (info.file.status === "error") {
-        this.$message.error(`图片上传失败`);
+        message.error(`图片上传失败`);
       }
     }
   }
