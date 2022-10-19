@@ -138,6 +138,14 @@ export default {
         componentProps.message = record.label;
       }
 
+      if (this.record.type === "treeSelect") {
+        componentProps.treeData = !record.options.dynamic
+          ? record.options.options
+          : this.dynamicData[record.options.dynamicKey]
+          ? this.dynamicData[record.options.dynamicKey]
+          : [];
+      }
+
       if (this.record.type === "number") {
         componentProps.min =
           record.options.min || record.options.min === 0
