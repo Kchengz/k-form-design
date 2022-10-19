@@ -1,6 +1,6 @@
 <template>
   <a-config-provider :locale="locale">
-    <div class="form-designer-container-9136076486841527">
+    <div class="form-designer-container-9136076486841527" v-if="loadState">
       <k-header v-if="showHead" :title="title" />
       <!-- 操作区域 start -->
       <operatingArea
@@ -177,8 +177,7 @@ import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 import { Modal, message } from "ant-design-vue";
-import { revoke } from "../utils/revoke";
-
+import { revoke } from "../utils/getPluginManager";
 import {
   basicsList,
   layoutList,
@@ -264,6 +263,7 @@ export default {
   data() {
     return {
       locale: zhCN,
+      loadState: false,
       customComponents,
       activeKey: 1,
       updateTime: 0,
@@ -572,6 +572,9 @@ export default {
     handleClose() {
       this.$emit("close");
     }
+  },
+  created() {
+    this.loadState = true;
   }
 };
 </script>

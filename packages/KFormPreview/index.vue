@@ -29,7 +29,7 @@
  * date 2019-11-20
  */
 import jsonModel from "../KFormDesign/module/jsonModal";
-import { dialogStyle, bodyStyle } from "@/config/modal.js";
+import { dialogStyle, bodyStyle } from "../config/modal.js";
 export default {
   name: "KFormPreview",
   data() {

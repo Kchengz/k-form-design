@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 11:46:41
+ * @LastEditTime: 2022-10-20 00:34:46
  -->
 <template>
   <div class="operating-area">
@@ -106,7 +106,8 @@
   <!-- 操作区域 start -->
 </template>
 <script>
-import { revoke } from "../../utils/revoke";
+import { revoke } from "../../utils/getPluginManager";
+
 import { Divider } from "ant-design-vue";
 
 export default {
