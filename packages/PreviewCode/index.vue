@@ -26,7 +26,7 @@
 <script>
 // 剪切板组件
 import Clipboard from "clipboard";
-import { pluginManager } from "../utils/PluginManager";
+import { pluginManager } from "../utils/getPluginManager";
 import { message } from "ant-design-vue";
 const Button = pluginManager.getComponent("aButton").component;
 const Codemirror = pluginManager.getComponent("codemirror").component;

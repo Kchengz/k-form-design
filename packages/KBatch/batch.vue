@@ -65,7 +65,7 @@
 
 <script>
 import KFormModelItem from "../KFormModelItem/KFormModelItem";
-import { pluginManager } from "../utils/PluginManager";
+import { pluginManager } from "../utils/getPluginManager";
 const Button = pluginManager.getComponent("aButton").component;
 
 export default {

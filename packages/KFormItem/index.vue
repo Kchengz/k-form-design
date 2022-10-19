@@ -69,7 +69,7 @@
  * author kcz
  * date 2019-11-20
  */
-import { pluginManager } from "../utils/PluginManager";
+import { pluginManager } from "../utils/getPluginManager";
 const _ = require("lodash/object");
 const ComponentArray = pluginManager.getComponents();
 

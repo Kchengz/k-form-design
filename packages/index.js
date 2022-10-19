@@ -2,7 +2,7 @@
 import "./utils/useComponents";
 import * as all from "./mini";
 
-export { pluginManager } from "./utils/PluginManager";
+export { pluginManager } from "./utils/getPluginManager";
 
 export default all.default;
 export const setFormDesignConfig = all.setFormDesignConfig;

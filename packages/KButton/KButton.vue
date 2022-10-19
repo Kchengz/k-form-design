@@ -17,7 +17,7 @@
   </span>
 </template>
 <script>
-import { pluginManager } from "../utils/PluginManager";
+import { pluginManager } from "../utils/getPluginManager";
 const Button = pluginManager.getComponent("aButton").component;
 export default {
   name: "KButton",

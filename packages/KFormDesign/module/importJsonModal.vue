@@ -35,7 +35,7 @@
  * description 导入json Modal
  */
 import jsonFormat from "../config/jsonFormat";
-import { pluginManager } from "../../utils/PluginManager";
+import { pluginManager } from "../../utils/getPluginManager";
 import { message } from "ant-design-vue";
 const Button = pluginManager.getComponent("aButton").component;
 const Upload = pluginManager.getComponent("upload").component;

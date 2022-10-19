@@ -13,7 +13,7 @@ import "./utils/antdStyle";
 
 // 导出本地iconfont
 import "../static/icons/iconfont";
-import { pluginManager } from "./utils/PluginManager";
+import { pluginManager } from "./utils/getPluginManager";
 // 导入单个组件
 import KFormDesign from "./KFormDesign/index";
 import KFormPreview from "./KFormPreview/index";

@@ -381,7 +381,7 @@
 // import moment from "moment";
 import customComponent from "./customComponent";
 
-import { pluginManager } from "../utils/PluginManager";
+import { pluginManager } from "../utils/getPluginManager";
 const _ = require("lodash/object");
 const ComponentArray = pluginManager.getComponents();
 const Divider = pluginManager.getComponent("divider").component;

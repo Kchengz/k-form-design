@@ -19,21 +19,14 @@
 export default {
   name: "cc",
   props: ["record", "value", "disabled", "dynamicData"],
-  // props: {
-  //   record: {
-  //     type: Object,
-  //     require: true
-  //   },
-  //   value: {
-  //     type: String,
-  //     default: ''
-  //   }
-  // },
   methods: {
     handleChange(e) {
       // 使用 onChange 事件修改值
       this.$emit("change", e.target.value);
     }
+  },
+  created() {
+    console.log(this.$attrs)
   }
 };
 </script>
