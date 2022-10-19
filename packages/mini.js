@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-18 21:17:23
+ * @LastEditTime: 2022-10-19 20:18:05
  */
 
 // 导入样式
@@ -57,8 +57,14 @@ function setFormDesignConfig(config) {
   try {
     customComponents.title = config.title || "自义定组件";
     customComponents.list = config.list || [];
-    // 将自定义组件列表绑到window.$customComponentList上
-    window.$customComponentList = config.list || [];
+
+    // 存储自定义组件
+    const customComponentList = config.list || [];
+    customComponentList.forEach(item => {
+      pluginManager.addComponent(item.type, item.component);
+    });
+
+    pluginManager;
     // uploadFile 配置 start
     // 配置uploadFile默认上传地址
     const uploadFile = basicsList.filter(item => item.type === "uploadFile")[0];

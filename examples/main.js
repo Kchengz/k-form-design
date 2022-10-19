@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2021-05-02 16:04:02
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-18 23:37:58
+ * @LastEditTime: 2022-10-19 20:19:32
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -30,17 +30,18 @@ KFormDesign.setFormDesignConfig({
         width: "100%",
         clearable: true,
         placeholder: "请选择",
-        showSearch: false
+        showSearch: false,
+        showLabel: true,
       },
       model: "",
       key: "",
       rules: [
         {
           required: false,
-          message: "必填项"
-        }
-      ]
-    }
+          message: "必填项",
+        },
+      ],
+    },
   ],
   uploadFile: "",
   uploadImage: "",
@@ -49,7 +50,7 @@ KFormDesign.setFormDesignConfig({
   uploadFileData: { data: 1545 },
   uploadImageData: { data: 1545 },
   uploadFileHeaders: { data: 1545 },
-  uploadImageHeaders: { data: 1545 }
+  uploadImageHeaders: { data: 1545 },
 });
 Vue.use(KFormDesign);
 // KFormDesign.setFormBuildConfig({
@@ -64,5 +65,5 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

@@ -91,7 +91,6 @@ export default {
     handleSubmit(e) {
       // 提交按钮触发，并触发submit函数，返回getData函数
       e.preventDefault();
-      console.log(e, "----------");
       this.$emit("submit", this.getData);
     },
     reset() {

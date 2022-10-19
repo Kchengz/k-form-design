@@ -633,7 +633,6 @@ export const customComponents = {
     // }
   ]
 };
-// window.$customComponentList = customComponents.list;
 
 // 布局控件
 export const layoutList = [

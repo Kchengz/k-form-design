@@ -1,11 +1,7 @@
 <template>
   <div :style="`width:${record.options.width}`" class="slider-box">
     <div class="slider">
-      <Slider
-        v-bind="this.$attrs"
-        v-model="sliderValue"
-        @change="handleChange($event, record.model)"
-      />
+      <Slider v-bind="this.$attrs" v-model="sliderValue" />
     </div>
     <div class="number" v-if="record.options.showInput">
       <InputNumber
@@ -30,7 +26,6 @@ export default {
         return this.value;
       },
       set(e) {
-        console.log(e);
         this.$emit("change", e);
       }
     }

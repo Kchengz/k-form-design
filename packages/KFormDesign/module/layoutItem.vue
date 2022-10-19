@@ -1,9 +1,17 @@
 <template>
   <div
     :class="{
-      'layout-width': ['grid', 'table', 'card', 'divider', 'html'].includes(
-        record.type
-      )
+      'layout-width': [
+        'grid',
+        'table',
+        'selectInputList',
+        'tabs',
+        'card',
+        'editor',
+        'batch',
+        'divider',
+        'html'
+      ].includes(record.type)
     }"
   >
     <!-- 动态表格设计模块 start -->

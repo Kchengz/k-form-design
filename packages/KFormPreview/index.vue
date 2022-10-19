@@ -14,7 +14,12 @@
     wrapClassName="k-form-modal"
     :width="`${previewWidth}px`"
   >
-    <k-form-build :value="jsonData" @submit="handleSubmit" ref="KFormBuild" />
+    <k-form-build
+      :value="jsonData"
+      @change="handleChange"
+      @submit="handleSubmit"
+      ref="KFormBuild"
+    />
     <jsonModel ref="jsonModel" />
   </a-modal>
 </template>
@@ -68,6 +73,14 @@ export default {
         .catch(err => {
           console.log(err, "获取数据失败");
         });
+    },
+    /**
+     * 监听表单change 事件
+     * @param {*} value
+     * @param {*} key
+     */
+    handleChange(value, key) {
+      console.log(value, key);
     },
     handleCancel() {
       this.visible = false;

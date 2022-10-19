@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 19:37:56
+ * @LastEditTime: 2022-10-19 20:10:31
  -->
 <template>
   <component
@@ -180,8 +180,6 @@ export default {
         componentProps.onHandleReset = () => this.$emit("handleReset");
       }
 
-      console.log(componentProps);
-
       return componentProps;
     },
     /**
@@ -209,13 +207,13 @@ export default {
 
       return true;
     },
-    handleChange(e, key) {
+    handleChange(e) {
       let value = e;
       if (e && e.target) {
         value = e.target.value;
       }
       // 传递change事件
-      this.$emit("change", value, key);
+      this.$emit("change", value, this.record.model);
     }
   }
 };
