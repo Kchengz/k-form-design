@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-20 00:42:36
+ * @LastEditTime: 2022-10-25 00:07:40
  -->
 <template>
   <component
@@ -14,7 +14,6 @@
   <!-- 可隐藏label -->
   <a-form-item
     v-else
-    :label="!isShowLabel(record.options.showLabel) ? '' : record.label"
     :label-col="
       formConfig.layout === 'horizontal' &&
       isShowLabel(record.options.showLabel)
@@ -39,7 +38,7 @@
         : {}
     "
   >
-    <span slot="label">
+    <span slot="label" v-if="isShowLabel(record.options.showLabel)">
       <a-tooltip>
         <span v-text="record.label"></span>
         <span v-if="record.help" slot="title" v-html="record.help"></span>
