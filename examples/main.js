@@ -11,12 +11,18 @@ import "@babel/polyfill";
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/";
-import Cmp from "./components/CustomComponent/index.vue";
+// import Cmp from "./components/CustomComponent/index.vue";
 
 import "../packages/utils/useComponents";
 import { setFormDesignConfig } from "../packages/mini";
 import { KFormDesign } from "../packages/use";
 
+const Cmp = {
+  label: "cmp",
+  render: function(h) {
+    return h("div", "我是自定义组件");
+  }
+};
 setFormDesignConfig({
   title: "测试自定义字段",
   list: [
@@ -44,15 +50,7 @@ setFormDesignConfig({
         }
       ]
     }
-  ],
-  uploadFile: "",
-  uploadImage: "",
-  uploadFileName: "",
-  uploadImageName: "",
-  uploadFileData: { data: 1545 },
-  uploadImageData: { data: 1545 },
-  uploadFileHeaders: { data: 1545 },
-  uploadImageHeaders: { data: 1545 }
+  ]
 });
 Vue.use(KFormDesign);
 // KFormDesign.setFormBuildConfig({

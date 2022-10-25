@@ -3,8 +3,8 @@
  * date 2019-11-20
  * description 表单控件项
  */
-// 基础控件
-export const basicsList = [
+// 内置控件
+export const defaultSchemaList = [
   {
     type: "input", // 表单类型
     label: "输入框", // 标题文字
@@ -596,46 +596,7 @@ export const basicsList = [
       defaultValue: "<strong>HTML</strong>"
     },
     key: ""
-  }
-];
-
-// 高级控件
-// export const highList = [];
-
-// import { Alert } from "ant-design-vue";
-
-// 自定义组件
-export const customComponents = {
-  title: "自定义组件",
-  list: [
-    // {
-    //   label: "测试",
-    //   type: "jkjksdf",
-    //   component: Alert,
-    //   options: {
-    //     multiple: false,
-    //     disabled: false,
-    //     width: "100%",
-    //     data: "{}",
-    //     limit: 3,
-    //     placeholder: "上传",
-    //     action: "",
-    //     listType: "picture-card"
-    //   },
-    //   model: "",
-    //   key: "",
-    //   rules: [
-    //     {
-    //       required: false,
-    //       message: "必填项"
-    //     }
-    //   ]
-    // }
-  ]
-};
-
-// 布局控件
-export const layoutList = [
+  },
   {
     type: "divider",
     label: "分割线",

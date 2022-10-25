@@ -14,12 +14,7 @@ import "./utils/antdStyle";
 // 导出本地iconfont
 import "../static/icons/iconfont";
 
-import { pluginManager, revoke } from "./utils/getPluginManager";
-
-import {
-  customComponents,
-  basicsList
-} from "./KFormDesign/config/formItemsConfig";
+import { pluginManager, revoke, nodeSchema } from "./utils/getPluginManager";
 
 /**
  * @Author: kcz
@@ -33,19 +28,26 @@ function setFormDesignConfig(config) {
     return false;
   }
   try {
-    customComponents.title = config.title || "自义定组件";
-    customComponents.list = config.list || [];
+    if (config.list && config.list.length > 0) {
+      nodeSchema.addSchemaGroup({
+        title: config.title || "自义定组件",
+        list: config.list.map(item => item.type)
+      });
+    }
 
     // 存储自定义组件
     const customComponentList = config.list || [];
-    customComponentList.forEach(item => {
+    const schemas = customComponentList.map(item => {
       pluginManager.addComponent(item.type, item.component);
+      delete item.component;
+      return item;
     });
 
-    pluginManager;
+    nodeSchema.addSchemas(schemas);
+
     // uploadFile 配置 start
     // 配置uploadFile默认上传地址
-    const uploadFile = basicsList.filter(item => item.type === "uploadFile")[0];
+    const uploadFile = nodeSchema.getSchemaByType("uploadFile");
     uploadFile.options.action =
       config.uploadFile || "http://cdn.kcz66.com/uploadFile.txt";
 
@@ -60,7 +62,7 @@ function setFormDesignConfig(config) {
 
     // uploadImage配置 start
     // 配置uploadImage默认上传地址
-    const uploadImg = basicsList.filter(item => item.type === "uploadImg")[0];
+    const uploadImg = nodeSchema.getSchemaByType("uploadImg");
     uploadImg.options.action =
       config.uploadImage || "http://cdn.kcz66.com/upload-img.txt";
     // 配置uploadImage默认额外参数

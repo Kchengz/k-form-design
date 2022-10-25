@@ -4,4 +4,5 @@
 
 // 本地测试
 export { pluginManager } from "./PluginManager";
-export { revoke } from "./revoke";
+export { revoke } from "./Revoke";
+export { nodeSchema } from "./NodeSchema";
