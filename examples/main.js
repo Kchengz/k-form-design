@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2021-05-02 16:04:02
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 20:19:32
+ * @LastEditTime: 2022-10-25 21:56:47
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -14,7 +14,7 @@ import router from "./router/";
 // import Cmp from "./components/CustomComponent/index.vue";
 
 import "../packages/utils/useComponents";
-import { setFormDesignConfig } from "../packages/mini";
+import { setFormDesignConfig, nodeSchema } from "../packages/mini";
 import { KFormDesign } from "../packages/use";
 
 const Cmp = {
@@ -52,6 +52,18 @@ setFormDesignConfig({
     }
   ]
 });
+
+nodeSchema.setSchemaGroup([
+  {
+    title: "基础组件",
+    list: ["input", "number", "select", "checkbox", "radio", "html"]
+  },
+  {
+    title: "布局组件",
+    list: ["divider", "card", "textarea", "tabs", "grid", "table"]
+  }
+]);
+
 Vue.use(KFormDesign);
 // KFormDesign.setFormBuildConfig({
 //   dynamicData: {
