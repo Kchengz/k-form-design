@@ -9,7 +9,7 @@
  * date 2019-11-20
  * description 多选框组件,改成v-model Boolean值
  */
-import { pluginManager } from "../utils/getPluginManager";
+import { pluginManager } from "../utils/getUtility";
 const CheckboxItem = pluginManager.getComponent("checkboxItem").component;
 
 export default {

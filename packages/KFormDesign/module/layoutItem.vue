@@ -499,7 +499,7 @@
  */
 import draggable from "vuedraggable";
 import formNode from "./formNode";
-import { pluginManager } from "../../utils/getPluginManager";
+import { pluginManager } from "../../utils/getUtility";
 const CheckboxItem = pluginManager.getComponent("checkboxItem").component;
 export default {
   name: "layoutItem",

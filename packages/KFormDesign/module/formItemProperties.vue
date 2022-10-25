@@ -505,7 +505,7 @@
  */
 import KChangeOption from "../../KChangeOption/index.vue";
 import kCheckbox from "../../KCheckbox/index.vue";
-import { pluginManager } from "../../utils/getPluginManager";
+import { pluginManager } from "../../utils/getUtility";
 const Input = pluginManager.getComponent("input").component;
 const InputNumber = pluginManager.getComponent("number").component;
 const Rate = pluginManager.getComponent("rate").component;

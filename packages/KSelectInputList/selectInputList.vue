@@ -45,7 +45,7 @@
 
 <script>
 import KFormModelItem from "../KFormModelItem/KFormModelItem";
-import { pluginManager } from "../utils/getPluginManager";
+import { pluginManager } from "../utils/getUtility";
 const CheckboxItem = pluginManager.getComponent("checkboxItem").component;
 export default {
   name: "KBatch",

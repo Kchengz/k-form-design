@@ -53,7 +53,7 @@
  * date 2019-11-20
  * description 修改多选、下拉、单选等控件options的组件，添加移除校验规制的组件
  */
-import { pluginManager } from "../utils/getPluginManager";
+import { pluginManager } from "../utils/getUtility";
 const Input = pluginManager.getComponent("input").component;
 const InputNumber = pluginManager.getComponent("number").component;
 export default {

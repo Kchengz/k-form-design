@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>表单设计器kcz</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="http://cdn.kcz66.com/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./k-form-design.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <k-form-design
+        :showBtnList="[
+    'preview',
+    'importJson',
+    'exportJson',
+    'exportCode',
+    'reset',
+  ]"
+        title="表单设计器 -自定义标题"
+      ></k-form-design>
+    </div>
+    <script src="http://cdn.kcz66.com/vue.min.js"></script>
+    <script src="./k-form-design.umd.min.js"></script>
+    <script>
+      let jsonData = {
+        list: [
+          {
+            type: "input",
+            name: "单行文本",
+            options: {
+              width: "100%",
+              defaultValue: "",
+              placeholder: "请输入",
+              disabled: false,
+            },
+            model: "input_1574002292465",
+            key: "input_1574002292465",
+            rules: [{ required: false, message: "必填项" }],
+          },
+        ],
+        config: {
+          layout: "horizontal",
+          labelCol: { span: 4 },
+          wrapperCol: { span: 18 },
+          hideRequiredMark: false,
+          width: "100%",
+          marginTop: "0px",
+          marginRight: "0px",
+          marginBottom: "0px",
+          marginLeft: "0px",
+        },
+      };
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          jsonData,
+        },
+        methods: {
+          handleSubmit() {},
+        },
+        mounted() {
+          let Cmp = {
+            label: "cmp",
+            render: function(h) {
+              return h("div", "我是自定义组件");
+            },
+          };
+
+          setInterval(() => {
+            // 使用函数配置
+            window["k-form-design"].setFormDesignConfig({
+              title: "自定义字段11",
+              list: [
+                {
+                  type: "demo", // 组件类型
+                  label: "自定义组件", // 组件名称
+                  component: Cmp, // 组件
+                  options: {
+                    defaultValue: undefined, // 可选值
+                    multiple: false, // 可选值
+                    disabled: false, // 可选值
+                    width: "100%",
+                    clearable: true, // 可选值
+                    placeholder: "请选择", // 可选值
+                    showSearch: false, // 可选值
+                  },
+                  model: "", // 可选值
+                  key: "",
+                  rules: [
+                    // 可选值
+                    {
+                      required: false,
+                      message: "必填项",
+                    },
+                  ],
+                },
+              ],
+            });
+          }, 1000);
+        },
+      });
+    </script>
+  </body>
+</html>

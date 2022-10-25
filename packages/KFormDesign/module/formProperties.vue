@@ -107,7 +107,7 @@
  * description 表单属性设置面板组件
  */
 import kCheckbox from "../../KCheckbox/index.vue";
-import { pluginManager } from "../../utils/getPluginManager";
+import { pluginManager } from "../../utils/getUtility";
 const InputNumber = pluginManager.getComponent("number").component;
 const Radio = pluginManager.getComponent("radio").component;
 const RadioButton = pluginManager.getComponent("radioButton").component;

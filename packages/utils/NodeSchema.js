@@ -83,7 +83,6 @@ class NodeSchema {
    */
   addSchemaGroup(schemaGroupItem) {
     this.schemaGroup.push(schemaGroupItem);
-
     this.designSchemaGroup.length = 0;
     this.designSchemaGroup.push(...this.getSchemaByGroup());
   }
@@ -94,7 +93,9 @@ class NodeSchema {
    */
   addComputed(schemaGroup) {
     this.designSchemaGroup = schemaGroup;
-    schemaGroup.push(...this.getSchemaByGroup());
+    setTimeout(() => {
+      schemaGroup.push(...this.getSchemaByGroup());
+    }, 100);
   }
 
   /**
@@ -102,8 +103,13 @@ class NodeSchema {
    * @returns schemaGroupList
    */
   getSchemaByGroup() {
+    console.log(this.schemaGroup);
+
     const schemaGroupList = this.schemaGroup.map(item => {
-      const list = this.schemaList.filter(v => item.list.includes(v.type));
+      console.log(item.list);
+      const list = this.schemaList.filter(v => {
+        return item.list.includes(v.type);
+      });
       return {
         ...item,
         list

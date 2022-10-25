@@ -18,7 +18,7 @@
 </template>
 <script>
 import moment from "moment";
-import { pluginManager } from "../utils/getPluginManager";
+import { pluginManager } from "../utils/getUtility";
 
 const TimePicker = pluginManager.getComponent("timePicker");
 export default {

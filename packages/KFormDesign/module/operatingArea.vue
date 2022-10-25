@@ -106,7 +106,7 @@
   <!-- 操作区域 start -->
 </template>
 <script>
-import { revoke } from "../../utils/getPluginManager";
+import { revoke } from "../../utils/getUtility";
 
 import { Divider } from "ant-design-vue";
 

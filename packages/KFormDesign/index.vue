@@ -148,12 +148,11 @@ import importJsonModal from "./module/importJsonModal";
 import previewModal from "../KFormPreview/index.vue";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 import { Modal, message } from "ant-design-vue";
-import { revoke } from "../utils/getPluginManager";
-import { nodeSchema } from "../utils/getPluginManager";
+import { revoke } from "../utils/getUtility";
+import { nodeSchema } from "../utils/getUtility";
 import formItemProperties from "./module/formItemProperties";
 import formProperties from "./module/formProperties";
 
-// const schemaGroup = nodeSchema.getSchemaByGroup();
 export default {
   name: "KFormDesign",
   props: {
@@ -190,38 +189,6 @@ export default {
     showToolbarsText: {
       type: Boolean,
       default: false
-    },
-    fields: {
-      type: Array,
-      default: () => [
-        "input",
-        "textarea",
-        "number",
-        "select",
-        "checkbox",
-        "radio",
-        "date",
-        "time",
-        "rate",
-        "slider",
-        "uploadFile",
-        "uploadImg",
-        "cascader",
-        "treeSelect",
-        "batch",
-        "selectInputList",
-        "editor",
-        "switch",
-        "button",
-        "alert",
-        "text",
-        "html",
-        "divider",
-        "card",
-        "tabs",
-        "grid",
-        "table"
-      ]
     },
     hideModel: {
       // 隐藏数据字段
@@ -294,14 +261,6 @@ export default {
     }
   },
   computed: {
-    // basicsArray() {
-    //   // 计算需要显示的基础字段
-    //   return basicsList.filter(item => this.fields.includes(item.type));
-    // },
-    // layoutArray() {
-    //   // 计算需要显示的布局字段
-    //   return layoutList.filter(item => this.fields.includes(item.type));
-    // },
     collapseDefaultActiveKey() {
       // 计算当前展开的控件列表
       const defaultActiveKey = window.localStorage.getItem(

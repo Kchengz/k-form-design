@@ -5,7 +5,7 @@
  * 当需要更多组件依赖时，在该文件加入即可
  */
 import Vue from "vue";
-import { pluginManager } from "./getPluginManager";
+import { pluginManager } from "./getUtility";
 import {
   ConfigProvider,
   Layout,

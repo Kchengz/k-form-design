@@ -56,7 +56,7 @@
  * date 2019-12-31
  * description 上传图片组件
  */
-import { pluginManager } from "../utils/getPluginManager";
+import { pluginManager } from "../utils/getUtility";
 import { message } from "ant-design-vue";
 
 const Upload = pluginManager.getComponent("upload");

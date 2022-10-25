@@ -14,7 +14,7 @@ import "./utils/antdStyle";
 // 导出本地iconfont
 import "../static/icons/iconfont";
 
-import { pluginManager, revoke, nodeSchema } from "./utils/getPluginManager";
+import { pluginManager, revoke, nodeSchema } from "./utils/getUtility";
 
 /**
  * @Author: kcz

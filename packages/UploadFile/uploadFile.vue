@@ -57,7 +57,7 @@
  * description 上传文件组件
  */
 import { message } from "ant-design-vue";
-import { pluginManager } from "../utils/getPluginManager";
+import { pluginManager } from "../utils/getUtility";
 
 const Upload = pluginManager.getComponent("upload");
 const UploadDragger = pluginManager.getComponent("uploadDragger");

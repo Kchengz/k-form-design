@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import { pluginManager } from "../utils/getPluginManager";
+import { pluginManager } from "../utils/getUtility";
 const Slider = pluginManager.getComponent("aSlider").component;
 const InputNumber = pluginManager.getComponent("number").component;
 export default {
