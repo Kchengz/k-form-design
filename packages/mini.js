@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-20 00:31:00
+ * @LastEditTime: 2022-10-25 21:54:07
  */
 
 // 导入样式
@@ -36,14 +36,7 @@ function setFormDesignConfig(config) {
     }
 
     // 存储自定义组件
-    const customComponentList = config.list || [];
-    const schemas = customComponentList.map(item => {
-      pluginManager.addComponent(item.type, item.component);
-      delete item.component;
-      return item;
-    });
-
-    nodeSchema.addSchemas(schemas);
+    nodeSchema.addSchemas(config.list || []);
 
     // uploadFile 配置 start
     // 配置uploadFile默认上传地址
@@ -96,12 +89,10 @@ function setFormBuildConfig(config) {
 }
 
 // 这里可以用es6的解构语法导入组件
-export { setFormDesignConfig, setFormBuildConfig, pluginManager, revoke };
-
-// 这里默认导入全部组件
-// export default {
-//   setConfig: setFormDesignConfig,
-//   setFormDesignConfig: setFormDesignConfig,
-//   setFormBuildConfig: setFormBuildConfig,
-//   pluginManager
-// };
+export {
+  setFormDesignConfig,
+  setFormBuildConfig,
+  pluginManager,
+  revoke,
+  nodeSchema
+};

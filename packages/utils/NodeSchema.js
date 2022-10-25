@@ -1,3 +1,4 @@
+import { pluginManager } from "./getUtility";
 import { defaultSchemaList } from "../KFormDesign/config/formItemsConfig";
 class NodeSchema {
   schemaList = [];
@@ -42,7 +43,15 @@ class NodeSchema {
    * @returns
    */
   addSchemas(schemas) {
-    return this.schemaList.push(...schemas);
+    const s = schemas.map(item => {
+      // 存在component组件则添加到插件管理器中
+      item.component && pluginManager.addComponent(item.type, item.component);
+      // 删除schemas中的component属性
+      delete item.component;
+      return item;
+    });
+
+    return this.schemaList.push(...s);
   }
 
   /**
@@ -68,7 +77,7 @@ class NodeSchema {
   }
 
   /**
-   * 设置分组
+   * 设置分组,这个操作将会覆盖原来的数据
    * @param {*} schemaGroup
    * @returns
    */
