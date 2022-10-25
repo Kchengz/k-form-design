@@ -42,47 +42,18 @@
           >
             <!-- 基础控件 start -->
             <a-collapse-panel
-              v-if="basicsArray.length > 0"
-              header="基础控件"
-              key="1"
+              v-for="(item, index) in schemaGroup"
+              :header="item.title"
+              :key="index"
             >
               <collapseItem
-                :list="basicsArray"
+                :list="item.list"
                 @generateKey="generateKey"
                 @handleListPush="handleListPush"
                 @start="handleStart"
               />
             </a-collapse-panel>
             <!-- 基础控件 end -->
-            <!-- 自定义控件 start -->
-            <a-collapse-panel
-              v-if="customComponents.list.length > 0"
-              :header="customComponents.title"
-              key="3"
-            >
-              <collapseItem
-                :list="customComponents.list"
-                @generateKey="generateKey"
-                @handleListPush="handleListPush"
-                @start="handleStart"
-              />
-            </a-collapse-panel>
-            <!-- 自定义控件 end -->
-
-            <!-- 布局控件 start -->
-            <a-collapse-panel
-              v-if="layoutArray.length > 0"
-              header="布局控件"
-              key="4"
-            >
-              <collapseItem
-                :list="layoutArray"
-                @generateKey="generateKey"
-                @handleListPush="handleListPush"
-                @start="handleStart"
-              />
-            </a-collapse-panel>
-            <!-- 布局控件 end -->
           </a-collapse>
         </aside>
         <!-- 左侧控件区域 end -->
@@ -178,13 +149,11 @@ import previewModal from "../KFormPreview/index.vue";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 import { Modal, message } from "ant-design-vue";
 import { revoke } from "../utils/getPluginManager";
-import {
-  basicsList,
-  layoutList,
-  customComponents
-} from "./config/formItemsConfig";
+import { nodeSchema } from "../utils/getPluginManager";
 import formItemProperties from "./module/formItemProperties";
 import formProperties from "./module/formProperties";
+
+// const schemaGroup = nodeSchema.getSchemaByGroup();
 export default {
   name: "KFormDesign",
   props: {
@@ -264,7 +233,6 @@ export default {
     return {
       locale: zhCN,
       loadState: false,
-      customComponents,
       activeKey: 1,
       updateTime: 0,
       updateRecordTime: 0,
@@ -280,6 +248,7 @@ export default {
         "text",
         "html"
       ],
+      schemaGroup: [],
       data: {
         list: [],
         config: {
@@ -325,14 +294,14 @@ export default {
     }
   },
   computed: {
-    basicsArray() {
-      // 计算需要显示的基础字段
-      return basicsList.filter(item => this.fields.includes(item.type));
-    },
-    layoutArray() {
-      // 计算需要显示的布局字段
-      return layoutList.filter(item => this.fields.includes(item.type));
-    },
+    // basicsArray() {
+    //   // 计算需要显示的基础字段
+    //   return basicsList.filter(item => this.fields.includes(item.type));
+    // },
+    // layoutArray() {
+    //   // 计算需要显示的布局字段
+    //   return layoutList.filter(item => this.fields.includes(item.type));
+    // },
     collapseDefaultActiveKey() {
       // 计算当前展开的控件列表
       const defaultActiveKey = window.localStorage.getItem(
@@ -575,6 +544,7 @@ export default {
   },
   created() {
     this.loadState = true;
+    nodeSchema.addComputed(this.schemaGroup);
   }
 };
 </script>
