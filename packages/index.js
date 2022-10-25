@@ -6,16 +6,15 @@ import "./utils/antdStyle";
 // 导出本地iconfont
 import "../static/icons/iconfont";
 import { pluginManager, nodeSchema } from "./utils/getUtility";
+// 导入ant组件
+import "./utils/useComponents";
+
 // 导入单个组件
 import KFormDesign from "./KFormDesign/index";
 import KFormPreview from "./KFormPreview/index";
 import KFormBuild from "./KFormBuild/index";
 import KFormItem from "./KFormItem/index";
 import { setFormDesignConfig, setFormBuildConfig } from "./mini";
-// 导入ant组件
-import "./utils/useComponents";
-
-// import "./utils/components_use";
 
 const components = [KFormDesign, KFormBuild, KFormItem, KFormPreview];
 
