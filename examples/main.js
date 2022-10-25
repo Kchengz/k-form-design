@@ -13,9 +13,11 @@ import App from "./App.vue";
 import router from "./router/";
 import Cmp from "./components/CustomComponent/index.vue";
 
-import KFormDesign from "../packages/index";
+import "../packages/utils/useComponents";
+import { setFormDesignConfig } from "../packages/mini";
+import { KFormDesign } from "../packages/use";
 
-KFormDesign.setFormDesignConfig({
+setFormDesignConfig({
   title: "测试自定义字段",
   list: [
     {
@@ -31,17 +33,17 @@ KFormDesign.setFormDesignConfig({
         clearable: true,
         placeholder: "请选择",
         showSearch: false,
-        showLabel: true,
+        showLabel: true
       },
       model: "",
       key: "",
       rules: [
         {
           required: false,
-          message: "必填项",
-        },
-      ],
-    },
+          message: "必填项"
+        }
+      ]
+    }
   ],
   uploadFile: "",
   uploadImage: "",
@@ -50,7 +52,7 @@ KFormDesign.setFormDesignConfig({
   uploadFileData: { data: 1545 },
   uploadImageData: { data: 1545 },
   uploadFileHeaders: { data: 1545 },
-  uploadImageHeaders: { data: 1545 },
+  uploadImageHeaders: { data: 1545 }
 });
 Vue.use(KFormDesign);
 // KFormDesign.setFormBuildConfig({
@@ -65,5 +67,5 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");
