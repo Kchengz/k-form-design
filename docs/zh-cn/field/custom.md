@@ -3,6 +3,55 @@
 可以参考[使用Demo](https://gitee.com/kcz66/k-form-design-demo)
 ## ~~使用KFormDesign的setConfig函数~~v3.8.4 移除
 
+ ## 推荐使用 nodeSchema 添加自定义组件 （v3.8.7以上）
+
+```javascript
+import { nodeSchema } from 'k-form-design'
+
+const Cmp = {
+  label: "cmp",
+  render: function(h) {
+    return h("div", "我是自定义组件");
+  }
+};
+
+// 添加组件
+nodeSchema.addSchemas([
+  {
+    type: "demo", // 表单类型
+    label: "自定义组件", // 标题文字
+    icon: "icon-gallery",
+    component: Cmp,
+    options: {
+      defaultValue: undefined,
+      multiple: false,
+      disabled: false,
+      width: "100%",
+      clearable: true,
+      placeholder: "请选择",
+      showSearch: false,
+      showLabel: true
+    },
+    model: "",
+    key: "",
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ]
+  }
+]);
+
+// 添加分组
+nodeSchema.addSchemaGroup({
+  title: "自定义组件",
+  list: ["demo"]
+});
+```
+
+
+
 ## 引入 setFormDesignConfig 函数
 ```javascript
 
@@ -48,3 +97,4 @@ setFormDesignConfig({
   ]
 })
 ```
+

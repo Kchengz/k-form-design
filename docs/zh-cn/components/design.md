@@ -257,29 +257,7 @@ export default {
         <td>fields</td>
         <td>自定义左侧控件列表</td>
         <td>Array</td>
-        <td style="max-width:280px;">[
-         "input",
-        "textarea",
-        "number",
-        "select",
-        "checkbox",
-        "radio",
-        "date",
-        "time",
-        "rate",
-        "slider",
-        "uploadFile",
-        "uploadImg",
-        "switch",
-        "button",
-        "alert",
-        "text",
-        "html",
-        "divider",
-        "card",
-        "grid",
-        "table"
-      ]</td>
+        <td style="max-width:280px;">v3.8.7已删除该属性,请使用节点管理对象设置</td>
        <td>3.0.7</td>
       </tr>
         <tr>
@@ -298,10 +276,6 @@ export default {
       </tr>
     </tbody>
   </table>
-
-
-
-
 
 
 

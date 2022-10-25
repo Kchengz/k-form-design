@@ -18,6 +18,8 @@
   * [树选择器](zh-cn/field/treeSelect)
   * [联级选择器](zh-cn/field/cascader)
   * [上传接口](zh-cn/config)
+  * [节点管理对象](zh-cn/field/nodeSchema)
 
 * [交流](zh-cn/communication)
 * [捐赠](zh-cn/donation)
+

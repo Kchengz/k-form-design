@@ -102,9 +102,7 @@ class NodeSchema {
    */
   addComputed(schemaGroup) {
     this.designSchemaGroup = schemaGroup;
-    setTimeout(() => {
-      schemaGroup.push(...this.getSchemaByGroup());
-    }, 100);
+    schemaGroup.push(...this.getSchemaByGroup());
   }
 
   /**
@@ -113,7 +111,6 @@ class NodeSchema {
    */
   getSchemaByGroup() {
     console.log(this.schemaGroup);
-
     const schemaGroupList = this.schemaGroup.map(item => {
       console.log(item.list);
       const list = this.schemaList.filter(v => {
