@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-25 21:54:07
+ * @LastEditTime: 2022-10-25 23:33:42
  */
 
 // 导入样式
@@ -29,14 +29,15 @@ function setFormDesignConfig(config) {
   }
   try {
     if (config.list && config.list.length > 0) {
+      // 存储自定义组件
+      nodeSchema.addSchemas(config.list);
+
+      // 添加分组
       nodeSchema.addSchemaGroup({
         title: config.title || "自义定组件",
         list: config.list.map(item => item.type)
       });
     }
-
-    // 存储自定义组件
-    nodeSchema.addSchemas(config.list || []);
 
     // uploadFile 配置 start
     // 配置uploadFile默认上传地址

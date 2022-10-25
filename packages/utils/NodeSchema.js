@@ -110,9 +110,7 @@ class NodeSchema {
    * @returns schemaGroupList
    */
   getSchemaByGroup() {
-    console.log(this.schemaGroup);
     const schemaGroupList = this.schemaGroup.map(item => {
-      console.log(item.list);
       const list = this.schemaList.filter(v => {
         return item.list.includes(v.type);
       });
@@ -121,7 +119,6 @@ class NodeSchema {
         list
       };
     });
-    console.log(schemaGroupList);
     return schemaGroupList;
   }
 }

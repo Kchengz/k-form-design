@@ -71,37 +71,68 @@
             },
           };
 
-          setInterval(() => {
-            // 使用函数配置
-            window["k-form-design"].setFormDesignConfig({
-              title: "自定义字段11",
-              list: [
-                {
-                  type: "demo", // 组件类型
-                  label: "自定义组件", // 组件名称
-                  component: Cmp, // 组件
-                  options: {
-                    defaultValue: undefined, // 可选值
-                    multiple: false, // 可选值
-                    disabled: false, // 可选值
-                    width: "100%",
-                    clearable: true, // 可选值
-                    placeholder: "请选择", // 可选值
-                    showSearch: false, // 可选值
-                  },
-                  model: "", // 可选值
-                  key: "",
-                  rules: [
-                    // 可选值
-                    {
-                      required: false,
-                      message: "必填项",
-                    },
-                  ],
+          window["k-form-design"].setFormDesignConfig({
+            title: "自定义字段",
+            list: [
+              {
+                type: "demo", // 组件类型
+                label: "自定义组件", // 组件名称
+                component: Cmp, // 组件
+                options: {
+                  defaultValue: undefined, // 可选值
+                  multiple: false, // 可选值
+                  disabled: false, // 可选值
+                  width: "100%",
+                  clearable: true, // 可选值
+                  placeholder: "请选择", // 可选值
+                  showSearch: false, // 可选值
                 },
-              ],
-            });
-          }, 1000);
+                model: "", // 可选值
+                key: "",
+                rules: [
+                  // 可选值
+                  {
+                    required: false,
+                    message: "必填项",
+                  },
+                ],
+              },
+            ],
+          });
+         
+          // 添加组件
+          // window["k-form-design"].nodeSchema.addSchemas([
+          //   {
+          //     type: "demo", // 表单类型
+          //     label: "自定义组件", // 标题文字
+          //     icon: "icon-gallery",
+          //     component: Cmp,
+          //     options: {
+          //       defaultValue: undefined,
+          //       multiple: false,
+          //       disabled: false,
+          //       width: "100%",
+          //       clearable: true,
+          //       placeholder: "请选择",
+          //       showSearch: false,
+          //       showLabel: true,
+          //     },
+          //     model: "",
+          //     key: "",
+          //     rules: [
+          //       {
+          //         required: false,
+          //         message: "必填项",
+          //       },
+          //     ],
+          //   },
+          // ]);
+
+          // // 添加分组
+          // window["k-form-design"].nodeSchema.addSchemaGroup({
+          //   title: "自定义组件",
+          //   list: ["demo"],
+          // });
         },
       });
     </script>
