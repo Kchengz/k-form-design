@@ -3,18 +3,18 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-25 23:33:42
+ * @LastEditTime: 2022-10-26 21:07:51
  */
 
 // 导入样式
 import "../styles/form-design.less";
 // 导入antD样式
-import "./utils/antdStyle";
+import "./core/antdStyle";
 
 // 导出本地iconfont
 import "../static/icons/iconfont";
 
-import { pluginManager, revoke, nodeSchema } from "./utils/getUtility";
+import { pluginManager, revoke, nodeSchema } from "./utils/index";
 
 /**
  * @Author: kcz

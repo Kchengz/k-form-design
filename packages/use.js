@@ -1,8 +1,8 @@
 // 导入单个组件
-import KFormDesign from "./KFormDesign/index";
+import KFormDesign from "./components/KFormDesign/index";
 // import KFormPreview from "./KFormPreview/index";
-import KFormBuild from "./KFormBuild/index";
-import KFormItem from "./KFormItem/index";
+import KFormBuild from "./components/KFormBuild/index";
+import KFormItem from "./components/KFormItem/index";
 const components = [KFormDesign, KFormBuild, KFormItem];
 
 const install = function(Vue) {

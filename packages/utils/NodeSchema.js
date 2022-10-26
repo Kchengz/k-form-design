@@ -1,5 +1,5 @@
-import { pluginManager } from "./getUtility";
-import { defaultSchemaList } from "../KFormDesign/config/formItemsConfig";
+import { pluginManager } from "./index";
+import { defaultSchemaList } from "../components/KFormDesign/config/formItemsConfig";
 class NodeSchema {
   schemaList = [];
   schemaGroup = [

@@ -1,19 +1,19 @@
 // 导入样式
 import "../styles/form-design.less";
 // 导入antD样式
-import "./utils/antdStyle";
+import "./core/antdStyle";
 
 // 导出本地iconfont
 import "../static/icons/iconfont";
-import { pluginManager, nodeSchema } from "./utils/getUtility";
+import { pluginManager, nodeSchema } from "./utils/index";
 // 导入ant组件
-import "./utils/useComponents";
+import "./core/useComponents";
 
 // 导入单个组件
-import KFormDesign from "./KFormDesign/index";
-import KFormPreview from "./KFormPreview/index";
-import KFormBuild from "./KFormBuild/index";
-import KFormItem from "./KFormItem/index";
+import KFormDesign from "./components/KFormDesign/index";
+import KFormPreview from "./components/KFormPreview/index";
+import KFormBuild from "./components/KFormBuild/index";
+import KFormItem from "./components/KFormItem/index";
 import { setFormDesignConfig, setFormBuildConfig } from "./mini";
 
 const components = [KFormDesign, KFormBuild, KFormItem, KFormPreview];
