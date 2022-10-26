@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2021-05-02 16:04:02
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-26 21:09:37
+ * @LastEditTime: 2022-10-26 21:54:25
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -13,7 +13,7 @@ import App from "./App.vue";
 import router from "./router/";
 // import Cmp from "./components/CustomComponent/index.vue";
 
-import "../packages/core/useComponents";
+import "../packages/core/preUseComponents";
 import { nodeSchema } from "../packages/mini";
 import { KFormDesign } from "../packages/use";
 

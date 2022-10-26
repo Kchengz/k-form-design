@@ -1,3 +1,4 @@
+// 按需加载 antd ui 样式
 import "ant-design-vue/lib/input/style";
 import "ant-design-vue/lib/input-number/style";
 import "ant-design-vue/lib/select/style";
