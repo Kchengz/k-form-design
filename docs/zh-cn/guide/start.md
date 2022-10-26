@@ -51,13 +51,22 @@ main.js引入
 // 在main.js引入
 
 // 注：useComponents 需放最上面，优先注册懒加载组件
-import 'k-form-design/packages/utils/useComponents'
+import 'k-form-design/packages/core/useComponents'
 import KFormDesign from 'k-form-design/packages/use.js'
 import 'k-form-design/lib/k-form-design.css'
 
 Vue.use(KFormDesign)
 ```
 以上代码便完整引入 k-form-design，组件为懒加载方式，并不会一次性加载所有组件
+
+如果您不想使用懒加载的方式使用preUseComponents替换useComponents文件，就可以切换到预加载组件的方式
+
+```javascript
+- import 'k-form-design/packages/core/useComponents'
++ import 'k-form-design/packages/core/preUseComponents'
+```
+
+
 
 #### ~~5. 引入mini包（3.6.0版本+）~~3.8.1 版本默认不再集成ant-design-vue，请参照其他方式使用
 

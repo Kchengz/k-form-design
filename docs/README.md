@@ -65,7 +65,7 @@ yarn add ant-design-vue@1.7.8
 // 在main.js引入
 
 // 注：useComponents 需放最上面，优先注册懒加载组件
-import 'k-form-design/packages/utils/useComponents'
+import 'k-form-design/packages/core/useComponents'
 import KFormDesign from 'k-form-design/packages/use.js'
 import 'k-form-design/lib/k-form-design.css'
 
