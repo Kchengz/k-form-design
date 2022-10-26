@@ -1,13 +1,18 @@
 <template>
   <div>
-    <k-form-build :value="jsonData" ref="KFB" @submit="handleSubmit" />
+    <k-form-build
+      :value="jsonData"
+      :defaultValue="{ slider_1619948887083: 12, input_1619948973892: '23423' }"
+      ref="KFB"
+      @submit="handleSubmit"
+    />
 
     <button @click="hide">隐藏</button>
     <button @click="show">显示</button>
     <button @click="disable">禁用</button>
     <button @click="enable">启用</button>
-
     <button @click="getData">提交</button>
+    <button @click="setData">数据回显</button>
   </div>
 </template>
 <script>
@@ -440,7 +445,15 @@ export default {
         .catch(err => {
           console.log(err, "校验失败");
         });
+    },
+    setData() {
+      this.$refs.KFB.setData({
+        date_1619948975172: "2019-12-12"
+      });
     }
+  },
+  mounted() {
+    this.setData();
   }
 };
 </script>

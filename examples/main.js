@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2021-05-02 16:04:02
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-26 21:54:25
+ * @LastEditTime: 2022-10-26 23:28:19
  */
 // 引入@babel/polyfill处理兼容
 import "@babel/polyfill";
@@ -13,9 +13,12 @@ import App from "./App.vue";
 import router from "./router/";
 // import Cmp from "./components/CustomComponent/index.vue";
 
-import "../packages/core/preUseComponents";
+// 预加载组件
+// import "../packages/core/preUseComponents";
+// 懒加载组件
+import "../packages/core/useComponents";
 import { nodeSchema } from "../packages/mini";
-import { KFormDesign } from "../packages/use";
+import KFormDesign from "../packages/use";
 
 const Cmp = {
   label: "cmp",

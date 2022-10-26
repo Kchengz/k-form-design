@@ -3,12 +3,13 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-26 21:13:38
+ * @LastEditTime: 2022-10-26 23:27:52
  -->
 <template>
   <component
     v-if="record.options.noFormItem"
     v-bind="getComponentProps"
+    @hook:mounted="childMounted"
     :is="componentItem"
   ></component>
   <!-- 可隐藏label -->
@@ -52,6 +53,7 @@
     <component
       :is="componentItem"
       v-bind="getComponentProps"
+      @hook:mounted="childMounted"
       ref="inputItem"
       @change="handleChange"
       v-decorator="[
@@ -70,7 +72,7 @@
  * author kcz
  * date 2019-11-20
  */
-import { pluginManager } from "../../utils/index";
+import { pluginManager, lazyLoadTick } from "../../utils/index";
 const _ = require("lodash/object");
 const ComponentArray = pluginManager.getComponents();
 
@@ -219,7 +221,15 @@ export default {
       }
       // 传递change事件
       this.$emit("change", value, this.record.model);
+    },
+    childMounted() {
+      // 记录已加载组件
+      lazyLoadTick.countLoaded(this.record.type);
     }
+  },
+  created() {
+    // 记录待加载组件
+    lazyLoadTick.countlazyLoad(this.record.type);
   }
 };
 </script>

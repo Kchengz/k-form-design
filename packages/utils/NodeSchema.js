@@ -1,3 +1,6 @@
+/**
+ * 节点管理
+ */
 import { pluginManager } from "./index";
 import { defaultSchemaList } from "../components/KFormDesign/config/formItemsConfig";
 class NodeSchema {

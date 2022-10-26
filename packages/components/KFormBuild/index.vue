@@ -35,7 +35,8 @@
  */
 import buildBlocks from "./buildBlocks";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
-// import moment from "moment";
+import { lazyLoadTick } from "../../utils/index";
+
 export default {
   name: "KFormBuild",
   data() {
@@ -144,31 +145,33 @@ export default {
     },
     setData(json) {
       return new Promise((resolve, reject) => {
-        try {
-          if (this.outputString) {
-            // 将非string数据还原
-            for (const key in json) {
-              if (!json[key].startsWith("k-form-design#")) {
-                continue;
+        lazyLoadTick.nextTick(() => {
+          try {
+            if (this.outputString) {
+              // 将非string数据还原
+              for (const key in json) {
+                if (!json[key].startsWith("k-form-design#")) {
+                  continue;
+                }
+                const array = json[key].split("#");
+                if (array[1] === "object") {
+                  json[key] = JSON.parse(array[2]);
+                } else if (array[1] === "number") {
+                  json[key] = Number(array[2]);
+                } else if (array[1] === "boolean") {
+                  json[key] = Boolean(array[2]);
+                }
               }
-              const array = json[key].split("#");
-              if (array[1] === "object") {
-                json[key] = JSON.parse(array[2]);
-              } else if (array[1] === "number") {
-                json[key] = Number(array[2]);
-              } else if (array[1] === "boolean") {
-                json[key] = Boolean(array[2]);
-              }
+              this.form.setFieldsValue(json);
+            } else {
+              this.form.setFieldsValue(json);
             }
-            this.form.setFieldsValue(json);
-          } else {
-            this.form.setFieldsValue(json);
+            resolve(true);
+          } catch (err) {
+            console.error(err);
+            reject(err);
           }
-          resolve(true);
-        } catch (err) {
-          console.error(err);
-          reject(err);
-        }
+        });
       });
     },
 
@@ -224,9 +227,14 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(() => {
-      this.setData(this.defaultValue);
-    });
+    this.setData(this.defaultValue);
+
+    // this.$nextTick(() => {
+    //   this.setData(this.defaultValue);
+    // });
+  },
+  created() {
+    lazyLoadTick.reset();
   }
 };
 </script>

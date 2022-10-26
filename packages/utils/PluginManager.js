@@ -1,3 +1,6 @@
+/**
+ * 插件管理器
+ */
 class PluginManager {
   components = {};
 

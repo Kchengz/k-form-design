@@ -5,3 +5,4 @@
 export { pluginManager } from "./PluginManager";
 export { revoke } from "./Revoke";
 export { nodeSchema } from "./NodeSchema";
+export { lazyLoadTick } from "./LazyLoadTick";
