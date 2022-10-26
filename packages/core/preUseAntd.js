@@ -1,7 +1,5 @@
 /**
- * 预加载antd组件。
- * 与useComponents文件功能一样，区别就是useComponents文件是懒加载组件的方式，这个文件是预加载的方式
- *
+ * 预加载antd组件
  */
 import Vue from "vue";
 import { pluginManager } from "../utils/index";
