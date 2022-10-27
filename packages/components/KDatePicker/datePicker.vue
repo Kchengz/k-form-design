@@ -45,8 +45,7 @@
 </template>
 <script>
 import moment from "moment";
-// import { DatePicker } from "ant-design-vue";
-import { pluginManager } from "../../index";
+import { pluginManager } from "../../utils/index";
 
 const DatePicker = pluginManager.getComponent("datePicker");
 const RangePicker = pluginManager.getComponent("rangePicker");
