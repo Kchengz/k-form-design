@@ -1,5 +1,5 @@
 // 发布npm 需要切换到这个
-// export { pluginManager, revoke, nodeSchema } from "k-form-design";
+// export { pluginManager, revoke, nodeSchema, lazyLoadTick } from "k-form-design";
 
 // 本地测试
 export { pluginManager } from "./PluginManager";
