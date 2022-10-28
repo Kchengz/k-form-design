@@ -19,6 +19,11 @@ export default new Router({
       path: "/demo",
       name: "demo",
       component: () => import("../views/demo/index.vue")
+    },
+    {
+      path: "/build",
+      name: "build",
+      component: () => import("../views/build/index.vue")
     }
   ]
 });

@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-26 23:27:52
+ * @LastEditTime: 2022-10-28 22:55:07
  -->
 <template>
   <component
@@ -224,7 +224,9 @@ export default {
     },
     childMounted() {
       // 记录已加载组件
-      lazyLoadTick.countLoaded(this.record.type);
+      this.$nextTick(() => {
+        lazyLoadTick.countLoaded(this.record.type);
+      });
     }
   },
   created() {
