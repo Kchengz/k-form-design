@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-26 21:12:10
+ * @LastEditTime: 2022-10-31 20:22:03
  -->
 <template>
   <a-form-model
@@ -19,7 +19,7 @@
       :dataSource="dynamicValidateForm.domains"
       bordered
       :scroll="{
-        x: listLength * 190 + 80 + (!record.options.hideSequence ? 60 : 0),
+        x: listLength * 192 + 80 + (!record.options.hideSequence ? 60 : 0),
         y: record.options.scrollY
       }"
     >
@@ -42,18 +42,18 @@
       </template>
       <template slot="dynamic-opr-button" slot-scope="text, record">
         <a-icon
-          title="删除该行"
-          v-if="!disabled"
-          class="dynamic-opr-button"
-          type="minus-circle-o"
-          @click="removeDomain(record)"
-        />
-        <a-icon
           title="复制添加"
           v-if="!disabled"
           type="copy-o"
           class="dynamic-opr-button"
           @click="copyDomain(record)"
+        />
+        <a-icon
+          title="删除该行"
+          v-if="!disabled"
+          class="dynamic-opr-button"
+          type="minus-circle-o"
+          @click="removeDomain(record)"
         />
       </template>
     </a-table>
@@ -119,7 +119,7 @@ export default {
             return {
               title: item.label,
               dataIndex: item.key,
-              width: index === this.record.list.length - 1 ? "" : "190px",
+              width: index === this.record.list.length - 1 ? "" : "192px",
               scopedSlots: { customRender: item.key }
             };
           })
@@ -158,12 +158,8 @@ export default {
       }
     },
     copyDomain(record) {
-      const data = {};
-      this.record.list.forEach(item => {
-        data[item.model] = record[item.model];
-      });
       this.dynamicValidateForm.domains.push({
-        ...data,
+        ...record,
         key: Date.now()
       });
       this.handleInput();
