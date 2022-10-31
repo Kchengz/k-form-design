@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-01-02 22:41:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-26 21:13:45
+ * @LastEditTime: 2022-10-31 20:39:53
  -->
 <template>
   <component
@@ -60,6 +60,7 @@ export default {
         parentDisabled: this.disabled || record.options.disabled,
         allowClear: record.options.clearable,
         mode: record.options.multiple ? "multiple" : "",
+        value: this.value,
         style: record.options.width && `width:${record.options.width}`,
         height:
           typeof record.options.height !== "undefined"

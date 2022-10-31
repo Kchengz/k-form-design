@@ -697,10 +697,64 @@
   }
 
   //  ----------KBatch----------
-
+  // 动态表格样式
   .batch-table {
     .ant-table-tbody>tr>td {
       padding: 8px;
+    }
+
+    .dynamic-opr-button:last-child {
+      margin-left: 8px;
+
+      &:hover {
+        color: #f22;
+      }
+    }
+
+    .dynamic-opr-button:first-child:hover {
+      color: @primary-color;
+    }
+
+    .dynamic-opr-button {
+      cursor     : pointer;
+      position   : relative;
+      top        : 4px;
+      font-size  : 16px;
+      color      : #999;
+      transition : all 0.3s;
+      margin-left: 6px;
+    }
+
+
+
+    .dynamic-opr-button[disabled] {
+      cursor : not-allowed;
+      opacity: 0.5;
+    }
+
+
+    .ant-form-item {
+      margin: 0;
+    }
+
+    .ant-form-item-control-wrapper {
+      width: 173px !important;
+    }
+
+    .ant-table-thead>tr>th {
+      padding: 12px;
+    }
+
+    .ant-table-tbody>tr>td {
+      padding: 8px;
+    }
+
+    .ant-form-inline .ant-form-item-with-help {
+      margin: 0;
+    }
+
+    .ant-table-placeholder {
+      padding: 0;
     }
   }
 
@@ -781,9 +835,6 @@
     }
   }
 
-  // k-form-build
-
-
   .select-input-list-box {
     color    : rgba(0, 0, 0, 0.65);
     font-size: 14px;
@@ -829,58 +880,7 @@
     }
   }
 
-  // 动态表格样式
-  .batch-table {
 
-    .dynamic-opr-button:last {
-      margin-left: 0px;
-    }
-
-    .dynamic-opr-button {
-      cursor     : pointer;
-      position   : relative;
-      top        : 4px;
-      font-size  : 16px;
-      color      : #999;
-      transition : all 0.3s;
-      margin-left: 6px;
-    }
-
-    .dynamic-opr-button:hover {
-      color: #e89;
-    }
-
-    .dynamic-opr-button[disabled] {
-      cursor : not-allowed;
-      opacity: 0.5;
-    }
-
-
-    .ant-form-item {
-      margin: 0;
-    }
-
-    .ant-form-item-control-wrapper {
-      width: 170px !important;
-    }
-
-    .ant-table-thead>tr>th {
-
-      padding: 12px;
-    }
-
-    .ant-table-tbody>tr>td {
-      padding: 8px;
-    }
-
-    .ant-form-inline .ant-form-item-with-help {
-      margin: 0;
-    }
-
-    .ant-table-placeholder {
-      padding: 0;
-    }
-  }
 
   // -------- selectInputList ---------
   .list-col {

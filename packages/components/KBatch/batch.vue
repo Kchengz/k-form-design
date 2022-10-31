@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-31 20:22:03
+ * @LastEditTime: 2022-10-31 20:40:41
  -->
 <template>
   <a-form-model
@@ -19,7 +19,7 @@
       :dataSource="dynamicValidateForm.domains"
       bordered
       :scroll="{
-        x: listLength * 192 + 80 + (!record.options.hideSequence ? 60 : 0),
+        x: listLength * 190 + 80 + (!record.options.hideSequence ? 60 : 0),
         y: record.options.scrollY
       }"
     >
@@ -119,7 +119,7 @@ export default {
             return {
               title: item.label,
               dataIndex: item.key,
-              width: index === this.record.list.length - 1 ? "" : "192px",
+              width: index === this.record.list.length - 1 ? "" : "190px",
               scopedSlots: { customRender: item.key }
             };
           })
