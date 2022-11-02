@@ -110,9 +110,10 @@ pluginManager.addComponent("datePicker", () =>
   import("ant-design-vue/lib/date-picker")
 );
 
-pluginManager.addComponent("rangePicker", () =>
-  import("ant-design-vue/lib/date-picker/RangePicker")
-);
+pluginManager.addComponent("rangePicker", async () => {
+  const datePicker = await import("ant-design-vue/lib/date-picker");
+  return datePicker.default["RangePicker"];
+});
 pluginManager.addComponent("monthPicker", async () => {
   const datePicker = await import("ant-design-vue/lib/date-picker");
   return datePicker.default["MonthPicker"];
