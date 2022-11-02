@@ -10,11 +10,5 @@ module.exports = {
     ]
   ],
   // 按需加载
-  plugins: [
-    "@babel/plugin-proposal-class-properties",
-    [
-      "import",
-      { libraryName: "ant-design-vue", libraryDirectory: "es", style: true }
-    ]
-  ]
+  plugins: ["@babel/plugin-proposal-class-properties"]
 };
