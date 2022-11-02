@@ -691,8 +691,12 @@
       }
     }
 
-    .ant-form-item-control-wrapper {
+    .ant-form-item .ant-form-item-control-wrapper {
       width: 175px !important;
+    }
+
+    .ant-form-item.w-auto .ant-form-item-control-wrapper {
+      width: auto !important;
     }
   }
 
@@ -803,7 +807,71 @@
     }
   }
 
+  // -------- selectInputList ---------
+  .select-input-list-box {
+    color    : rgba(0, 0, 0, 0.65);
+    font-size: 14px;
 
+    .ant-form-item {
+      margin-bottom: 2px;
+      margin-right : 8px
+    }
+
+    &.ant-form-horizontal {
+      .ant-col.ant-form-item-control-wrapper {
+        height     : 30px;
+        display    : flex;
+        align-items: center;
+      }
+
+      .text-box {
+        height     : 30px;
+        line-height: 30px;
+      }
+    }
+
+
+    .list-col {
+      display    : flex;
+      align-items: center;
+      flex-wrap  : wrap;
+    }
+
+  }
+
+
+
+
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+
+  // 防止报错信息占位
+  .ant-form-item-control {
+    position: relative;
+
+    .ant-form-explain {
+      bottom  : -16px;
+      position: absolute;
+      z-index : 10;
+    }
+  }
+
+  &.ant-form-inline {
+    .ant-form-item-control-wrapper {
+      width: 175px !important;
+    }
+  }
+
+
+
+
+  // 拖拽上传控件隐藏
+  .hide-upload-drag {
+    .ant-upload.ant-upload-drag {
+      display: none;
+    }
+  }
 
   // end 
 }
@@ -832,68 +900,6 @@
         min-height : 21px;
         line-height: 21px;
       }
-    }
-  }
-
-  .select-input-list-box {
-    color    : rgba(0, 0, 0, 0.65);
-    font-size: 14px;
-
-    .ant-form-item {
-      margin-bottom: 2px;
-      margin-right : 8px
-    }
-
-    &.ant-form-horizontal {
-      .ant-col.ant-form-item-control-wrapper {
-        height     : 30px;
-        display    : flex;
-        align-items: center;
-      }
-
-      .text-box {
-        height     : 30px;
-        line-height: 30px;
-      }
-    }
-
-  }
-
-  .ant-form-item {
-    margin-bottom: 16px;
-  }
-
-  // 防止报错信息占位
-  .ant-form-item-control {
-    position: relative;
-
-    .ant-form-explain {
-      bottom  : -16px;
-      position: absolute;
-      z-index : 10;
-    }
-  }
-
-  &.ant-form-inline {
-    .ant-form-item-control-wrapper {
-      width: 175px !important;
-    }
-  }
-
-
-
-  // -------- selectInputList ---------
-  .list-col {
-    display    : flex;
-    align-items: center;
-    flex-wrap  : wrap;
-  }
-
-
-  // 拖拽上传控件隐藏
-  .hide-upload-drag {
-    .ant-upload.ant-upload-drag {
-      display: none;
     }
   }
 
