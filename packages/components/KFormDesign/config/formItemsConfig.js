@@ -575,7 +575,6 @@ export const defaultSchemaList = [
     icon: "icon-zihao",
     options: {
       textAlign: "left",
-      showLabel: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       showRequiredMark: false,
       noFormItem: true,
@@ -590,7 +589,6 @@ export const defaultSchemaList = [
     label: "HTML",
     icon: "icon-ai-code",
     options: {
-      showLabel: true,
       noFormItem: true,
       hidden: false, // 是否隐藏，false显示，true隐藏
       defaultValue: "<strong>HTML</strong>"

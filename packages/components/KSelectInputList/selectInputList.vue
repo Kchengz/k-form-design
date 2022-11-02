@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2020-03-27 18:36:56
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-26 21:13:50
+ * @LastEditTime: 2022-11-02 22:27:21
  -->
 <template>
   <a-form-model
@@ -13,7 +13,7 @@
     :model="dynamicValidateForm"
   >
     <div v-for="(column, i) in record.columns" :key="i" class="list-col">
-      <a-form-model-item>
+      <a-form-model-item class="w-auto">
         <CheckboxItem
           v-if="record.options.multiple"
           @change="onCheckboxChange($event, i)"
@@ -21,11 +21,11 @@
         >
           {{ column.label }}
         </CheckboxItem>
-        <a-radio
+        <RadioItem
           v-else
           @change="onRadioChange($event, i)"
           :checked="dynamicValidateForm.domains[i].checked"
-          >{{ column.label }}</a-radio
+          >{{ column.label }}</RadioItem
         >
       </a-form-model-item>
       <KFormModelItem
@@ -47,13 +47,15 @@
 import KFormModelItem from "../KFormModelItem/KFormModelItem";
 import { pluginManager } from "../../utils/index";
 const CheckboxItem = pluginManager.getComponent("checkboxItem").component;
+const RadioItem = pluginManager.getComponent("radioItem").component;
 export default {
   name: "KBatch",
   props: ["record", "value", "dynamicData", "config", "parentDisabled"],
 
   components: {
     KFormModelItem,
-    CheckboxItem
+    CheckboxItem,
+    RadioItem
   },
   watch: {
     value: {
