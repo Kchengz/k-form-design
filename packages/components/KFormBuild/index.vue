@@ -1,6 +1,8 @@
 <template>
   <a-config-provider :locale="locale">
     <a-form
+      v-bind="$attrs"
+      selfUpdate
       v-if="
         typeof value.list !== 'undefined' && typeof value.config !== 'undefined'
       "

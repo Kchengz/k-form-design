@@ -3,7 +3,7 @@
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
  * @LastEditors: kcz
- * @LastEditTime: 2022-10-19 13:45:41
+ * @LastEditTime: 2022-11-12 00:11:55
  -->
 <template>
   <div class="form-panel">
@@ -14,6 +14,7 @@
     <a-form
       class="a-form-box k-form-build"
       :form="form"
+      selfUpdate
       :layout="data.config.layout"
       :hideRequiredMark="data.config.hideRequiredMark"
       :style="data.config.customStyle"
