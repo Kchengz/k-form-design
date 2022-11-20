@@ -451,6 +451,11 @@
             v-model="options.animated"
             label="动画切换"
           />
+          <kCheckbox
+            title="勾选后移除FormItem嵌套且表单无法获取该组件数据"
+            v-model="options.noFormItem"
+            label="移除FormItem"
+          />
         </a-form-item>
 
         <a-form-item
