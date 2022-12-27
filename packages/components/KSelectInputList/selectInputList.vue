@@ -49,7 +49,7 @@ import { pluginManager } from "../../utils/index";
 const CheckboxItem = pluginManager.getComponent("checkboxItem").component;
 const RadioItem = pluginManager.getComponent("radioItem").component;
 export default {
-  name: "KBatch",
+  name: "KSelectInputList",
   props: ["record", "value", "dynamicData", "config", "parentDisabled"],
 
   components: {
