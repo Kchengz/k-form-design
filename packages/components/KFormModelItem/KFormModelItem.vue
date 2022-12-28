@@ -60,7 +60,7 @@ export default {
         parentDisabled: this.disabled || record.options.disabled,
         allowClear: record.options.clearable,
         mode: record.options.multiple ? "multiple" : "",
-        value: this.value,
+        value: this.value || record.options.defaultValue,
         style: record.options.width && `width:${record.options.width}`,
         height:
           typeof record.options.height !== "undefined"
