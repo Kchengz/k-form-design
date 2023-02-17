@@ -1,7 +1,6 @@
 /**
  * 预加载antd组件
  */
-import Vue from "vue";
 import { pluginManager } from "../utils/index";
 import {
   ConfigProvider,
@@ -58,17 +57,23 @@ pluginManager.addComponent("monthPicker", DatePicker.MonthPicker);
 pluginManager.addComponent("upload", Upload);
 pluginManager.addComponent("uploadDragger", Upload.Dragger);
 
-Vue.use(ConfigProvider);
-Vue.use(Tooltip);
-Vue.use(Empty);
-Vue.use(FormModel);
-Vue.use(Collapse);
-Vue.use(Layout);
-Vue.use(Card);
-Vue.use(Form);
-Vue.use(Row);
-Vue.use(Col);
-Vue.use(Modal);
-Vue.use(Table);
-Vue.use(Tabs);
-Vue.use(Icon);
+/**
+ * 注册Antd组件
+ * @param {*} App
+ */
+export function useAntd(App) {
+  App.use(ConfigProvider);
+  App.use(Tooltip);
+  App.use(Empty);
+  App.use(FormModel);
+  App.use(Collapse);
+  App.use(Layout);
+  App.use(Card);
+  App.use(Form);
+  App.use(Row);
+  App.use(Col);
+  App.use(Modal);
+  App.use(Table);
+  App.use(Tabs);
+  App.use(Icon);
+}

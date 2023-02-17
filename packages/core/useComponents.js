@@ -4,7 +4,6 @@
  *
  * 当需要更多组件依赖时，在该文件加入即可
  */
-import Vue from "vue";
 import { pluginManager } from "../utils/index";
 import {
   ConfigProvider,
@@ -133,17 +132,23 @@ pluginManager.addComponent(
   async () => (await import("vue-codemirror-lite"))["codemirror"]
 );
 
-Vue.use(ConfigProvider);
-Vue.use(Tooltip);
-Vue.use(Empty);
-Vue.use(FormModel);
-Vue.use(Collapse);
-Vue.use(Layout);
-Vue.use(Card);
-Vue.use(Form);
-Vue.use(Row);
-Vue.use(Col);
-Vue.use(Modal);
-Vue.use(Table);
-Vue.use(Tabs);
-Vue.use(Icon);
+/**
+ * 注册Antd组件
+ * @param {*} App
+ */
+export function useAntd(App) {
+  App.use(ConfigProvider);
+  App.use(Tooltip);
+  App.use(Empty);
+  App.use(FormModel);
+  App.use(Collapse);
+  App.use(Layout);
+  App.use(Card);
+  App.use(Form);
+  App.use(Row);
+  App.use(Col);
+  App.use(Modal);
+  App.use(Table);
+  App.use(Tabs);
+  App.use(Icon);
+}

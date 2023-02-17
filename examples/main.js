@@ -16,7 +16,7 @@ import router from "./router/";
 // 预加载组件
 // import "../packages/core/preUseComponents";
 // 懒加载组件
-import "../packages/core/useComponents";
+import { useAntd } from "../packages/core/useComponents";
 import { nodeSchema } from "../packages/mini";
 import KFormDesign from "../packages/use";
 
@@ -62,6 +62,7 @@ nodeSchema.addSchemaGroup({
 });
 
 Vue.use(KFormDesign);
+useAntd(Vue);
 // KFormDesign.setFormBuildConfig({
 //   dynamicData: {
 //     test: [
