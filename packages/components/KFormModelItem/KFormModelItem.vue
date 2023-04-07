@@ -115,6 +115,9 @@ export default {
           : false;
       }
 
+      if (componentProps.value && componentProps.value !== this.value) {
+        this.$emit("input", componentProps.value);
+      }
       return componentProps;
     },
     componentItem() {
