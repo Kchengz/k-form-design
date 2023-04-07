@@ -26,7 +26,7 @@
       <template
         v-for="item in record.list"
         :slot="item.key"
-        slot-scope="text, record, index"
+        slot-scope="text, row, index"
       >
         <KFormModelItem
           :key="item.key + '1'"
@@ -36,25 +36,30 @@
           :index="index"
           :domains="dynamicValidateForm.domains"
           :dynamicData="dynamicData"
-          v-model="record[item.model]"
+          v-model="row[item.model]"
           @input="handleInput"
         />
       </template>
-      <template slot="dynamic-opr-button" slot-scope="text, record">
-        <a-icon
-          title="复制添加"
-          v-if="!disabled"
-          type="copy-o"
-          class="dynamic-opr-button"
-          @click="copyDomain(record)"
-        />
-        <a-icon
-          title="删除该行"
-          v-if="!disabled"
-          class="dynamic-opr-button"
-          type="minus-circle-o"
-          @click="removeDomain(record)"
-        />
+      <template slot="dynamic-opr-button" slot-scope="text, row">
+        <div style="witdh:130px">
+          <a-icon
+            title="复制添加"
+            v-if="!disabled"
+            type="copy-o"
+            class="dynamic-opr-button"
+            @click="copyDomain(row)"
+          />
+          <a-icon
+            title="删除该行"
+            v-if="
+              !disabled &&
+                record.options.minLimit < dynamicValidateForm.domains.length
+            "
+            class="dynamic-opr-button"
+            type="minus-circle-o"
+            @click="removeDomain(row)"
+          />
+        </div>
       </template>
     </a-table>
     <Button type="dashed" :disabled="disabled" @click="addDomain">
@@ -65,7 +70,7 @@
 
 <script>
 import KFormModelItem from "../KFormModelItem/KFormModelItem";
-import { pluginManager } from "../../utils/index";
+import { pluginManager, getUUID } from "../../utils/index";
 const Button = pluginManager.getComponent("aButton").component;
 
 export default {
@@ -160,7 +165,7 @@ export default {
     copyDomain(record) {
       this.dynamicValidateForm.domains.push({
         ...record,
-        key: Date.now()
+        key: getUUID()
       });
       this.handleInput();
     },
@@ -172,12 +177,21 @@ export default {
 
       this.dynamicValidateForm.domains.push({
         ...data,
-        key: Date.now()
+        key: getUUID()
       });
       this.handleInput();
     },
     handleInput() {
       this.$emit("change", this.dynamicValidateForm.domains);
+    }
+  },
+  created() {
+    // 判断是否有最小行限度
+    if (this.record.options.minLimit) {
+      // 初始化最小行
+      for (let i = 0; i < this.record.options.minLimit; i++) {
+        this.addDomain();
+      }
     }
   }
 };

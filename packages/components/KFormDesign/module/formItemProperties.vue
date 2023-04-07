@@ -69,8 +69,21 @@
         <a-form-item v-if="isDefined(options.max)" label="最大值">
           <InputNumber v-model="options.max" placeholder="请输入" />
         </a-form-item>
+
         <a-form-item v-if="isDefined(options.maxLength)" label="最大长度">
           <InputNumber v-model="options.maxLength" placeholder="请输入" />
+        </a-form-item>
+        <a-form-item
+          v-if="
+            isDefined(options.minLimit) || ['batch'].includes(selectItem.type)
+          "
+          label="最小行数"
+        >
+          <InputNumber
+            v-model="options.minLimit"
+            :min="0"
+            placeholder="请输入"
+          />
         </a-form-item>
         <a-form-item v-if="isDefined(options.tabBarGutter)" label="标签间距">
           <InputNumber v-model="options.tabBarGutter" placeholder="请输入" />
