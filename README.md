@@ -18,13 +18,15 @@
 
 设计器布局参考form-generator项目，基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
 
-目前vue3版本已经在开发中了，预计11月中旬上线测试版本
-
 - [github](https://github.com/Kchengz/k-form-design)
 - [码云](https://gitee.com/kcz66/k-form-design)
 - [项目预览](http://cdn.kcz66.com/k-form-design.html)
 - [项目文档 Github Pages](https://kchengz.github.io/k-form-design/)
 - [项目文档 Gitee Pages 较快](http://kcz66.gitee.io/k-form-design/#/)
+
+vue3 版本中 k-form-design 已改名[ k-designer](https://gitee.com/kcz66/k-designer)
+
+> 新版本优化渲染性能，新增事件动作配置，布局组件扩展，组件属性自定义等
 
 ## 特性
 - 可视化配置页面
