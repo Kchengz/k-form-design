@@ -1,4 +1,4 @@
-// 发布npm 需要切换到这个
+// 发布npm（npm publish 时） 需要切换到这个
 // export { pluginManager, revoke, nodeSchema, lazyLoadTick } from "k-form-design";
 
 // 本地测试
