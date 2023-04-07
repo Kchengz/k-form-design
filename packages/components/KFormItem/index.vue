@@ -207,7 +207,7 @@ export default {
     },
     validationSubform() {
       // 验证动态表格
-      if (this.record.type === "batch") {
+      if (["batch", "selectInputList"].includes(this.record.type)) {
         if (!this.$refs.inputItem) return true;
         return this.$refs.inputItem.validationSubform();
       }
