@@ -13,7 +13,7 @@
   ></component>
   <a-form-model-item
     v-else
-    :prop="`domains.${record.model}`"
+    :prop="`domains.${index}.${record.model}`"
     :rules="record.rules"
   >
     <component

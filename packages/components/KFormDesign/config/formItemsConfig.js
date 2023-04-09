@@ -458,12 +458,19 @@ export const defaultSchemaList = [
     list: [],
     options: {
       scrollY: 0,
+      minLimit: 1,
       disabled: false,
       hidden: false, // 是否隐藏，false显示，true隐藏
       showLabel: false,
       hideSequence: false,
       width: "100%"
     },
+    rules: [
+      {
+        required: false,
+        message: "必填项"
+      }
+    ],
     model: "",
     key: "",
     help: ""
