@@ -11,8 +11,11 @@
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
   </a>
 </p>
-
 ![](http://cdn.kcz66.com/demo.gif)
+
+
+
+<b>感谢您的支持！由于已经将项目的重心转向 Vue 3 版本设计器，对于k-form-design项目决定暂停维护更新，欢迎您使用全新的 Vue3 版本设计器[ epic-designer](https://gitee.com/kcz66/epic-designer)，以便享受到更多优化和功能！</b>
 
 ## 简介
 
@@ -23,10 +26,6 @@
 - [项目预览](http://cdn.kcz66.com/k-form-design.html)
 - [项目文档 Github Pages](https://kchengz.github.io/k-form-design/)
 - [项目文档 Gitee Pages 较快](http://kcz66.gitee.io/k-form-design/#/)
-
-vue3 版本中 k-form-design 已改名[ k-designer](https://gitee.com/kcz66/k-designer)
-
-> 新版本优化渲染性能，新增事件动作配置，布局组件扩展，组件属性自定义等
 
 ## 特性
 - 可视化配置页面
