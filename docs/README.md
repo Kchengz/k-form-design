@@ -17,7 +17,7 @@
 
 ### 简介
 基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
-- [预览地址](http://cdn.kcz66.com/k-form-design.html)
+- [预览地址](https://kform.epicjs.cn/preview.html)
 - [开源地址](https://github.com/Kchengz/k-form-design)
 
 ### 特性
@@ -90,7 +90,7 @@ Vue.use(KFormDesign)
 
 ### 捐赠
 如果你觉得k-form-design对你有帮助，欢迎给我捐赠
-![](http://cdn.kcz66.com/donation.png)
+![](https://cdn.epicjs.cn//donation.png)
 
 ### License
 [MIT](https://github.com/Kchengz/k-form-design/blob/master/LICENSE)

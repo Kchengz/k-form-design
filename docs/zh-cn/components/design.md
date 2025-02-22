@@ -1,7 +1,7 @@
 # k-form-design
 
 ## 介绍
-表单设计器，通过拖拽或点击生成表单[预览地址](http://cdn.kcz66.com/k-form-design.html)
+表单设计器，通过拖拽或点击生成表单[预览地址](https://kform.epicjs.cn/preview.html)
 
 建议将表单设计器组件放到全屏组件或页面使用，使用表格布局时，在设计界面右键可以添加行列和合并单元格
 

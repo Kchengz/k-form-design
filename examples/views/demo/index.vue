@@ -84,7 +84,7 @@ export default {
               placeholder: "上传",
               fileName: "image",
               headers: {},
-              action: "http://cdn.kcz66.com/upload-img.txt",
+              action: "https://cdn.epicjs.cn/upload-img.txt",
               listType: "picture-card"
             },
             model: "uploadImg_1619948887819",
@@ -212,7 +212,7 @@ export default {
                           placeholder: "上传",
                           fileName: "image",
                           headers: {},
-                          action: "http://cdn.kcz66.com/upload-img.txt",
+                          action: "https://cdn.epicjs.cn/upload-img.txt",
                           listType: "picture-card"
                         },
                         model: "uploadImg_1619948977239",
@@ -328,7 +328,7 @@ export default {
               data: "{}",
               fileName: "file",
               headers: {},
-              action: "http://cdn.kcz66.com/uploadFile.txt",
+              action: "https://cdn.epicjs.cn/uploadFile.txt",
               placeholder: "上传"
             },
             model: "uploadFile_1619948976948",

@@ -43,7 +43,7 @@ function setFormDesignConfig(config) {
     // 配置uploadFile默认上传地址
     const uploadFile = nodeSchema.getSchemaByType("uploadFile");
     uploadFile.options.action =
-      config.uploadFile || "http://cdn.kcz66.com/uploadFile.txt";
+      config.uploadFile || "https://cdn.epicjs.cn/uploadFile.txt";
 
     // 配置uploadFile默认额外参数
     uploadFile.options.data = JSON.stringify(config.uploadFileData || {});
@@ -58,7 +58,7 @@ function setFormDesignConfig(config) {
     // 配置uploadImage默认上传地址
     const uploadImg = nodeSchema.getSchemaByType("uploadImg");
     uploadImg.options.action =
-      config.uploadImage || "http://cdn.kcz66.com/upload-img.txt";
+      config.uploadImage || "https://cdn.epicjs.cn/upload-img.txt";
     // 配置uploadImage默认额外参数
     uploadImg.options.data = JSON.stringify(config.uploadImageData || {});
     // 配置uploadFile默认name
