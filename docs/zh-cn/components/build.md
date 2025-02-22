@@ -890,7 +890,7 @@ export default {
               data: "{}",
               fileName: "file",
               headers: {},
-              action: "https://cdn.epicjs.cn//uploadFile.txt",
+              action: "https://examples.epicjs.cn/epic-mock/common/upload",
               placeholder: "上传"
             },
             model: "uploadFile_1591622045312",
@@ -912,7 +912,7 @@ export default {
               placeholder: "上传",
               fileName: "image",
               headers: {},
-              action: "https://cdn.epicjs.cn//upload-img.txt",
+              action: "https://examples.epicjs.cn/epic-mock/common/upload",
               listType: "picture-card"
             },
             model: "uploadImg_1591622045790",

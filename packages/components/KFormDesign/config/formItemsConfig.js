@@ -313,7 +313,7 @@ export const defaultSchemaList = [
       data: "{}",
       fileName: "file",
       headers: {},
-      action: "https://cdn.epicjs.cn/uploadFile.txt",
+      action: "https://examples.epicjs.cn/epic-mock/common/upload",
       placeholder: "上传"
     },
     model: "",
@@ -342,7 +342,7 @@ export const defaultSchemaList = [
       placeholder: "上传",
       fileName: "image",
       headers: {},
-      action: "https://cdn.epicjs.cn/upload-img.txt",
+      action: "https://examples.epicjs.cn/epic-mock/common/upload",
       listType: "picture-card"
     },
     model: "",

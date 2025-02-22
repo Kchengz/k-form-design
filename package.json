@@ -1,6 +1,6 @@
 {
   "name": "k-form-design",
-  "version": "3.8.18",
+  "version": "3.8.20",
   "private": false,
   "description": "基于vue、ant-design-vue的表单设计器,可视化开发表单",
   "license": "MIT",
@@ -25,7 +25,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name k-form-design --dest lib packages/index.js",
+    "lib": "vue-cli-service build --target lib --name k-form-design --dest lib packages/index.js && npm run lib:mini",
     "lib:mini": "vue-cli-service build --target lib --name k-form-design-mini --dest lib packages/mini.js --no-clean",
     "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue packages/",
     "lint": "vue-cli-service lint"

@@ -84,7 +84,7 @@ export default {
               placeholder: "上传",
               fileName: "image",
               headers: {},
-              action: "https://cdn.epicjs.cn/upload-img.txt",
+              action: "https://examples.epicjs.cn/epic-mock/common/upload",
               listType: "picture-card"
             },
             model: "uploadImg_1619948887819",
@@ -212,7 +212,8 @@ export default {
                           placeholder: "上传",
                           fileName: "image",
                           headers: {},
-                          action: "https://cdn.epicjs.cn/upload-img.txt",
+                          action:
+                            "https://examples.epicjs.cn/epic-mock/common/upload",
                           listType: "picture-card"
                         },
                         model: "uploadImg_1619948977239",
@@ -328,7 +329,7 @@ export default {
               data: "{}",
               fileName: "file",
               headers: {},
-              action: "https://cdn.epicjs.cn/uploadFile.txt",
+              action: "https://examples.epicjs.cn/epic-mock/common/upload",
               placeholder: "上传"
             },
             model: "uploadFile_1619948976948",

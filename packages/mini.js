@@ -43,7 +43,7 @@ function setFormDesignConfig(config) {
     // 配置uploadFile默认上传地址
     const uploadFile = nodeSchema.getSchemaByType("uploadFile");
     uploadFile.options.action =
-      config.uploadFile || "https://cdn.epicjs.cn/uploadFile.txt";
+      config.uploadFile || "https://examples.epicjs.cn/epic-mock/common/upload";
 
     // 配置uploadFile默认额外参数
     uploadFile.options.data = JSON.stringify(config.uploadFileData || {});
@@ -58,7 +58,8 @@ function setFormDesignConfig(config) {
     // 配置uploadImage默认上传地址
     const uploadImg = nodeSchema.getSchemaByType("uploadImg");
     uploadImg.options.action =
-      config.uploadImage || "https://cdn.epicjs.cn/upload-img.txt";
+      config.uploadImage ||
+      "https://examples.epicjs.cn/epic-mock/common/upload";
     // 配置uploadImage默认额外参数
     uploadImg.options.data = JSON.stringify(config.uploadImageData || {});
     // 配置uploadFile默认name
